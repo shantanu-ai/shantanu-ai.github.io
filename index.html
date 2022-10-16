@@ -175,13 +175,53 @@
 <!--          </p>-->
 <!--        </td>-->
 <!--      </tr>-->
+          <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
+        <td style="padding:20px;width:25%;vertical-align:middle">
+          <div class="one">
+            <div class="two" id='ddp_image'>
+              <img src='images/MICCAI.png' width="180"></div>
+            <img src='images/MICCAI.png' width="180">
+          </div>
+          <script type="text/javascript">
+            function ddp_start() {
+              document.getElementById('ddp_image').style.opacity = "1";
+            }
+
+            function ddp_stop() {
+              document.getElementById('ddp_image').style.opacity = "0";
+            }
+            ddp_stop()
+          </script>
+        </td>
+        <td style="padding:20px;width:75%;vertical-align:middle">
+          <a href="https://assets.researchsquare.com/files/rs-1055169/v1_covered.pdf?c=1638801886">
+            <papertitle>DR-VIDAL-Doubly Robust Variational Information-theoretic Deep Adversarial Learning for Counterfactual Prediction and Treatment Effect Estimation</papertitle>
+          </a>
+          <br>
+          <strong>Shantanu Ghosh</strong>,
+          <a href="https://www.researchgate.net/scientific-contributions/Zheng-Feng-2133517820/">Zheng Feng </a>,
+          <a href="https://hobi.med.ufl.edu/profile/bian-jiang/">Jiang Bian </a>,
+          <a href="https://www.cise.ufl.edu/~butler/">Kevin Butler </a>,
+          <a href="https://epidemiology.phhp.ufl.edu/profile/prosperi-mattia/">Mattia Prosperi </a>
+          <br>
+          <em>AMIA </em> Annual Symposium, 2022. \<em>Oral, to appear</em>
+          <br>
+          <a href="https://assets.researchsquare.com/files/rs-1055169/v1_covered.pdf?c=1638801886">[arXiv]</a>
+          <a href="https://github.com/Shantanu48114860/DR-VIDAL-AMIA-22">[code]</a>
+          <a href="https://github.com/Shantanu48114860/DR-VIDAL-AMIA-22/blob/main/DR_VIDAL_AMIA-Supp.pdf">[supp]</a>
+          <p></p>
+          <p>
+            We develop a novel deep learning framework which generates the counterfactual outcomes based on a treatment using GAN and information theoretic regularization. Next, we utilize the counterfactual outcomes to estimate the ITE using a novel deep learning network with doubly robust optimization for fast convergence.
+        </p>
+      </td>
+    </tr>
 
       <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
         <td style="padding:20px;width:25%;vertical-align:middle">
           <div class="one">
             <div class="two" id='ddp_image'>
-              <img src='images/MICCAI.png' width="160"></div>
-            <img src='images/MICCAI.png' width="160">
+              <img src='images/MICCAI.png' width="180"></div>
+            <img src='images/MICCAI.png' width="180">
           </div>
           <script type="text/javascript">
             function ddp_start() {
@@ -216,6 +256,7 @@
         </p>
       </td>
     </tr>
+
 
 
 
