@@ -120,7 +120,55 @@
                         <heading>Publications</heading>
                     </td>
                 </tr>
+                <!--  Papers  -->
+                <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
+                    <td style="padding:20px;width:25%;vertical-align:middle">
+                        <div class="one">
+                            <div class="two" id='ddp_image'>
+                                <img src='images/MICCAI.png' width="180"></div>
+                            <img src='images/MICCAI.png' width="180">
+                        </div>
+                        <script type="text/javascript">
+                            function ddp_start() {
+                                document.getElementById('ddp_image').style.opacity = "1";
+                            }
 
+                            function ddp_stop() {
+                                document.getElementById('ddp_image').style.opacity = "0";
+                            }
+
+                            ddp_stop()
+                        </script>
+                    </td>
+                    <td style="padding:20px;width:75%;vertical-align:middle">
+                        <a href="https://arxiv.org/pdf/2206.12704.pdf">
+                            <papertitle>Anatomy-Guided Weakly-Supervised Abnormality Localization in Chest X-rays
+                            </papertitle>
+                        </a>
+                        <br>
+                        <a href="https://scholar.google.com/citations?user=BwaMMgoAAAAJ&hl=en/">Ke Yu</a>,
+                        <strong>Shantanu Ghosh</strong>,
+                        <a href="https://people.cs.pitt.edu/~zhexiong/">Zhexiong Li</a>,
+                        <a href="http://www.rad.pitt.edu/profile-detail.html?profileID=25/">Christopher Deible</a>,
+                        <a href="https://www.batman-lab.com/">Kayhan Batmanghelich</a>
+                        <br>
+                        <em>Proceedings of the International Conference on Medical Image Computing and Computer Assisted
+                            Intervention (MICCAI)</em>, 2022
+                        <br>
+                        <a href="https://arxiv.org/pdf/2206.12704.pdf">[paper]</a>
+                        <a href="https://github.com/batmanlab/AGXNet">[code]</a>
+
+                        <p></p>
+                        <p>
+                            We develop a deep learning network, AnatomyGuided chest X-ray Network (AGXNet), which
+                            leverage the radiology reports to create an anatomy-guided attention module using the weak
+                            labels of <em> the anatomy mentions </em> in the report to localize the disease and
+                            anatomical abnormality.
+                        </p>
+                    </td>
+                </tr>
+                <!-- End of paper -->
+                
                 <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
                     <td style="padding:20px;width:25%;vertical-align:middle">
                         <div class="one">
@@ -170,53 +218,7 @@
                     </td>
                 </tr>
                 <!-- End of paper -->
-                <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
-                    <td style="padding:20px;width:25%;vertical-align:middle">
-                        <div class="one">
-                            <div class="two" id='ddp_image'>
-                                <img src='images/MICCAI.png' width="180"></div>
-                            <img src='images/MICCAI.png' width="180">
-                        </div>
-                        <script type="text/javascript">
-                            function ddp_start() {
-                                document.getElementById('ddp_image').style.opacity = "1";
-                            }
 
-                            function ddp_stop() {
-                                document.getElementById('ddp_image').style.opacity = "0";
-                            }
-
-                            ddp_stop()
-                        </script>
-                    </td>
-                    <td style="padding:20px;width:75%;vertical-align:middle">
-                        <a href="https://arxiv.org/pdf/2206.12704.pdf">
-                            <papertitle>Anatomy-Guided Weakly-Supervised Abnormality Localization in Chest X-rays
-                            </papertitle>
-                        </a>
-                        <br>
-                        <a href="https://scholar.google.com/citations?user=BwaMMgoAAAAJ&hl=en/">Ke Yu</a>,
-                        <strong>Shantanu Ghosh</strong>,
-                        <a href="https://people.cs.pitt.edu/~zhexiong/">Zhexiong Li</a>,
-                        <a href="http://www.rad.pitt.edu/profile-detail.html?profileID=25/">Christopher Deible</a>,
-                        <a href="https://www.batman-lab.com/">Kayhan Batmanghelich</a>
-                        <br>
-                        <em>Proceedings of the International Conference on Medical Image Computing and Computer Assisted
-                            Intervention (MICCAI)</em>, 2022
-                        <br>
-                        <a href="https://arxiv.org/pdf/2206.12704.pdf">[paper]</a>
-                        <a href="https://github.com/batmanlab/AGXNet">[code]</a>
-
-                        <p></p>
-                        <p>
-                            We develop a deep learning network, AnatomyGuided chest X-ray Network (AGXNet), which
-                            leverage the radiology reports to create an anatomy-guided attention module using the weak
-                            labels of <em> the anatomy mentions </em> in the report to localize the disease and
-                            anatomical abnormality.
-                        </p>
-                    </td>
-                </tr>
-                <!-- End of paper -->
                 <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
                     <td style="padding:20px;width:25%;vertical-align:middle">
                         <div class="one">
