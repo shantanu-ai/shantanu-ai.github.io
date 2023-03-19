@@ -387,7 +387,44 @@
                         <heading>Other notable projects</heading>
                     </td>
                 </tr>
-                <!--  Papers  -->
+                <!--  Projects  -->
+                <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
+                    <td style="padding:20px;width:25%;vertical-align:middle">
+                        <div class="one">
+                            <div class="two" id='ddp_image'>
+                                <img src='images/Sigmoid.jpeg' width="180"></div>
+                            <img src='images/Sigmoid.jpeg' width="180">
+                        </div>
+                        <script type="text/javascript">
+                            function ddp_start() {
+                                document.getElementById('ddp_image').style.opacity = "1";
+                            }
+
+                            function ddp_stop() {
+                                document.getElementById('ddp_image').style.opacity = "0";
+                            }
+
+                            ddp_stop()
+                        </script>
+                    </td>
+                    <td style="padding:20px;width:75%;vertical-align:middle">
+                        <papertitle>
+                            Deep Multitask Texture Classifier(MTL-TCNN)
+                        </papertitle>
+                        <br>
+                        <br>
+                        <br>
+                        <a href="https://github.com/Shantanu48114860/Deep_Colorization/blob/master/PartII_DeepColorization.pdf">[requirement]</a>
+                        <a href="https://github.com/Shantanu48114860/Deep_Colorization/blob/master/Report.pdf">[report]</a>
+                        <a href="https://github.com/Shantanu48114860/Deep_Colorization">[code]</a>
+                        <p></p>
+                        <p>
+                            As a part of <strong>CIS6930 - Deep Learning for Computer Graphics</<strong>, a CNN is created which is trained to color grayscale face images.
+                        </p>
+                    </td>
+                </tr>
+
+
                 <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
                     <td style="padding:20px;width:25%;vertical-align:middle">
                         <div class="one">
