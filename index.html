@@ -17,6 +17,8 @@
     <tbody>
     <tr style="padding:0px">
         <td style="padding:0px">
+
+            <!-- Introduction Start -->
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                 <tbody>
                 <tr style="padding:0px">
@@ -63,8 +65,11 @@
                 </tr>
                 </tbody>
             </table>
+            <!-- Introduction End -->
 
-            <table width="100%" align="center" border="0" cellpadding="10"></tbody>
+            <!-- Universities Start -->
+            <table width="100%" align="center" border="0" cellpadding="10">
+                <tbody>
                 <tr>
                     <td align="center" width="16%"
                         style="vertical-align: middle; background-color: rgba(255, 255, 255, 1)">
@@ -85,9 +90,11 @@
                         <a href="https://www.ufl.edu/"><img src="images/UF_logo.png" width="82%"></a>
                     </td>
                 </tr>
+                </tbody>
+            </table>
+             <!-- Universities End -->
 
-                </tbody</table>
-
+            <!-- Research Start -->
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                 <tbody>
                 <tr>
@@ -107,6 +114,7 @@
                 </tr>
                 </tbody>
             </table>
+            <!-- Research End -->
 
             <!--            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">-->
             <!--                <tbody>-->
@@ -118,6 +126,7 @@
             <!--                </tbody>-->
             <!--            </table>-->
 
+            <!-- News start -->
             <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
                 <tbody>
                 <tr>
@@ -161,7 +170,9 @@
 
                 </tbody>
             </table>
+            <!-- News End -->
 
+            <!-- Publication start -->
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                 <tbody>
                 <tr>
@@ -365,11 +376,75 @@
                 </tbody>
             </table>
 
+            <!-- Publication End -->
+
+            <!-- Projects Start -->
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                <tbody>
+                <tr>
+                    <td>
+                        <heading>Publications</heading>
+                    </td>
+                </tr>
+                <!--  Papers  -->
+                <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
+                    <td style="padding:20px;width:25%;vertical-align:middle">
+                        <div class="one">
+                            <div class="two" id='ddp_image'>
+                                <img src='images/MICCAI.png' width="180"></div>
+                            <img src='images/MICCAI.png' width="180">
+                        </div>
+                        <script type="text/javascript">
+                            function ddp_start() {
+                                document.getElementById('ddp_image').style.opacity = "1";
+                            }
+
+                            function ddp_stop() {
+                                document.getElementById('ddp_image').style.opacity = "0";
+                            }
+
+                            ddp_stop()
+                        </script>
+                    </td>
+                    <td style="padding:20px;width:75%;vertical-align:middle">
+                        <a href="https://arxiv.org/pdf/2206.12704.pdf">
+                            <papertitle>Anatomy-Guided Weakly-Supervised Abnormality Localization in Chest X-rays
+                            </papertitle>
+                        </a>
+                        <br>
+                        <a href="https://scholar.google.com/citations?user=BwaMMgoAAAAJ&hl=en/">Ke Yu</a>,
+                        <strong>Shantanu Ghosh</strong>,
+                        <a href="https://people.cs.pitt.edu/~zhexiong/">Zhexiong Li</a>,
+                        <a href="http://www.rad.pitt.edu/profile-detail.html?profileID=25/">Christopher Deible</a>,
+                        <a href="https://www.batman-lab.com/">Kayhan Batmanghelich</a>
+                        <br>
+                        <em>Proceedings of the International Conference on Medical Image Computing and Computer Assisted
+                            Intervention (MICCAI)</em>, 2022
+                        <br>
+                        <a href="https://arxiv.org/pdf/2206.12704.pdf">[paper]</a>
+                        <a href="https://github.com/batmanlab/AGXNet">[code]</a>
+
+                        <p></p>
+                        <p>
+                            We develop a deep learning network, AnatomyGuided chest X-ray Network (AGXNet), which
+                            leverage the radiology reports to create an anatomy-guided attention module using the weak
+                            labels of <em> the anatomy mentions </em> in the report to localize the disease and
+                            anatomical abnormality. Also we adopt a PU learning technique
+                            to estimate the fraction of positive samples in the unlabeled data and use a self-
+                            training approach to iteratively reduce noise in labels
+                        </p>
+                    </td>
+                </tr>
+                <!-- End of paper -->
+                </tbody>
+            </table>
+            <!-- Projects End -->
+
             <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
                 <tbody>
                 <tr>
                     <td>
-                        <heading>Once upon a time, I was a SWE too </heading>
+                        <heading>As a <em>SWE<em> </heading>
                     </td>
                 </tr>
 
