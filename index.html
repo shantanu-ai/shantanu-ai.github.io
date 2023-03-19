@@ -13,7 +13,7 @@
 </head>
 <!--  -->
 <body>
-<table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+<table style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
     <tbody>
     <tr style="padding:0px">
         <td style="padding:0px">
@@ -30,7 +30,7 @@
                             I am an Electrical Engineering Ph.D. student, advised by Prof. <a
                                 href="https://www.batman-lab.com/">Kayhan Batmanghelich</a> in <a
                                 href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">
-                            Boston University</a> (BU). Prior to that,
+                            Boston University</a>. Prior to that,
                             I was a Ph.D. student in the Intelligent Systems Program (ISP) at the <a
                                 href="https://www.isp.pitt.edu/">University of Pittsburgh</a> before our lab moved to Boston. While at Pitt, I was also a
                             cross registered student at <a href="https://www.cmu.edu/">Carnegie Mellon University</a>,
@@ -137,16 +137,16 @@
                 </tr>
                 <tr>
                     <td>
-                        <strong>[Dec, 2022]</strong> I'm joining <a href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">Boston University</a> (BU) from Spring '23 in the Department of Electrical Engineering as our Lab <a
-                            href="https://www.batman-lab.com/"></a>is moving t BU.<br>
+                        <strong>[Dec, 2022]</strong> I'm joining <a href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">Boston University</a> from Spring '23 in the Department of Electrical Engineering as our Lab <a
+                            href="https://www.batman-lab.com/"></a>is moving to Boston.<br>
                         <strong>[June, 2022]</strong> Our work on doubly robust estimation of ITE is accepted at <a
                             href="https://amia.org/education-events/amia-2022-annual-symposium/calls-participation/">AMIA
                         2022 Annual Sympossium</a>, oral.<br>
                         <strong>[June, 2022]</strong> Our work on weakly supervised disease localization is accepted at
                         <a href="http://www.miccai.org/">MICCAI 2022</a>.<br>
                         <strong>[Aug, 2021]</strong> I'm joining the <a href="https://www.isp.pitt.edu/">University
-                        of Pittsburgh</a> (Pitt) in the Intelligent Systems Program under the supervision of Dr. <a
-                            href="https://www.batman-lab.com/">Kayhan Batmanghelich</a> in Fall '21.<br>
+                        of Pittsburgh</a> in the Intelligent Systems Program under the supervision of Dr. <a
+                            href="https://www.batman-lab.com/">Kayhan Batmanghelich</a> from Fall '21.<br>
                         <strong>[May, 2021]</strong> I graduated with a Master's degree in <a
                             href="https://www.cise.ufl.edu/">Computer Science</a> from the <a
                             href="https://www.ufl.edu/">University of Florida </a>. <em>Go Gators !!</em><br>
@@ -158,7 +158,7 @@
                         reduction using an autoencoder, is accepted in the <a
                             href="https://pubmed.ncbi.nlm.nih.gov/33594415/"> Journal of the American Medical
                         Informatics Association</a>.<br>
-                        <strong>[April, 2020]</strong> I 'm joining <a
+                        <strong>[April, 2020]</strong> I'm joining <a
                             href="https://epidemiology.phhp.ufl.edu/research/disl/">DISL</a> lab as a graduate assistant
                         under the
                         supervision of Prof.<a href="https://epidemiology.phhp.ufl.edu/profile/prosperi-mattia/">
@@ -384,10 +384,44 @@
                 <tbody>
                 <tr>
                     <td>
-                        <heading>Other notable projects</heading>
+                        <heading>Other projects</heading>
                     </td>
                 </tr>
                 <!--  Projects  -->
+
+                <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
+                    <td style="padding:20px;width:25%;vertical-align:middle">
+                        <div class="one">
+                            <div class="two" id='ddp_image'>
+                                <img src='images/DLCG.png' width="180"></div>
+                            <img src='images/DLCG.png' width="180">
+                        </div>
+                        <script type="text/javascript">
+                            function ddp_start() {
+                                document.getElementById('ddp_image').style.opacity = "1";
+                            }
+
+                            function ddp_stop() {
+                                document.getElementById('ddp_image').style.opacity = "0";
+                            }
+
+                            ddp_stop()
+                        </script>
+                    </td>
+                    <td style="padding:20px;width:75%;vertical-align:middle">
+                        <papertitle>
+                           Efficient classification by data augmentation using CGAN and InfoGAN
+                        </papertitle>
+                        <br>
+                        <a href="https://github.com/Shantanu48114860/Data-Augmentation-using-CGAN-and-InfoGAN/blob/master/Report/DL_Final%20Report.pdf">[report]</a>
+                        <a href="https://github.com/Shantanu48114860/Data-Augmentation-using-CGAN-and-InfoGAN">[code]</a>
+                        <p></p>
+                        <p>
+                            As a part of <strong>CIS6930 - Deep Learning for Computer Graphics</strong>, we use two novel variants of GAN - 1) Conditional GAN and 2) InfoGAN to augment the dataset and compare the classifier’s performance using a novel dataset augmentation algorithm. Our experiments show that with less training samples from the original dataset and augmenting it using the generative models, the classifier can achieve similar accuracy.
+                        </p>
+                    </td>
+                </tr>
+
                 <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
                     <td style="padding:20px;width:25%;vertical-align:middle">
                         <div class="one">
@@ -409,10 +443,10 @@
                     </td>
                     <td style="padding:20px;width:75%;vertical-align:middle">
                         <papertitle>
-                            Deep Multitask Texture Classifier(MTL-TCNN)
+                            Deep Colorization
                         </papertitle>
                         <br>
-                        <a href="https://github.com/Shantanu48114860/Deep_Colorization/blob/master/PartII_DeepColorization.pdf">[requirement]</a>
+                        <a href="https://github.com/Shantanu48114860/Deep_Colorization/blob/master/PartII_DeepColorization.pdf">[problem description]</a>
                         <a href="https://github.com/Shantanu48114860/Deep_Colorization/blob/master/Report.pdf">[report]</a>
                         <a href="https://github.com/Shantanu48114860/Deep_Colorization">[code]</a>
                         <p></p>
@@ -452,7 +486,7 @@
                         <p></p>
                         <p>
                             As an independent research study in Spring 2020 (Feb - April, 2020), under<a
-                                href="http://www.wu.ece.ufl.edu/">Dr. Dapeng Wu</a>, I developed a <strong>Deep Convolutional Multitask Neural Network(MTL-TCNN)</strong> to classify textures. We used
+                                href="http://www.wu.ece.ufl.edu/">Dr. Dapeng Wu</a>, I develop a <strong>Deep Convolutional Multitask Neural Network(MTL-TCNN)</strong> to classify textures. We use
                                 an auxiliary head to detect normal images other than textures to regularize the main texture detector head
                                 of the network.
                         </p>
@@ -489,7 +523,7 @@
                         <p></p>
                         <p>
                             As a research assitant under <a
-                                href="http://www.wu.ece.ufl.edu/">Dr. Dapeng Wu</a>, I implemeted TCNN3 architecture in end to end manner from scratch(no pretraining) for DTD dataset, discussed in the paper <strong>Using filter banks in Convolutional Neural Networks for texture classification</strong>.
+                                href="http://www.wu.ece.ufl.edu/">Dr. Dapeng Wu</a>, I implemet TCNN3 architecture in end to end manner from scratch(no pretraining) for DTD dataset, discussed in the paper <strong>Using filter banks in Convolutional Neural Networks for texture classification</strong>.
                         </p>
                     </td>
                 </tr>
@@ -524,7 +558,7 @@
                         <p></p>
                         <p>
                             As a research assitant of <a
-                                href="https://epidemiology.phhp.ufl.edu/research/disl/">DISL</a>, I implemeted the paper <strong>Deep Counterfactual Networks with Propensity-Dropout</strong>, which was subsequently used in my other research.
+                                href="https://epidemiology.phhp.ufl.edu/research/disl/">DISL</a>, I implemet the paper <strong>Deep Counterfactual Networks with Propensity-Dropout</strong>, which is subsequently used in my other research.
                         </p>
                     </td>
                 </tr>
@@ -533,20 +567,67 @@
             </table>
             <!-- Projects End -->
 
+            <!-- Other than ML start -->
+            <!-- Projects Start -->
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                <tbody>
+                <tr>
+                    <td>
+                        <heading>Other than ML/DL</heading>
+                    </td>
+                </tr>
+                <!--  Projects  -->
+
+                <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
+                    <td style="padding:20px;width:25%;vertical-align:middle">
+                        <div class="one">
+                            <div class="two" id='ddp_image'>
+                                <img src='images/p2p_pic.png' width="180"></div>
+                            <img src='images/p2p_pic.png' width="180">
+                        </div>
+                        <script type="text/javascript">
+                            function ddp_start() {
+                                document.getElementById('ddp_image').style.opacity = "1";
+                            }
+
+                            function ddp_stop() {
+                                document.getElementById('ddp_image').style.opacity = "0";
+                            }
+
+                            ddp_stop()
+                        </script>
+                    </td>
+                    <td style="padding:20px;width:75%;vertical-align:middle">
+                        <papertitle>
+                           Peer to peer file sharing in Java
+                        </papertitle>
+                        <br>
+                        <a href="https://github.com/Shantanu48114860/P2P-File-sharing/blob/master/Project2.pdf">[problem description]</a>
+                        <a href="https://github.com/Shantanu48114860/P2P-File-sharing">[code]</a>
+                        <p></p>
+                        <p>
+                            This project is created as a part of the P2p project for <strong>Computer Networks (CNT5106C)</strong> at the University of Florida for the Master's in Computer Science program. A simplified P2p network where any number of peers can share any type of file among themselves. Implemented in Java.
+                        </p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            
+            <!-- Other than ML end -->
             <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
                 <tbody>
                 <tr>
                     <td>
-                        <heading>As a <em>SWE<em> </heading>
+                        <heading>Once a <em>SWE<em> </heading>
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        In my past life, I spent 6+ years in the Software Service/Product industry as
-                        a Full Stack developer across Lexmark International India Pvt Ltd
+                        In my past life, I spent 6+ years in the Software Service/Product development as
+                        a full stack engineer across Lexmark International India Pvt Ltd
                         and Cognizant Technology Solutions India Pvt Ltd,
-                        involved in BIG/Medium scale Development/Enhancement projects.
+                        involved in BIG/Medium scale Development/Enhancement projects. Worked in Angular/Angular.js, C#/.Net, WCF webservices, Node.Js.
                     </td>
                 </tr>
 
