@@ -392,6 +392,38 @@
                     </td>
                 </tr>
                 <!--  Projects  -->
+                <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
+                    <td style="padding:20px;width:25%;vertical-align:middle">
+                        <div class="one" style="width: 100%;">
+                            <div class="two" id='ddp_image' style="width: 100%;">
+                                <img src='images/arch.png' style="width: 100%;"></div>
+                            <img src='images/arch.png' style="width: 100%">
+                        </div>
+                        <script type="text/javascript">
+                            function ddp_start() {
+                                document.getElementById('ddp_image').style.opacity = "1";
+                            }
+
+                            function ddp_stop() {
+                                document.getElementById('ddp_image').style.opacity = "0";
+                            }
+
+                            ddp_stop()
+                        </script>
+                    </td>
+                    <td style="padding:20px;width:75%;vertical-align:middle">
+                        <papertitle>
+                           Explaining why Lottery Ticket Hypothesis Works or Fails
+                        </papertitle>
+                        <br>
+                        <a href="https://github.com/Shantanu48114860/Explainability-with-LTH/blob/main/doc/VLR.pdf">[report]</a>
+                        <a href="https://github.com/Shantanu48114860/Explainability-with-LTH">[code]</a>
+                        <p></p>
+                        <p>
+                            As a part of <a href="https://visual-learning.cs.cmu.edu/f22/index.html"><strong>CMU 16-824: Visual Learning and Recognition</strong></a>, we study the relationship between pruning and explainability. We validate if the explanations generated from the pruned network using Lottery ticket hypothesis (LTH) are consistent or not. Specifically we prune a neural network using LTH. Next we generate and compare the local and global explanations using Grad-CAM and Concept activations respectively.
+                        </p>
+                    </td>
+                </tr>
 
                 <tr onmouseout="ddp_stop()" onmouseover="ddp_start()">
                     <td style="padding:20px;width:25%;vertical-align:middle">
