@@ -1,86 +1,66 @@
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--<head>-->
-<!--    <meta charset="utf-8">-->
-<!--    <meta name="description"-->
-<!--          content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">-->
-<!--    <meta name="keywords" content="Nerfies, D-NeRF, NeRF">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
-<!--    <title>Nerfies: Deformable Neural Radiance Fields</title>-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="Route, Interpret, Repeat.">
+    <meta name="keywords" content="MoIE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Route, Interpret, Repeat</title>
 
-<!--    &lt;!&ndash; Global site tag (gtag.js) - Google Analytics &ndash;&gt;-->
-<!--    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>-->
-<!--    <script>-->
-<!--        window.dataLayer = window.dataLayer || [];-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-<!--        function gtag() {-->
-<!--            dataLayer.push(arguments);-->
-<!--        }-->
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-<!--        gtag('js', new Date());-->
+        gtag('js', new Date());
 
-<!--        gtag('config', 'G-PYVRSFMDRL');-->
-<!--    </script>-->
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
 
-<!--    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"-->
-<!--          rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
 
-<!--    <link rel="stylesheet" href="./static/css/bulma.min.css">-->
-<!--    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">-->
-<!--    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">-->
-<!--    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">-->
-<!--    <link rel="stylesheet"-->
-<!--          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">-->
-<!--    <link rel="stylesheet" href="./static/css/index.css">-->
-<!--    <link rel="icon" href="./static/images/favicon.svg">-->
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.svg">
 
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
-<!--    <script defer src="./static/js/fontawesome.all.min.js"></script>-->
-<!--    <script src="./static/js/bulma-carousel.min.js"></script>-->
-<!--    <script src="./static/js/bulma-slider.min.js"></script>-->
-<!--    <script src="./static/js/index.js"></script>-->
-<!--</head>-->
-<!--<body>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+<body>
 
-<!--<nav class="navbar" role="navigation" aria-label="main navigation">-->
-<!--    <div class="navbar-brand">-->
-<!--        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">-->
-<!--            <span aria-hidden="true"></span>-->
-<!--            <span aria-hidden="true"></span>-->
-<!--            <span aria-hidden="true"></span>-->
-<!--        </a>-->
-<!--    </div>-->
-<!--    <div class="navbar-menu">-->
-<!--        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">-->
-<!--            <a class="navbar-item" href="https://keunhong.com">-->
-<!--      <span class="icon">-->
-<!--          <i class="fas fa-home"></i>-->
-<!--      </span>-->
-<!--            </a>-->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="https://shantanu48114860.github.io/">
+              <span class="icon">
+                  <i class="fas fa-home"></i>
+              </span>
+            </a>
+        </div>
 
-<!--            <div class="navbar-item has-dropdown is-hoverable">-->
-<!--                <a class="navbar-link">-->
-<!--                    More Research-->
-<!--                </a>-->
-<!--                <div class="navbar-dropdown">-->
-<!--                    <a class="navbar-item" href="https://hypernerf.github.io">-->
-<!--                        HyperNeRF-->
-<!--                    </a>-->
-<!--                    <a class="navbar-item" href="https://nerfies.github.io">-->
-<!--                        Nerfies-->
-<!--                    </a>-->
-<!--                    <a class="navbar-item" href="https://latentfusion.github.io">-->
-<!--                        LatentFusion-->
-<!--                    </a>-->
-<!--                    <a class="navbar-item" href="https://photoshape.github.io">-->
-<!--                        PhotoShape-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--    </div>-->
-<!--</nav>-->
+    </div>
+</nav>
 
 
 <!--<section class="hero">-->
@@ -494,7 +474,6 @@
 <!--    </div>-->
 <!--</footer>-->
 
-<!--</body>-->
-<!--</html>-->
+</body>
+</html>
 
-ICML MoIE
