@@ -146,290 +146,395 @@
     </div>
 </section>
 
+
 <section class="hero teaser">
     <div class="container is-max-desktop">
         <div class="hero-body">
-            <video id="teaser" autoplay muted loop playsinline height="100%">
-                <source src="./static/videos/teaser.mp4"
-                        type="video/mp4">
-            </video>
+            <img src="./static/gif/cub-mimic.gif"/>
+            <!--            <video id="teaser" autoplay muted loop playsinline height="100%">-->
+            <!--                <source src="./static/videos/teaser.mp4"-->
+            <!--                        type="video/mp4">-->
+            <!--            </video>-->
             <h2 class="subtitle has-text-centered">
-                <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-                free-viewpoint
-                portraits.
+                <strong>TL;DR</strong><br/>
+                <p> We aim to utilize multiple interpretable models, each specializes on different subset of data to
+                    provide instance-specific explanations using human understandable concepts. In this work, we
+                    restrict ourselves to First order logic (FOL) based explanations. </p>
             </h2>
         </div>
     </div>
 </section>
-
-
-<section class="hero is-light is-small">
-    <div class="hero-body">
-        <div class="container">
-            <div id="results-carousel" class="carousel results-carousel">
-                <div class="item item-steve">
-                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                        <source src="./static/videos/steve.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-                <div class="item item-chair-tp">
-                    <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-                        <source src="./static/videos/chair-tp.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-                <div class="item item-shiba">
-                    <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-                        <source src="./static/videos/shiba.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-                <div class="item item-fullbody">
-                    <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-                        <source src="./static/videos/fullbody.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-                <div class="item item-blueshirt">
-                    <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-                        <source src="./static/videos/blueshirt.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-                <div class="item item-mask">
-                    <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-                        <source src="./static/videos/mask.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-                <div class="item item-coffee">
-                    <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-                        <source src="./static/videos/coffee.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-                <div class="item item-toby">
-                    <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-                        <source src="./static/videos/toby2.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 <section class="section">
     <div class="container is-max-desktop">
         <!-- Abstract. -->
         <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
-                <h2 class="title is-3">Abstract</h2>
+                <h2 class="title is-3">Objective</h2>
                 <div class="content has-text-justified">
                     <p>
-                        We present the first method capable of photorealistically reconstructing a non-rigidly
-                        deforming scene using photos/videos captured casually from mobile phones.
+                        <strong> Problem Statement.</strong>
+                        We aim to solve the problem of explaining the prediction of a deep neural network post-hoc using
+                        high level human interpretable concepts. In this work, we blur the distinction of post-hoc
+                        explanations and designing interpretable models.
                     </p>
                     <p>
-                        Our approach augments neural radiance fields
-                        (NeRF) by optimizing an
-                        additional continuous volumetric deformation field that warps each observed point into a
-                        canonical 5D NeRF.
-                        We observe that these NeRF-like deformation fields are prone to local minima, and
-                        propose a coarse-to-fine optimization method for coordinate-based models that allows for
-                        more robust optimization.
-                        By adapting principles from geometry processing and physical simulation to NeRF-like
-                        models, we propose an elastic regularization of the deformation field that further
-                        improves robustness.
+                        <strong>Why post-hoc, not interpretable by design?</strong>
+                        Most of the early interpretable by design methods focus on tabular data. Plus, they tend to be
+                        less flexible than the Blackbox models and demand substantial expertise to design. Also, mostly
+                        they underperform than their Blackbox counterparts. Post hoc methods preserve the
+                        flexibility and performance of the Blackbox.
                     </p>
                     <p>
-                        We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-                        photos/videos into deformable NeRF
-                        models that allow for photorealistic renderings of the subject from arbitrary
-                        viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-                        using a
-                        rig with two mobile phones that take time-synchronized photos, yielding train/validation
-                        images of the same pose at different viewpoints. We show that our method faithfully
-                        reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-                        fidelity.
+                        <strong> Why concept based model, not saliency maps?</strong>
+                        Post-hoc based saliency maps identify key input features that contribute the most to
+                        the network’s output. They suffer from a lack of fidelity and mechanistic explanation of the
+                        network output. Without a mechanistic explanation, recourse to a model’s undesirable behavior
+                        is unclear. Concept based models can identify the important concept, responsible for the
+                        model's output. We can intervene on these concepts to rectify the model's prediction.
+                    </p>
+                    <p>
+                        <strong> What is a concept based model?</strong>
+                        Concept based model or technically <i>Concept Bottleneck Models</i> are a family of models where
+                        first the human understandable concepts are predicted from the given input (images) and then the
+                        class labels are predicted from the concepts. In this work, we assume to have the ground truth
+                        concepts either in the dataset (CUB200 or Awa2) or discovered from another dataset (HAM10000,
+                        SIIM-ISIC or MIMIC-CXR). Also, we predict the concepts from the pre-trained embedding of the
+                        Blackbox as shown in <a href="https://arxiv.org/abs/2205.15480">Posthoc Concept Bottleneck
+                        Models</a>.
+                    </p>
+                    <p>
+                        <strong>What is a human understandable concept?</strong>
+                        Human understandable concepts are high-level features which constitute the class label. For
+                        example, the stripes can be a human understandable concept, responsible for predicting zebra.
+                        In chest-x-rays, anatomical features like lower left lobe of lung can be another human
+                        understandable concept. For more details, refer to
+                        <a href="https://arxiv.org/abs/1711.11279">TCAV</a> paper or
+                        <a href="https://arxiv.org/abs/2007.04612">Concept Bottleneck Models </a>.
+                    </p>
+                    <p>
+                        <strong>What is the research gap?</strong>
+                        Most of the interpretable models (interpretable by design or post-hoc) utilizes a single
+                        interpretable model to fit the whole data. If a portion of the data does not fit the template
+                        design of the interpretable model, they do not offer any flexibility, compromising performance.
+                        Thus, a single interpretable model may be insufficient to explain all samples, offering generic
+                        explanations.
+                    </p>
+                    <p>
+                        <strong>Our contribution.</strong>
+                        We propose an interpretable method,
+                        aiming to achieve the best of both worlds: not sacrificing
+                        Blackbox performance similar to post hoc explainability
+                        while still providing actionable interpretation. We hypothesize that a Blackbox encodes several
+                        interpretable models,
+                        each applicable to a different portion of data. We construct a hybrid neuro-symbolic model by
+                        progressively carving out a mixture of interpretable models
+                        and a residual network from the given Blackbox. We coin
+                        the term expert for each interpretable model, as they specialize over a subset of data. All the
+                        interpretable models are
+                        termed a <i>Mixture of Interpretable Experts (MoIE)</i>. Our design identifies a subset of
+                        samples
+                        and routes them through
+                        the interpretable models to explain the samples with First order logic(FOL),
+                        providing basic reasoning on concepts from the Blackbox.
+                        The remaining samples are routed through a flexible residual
+                        network. On the residual network, we repeat the method
+                        until MoIE explains the desired proportion of data. Using FOL for interpretable models
+                        offers recourse when undesirable behavior is detected in the
+                        model. Our method is the
+                        divide-and-conquer approach, where the instances covered
+                        by the residual network need progressively more complicated interpretable models. Such insight
+                        can be used to
+                        inspect the data and the model further. Finally, our model
+                        allows unexplainable category of data, which is currently
+                        not allowed in the interpretable models.
+                    </p>
+                    <p>
+                        <strong>What is a FOL?</strong>
+                        FOL is a logical function that accepts predicates (concept presence/absent) as input and returns
+                        a True/False output being a
+                        logical expression of the predicates. The logical expression, which is a set of AND, OR,
+                        Negative, and parenthesis, can be
+                        written in the so-called Disjunctive Normal Form (DNF). DNF is a FOL logical
+                        formula composed of a
+                        disjunction (OR) of conjunctions (AND), known as the sum of products.
                     </p>
                 </div>
             </div>
         </div>
-        <!--/ Abstract. -->
+        <!-- TODO to be updatedPaper video. -->
+        <!--        <div class="columns is-centered has-text-centered">-->
+        <!--            <div class="column is-four-fifths">-->
+        <!--                <h2 class="title is-3">Video</h2>-->
+        <!--                <div class="publication-video">-->
+        <!--                    <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"-->
+        <!--                            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--/ Paper video. -->
 
-        <!-- Paper video. -->
+        <!--/ Method. -->
         <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
-                <h2 class="title is-3">Video</h2>
-                <div class="publication-video">
-                    <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <h2 class="title is-3">Method</h2>
+                <div class="hero-body"><img src="./static/gif/method.gif"/></div>
+                <div class="content has-text-justified">
+                    <p>
+                        Assume we have a dataset {X , Y, C}, where
+                        X , Y, and C are the input images, class labels, and human
+                        interpretable attributes, respectively. Assume f<sup>0</sup>=h<sup>0</sup>(&Phi;(.)) is
+                        the trained Blackbox, where &Phi; is the representation and h is the classifier.
+                        We denote the learnable function t, projecting the image embeddings to
+                        the concept space. The concept space is the space spanned
+                        by the attributes C. Thus, function t outputs a scalar value
+                        representing a concept for each input image.
+                    </p>
+                    <p>
+                        We iteratively carve out an interpretable model
+                        from the given Blackbox. Each iteration yields an interpretable
+                        model (the downward grey paths in the above Figure) and a residual (the straightforward black
+                        paths in the above Figure 1). We start with the initial Blackbox f<sup>0</sup>. At iteration k,
+                        we distill the Blackbox from the previous iteration f<sup>k−1</sup> into a neurosymbolic
+                        interpretable model, g<sup>k</sup>, predicting the class labels Y from the
+                        concepts C. The residual r<sup>k</sup> = f<sup>k-1</sup> − g<sup>k</sup> emphasizes the
+                        portion of f<sup>k-1</sup> that g<sup>k</sup> cannot explain. We then approximate r<sup>k</sup>
+                        with f<sup>k</sup> = h<sup>k</sup>(&Phi;(.)). f<sup>k</sup> will be the Blackbox for the
+                        subsequent iteration and be explained by the respective
+                        interpretable model. A learnable gating mechanism, denoted by &Pi;<sup>k</sup>: C → {0, 1}
+                        (shown as the selector in Figure 1) routes an input sample
+                        towards either g<sup>k</sup> or r<sup>k</sup>. Each interpretable model is learned to focus a
+                        specific subset of the data, defined by <i>coverage</i>. The thickness of the lines in Figure
+                        represents
+                        the samples covered by the interpretable
+                        models (grey line) and the residuals (black line). With every iteration, the cumulative coverage
+                        of the interpretable models increases, but the residual decreases. We name our
+                        method route, interpret and repeat.
+                    </p>
+                    <p>
+                        We refer to the interpretable models of all the iterations as a
+                        Mixture of Interpretable Experts (MoIE) cumulatively after
+                        training. Furthermore, we utilize <a href="https://arxiv.org/abs/2106.06804">E-LEN </a>,
+                        i.e., a Logic Explainable Network implemented with an Entropy Layer as first layer
+                        as the interpretable symbolic model g to construct First Order Logic (FOL) explanations of a
+                        given prediction.
+                    </p>
                 </div>
             </div>
         </div>
-        <!--/ Paper video. -->
+
+        <!--/ Experiments. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Experiments</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        We perform experiments on a variety of vision and medical
+                        imaging datasets to show that 1) MoIE captures a diverse set
+                        of concepts, 2) the performance of the residuals degrades
+                        over successive iterations as they cover harder instances,
+                        3) MoIE does not compromise the performance of the Blackbox, 4) MoIE achieves superior
+                        performances during test
+                        time interventions, and 5) MoIE can fix the shortcuts using
+                        the Waterbirds dataset. We evaluate our methods using CUB200, Awa2, HAM10000, SIIM-ISIC
+                        (real-world transfer learning setting) and MIMIC-CXR (effusion classification) datasets.
+                    </p>
+                    <p>
+                        <strong>Baselines.</strong>
+                        We compare our methods to two concept-based
+                        baselines – 1) interpretable-by-design and 2) posthoc. The end-to-end CEMs and sequential CBMs
+                        serve as interpretable-by-design baselines. Similarly, PCBM and PCBM-h serve
+                        as post hoc baselines.
+                        The standard CBM and PCBM models do not show how the concepts are composed to make the
+                        label prediction. So, we create CBM + E-LEN, PCBM + E-LEN and PCBM-h + E-LEN by using
+                        the identical g of MOIE, as a replacement for the standard classifiers of CBM and PCBM.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!--/ Results. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Results</h2>
+                <div class="content has-text-justified">
+                </div>
+            </div>
+        </div>
+        <div class="container is-max-desktop">
+            <h2 class="title is-4" style="justify-content: center; display: flex">Heterogenity of Explanations</h2>
+            <div>
+                <img src="./static/images/cub.png" style="width:100%"/>
+                <div class="content has-text-justified">
+                    MoIE identifies diverse concepts for specific subsets of a class, unlike the generic ones by the
+                    baselines. We construct the FOL explanations of the samples of, Bay breasted warbler in the
+                    CUB-200 dataset for VIT-based experts in MoIE at inference. We highlight the unique
+                    concepts for experts 1, 2, and 3 in red, blue, and magenta, respectively.
+                </div>
+            </div>
+            <br/>
+            <div>
+                <img src="./static/images/mimic.png" style="width:100%"/>
+                <div class="content has-text-justified">
+                    Construction logical explanations of the samples of Effusion in the MIMIC-CXR dataset for various
+                    experts in MoIE at inference. The final residual covers the unexplained sample, which is harder
+                    to explain (indicated in red).
+                </div>
+            </div>
+            <br/>
+            <div>
+                <img src="./static/images/Harris_sparrow.png" style="width:100%"/>
+                <div class="content has-text-justified">
+                    Construction logical explanations of the samples of a category, Harris Sparrow in the CUB-200
+                    dataset for (a) VIT-based
+                    sequential CBM + E-LEN as an interpretable by design baseline, (b) VIT-based PCBM + E-LEN as a
+                    posthoc based baseline, (c) various
+                    experts in MoIE at inference.
+                </div>
+            </div>
+            <br/>
+            <div>
+                <img src="./static/images/Anna_hummingbird.png" style="width:100%"/>
+                <div class="content has-text-justified">
+                    Construction logical explanations of the samples of a category, Anna hummingbird in the CUB-200
+                    dataset for (a) VIT-based
+                    sequential CBM + E-LEN as an interpretable by design baseline, (b) VIT-based PCBM + E-LEN as a
+                    posthoc based baseline, (c) various
+                    experts in MoIE at inference.
+                </div>
+            </div>
+            <br/>
+            <div>
+                <p style="text-align: center"><img src="./static/images/HAM_ISIC.png" style="width:80%"/></p>
+                <div class="content has-text-justified">
+                    Comparison of FOL explanations by MoIE with the PCBM +
+                    E-LEN baselines for HAM10000 (top) and ISIC (down) to classify Malignant lesion. We highlight unique
+                    concepts for experts 3, 5, and 6 in red, blue, and violet, respectively. For brevity, we combine
+                    FOLs for each expert for the samples covered by them.
+                </div>
+            </div>
+            <br/>
+            <div>
+                <p style="text-align: center"><img src="./static/images/Otter.png" style="width:80%"/></p>
+                <div class="content has-text-justified">
+                    Flexibility of FOL explanations by VIT-derived MoIE MoIE and the CBM + E-LEN and PCBM + E-LEN
+                    baselines for Awa2 dataset to classify Otter at inference.
+                </div>
+            </div>
+            <br/>
+            <div>
+                <p style="text-align: center"><img src="./static/images/Horse.png" style="width:80%"/></p>
+                <div class="content has-text-justified">
+                    Flexibility of FOL explanations by VIT-derived MoIE MoIE and the CBM + E-LEN and PCBM + E-LEN
+                    baselines for Awa2
+                    dataset to classify Horse at inference.
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="container is-max-desktop">
+            <h2 class="title is-4" style="justify-content: center; display: flex">
+                MoIE identifies more meaningful instance-specific concepts
+            </h2>
+            <div>
+                <img src="./static/images/Completeness_zero.png" style="width:100%"/>
+                <div class="content has-text-justified">
+                    Quantitative validation of the extracted concepts using completeness scores of the models
+                    for a varying number of top concepts and drop in accuracy
+                    compared to the original model after zeroing out the top significant
+                    concepts iteratively. The highest drop for MoIE indicates that
+                    MoIE selects more instance-specific concepts than generic ones
+                    by the baselines.
+                </div>
+            </div>
+
+        </div>
+        <br/>
+        <br/>
+        <div class="container is-max-desktop">
+            <h2 class="title is-4" style="justify-content: center; display: flex">
+                Identification of Harder samples by successive residuals
+            </h2>
+            <div>
+                <img src="./static/images/Harder-Samples.png" style="width:100%"/>
+                <div class="content has-text-justified">
+                    The performance of experts and residuals across iterations. (a-c) Coverage and proportional
+                    accuracy of the experts and residuals.
+                    (d-f) We route the samples covered by the residuals across iterations to the initial Blackbox
+                    f<sup>0</sup> and compare the accuracy of f<sup>0</sup> (red bar) with the residual (blue bar).
+                    Figures d-f show the progressive decline in performance of the residuals across iterations as
+                    they cover the samples in the increasing order of hardness. We observe the similar abysmal
+                    performance of the initial blackbox f<sup>0</sup> for these samples.
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+        <div class="container is-max-desktop">
+            <h2 class="title is-4" style="justify-content: center; display: flex">
+                Quantitative analysis of MoIE with the Blackbox and baselines
+            </h2>
+            <div>
+                <img src="./static/images/Quant.png" style="width:100%"/>
+                <div class="content has-text-justified">
+                    MoIE does not hurt the performance of the original Blackbox using a held-out test set. We provide
+                    the mean and standard errors of AUROC and accuracy for medical imaging (e.g., HAM10000, ISIC,
+                    and Effusion) and vision (e.g., CUB-200 and Awa2) datasets,
+                    respectively, over 5 random seeds.
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+        <div class="container is-max-desktop">
+            <h2 class="title is-4" style="justify-content: center; display: flex">
+                Test time interventions
+            </h2>
+            <div>
+                <img src="./static/images/TTI.png" style="width:100%"/>
+                <div class="content has-text-justified">
+                    Across architectures test time interventions of concepts on all the samples and on the
+                    hard samples, covered by only the last two experts of MoIE.
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+        <div class="container is-max-desktop">
+            <h2 class="title is-4" style="justify-content: center; display: flex">
+                Applying MoIE to remove shortcuts
+            </h2>
+            <div>
+                <img src="./static/images/shortcut.png" style="width:100%"/>
+                <div class="content has-text-justified">
+                    MoIE fixes shortcuts. (a) Performance of the biased
+                    Blackbox. (b) Performance of final MoIE extracted from the robust
+                    Blackbox after removing the shortcuts using Metadata normalization (MDN). (c) Examples
+                    of samples (top-row) and their explanations by the biased (middle-row) and robust Blackboxes
+                    (bottom-row). (d) Comparison of accuracies of the spurious concepts extracted from the biased vs.
+                    the robust Blackbox.
+                </div>
+            </div>
+        </div>
     </div>
 </section>
-
-
-<section class="section">
-    <div class="container is-max-desktop">
-
-        <div class="columns is-centered">
-
-            <!-- Visual Effects. -->
-            <div class="column">
-                <div class="content">
-                    <h2 class="title is-3">Visual Effects</h2>
-                    <p>
-                        Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-                        would be impossible without nerfies since it would require going through a wall.
-                    </p>
-                    <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-                        <source src="./static/videos/dollyzoom-stacked.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-            </div>
-            <!--/ Visual Effects. -->
-
-            <!-- Matting. -->
-            <div class="column">
-                <h2 class="title is-3">Matting</h2>
-                <div class="columns is-centered">
-                    <div class="column content">
-                        <p>
-                            As a byproduct of our method, we can also solve the matting problem by ignoring
-                            samples that fall outside of a bounding box during rendering.
-                        </p>
-                        <video id="matting-video" controls playsinline height="100%">
-                            <source src="./static/videos/matting.mp4"
-                                    type="video/mp4">
-                        </video>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!--/ Matting. -->
-
-        <!-- Animation. -->
-        <div class="columns is-centered">
-            <div class="column is-full-width">
-                <h2 class="title is-3">Animation</h2>
-
-                <!-- Interpolating. -->
-                <h3 class="title is-4">Interpolating states</h3>
-                <div class="content has-text-justified">
-                    <p>
-                        We can also animate the scene by interpolating the deformation latent codes of two input
-                        frames. Use the slider here to linearly interpolate between the left frame and the right
-                        frame.
-                    </p>
-                </div>
-                <div class="columns is-vcentered interpolation-panel">
-                    <div class="column is-3 has-text-centered">
-                        <img src="./static/images/interpolate_start.jpg"
-                             class="interpolation-image"
-                             alt="Interpolate start reference image."/>
-                        <p>Start Frame</p>
-                    </div>
-                    <div class="column interpolation-video-column">
-                        <div id="interpolation-image-wrapper">
-                            Loading...
-                        </div>
-                        <input class="slider is-fullwidth is-large is-info"
-                               id="interpolation-slider"
-                               step="1" min="0" max="100" value="0" type="range">
-                    </div>
-                    <div class="column is-3 has-text-centered">
-                        <img src="./static/images/interpolate_end.jpg"
-                             class="interpolation-image"
-                             alt="Interpolation end reference image."/>
-                        <p class="is-bold">End Frame</p>
-                    </div>
-                </div>
-                <br/>
-                <!--/ Interpolating. -->
-
-                <!-- Re-rendering. -->
-                <h3 class="title is-4">Re-rendering the input video</h3>
-                <div class="content has-text-justified">
-                    <p>
-                        Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-                        viewpoint such as a stabilized camera by playing back the training deformations.
-                    </p>
-                </div>
-                <div class="content has-text-centered">
-                    <video id="replay-video"
-                           controls
-                           muted
-                           preload
-                           playsinline
-                           width="75%">
-                        <source src="./static/videos/replay.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-                <!--/ Re-rendering. -->
-
-            </div>
-        </div>
-        <!--/ Animation. -->
-
-
-        <!-- Concurrent Work. -->
-        <div class="columns is-centered">
-            <div class="column is-full-width">
-                <h2 class="title is-3">Related Links</h2>
-
-                <div class="content has-text-justified">
-                    <p>
-                        There's a lot of excellent work that was introduced around the same time as ours.
-                    </p>
-                    <p>
-                        <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a>
-                        introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-                    </p>
-                    <p>
-                        <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a
-                            href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-                        both use deformation fields to model non-rigid scenes.
-                    </p>
-                    <p>
-                        Some works model videos with a NeRF by directly modulating the density, such as <a
-                            href="https://video-nerf.github.io/">Video-NeRF</a>, <a
-                            href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a
-                            href="https://neural-3d-video.github.io/">DyNeRF</a>
-                    </p>
-                    <p>
-                        There are probably many more by the time you are reading this. Check out <a
-                            href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>,
-                        and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF
-                        papers</a>.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <!--/ Concurrent Work. -->
-
-    </div>
-</section>
-
 
 <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-        <h2 class="title">BibTeX</h2>
-        <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{ghosh2023dividing,
+      title={Dividing and Conquering a BlackBox to a Mixture of Interpretable Models: Route, Interpret, Repeat},
+      author={Shantanu Ghosh and Ke Yu and Forough Arabshahi and Kayhan Batmanghelich},
+      year={2023},
+      eprint={2302.10289},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
 }</code></pre>
-    </div>
+  </div>
 </section>
 
 
