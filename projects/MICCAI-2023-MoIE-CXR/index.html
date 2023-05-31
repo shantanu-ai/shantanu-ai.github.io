@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="Route, Interpret, Repeat.">
+    <meta name="keywords" content="MoIE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Route, Interpret, Repeat</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.svg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="https://shantanu48114860.github.io/">
+              <span class="icon">
+                  <i class="fas fa-home"></i>
+              </span>
+            </a>
+        </div>
+
+    </div>
+</nav>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">Distilling BlackBox to Interpretable models for
+                        Efficient Transfer Learning
+                    </h1>
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">
+                            <a href="https://shantanu48114860.github.io/">Shantanu Ghosh</a><sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                          <a href="https://gatechke.github.io/">Ke Yu</a><sup>2</sup>,
+                        </span>
+                        <span class="author-block">
+                          <a href="https://www.batman-lab.com/">Kayhan Batmanghelich</a><sup>2</sup>
+                        </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>1</sup>Boston University,</span>
+                        <span class="author-block"><sup>2</sup>University of Pittsburgh</span>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- PDF Link. -->
+                            <!--  TODO To be  updated after ICML  -->
+                            <span class="link-block">
+                                <a href="https://arxiv.org/abs/2305.17303"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"> <i class="fas fa-file-pdf"></i> </span>
+                                    <span>Paper</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                                <a href="https://arxiv.org/abs/2305.17303"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                                    <span>arXiv</span>
+                                </a>
+                            </span>
+                            <!-- TODO To be updated Video Link. -->
+                            <span class="link-block">
+                                <a href=""
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon"><i class="fab fa-youtube"></i></span>
+                                  <span>Video (Coming soon)</span>
+                                </a>
+                            </span>
+                            <!-- Code Link. -->
+                            <span class="link-block">
+                                <a href="https://github.com/batmanlab/MICCAI-2023-Route-interpret-repeat-CXRs"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon"><i class="fab fa-github"></i></span>
+                                  <span>Code</span>
+                                </a>
+                            </span>
+                            <!-- Dataset Link. -->
+                            <span class="link-block">
+                                <a href="https://github.com/batmanlab/MICCAI-2023-Route-interpret-repeat-CXRs#downloading-data"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon"> <i class="far fa-images"></i></span>
+                                  <span>Data</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="column has-text-centered">
+                        <p style="font-style: italic;">
+                            26<sup>th</sup> International Conference on Medical Image Computing and Computer Assisted
+                            Intervention, MICCAI 2023
+                            <br/>
+                            (Early accept, acceptance rate ~ 14%)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+            <img src="./static/gif/method.gif"/>
+            <!--            <video id="teaser" autoplay muted loop playsinline height="100%">-->
+            <!--                <source src="./static/videos/teaser.mp4"-->
+            <!--                        type="video/mp4">-->
+            <!--            </video>-->
+            <h2 class="subtitle has-text-centered">
+                <strong>TL;DR</strong><br/>
+                <p> We aim to apply mixture of interpretable models to chest-X-Rays and perform transfer learning
+                    efficiently to a
+                    new target domain with limited data. </p>
+            </h2>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Objective</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        <strong> Problem Statement.</strong>
+                        We aim to build interpretable models which can be generalized to unseen domain.
+                    </p>
+                    <p>
+                        <strong> Why not transferring the Blackbox directly to a new domain?</strong>
+                        Fine-tuning all or some layers of the Blackbox model on the target
+                        domain can solve this problem, but it requires a substantial amount of
+                        labeled data and be computationally expensive.
+                    </p>
+                    <p>
+                        <strong> Why interpretable models?</strong>
+                        Radiologists follow fairly generalizable and comprehensible rules. Specifically, they search for
+                        patterns of changes in anatomy to read abnormality from an image and apply
+                        logical rules for specific diagnoses. This approach is transparent and closer to the concept
+                        based interpretable-by-design approach in AI.
+
+                    </p>
+                    <p>
+                        <strong> What is a concept based interpretable model?</strong>
+                        Concept based model or technically <i>Concept Bottleneck Models</i> are a family of models where
+                        first the human understandable concepts are predicted from the given input (images) and then the
+                        class labels are predicted from the concepts. In this work, we assume to have the ground truth
+                        concepts either in the dataset (CUB200 or Awa2) or discovered from another dataset (HAM10000,
+                        SIIM-ISIC or MIMIC-CXR). Also, we predict the concepts from the pre-trained embedding of the
+                        Blackbox as shown in <a href="https://arxiv.org/abs/2205.15480">Posthoc Concept Bottleneck
+                        Models</a>.
+                    </p>
+                    <p>
+                        <strong>What is a human understandable concept?</strong>
+                        Human understandable concepts are high-level features which constitute the class label. For
+                        example, the stripes can be a human understandable concept, responsible for predicting zebra.
+                        In chest-x-rays, anatomical features like lower left lobe of lung can be another human
+                        understandable concept. For more details, refer to
+                        <a href="https://arxiv.org/abs/1711.11279">TCAV</a> paper or
+                        <a href="https://arxiv.org/abs/2007.04612">Concept Bottleneck Models </a>.
+                    </p>
+                    <p>
+                        <strong>What is the research gap?</strong>
+                        In medical images, previous research uses <a href="https://arxiv.org/abs/1711.11279">TCAV</a>
+                        to quantify the role of a concept on the final prediction, but the concept-
+                        based interpretable models have been mostly unexplored. Also, the common design choice amongst
+                        those methods relies on a single
+                        interpretable classifier to explain the entire dataset, cannot capture the diverse
+                        sample-specific explanations, and performs poorly than their Blackbox variants
+                    </p>
+                    <p>
+                        <strong>What not using the MoIE (ICML, 2023) directly?</strong>
+                        Due to class imbalance in large chest-X-Ray datasets, early inter-
+                        pretable models in MoIE (ICML, 2023) tend to cover all samples with disease present while
+                        ignoring disease subgroups and pathological heterogeneity
+                    </p>
+                    <p>
+                        <strong>Our contribution.</strong>
+                        We propose a novel data-efficient interpretable
+                        method that can be transferred to an unseen domain. Our interpretable model is
+                        built upon human-interpretable concepts and can provide sample-specific expla-
+                        nations for diverse disease subtypes and pathological patterns. Following ICML 2023, we begin
+                        with a Blackbox in the source domain. Then we progressively extract a mixture of interpretable
+                        models from Blackbox. Our method includes a set of selectors routing the explain-
+                        able samples through the interpretable models. The interpretable models provide
+                        First-order-logic (FOL) explanations for the samples they cover. The remaining
+                        unexplained samples are routed through the residuals until they are covered by
+                        a successive interpretable model. We repeat the process until we cover a desired
+                        fraction of data. We address the problem of class imbalance in large chest-X-Ray datasets by
+                        estimating the class-stratified coverage from the total data coverage. We then
+                        finetune the interpretable models in the target domain. The target domain lacks
+                        concept-level annotation since they are expensive. Hence, we learn a concept
+                        detector in the target domain with a pseudo labeling approach and finetune
+                        the interpretable models. Our work is the first to apply concept-based methods
+                        to CXRs and transfer them between domains.
+                    </p>
+                    <p>
+                        <strong>What is a FOL?</strong>
+                        FOL is a logical function that accepts predicates (concept presence/absent) as input and returns
+                        a True/False output being a
+                        logical expression of the predicates. The logical expression, which is a set of AND, OR,
+                        Negative, and parenthesis, can be
+                        written in the so-called Disjunctive Normal Form (DNF). DNF is a FOL logical
+                        formula composed of a
+                        disjunction (OR) of conjunctions (AND), known as the sum of products.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- TODO to be updatedPaper video. -->
+        <!--        <div class="columns is-centered has-text-centered">-->
+        <!--            <div class="column is-four-fifths">-->
+        <!--                <h2 class="title is-3">Video</h2>-->
+        <!--                <div class="publication-video">-->
+        <!--                    <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"-->
+        <!--                            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--/ Paper video. -->
+
+        <!--/ Method. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Method</h2>
+                <!--                <div class="hero-body"><img src="./static/gif/method.gif"/></div>-->
+                <div class="content has-text-justified">
+                    <p>
+                        We follow our earlier work, <a
+                            href="http://localhost:63342/shantanughosh.github.io/projects/ICML-2023-MoIE/index.html">MoIE</a>
+                        to extract the interpretable models from the Blackbox. However, each experts in MoIE covered a
+                        specific percentage of data, defined by the coverage. To solve the class imbalance problem in
+                        large chest-X-Rays, we introduce the stratified coverage using which each expert in MoIE-CXR
+                        cover a specific subset of each class in the dataset.
+                    </p>
+                    <p>
+                        To transfer MoIE-CXR to unseen domain, follow the algorithm below:
+                        <img src="./static/images/algo.png" style="width:100%"/>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!--/ Experiments. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Experiments</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        We perform experiments to show that 1) MoIE-CXR captures a diverse set
+                        of concepts, 2) the performance of the residuals degrades
+                        over successive iterations as they cover harder instances,
+                        3) MoIE-CXR does not compromise the performance of the Blackbox, 4) MoIE-CXR achieves superior
+                        performances when transferring to an unseen domain. We extract MoIE-CXR from Blackbox using
+                        MIMIC-CXR dataset for the disease effusion, cardiomegaly, edema, pneumonia and pneumothorax.
+                        Finally, we transfer this MoIE-CXR to Stanford-CXR dataset for the diseases effusion,
+                        cardiomegaly and edema.
+
+                    </p>
+                    <p>
+                        <strong>Baselines.</strong>
+                        We compare our methods to two concept-based
+                        baselines – 1) interpretable-by-design and 2) posthoc. The end-to-end CEMs and sequential CBMs
+                        serve as interpretable-by-design baselines. Similarly, PCBM and PCBM-h serve
+                        as post hoc baselines.
+                        The standard CBM and PCBM models do not show how the concepts are composed to make the
+                        label prediction. So, we create CBM + ELL, PCBM + ELL and PCBM-h + ELL by using
+                        the identical g of MOIE, as a replacement for the standard classifiers of CBM and PCBM.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!--/ Results. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Results</h2>
+                <div class="content has-text-justified">
+                </div>
+            </div>
+        </div>
+        <div class="container is-max-desktop">
+            <h2 class="title is-4" style="justify-content: center; display: flex">Heterogenity of Explanations</h2>
+            <div class="content has-text-justified">
+                <p>
+                    To view the FOL explanation for each sample per expert for different datasets, go to the
+                    <strong>
+                        <a href="https://github.com/batmanlab/MICCAI-2023-Route-interpret-repeat-CXRs/tree/main/explanations">
+                            explanations
+                        </a>
+                    </strong> directory in our official
+                    <a href="https://github.com/batmanlab/MICCAI-2023-Route-interpret-repeat-CXRs/tree/main/explanations">repo</a>.
+                    All the explanations are stored in separate csv files for each expert for different datasets.
+                </p>
+            </div>
+            <div>
+                <img src="./static/images/effusion_cardiomegaly_edema.png" style="width:100%"/>
+                <img src="./static/images/edema_pneumonia.png" style="width:100%"/>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="container is-max-desktop">
+            <h2 class="title is-4" style="justify-content: center; display: flex">
+                Identification of Harder samples by successive residuals
+            </h2>
+            <div>
+                <img src="./static/images/harder_cardiomegaly_effusion_pneumothorax.png" style="width:100%"/>
+                <div class="content has-text-justified">
+                    The performance of experts and residuals across iterations. (a-c) Coverage and proportional
+                    AUROC of the experts and residuals.
+                    (d-f) We route the samples covered by the residuals across iterations to the initial Blackbox
+                    f<sup>0</sup> and compare the AUROC of f<sup>0</sup> (red bar) with the residual (blue bar).
+                    Figures d-f show the progressive decline in performance of the residuals across iterations as
+                    they cover the samples in the increasing order of hardness. We observe the similar abysmal
+                    performance of the initial blackbox f<sup>0</sup> for these samples.
+                </div>
+                <img src="./static/images/harder_cardiomegaly_effusion_pneumothorax.png" style="width:100%"/>
+                <div class="content has-text-justified">
+                    The performance of individual experts and residuals for edema and pneumonia.
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+        <div class="container is-max-desktop">
+            <h2 class="title is-4" style="justify-content: center; display: flex">
+                Quantitative analysis of MoIE with the Blackbox and baselines
+            </h2>
+            <div>
+                <img src="./static/images/quant.png" style="width:100%"/>
+                <div class="content has-text-justified">
+                    MoIE does not hurt the performance of the original Blackbox using a held-out test set. We provide
+                    the mean and standard errors of AUROC over 5 random seeds.
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+        <div class="container is-max-desktop">
+            <h2 class="title is-4" style="justify-content: center; display: flex">
+                Applying MoIE-CXR to the unseen domain
+            </h2>
+            <div>
+                <img src="./static/images/domain.png" style="width:100%"/>
+                <div class="content has-text-justified">
+                    Transfering the first 3 experts of MoIE-CXR trained on MIMIC-CXR to Stanford-CXR. With varying
+                    percentage(%) of
+                    training samples of Stanford CXR, (a-c): reports AUROC of the test sets, (d-g)
+                    reports computation costs in terms of log(Flops) (T)
+                    We report the coverages in Stanford-CXR on top of the <strong>finetuned</strong> and <strong>No
+                    finetuned</strong> variants of
+                    MoIE-CXR (red and blue bars) in (d-g).
+                    The <strong>No finetuned</strong> variant of MoIE-CXR represents the model obtained only by
+                    finetuning
+                    selectors, not the experts. Similarly, the <strong>Finetuned</strong> MoIE-CXR represents the model
+                    obtained by jointly finetuning the selectors and the experts jointly for 5 epochs.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>
+            @misc{
+                ghosh2023distilling,
+                  title={Distilling BlackBox to Interpretable models for Efficient Transfer Learning},
+                  author={Shantanu Ghosh and Ke Yu and Kayhan Batmanghelich},
+                  year={2023},
+                  eprint={2305.17303},
+                  archivePrefix={arXiv},
+                primaryClass={cs.CV}
+            }
+</code></pre>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+            <a class="icon-link"
+               href="https://arxiv.org/abs/2305.17303">
+                <i class="fas fa-file-pdf"></i>
+            </a>
+            <a class="icon-link" href="https://github.com/batmanlab/MICCAI-2023-Route-interpret-repeat-CXRs"
+               class="external-link" disabled>
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p style="text-align: center;">
+                        Copyright © Batman Lab, 2023. Website template adapted from
+                        <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+
