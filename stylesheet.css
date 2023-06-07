@@ -92,6 +92,8 @@ strong {
 heading {
   font-family: Helvetica, sans-serif;
   font-size: 27.5px;
+  font-weight: 700;
+  font-stretch: 100%;
 }
 
 papertitle {
@@ -101,8 +103,11 @@ papertitle {
 }
 
 name {
-  font-family: Helvetica, sans-serif;
-  font-size: 32px;
+  font-family: hind;
+  font-size: 45px;
+  border-bottom: 1.5px solid #999;
+  font-weight: 400;
+  font-stretch: 100%;
 }
 
 .one {
