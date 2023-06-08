@@ -1,0 +1,484 @@
+
+\documentclass[11pt,letter,sans]{moderncv}
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+\DeclareRobustCommand*\cal{\@fontswitch\relax\mathcal}
+\DeclareRobustCommand*\mit{\@fontswitch\relax\mathnormal}
+
+\moderncvstyle{banking}
+\moderncvcolor{blue}
+%\renewcommand{\familydefault}{\sfdefault}
+\definecolor{color}{rgb}{0.22,0.45,0.70}% light blue
+\usepackage[scale=0.75]{geometry}
+\setlength{\hintscolumnwidth}{3cm}
+%\setlength{\makecvtitlenamewidth}{10cm}
+\usepackage{graphicx}
+\usepackage[backend=biber,style=ieee,defernumbers=true]{biblatex}
+\addbibresource{../publications.bib}
+\DeclareNameFormat{author}{%
+  \ifthenelse{\equal{#1}{Amos}}%
+    {\textbf{\ifblank{#4}{}{#4\space}#1}}%
+    {\ifblank{#4}{}{#4\space}#1}%
+  \ifthenelse{\value{listcount}=1 \AND \value{liststop}=2}%
+    {\space and\space}
+    {\ifthenelse{\value{listcount}<\value{liststop}}%
+      {\addcomma\space}
+      {}
+    }
+}
+
+\usepackage{lastpage}
+\cfoot{\addressfont\itshape\textcolor{gray}{Page \thepage\ of \pageref{LastPage}}}
+
+\name{Shantanu}{Ghosh\scalebox{0.6}{(he/him)}}
+% \title{Resumé title}
+% \address{3800 SW 34th ST, Apt W220}{32608 Gaineville FL}{USA}
+% \phone{ (352) 871 3965}
+% \address{5607 Baum Blvd, Suite 500, Pittsburgh, PA 15206-3701, USA}
+\email{shawn24@bu.edu}
+% \social[google\_scholar]{bamos.github.io}
+% \social[googlescholar]{john.doe}
+\social[linkedin]{i-am-shantanu-ghosh}
+\social[github]{Shantanu48114860}
+\extrainfo{\small Last updated on \today}
+%\photo[64pt][0.4pt]{picture}
+%\quote{Some quote}
+
+% \newcommand*{\personalwebsitesocialsymbol}{\includegraphics[height=.7\baselineskip]{persona-website}}
+% \collectionadd[personal-website]{socials}{\href{https://shantanu48114860.github.io/}{Personal website}}
+
+\newcommand*{\scholarsocialsymbol}{\includegraphics[height=.7\baselineskip]{google-scholar}}
+\collectionadd[scholar]{socials}{\href{https://scholar.google.com/citations?user=U_s5k_oAAAAJ&hl=en}
+{ Google scholar}}
+
+\begin{document}
+\makecvtitle
+
+\section{ Research Interests }
+Explainable AI (X-AI); Computer Vision; Medical Imaging; Deep Learning; Causal Inference
+\section{ Education }
+    \cventry{Jan 2023 -- Present}%
+      {Doctor of Philosophy, Electrical Engineering}%
+      {Boston University}%
+      {Boston, Massachusetts, USA}%
+      {}%
+      {
+        \textit{Advisor(s)}: 
+        {\href{https://www.batman-lab.com/}
+        { \underline{Dr. Kayhan Batmanghelich}}}
+      }
+    \cventry{Aug 2021 -- Dec 2022}%
+      {Doctor of Philosophy, Intelligent Systems}%
+      {University of Pittsburgh \emph{(Transferred to BU)}}%
+      {Pittsburgh, Pennsylvania, USA}%
+      {}%
+      {
+        \textit{Advisor(s)}: 
+        {\href{https://www.batman-lab.com/}
+        { \underline{Dr. Kayhan Batmanghelich}}}
+      }
+      
+    % \cventry{Aug 2021 -- Dec 2022}%
+    %   {PCHE Cross registered student}%
+    %   {Carnegie Mellon University}%
+    %   {Pittsburgh, Pennsylvania, USA}%
+    %   {}%
+    %   {
+    %     \emph{\textbf{Courses}: Foundations of Causation and Machine Learning (PHI 80625) and Visual Learning and Recognition (RI 16824)}
+    %   } 
+      
+    \cventry{Aug 2019 -- May 2021}%
+      {Master of Science, Computer Science}%
+      {University of Florida}%
+      {Gainesville, Florida, USA}%
+      {\textbf{3.88/4.00}}%
+      {}%
+      {
+        \textit{Advisor}: {\href{https://epidemiology.phhp.ufl.edu/disl/}
+        { \underline{Dr. Mattia Prosperi}}}
+      }
+      
+    \cventry{Aug, 2008 -- June, 2012}%
+      {Bachelor of Technology, Computer Science}%
+      {West Bengal University of Technology}%
+      {Kolkata, India}%
+      {\textbf{8.38/10.00}}%
+      {}%
+      {}
+
+\section{ Publications}
+  \nocite{*}
+
+  \subsection{Conference Proceedings}
+  \printbibliography[heading=none,type=inproceedings,
+    prefixnumbers=C]
+    {
+        \begin{enumerate}
+        \item \textit{\textbf{Distilling BlackBox to Interpretable models for Efficient Transfer Learning}} 
+        \\ \textbf{Shantanu Ghosh}, Ke Yu, Kayhan Batmanghelich
+        \\ International Conference on Medical Image Computing and Computer Assisted Intervention (\textcolor{red}{MICCAI'23}), 2023. (\textbf{Early accept, acceptance rate $\sim$ 14\%})
+        \href{https://shantanu48114860.github.io/projects/MICCAI-2023-MoIE-CXR/}
+        {\textbf{\textcolor{blue}{[Project]}}}
+        \href{https://arxiv.org/abs/2305.17303}
+        {\textbf{\textcolor{blue}{[Paper]}}}
+        \href{https://github.com/batmanlab/MICCAI-2023-Route-interpret-repeat-CXRs}
+        {\textbf{\textcolor{blue}{[Code]}}}
+        
+        \item \textit{\textbf{Dividing and Conquering a BlackBox to a Mixture of Interpretable Models: Route, Interpret, Repeat}} 
+        \\ \textbf{Shantanu Ghosh}, Ke Yu, Forough Arabshahi, Kayhan Batmanghelich
+        \\ International Conference on Machine Learning (\textcolor{red}{ICML'23}), 2023. 
+        \href{https://shantanu48114860.github.io/projects/ICML-2023-MoIE/}
+        {\textbf{\textcolor{blue}{[Project]}}}
+        \href{https://arxiv.org/pdf/2302.10289.pdf}
+        {\textbf{\textcolor{blue}{[Paper]}}}
+        \href{https://github.com/batmanlab/ICML-2023-Route-interpret-repeat}
+        {\textbf{\textcolor{blue}{[Code]}}}
+        
+        \item \textit{\textbf{DR-VIDAL - Doubly Robust Variational Information-theoretic Deep Adversarial Learning for Counterfactual Prediction and Treatment Effect Estimation}} 
+        \\ \textbf{Shantanu Ghosh}, Zheng Feng, Jiang Bian, Kevin Butler, Mattia Prosperi
+        \\ American Medical Informatics Association (\textcolor{red}{AMIA'22}) Symposium, 2022 (\textbf{Oral}). \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10148269/}
+        {\textbf{\textcolor{blue}{[Paper]}}}
+        \href{https://github.com/Shantanu48114860/DR-VIDAL-AMIA-22}
+        {\textbf{\textcolor{blue}{[Code]}}}
+        
+        \item \textit{\textbf{Anatomy-Guided Weakly-Supervised Abnormality Localization in Chest X-rays}} 
+        \\ Ke Yu, \textbf{Shantanu Ghosh}, Zhexiong Liu, Kayhan Batmanghelich
+        \\ International Conference on Medical Image Computing and Computer Assisted Intervention (\textcolor{red}{MICCAI'22}), 2022. \href{https://arxiv.org/abs/2206.12704}
+        {\textbf{\textcolor{blue}{[Paper]}}}
+        \href{https://github.com/batmanlab/AGXNet}
+        {\textbf{\textcolor{blue}{[Code]}}}
+        
+        \item \textit{\textbf{Causal AI with Real World Data:  Do Statins Protect From Alzheimer’sDisease Onset?}} 
+        \\ Mattia Prosperi, \textbf{Shantanu Ghosh}, Zhaoyi Chen, Marco Salemi, Tianchen Lyu, Jiang Bian
+        \\International Conference on Medical and Health Informatics (\textcolor{red}{ICMHI'21}), 2021. \href{https://drive.google.com/file/d/1rQkeW6QeqWp5Xo9HRgWaaIE846dgvKz4/view}
+        {\textbf{\textcolor{blue}{[Paper]}}}
+        \end{enumerate}
+      } 
+    
+
+  \subsection{Journal Articles}
+  \printbibliography[heading=none,type=article,keyword=journal,
+    resetnumbers=true,prefixnumbers=J]
+    \begin{enumerate}
+        \item{\textit{\textbf{Propensity Score Synthetic Augmentation Matching using Generative Adversarial Networks (PSSAM-GAN)}}  
+        \\\textbf{Shantanu Ghosh}, Christina Boucher, Jiang Bian, Mattia Prosperi
+        \\Journal of Computer Methods and Programs in Bio-medicine Update, 2021}. \href{https://www.sciencedirect.com/science/article/pii/S2666990021000197/}
+        {\textbf{\textcolor{blue}{[Paper]}}}
+        \href{https://github.com/Shantanu48114860/PSSAM-GAN}
+        {\textbf{\textcolor{blue}{[Code]}}}
+        
+        \item \textit{\textbf{Deep Propensity Network using a Sparse Autoencoder for Estimation of Treatment Effects}}
+        \\\textbf{Shantanu Ghosh}, Jiang Bian, Yi Guo, Mattia Prosperi 
+        \\Journal of the American Medical Informatics Association (\textcolor{red}{JAMIA}), 2021. (\textbf{Impact Factor: 7.9}) 
+        \href{https://academic.oup.com/jamia/article-abstract/28/6/1197/6139936}
+        {\textbf{\textcolor{blue}{[Paper]}}}
+        \href{https://github.com/Shantanu48114860/DPN-SA}
+        {\textbf{\textcolor{blue}{[Code]}}}
+        
+        
+        
+        \end{enumerate}
+
+
+\section{ Research Experience }
+\subsection{Batman Lab}
+    \cventry{Jan 2023 -- Present}%
+      {Boston University}%
+      {Graduate Research Assistant}%
+      {Boston, Massachusetts}%
+      {}%
+      {
+        \begin{itemize}
+        \item {\bf Advisor(s):} Dr. Kayhan Batmanghelich
+        \item {\bf Research Area}: Explainable AI; Computer Vision; Medical Imaging.
+        \item Currently developing a method to eliminate the problem of shortcut learning using large-scale breast mammograms.
+        \item Continuing my research by applying the mixture of interpretable models on a real-world Chest-X-Ray dataset -- MIMIC-CXR to (1) eliminate the class imbalance problem; (2) transfer efficiently to an unseen domain with limited training data.
+        \href{https://shantanu48114860.github.io/projects/MICCAI-2023-MoIE-CXR/}{\textbf{(Early) Accepted at MICCAI, 2023}}.
+        \end{itemize}
+      }
+  
+    \subsection{Batman Lab}
+    \cventry{August 2021 -- December 2022}%
+      {University of Pittsburgh}%
+      {Graduate Student Researcher}%
+      {Pittsburgh, Pennsylvania}%
+      {}%
+      {
+        \begin{itemize}
+        \item {\bf Advisor(s):} Dr. Kayhan Batmanghelich, Dr. Forough Arabshahi \item {\bf Research Area}: Explainable AI; Computer Vision; Medical Imaging.
+        \item Introduced an iterative algorithm to carve out a mixture of interpretable models from a Blackbox, each specializing in a different subset of data to provide instance-specific First-order logic-based explanations using human-understandable concepts. Also, our method effectively detected and removed the shortcut (biased) concepts from the Blackbox, making it robust. \href{https://shantanu48114860.github.io/projects/ICML-2023-MoIE/}
+        {\textbf{Accepted at ICML, 2023}}.
+        \item Developed an attention model to leverage the anatomical landmarks (weak labels) using the \textbf{Stanford RadGraph NLP pipleline} to detect Pneumonia and Pneumothorax from \textbf{MIMIC-CXR} dataset. Also, designed the baseline using \textbf{RetinaNet}.
+        \href{https://conferences.miccai.org/2022/papers/045-Paper1726.html}
+        {\textbf{Accepted at MICCAI, 2022}}.
+        \item Investigated why \textbf{lottery ticket hypothesis} works or fails in terms of explainability metrics -- \textbf{Concept activation vectors (TCAV)} and  \textbf{Grad-CAM} based saliency maps. 
+        \href{https://github.com/Shantanu48114860/Explainability-with-LTH}
+        {\textbf{[Code]}} \href{https://github.com/Shantanu48114860/Explainability-with-LTH/blob/main/doc/VLR.pdf}
+        {\textbf{[Report]}}
+        \end{itemize} 
+      }
+
+      % 1. Currently developing a novel algorithm to explain the prediction of a black box classifier with the help of network pruning using lottery ticket hypothesis. In this project, we aim to iteratively extract the explainable concepts from a black-box model using a neuro-symbolic explainable model. Also, we aim to detect the shortcut (biased) concepts from the black box and iteratively remove them from the features of the black box to make it robust.
+      % 2. Analyzed why pruning strategies using lottery ticket hypothesis works or fails in terms of explainability metrics -- Concept activation vectors (TCAV) for global concepts and saliency maps like Grad-CAM, Integrated-Gradient for pixel attributions.
+      % 3. Developed an attention model to leverage the anatomical landmarks (weak labels) from Stanford RadGraph NLP pipleline to detect Pneumonia and Pneumothorax from MIMIC-CXR dataset. Also, designed the baseline using RetinaNet. 
+  
+    \subsection{Florida Institute for Cybersecurity Research (FICS)}
+    \cventry{March 2021 -- July 2021}%
+      {University of Florida}%
+      {Graduate Research Assistant}%
+      {Gainesville, Florida}%
+      {}%
+      {
+        \begin{itemize}
+        \item {\bf Advisor(s):} Dr. Mattia Prosperi, Dr. Kevin Butler
+        \item {\bf Research Area}: Causal Inference, Deep Learning.
+        \item Developed a novel deep learning framework to (1) generate the counterfactual outcomes based on treatment using a Generative Adversarial Network with \textbf{information-theoretic} regularization; (2) utilized the counterfactual outcomes to estimate the individual treatment effect (\textbf{ITE}) using \textbf{doubly robust optimization} for faster convergence. 
+        \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10148269/}
+        {\textbf{Accepted at AMIA Symposium (Oral), 2022}}.
+        \end{itemize}
+      }
+
+      %    1. Designed a robust deep learning model amalgamating the theories of Causal Graphs and Deep Variational Information Bottleneck. Studied the failure modes of the causal model by performing adversarial attacks.
+      %    2. Developed the baseline using the experiments in the papers "Deep Variational Information Bottleneck" (Alemi et al.) and "A Causal View on Robustness of Neural Networks" (Zhang et al.) in Pytorch.
+  
+    \subsection{Data Intelligence Systems Lab (DISL)}
+    \cventry{Jan 2020 -- Feb 2021}%
+      {University of Florida}%
+      {Graduate Research Assistant}%
+      {Gainesville, Florida}%
+      {}%
+      {
+        \begin{itemize}
+        \item {\bf Advisor(s):} Dr. Mattia Prosperi, Dr. Jian Bian
+        \item {\bf Research Area}: Causal Inference, Deep Learning.
+        \item Designed a novel algorithm using a Generative Adversarial Network to generate synthetic treated samples to remove imbalance within an observational dataset for \textbf{Propensity score matching}. \href{https://www.sciencedirect.com/science/article/pii/S2666990021000197/}
+        {\textbf{Accepted at Computer Methods and Programs in Bio-medicine Update}}.
+        \item Developed a \textbf{sparse autoencoder} to reduce the dimensionality of the covariates of the patients to calculate the \textbf{Propensity score} in an efficient way to estimate the average treatment effect (\textbf{ATE}) of the treatment. \href{https://academic.oup.com/jamia/article-abstract/28/6/1197/6139936}
+        {\textbf{Accepted at JAMIA}}.
+        \end{itemize}
+      }
+    
+      % 1. Developed a novel deep learning framework to generate the counterfactual outcomes based on a treatment using a Generative Adversarial Network and information-theoretic regularization. Next, we utilized the counterfactual outcomes to estimate the individual treatment effect (ITE) using a novel deep learning network with doubly robust optimization for faster convergence.
+      % 2. Designed a novel algorithm using a Generative Adversarial Network to generate synthetic treated samples to remove imbalance within an observational dataset for Propensity score matching.
+      % 3. Developed a sparse autoencoder to reduce the dimensionality of the feature vectors of the patients to calculate the Propensity score in an efficient way to estimate the average treatment effect (ATE) of the treatment.
+  
+    % \subsection{Multimedia Communications and Networking Laboratory (MCN)}
+    % \cventry{Feb 2020 -- May 2020}%
+    %   {University of Florida}%
+    %   {Independent Researcher}%
+    %   {Gainesville, Florida}%
+    %   {}%
+    %   {
+    %     \begin{itemize}
+    %     \item {\bf Advisor(s):} Dr. Dapeng (Oliver) Wu
+    %     \item {\bf Research Area}: Computer Vision.
+    %     \item Developed a Deep Convolutional Multitask Neural Network(\textbf{MTL-TCNN}) to classify textures. We used an auxiliary head to detect normal images other than textures to regularize the main texture detector head of the network.
+    %     \href{https://github.com/Shantanu48114860/MTL-TCNN3/blob/master/Report/Texture_Classification.pdf
+    %     }
+    %     {\textbf{[Report]}}
+    %     \href{https://github.com/Shantanu48114860/MTL-TCNN3}
+    %     {\textbf{[Code]}}
+    %     \end{itemize}
+    %   }
+  
+% \section{ Teaching Experience }
+%   \begin{itemize}
+    
+%       \item
+%         Undergraduate TA.
+%         {\bf CS 2114, Software Design and Data Structures}.
+%         Virginia Tech.
+%         {\it January 2013--May 2013}.
+%   \end{itemize}
+  
+
+%   \subsection{Magazine Articles}
+%   \printbibliography[heading=none,type=article,keyword=magazine,
+%     resetnumbers=true,prefixnumbers=M]
+\section{ Industry Experience }
+
+    \subsection{Lexmark International India Pvt Ltd}
+    \cventry{Oct 2016 -- July 2019}%
+      {}%
+      {Software Engineering Professional II}%
+      {Kolkata, India}%
+      {}%
+      {}
+      {
+        \begin{itemize}
+        
+        \item Developed the ISP component of the product \href{https://infoserve.lexmark.com/ids/idv/video.aspx?category=All&productCode=PUBLISHING_PLATFORM_FOR_RETAIL&topic=v54408848&vId=PPR%2fLexmark-PPR-ISP-Overview-video&ar=16%3a9&l1=1&l2=1&sh=969&sw=1920&loc=en_US}
+        {\textbf{\underline{Publishing Platform for Retail(PPR)}}} using {\bf C\#} {\bf .Net 4.5}, {\bf Angular}, {\bf HTML5} and {\bf SQL Server}.
+        % \item Worked on the Lexmark Digital Media Platform, a multi-tenant enterprise video content management platform hosted in Amazon Web Services.
+        \end{itemize}
+      }
+    
+  
+    \subsection{Cognizant Technology Solutions India Pvt Ltd}
+    \cventry{March 2013 -- September 2016}%
+      {}%
+      {Associate, Projects}%
+      {Kolkata, India}%
+      {}%
+      {}
+      {
+        \begin{itemize}
+        \item Developed \textbf{WCF} web services in the Contract First Approach to provide a secure communication channel between the different In-house applications using \textbf{Service Oriented Architecture (SOA)}, \textbf{C\#} \textbf{.Net 4.5}, \textbf{Oracle Client 11g}.
+        % \item Trained C\# to new recruits in Cognizant Academy.
+        \end{itemize}
+      }
+  
+    % Worked as a senior developer to develop WCF web services in the Contract First Approach to provide a secure communication channel between the different In-house applications using Service Oriented Architecture (SOA), C# .Net 4.5, Oracle Client 11g. Trained C\# to new recruits in Cognizant Academy.
+    
+\section{ Skills }
+
+
+    \begin{itemize}
+  
+    % \item { \bf Preference. } Arch Linux/Mac, vim/emacs, git/Make/sbt
+  
+    \item { \bf Languages. } Python, C/C++, Java, C\#/.Net, Javascript/Typescript, HTML/CSS
+     \item { \bf Machine Learning. } TensorFlow, PyTorch, Scikit-learn 
+      \item { \bf Web Development. } Angular, Node.js, WCF
+    % \item { \bf Systems. } Linux, Mac
+    
+    \item { \bf Database. } MySQL, Oracle 9i/10g, MS SQL Server, DB2
+    \end{itemize}
+    
+\section{Graduate Courses}
+\normalfont{ \textbullet{} Fundamentals of Machine Learning }
+% \normalfont{ \textbullet{} Distributed Operating Systems}
+% \normalfont{ \textbullet{} Computer Networks}
+\normalfont{ \textbullet{} Machine Learning}
+\normalfont{ \textbullet{} Advanced Machine Learning}
+\normalfont{ \textbullet{} Deep Learning for Computer Graphics  }
+\normalfont{ \textbullet{} Causal Inference and Machine Learning}
+\normalfont{ \textbullet{} Visual Learning and Recognition}
+\normalfont{ \textbullet{} Mathematics for Intelligent Systems   }
+\normalfont{ \textbullet{} Fundamentals of Probability}
+\normalfont{ \textbullet{} Numerical Optimization}
+\normalfont{ \textbullet{} Analysis of Algorithms}
+\normalfont{ \textbullet{} Advanced Data Structures \\}
+\section{ Honors \& Awards }
+\begin{itemize}
+    % \item{Received the \textbf{Travel Award} to present my Master's research at \emph{AMIA Symposium, 2022} at Washington DC.}
+    \item{Received the \textbf{Achievement Award} of 4500 USD during the admission of graduate studies in the University of Florida in Fall 2019.}
+    \item {Received the \textbf{Star Employee} award in Q4, 2013 and Q4, 2015 in Cognizant Technology Solutions.}
+    % \item {Recipient of the \textbf{National Scholarship} Award from \textbf{Central Government Human Resource Development Department of Higher Education, India} for excellent result in Higher Secondary Examination  in the state of West Bengal, India.}
+    %  \item {Topped with \textbf{1\%} of all candidates appeared in \textbf{West Bengal Joint Entrance Examination} in 2008.}
+\end{itemize}
+    
+
+% \section{ Honors \& Awards }
+
+
+%   \begin{itemize}
+  
+%     \item Phi Beta Kappa Honor Society, Inducted 2014
+    
+  
+%     \item 1st Place Capstone Award, Virginia Tech Computer Science, 2014
+    
+  
+%     \item David Heilman Research Award, Virginia Tech Computer Science, 2014
+    
+%       \begin{itemize}
+%       \item {Given to the Computer Science student with the most outstanding research experience.}
+%       \end{itemize}
+    
+  
+%     \item Senior Scholar Award, Virginia Tech Computer Science, 2014
+    
+%       \begin{itemize}
+%       \item {Given to the senior in Computer Science with the most outstanding academic record.}
+%       \end{itemize}
+    
+  
+%     \item ACC Meeting of the Minds Undergraduate Research Conference, 2014
+    
+  
+%     \item Honorable Mention, CRA Outstanding Undergraduate Researcher Award, 2014
+    
+%       \begin{itemize}
+%       \item {1 of 15 North American males awarded honorable mention for exemplary computer science research.}
+%       \end{itemize}
+    
+  
+%     \item Qualstar Award, Qualcomm, 2013
+    
+  
+%     \item Pi Mu Epsilon Honor Society, Inducted 2013
+    
+  
+%     \item Benjamin F. Bock Merit Scholarship, Virginia Tech Engineering, 2013--2014
+    
+  
+%     \item Sophomore Scholar Award, Virginia Tech Computer Science, 2013
+    
+  
+%     \item University Honors, Virginia Tech, 2012--2014
+    
+  
+%     \item Intelligence Community Center of Academic Excellence Scholar, Virginia Tech, 2012--2014
+    
+%       \begin{itemize}
+%       \item {Merit-based scholarship providing a cyber-security research fellowship.}
+%       \end{itemize}
+    
+  
+%     \item Dean's List with Distinction, Virginia Tech, 2011--2014
+    
+  
+%     \item Engineering Merit Scholarship, Roanoke County Public Schools Education Foundation, 2011
+    
+%       \begin{itemize}
+%       \item {Merit-based scholarship presented annually to one student in the graduating Engineering class.}
+%       \end{itemize}
+    
+  
+%     \item Papa John's Merit Scholarship, 2011
+    
+  
+%     \item Gay B. Shober Memorial Merit Scholarship, Roanoke County Federal Credit Union, 2011
+    
+  
+%     \item Pamplin Leader Scholarship, Virginia Tech, 2011
+    
+%       \begin{itemize}
+%       \item {Merit-based scholarship presented to one student from each public high school in Virginia.}
+%       \end{itemize}
+    
+  
+%     \item I. Luck Gravett Memorial Merit Scholarship, Scottish Rite of Freemasonry, 2011
+    
+  
+%     \item Salem--Roanoke County Chamber of Commerce Merit Scholarship, 2011
+    
+  
+%   \end{itemize}
+% \section{ Activities }
+
+
+%     \begin{itemize}
+  
+%     \item Honors Residential College, Virginia Tech, 2013--2014
+  
+%     \item Hokies Pep Band, Virginia Tech, 2012--2013
+  
+%     \item Computer Science Community Service, Virginia Tech, 2012
+  
+%     \item Symphony Band, Virginia Tech, 2011--2012
+  
+%     \item Linux and Unix Users Group, Virginia Tech, 2011--2012
+  
+%     \item Galileo Living--Learning Community, Virginia Tech, 2011--2012
+  
+%     \end{itemize}
+
+
+\end{document}
