@@ -164,7 +164,7 @@
             font-weight: 600;
         }
 
-        @media (max-width: 800px) {
+        @media (max-width: 1000px) {
             /*p, ul, header {
                 font-size: 1.1rem !important;
             }*/
@@ -178,6 +178,25 @@
             }
         }
 
+        .child {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        @media (min-width: 1000px)
+        .col-md-4 {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 49%;
+            flex: 0 0 49%;
+            max-width: 49%;
+        }
+        div .text {
+            text-align: center;
+            display: block; /* Optional: Ensure the span takes the full width */
+        }
 
     </style>
 </head>
@@ -815,20 +834,40 @@
         </div>
     </div>
 
+    <h4>Talks</h4>
     <div class="row my-4" id="talks">
-        <div class="col">
-            <h4>Talks</h4>
-            <ul>
-                <li><span id="date">[Nov 2022]</span> <a href="https://www.youtube.com/watch?v=cg6vFS8C0mI&t=16s">Oral Presentation</a>
-                    @ <b>AMIA 2022 Annual Symposium</b> <a href="https://docs.google.com/presentation/d/1oQA4m0oVeNmjBc6t7al1Is1evB-uVg7F/edit">[Slides] </a>
-                </li>
-                <li><span id="date">[Nov 2023]</span> <a href="https://calendar.pitt.edu/event/isp_ai_forum_november_10th">Fall 2023, ISP AI Forum</a>
-                    @ <b> University of Pittsburgh</b> <a href="https://drive.google.com/file/d/1ThkYxSxX1GLhLNKuQLtEmtv9fZxaPsAM/view">[Slides] </a>
-                </li>
-                <iframe width="600" height="400" src="https://www.youtube.com/embed/sXzh5cIeJD8?si=vUzLnCFfJcjJoepu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </ul>
+        <div class="col-md-4">
+            <span class="text"><a href="https://www.youtube.com/watch?v=cg6vFS8C0mI&t=16s">Oral Presentation</a>
+                    @ <b>AMIA 2022 Annual Symposium</b> <a href="https://docs.google.com/presentation/d/1oQA4m0oVeNmjBc6t7al1Is1evB-uVg7F/edit">[Slides]</a></span>
+            <div class="child">
+                <iframe width="390" height="200" src="https://www.youtube.com/embed/cg6vFS8C0mI?si=jRO9vPgTz5iBjQbg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <span class="text"><a href="https://calendar.pitt.edu/event/isp_ai_forum_november_10th">Fall 2023, ISP AI Forum</a>
+                    @ <b> University of Pittsburgh</b> <a href="https://drive.google.com/file/d/1ThkYxSxX1GLhLNKuQLtEmtv9fZxaPsAM/view">[Slides] </a></span>
+            <div class="child">
+                <iframe width="390" height="200" src="https://www.youtube.com/embed/sXzh5cIeJD8?si=vUzLnCFfJcjJoepu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
+
+    <h4>Tutorials</h4>
+    <div class="row my-4" id="talks">
+        <div class="col-md-4">
+            <span class="text">Tutorial on Variational Autoencoder (VAE)</span>
+            <div class="child">
+                <iframe width="390" height="200" src="https://www.youtube.com/embed/0lDNgFPyS_c?si=Ud9T_j2n5sC_xH2P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <span class="text">Tutorial on Pearl's Do Calculus of causality</span>
+            <div class="child">
+                <iframe width="390" height="200" src="https://www.youtube.com/embed/RCclqTLSsw0?si=AYS6nW9SxFeSvFyL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
 
     <!--    <div class="row my-4" id="teaching">-->
     <!--        <div class="col-xl-7">-->
