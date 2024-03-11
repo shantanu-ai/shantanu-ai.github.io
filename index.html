@@ -7,6 +7,7 @@
     <link rel = "icon" href = "images/bu-logo.png" 
         type = "image/x-icon">
     <title>shantanu AI</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -23,20 +24,41 @@
 
 
     <style>
-        @import url('https://rsms.me/inter/inter.css');
+/*        @import url('https://rsms.me/inter/inter.css');*/
+        body, h1, h2, h3, h4, h5, h6, p, ul, li, nav, div, a, button, input, textarea {
+            font-family: "Open Sans", "Roboto", Arial, sans-serif !important;
+        }
 
+        /* Ensure all elements have the font-weight you prefer */
+        /* For example, to make the text normal weight: */
+        body, p, ul, li, nav, div, a, button, input, textarea {
+            font-weight: 400 !important;
+            font-size: 15px !important;
+        }
+
+        /* For headings to have bold weight: */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700 !important;
+        }
         .video-container {
-            display: flex;
-            justify-content: center;
-/*            align-items: center;*/
-            height: 500px; /* Set a fixed height for the container */
-            max-width: 800px; /* Set a maximum width for the container */
-            margin: 0 auto; /* Center the container on the page */
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Aspect ratio of 16:9 */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 20px; /* Spacing between tiles */
+        }
+        .video-title {
+            text-align: center; /* Center the title if desired */
+            /* Any additional styling you want for the title */
         }
 
         .video-container iframe {
-            width: 80%; /* Set the width of the video */
-            height: 80%; /* Set the height of the video */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
         #navbarNav a {
@@ -836,64 +858,6 @@
         </div>
     </div>
 
-    <h4>Talks</h4>
-    <div class="row my-4" id="talks">
-        <div class="col-md-4">
-            <span class="text"><a href="https://www.youtube.com/watch?v=cg6vFS8C0mI&t=16s">Oral Presentation</a>
-                    @ <b>AMIA 2022 Annual Symposium</b> <a href="https://docs.google.com/presentation/d/1oQA4m0oVeNmjBc6t7al1Is1evB-uVg7F/edit">[Slides]</a></span>
-            <div class="child">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/cg6vFS8C0mI?si=jRO9vPgTz5iBjQbg" title="YouTube video player" frameborder="0.5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <span class="text"><a href="https://calendar.pitt.edu/event/isp_ai_forum_november_10th">Fall 2023, ISP AI Forum</a>
-                    @ <b> University of Pittsburgh</b> <a href="https://drive.google.com/file/d/1ThkYxSxX1GLhLNKuQLtEmtv9fZxaPsAM/view">[Slides] </a></span>
-            <div class="child">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/sXzh5cIeJD8?si=vUzLnCFfJcjJoepu" title="YouTube video player" frameborder="0.5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-
-    <h4>Tutorials</h4>
-    <div class="row my-4" id="talks">
-        <div class="col-md-4">
-            <span class="text">Tutorial on Variational Autoencoder (VAE)</span>
-            <div class="child">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/0lDNgFPyS_c?si=Ud9T_j2n5sC_xH2P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <span class="text">Tutorial on Pearl's Do Calculus of causality</span>
-            <div class="child">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/RCclqTLSsw0?si=AYS6nW9SxFeSvFyL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-
-
-    <!--    <div class="row my-4" id="teaching">-->
-    <!--        <div class="col-xl-7">-->
-    <!--            <h4>Teaching & Mentorship</h4>-->
-
-    <!--            <h6 class="text-muted mt-3">Courses</h6>-->
-    <!--            <div class="class-listing">-->
-    <!--<span><b>Representation Learning (COMS 6998 - Fall '21, '22)</b><br>-->
-    <!--Teaching Assistant</span><span class="text-muted">Columbia University</span>-->
-    <!--            </div>-->
-    <!--            <h6 class="text-muted mt-3">Mentorship</h6>-->
-    <!--            <div class="class-listing">-->
-    <!--                <span><b>Women in Science (Fall '21, Spring '22)</b><br></span><span class="text-muted">Columbia University</span>-->
-    <!--            </div>-->
-    <!--            <div class="class-listing">-->
-    <!--                <span><b>BEARS Mentorship (Spring '22)</b><br></span><span class="text-muted">Barnard College</span>-->
-    <!--            </div>-->
-    <!--            <div class="class-listing">-->
-    <!--                <span><b>Amazon-SURE Mentorship (Summer '22)</b><br></span><span class="text-muted">Amazon & Colubmia University</span>-->
-    <!--            </div>-->
-
-    <!--        </div>-->
-    <!--    </div>-->
-
     <div class="row my-4" id="teaching">
         <div class="col-xl-7">
             <h4>Teaching</h4>
@@ -904,6 +868,42 @@
             </div>
         </div>
     </div>
+    <h4>Talks</h4>
+    <div class="row my-4" id="talks">
+        <div class="col-lg-6 mb-4">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/cg6vFS8C0mI?si=jRO9vPgTz5iBjQbg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <p>Oral Presentation @ AMIA 2022 Annual Symposium [Slides]</p>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/sXzh5cIeJD8?si=vUzLnCFfJcjJoepu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <p>Fall 2023, ISP AI Forum @ University of Pittsburgh [Slides]</p>
+            </div>
+        </div>
+        <!-- Repeat the above pattern for more videos -->
+    </div>
+
+
+    <h4>Tutorials</h4>
+    <div class="row my-4" id="tutorials">
+        <div class="col-lg-6 mb-4">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/0lDNgFPyS_c?si=Ud9T_j2n5sC_xH2P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <p class="video-title">Tutorial on Variational Autoencoder (VAE)</p>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+            <div class="video-container">
+                <p class="video-title">Tutorial on Pearl's Do Calculus of causality</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/RCclqTLSsw0?si=AYS6nW9SxFeSvFyL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                
+            </div>
+        </div>
+        <!-- Repeat the above pattern for more videos -->
+    </div>
+
 
     <div class="row my-4" id="past">
         <div class="col">
@@ -930,20 +930,6 @@
             clicked by me in one of such events in 2014.
         </div>
     </div>
-    <div class="row my-4" id="interviews">
-        <div class="col">
-            <h4>Interviews</h4>
-            <ul>
-                <li>
-                    Podcast hosted by <a href="https://kdmsit.github.io/">Kishlay Das</a> to provide my insights for the admission and research in the US for MS/PhD aspirants.
-                    <div class="video-container" style="margin-bottom: -12%;">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/rl4HKbNmXTQ?si=yOBbYgLzS3M8zhJL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
     <div class="row my-4" id="misc">
         <div class="col">
             <h4>Miscellaneous</h4>
@@ -951,6 +937,19 @@
             I have lived in Gainesville (FL), Pittsburgh (PA) and Boston (MA).
         </div>
     </div>
+    <div class="row my-4" id="interviews">
+    <div class="col">
+        <h4>Interviews</h4>
+        <ul>
+            <li>
+                Podcast hosted by <a href="https://kdmsit.github.io/">Kishlay Das</a> to provide my insights for the admission and research in the US for MS/PhD aspirants.
+                <div class="video-container" style="max-width: 860px; margin: 0 auto;">
+                    <iframe width="860" height="315" src="https://www.youtube.com/embed/rl4HKbNmXTQ?si=yOBbYgLzS3M8zhJL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
 
 </main>
 
