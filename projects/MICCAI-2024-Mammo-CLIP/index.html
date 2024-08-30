@@ -195,7 +195,7 @@
                      style="width: 100%; height: auto;"/>
                 <figcaption style="text-align: center; font-size: 14px; color: #555;">
                     Fig. 1. Schematic view of our method. (a) Image-text augmentation for Multi-View Supervision (MVS).
-                    (b) Dataset augmentation by synthesizing reports using image-attribute datasets.
+                    (b) Dataset augmentation by synthesizing reports using image-label datasets.
                     (c) Mammo-CLIP pretraining strategy.
                     (d) Feature attribution using Mammo-FActOR.
                 </figcaption>
@@ -223,16 +223,16 @@
                 <div class="content">
                     <h2 class="title is-3">Mammo-CLIP Optimization</h2>
                     <div class="content" style="text-align: justify;">
-                        <p>Mammo-CLIP is a Vision Language Model specifically designed for mammography. The core
-                            objective
-                            of Mammo-CLIP is to align visual representations from mammogram images with corresponding
-                            textual descriptions found in radiology reports. This alignment is achieved by employing
-                            separate encoders for images and text. The model is trained to ensure that similar images
-                            and
-                            texts have closely aligned representations in a shared feature space. This approach improves
-                            the
-                            model's ability to accurately interpret and classify mammographic findings, leading to more
-                            reliable and interpretable results.</p>
+                        <p>Mammo-CLIP is a Vision Language Model specifically tailored for mammography. Its primary goal
+                            is to align visual features from mammogram images with the corresponding textual
+                            descriptions found in radiology reports. This alignment is accomplished by using separate
+                            encoders for images and text, ensuring that similar images and texts are closely aligned
+                            within a shared feature space. This method enhances the model's capability to accurately
+                            interpret and classify mammographic findings, resulting in more reliable and interpretable
+                            outcomes. Additionally, Mammo-CLIP leverages both image+text datasets and image+label
+                            datasets to learn superior representations through a multiview supervision (MVS) loss. In
+                            practice, we utilize an in-house image+report dataset from UPMC, alongside the publicly
+                            available VinDr dataset as our image+label dataset. </p>
                     </div>
                 </div>
             </div>
@@ -306,6 +306,30 @@
                             and data efficiency make it a valuable asset in the early detection of breast cancer,
                             potentially
                             saving lives by enabling faster and more accurate diagnoses.</p>
+                    </div>
+                    <!--                    <video autoplay muted controls loop style="width: 100%;">-->
+                    <!--                        <source src="static/figures/mammo_clip_results.mp4" type="video/mp4">-->
+                    <!--                        Your browser does not support the video tag.-->
+                    <!--                    </video>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="margin-top: -7%; margin-bottom:-10px">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+            <div class="columns is-centered">
+                <div class="content">
+                    <h2 class="title is-3">Baselines</h2>
+                    <div class="content" style="text-align: justify">
+                        <p>Using UPMC (image+text) dataset and CLIP objective, we construct
+                            two baselines: 1) an image encoder w/ ResNet-50 initialized with CLIP
+                            weights and fine-tuned with 224×224 images, 2) EfficientNet (EN)-B5 fine-tuned
+                            using the same pre-processed images as Mammo-CLIP. Both the baselines are
+                            pre-trained using the UPMC dataset, as CLIP only uses an image-text dataset,
+                            not an image-label dataset.</p>
                     </div>
                     <!--                    <video autoplay muted controls loop style="width: 100%;">-->
                     <!--                        <source src="static/figures/mammo_clip_results.mp4" type="video/mp4">-->
