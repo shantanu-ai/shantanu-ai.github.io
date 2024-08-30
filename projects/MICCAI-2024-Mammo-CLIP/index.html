@@ -175,10 +175,35 @@
                     mammographic
                     attributes such as masses and calcifications.</p><br>
                 <p>Explore our results and see how Mammo-CLIP sets a new standard in mammography AI.</p><br>
+
+                <h3 class="title is-4">Features</h3>
+                <div style="margin-left: 20px;">
+                    <ul style="list-style-type: disc;">
+                        <li>Mammo-CLIP is designed for downstream tasks including zero-shot classification of breast
+                            findings and disease, ensuring versatility across diverse datasets.
+                        </li>
+                        <li>The model supports linear probe classification and localization, allowing for efficient use
+                            of varying amounts of labeled data to achieve accurate results.
+                        </li>
+                        <li>Mammo-CLIP can be fine-tuned on specific datasets to further enhance classification and
+                            localization performance, particularly in identifying breast cancer and other related
+                            findings.
+                        </li>
+                        <li>With Mammo-FActOR, Mammo-CLIP vision encoder excels in localization tasks, accurately
+                            identifying findings like masses and
+                            calcifications using descriptive sentences, without relying on ground truth bounding boxes.
+                        </li>
+                        <li>Although Mammo-CLIP is primarily aligned with screening mammograms, it demonstrates
+                            exceptional performance in cancer classification, showcasing its ability to generalize
+                            effectively to unseen domains.
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <section class="section" style="margin-top: -10%; margin-bottom:-10px">
     <div class="container is-max-desktop">
@@ -307,6 +332,32 @@
                             potentially
                             saving lives by enabling faster and more accurate diagnoses.</p>
                     </div>
+
+                    <h3 class="title is-4">Detailed Task Descriptions</h3>
+                    <ul>
+                        <li>Zero-shot classification of cancer on the RSNA dataset, and classification of mass,
+                            calcification, and density on the VinDr dataset without any fine-tuning.
+                        </li>
+                        <li>Classification of mass, calcification, and density on the VinDr dataset using the Mammo-CLIP
+                            vision encoder, trained with linear probes on 10%, 50%, and 100% of the training data.
+                        </li>
+                        <li>Classification of mass, calcification, and density on the VinDr dataset by fine-tuning the
+                            Mammo-CLIP vision encoder with 100% of the training data.
+                        </li>
+                        <li>Classification of cancer on the RSNA dataset by fine-tuning the Mammo-CLIP vision encoder
+                            with 10%, 50%, and 100% of the training data.
+                        </li>
+                        <li>Classification of cancer on the RSNA dataset using the Mammo-CLIP vision encoder, trained
+                            with linear probes on 100% of the training data.
+                        </li>
+                        <li>Localization of mass and calcification on the VinDr dataset by fine-tuning the Mammo-CLIP
+                            vision encoder with 10%, 50%, and 100% of the training data.
+                        </li>
+                        <li>Localization of mass and calcification on the VinDr dataset using the Mammo-CLIP vision
+                            encoder with a frozen encoder, trained on 100% of the training data.
+                        </li>
+                    </ul>
+
                     <!--                    <video autoplay muted controls loop style="width: 100%;">-->
                     <!--                        <source src="static/figures/mammo_clip_results.mp4" type="video/mp4">-->
                     <!--                        Your browser does not support the video tag.-->
@@ -317,6 +368,7 @@
     </div>
 </section>
 
+
 <section class="section" style="margin-top: -7%; margin-bottom:-10px">
     <div class="container is-max-desktop">
         <div class="hero-body">
@@ -325,7 +377,7 @@
                     <h2 class="title is-3">Baselines</h2>
                     <div class="content" style="text-align: justify">
                         <p>Using UPMC (image+text) dataset and CLIP objective, we construct
-                            two baselines: 1) an image encoder w/ ResNet-50 initialized with CLIP
+                            two baselines: 1) an image encoder w/ ResNet (RN)-50 initialized with CLIP
                             weights and fine-tuned with 224×224 images, 2) EfficientNet (EN)-B5 fine-tuned
                             using the same pre-processed images as Mammo-CLIP. Both the baselines are
                             pre-trained using the UPMC dataset, as CLIP only uses an image-text dataset,
