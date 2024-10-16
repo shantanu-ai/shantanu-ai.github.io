@@ -310,6 +310,20 @@
             display: block; /* Optional: Ensure the span takes the full width */
         }
 
+        .paperitem:nth-child(odd) {
+            background-color: #f9f9f9; /* Light gray background for odd items */
+        }
+
+        .paperitem:nth-child(even) {
+            background-color: #ffffff; /* White background for even items */
+        }
+
+        /* Optional: Add some padding for better readability */
+        .paperitem {
+            padding: 15px;
+            border-radius: 5px; /* Rounded corners */
+            margin-bottom: 10px; /* Space between items */
+        }
     </style>
 </head>
 <body class="h-100 d-flex flex-column">
@@ -429,7 +443,7 @@
         </div>
     </div>
 
-    <div class="row my-4" id="universities">
+    <div class="row my-4" id="universities" style="background-color: #f0f8ff; padding: 20px; border-radius: 8px;">
         <div class="col-md-auto">
             <table width="100%" align="center" border="0" cellpadding="10">
                 <tbody>
@@ -489,6 +503,7 @@
         </div>
     </div>
 
+
     <div class="row my-4" id="research">
         <div class="col-md-auto">
             <h4>Research</h4>
@@ -543,7 +558,7 @@
         </div>
     </div>
 
-    <div class="row my-4" id="research">
+    <div class="row my-4" id="deeplearning">
         <div class="col-md-auto">
             <h4>Deep Learning Resources</h4>
             <p>
@@ -1170,7 +1185,9 @@
                 <li>Medical Image Computing and Computer Assisted Intervention (<strong>MICCAI</strong>) 2024</li>
                 <li>IEEE/CVF Computer Vision and Pattern Recognition Conference (<strong>CVPR</strong>) 2024</li>
                 <li>Causal Learning and Reasoning (<strong>CLeaR</strong>) 2024</li>
-                <li>ACM Conference on Bioinformatics, Computational Biology, and Health Informatics (<strong>BCB</strong>) 2022</li>
+                <li>ACM Conference on Bioinformatics, Computational Biology, and Health Informatics
+                    (<strong>BCB</strong>) 2022
+                </li>
             </ul>
 
             <b class="mt-3">Journal reviewer</b>
@@ -1187,7 +1204,8 @@
             <b class="mt-3">Workshop reviewer</b>
             <br/>
             <ul>
-                <li>Workshop on GenAI for Health: Potential, Trust and Policy Compliance (<strong>GenAI4Health</strong>), NeurIPS 2024
+                <li>Workshop on GenAI for Health: Potential, Trust and Policy Compliance (<strong>GenAI4Health</strong>),
+                    NeurIPS 2024
                 </li>
                 <li>Causal Representation Learning workshop (<strong>CRL</strong>), NeurIPS 2023</li>
                 <li>Spurious Correlations, Invariance and Stability (<strong>SCIS</strong>), ICML 2023</li>
