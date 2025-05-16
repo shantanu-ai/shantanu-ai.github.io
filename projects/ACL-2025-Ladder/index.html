@@ -1,93 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>LADDER: Language-Driven Slice Discovery</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-  <style>
-    body { padding-top: 80px; font-size: 18px; }
-    .center { text-align: center; }
-    .hero-img { width: 70%; height: auto; }
-    pre { background: #f4f4f4; padding: 1em; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>LADDER: Language-Driven Slice Discovery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <style>
+        body {
+            padding-top: 80px;
+            font-size: 18px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .hero-img {
+            width: 70%;
+            height: auto;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 1em;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">LADDER</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item"><a class="nav-link" href="#abstract">Abstract</a></li>
-      <li class="nav-item"><a class="nav-link" href="#paper">Paper</a></li>
-      <li class="nav-item"><a class="nav-link" href="#code">Code</a></li>
-      <li class="nav-item"><a class="nav-link" href="#talk">Talk</a></li>
-      <li class="nav-item"><a class="nav-link" href="#bibtex">BibTeX</a></li>
-    </ul>
-  </div>
+    <a class="navbar-brand" href="#">LADDER</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#abstract">Abstract</a></li>
+            <li class="nav-item"><a class="nav-link" href="#paper">Paper</a></li>
+            <li class="nav-item"><a class="nav-link" href="#code">Code</a></li>
+            <li class="nav-item"><a class="nav-link" href="#talk">Talk</a></li>
+            <li class="nav-item"><a class="nav-link" href="#bibtex">BibTeX</a></li>
+        </ul>
+    </div>
 </nav>
 
 <div class="container">
-  <div class="center">
-    <h2>LADDER: Language-Driven Slice Discovery and Error Rectification in Vision Classifiers</h2>
-    <p>
-      <a href="https://shantanu-ai.github.io/">Shantanu Ghosh</a>,
-      <a href="https://heartyhaven.github.io/">Rayan Syed</a>,
-      Chenyu Wang, Vaibhav Choudhary, Binxu Li,<br>
-      Clare B. Poynton, Shyam Visweswaran, Kayhan Batmanghelich<br>
-      <small>Boston University, Stanford, BUMC, Pitt</small>
-    </p>
-  </div>
+    <div class="center">
+        <h2>LADDER: Language-Driven Slice Discovery and Error Rectification in Vision Classifiers</h2>
+        <p>
+            <a href="https://shantanu-ai.github.io/">Shantanu Ghosh<sup>1</sup></a>,
+            <a href="https://www.linkedin.com/in/rayan-syed-507379296/">Rayan Syed<sup>1</sup></a>,
+            <a href="https://chyuwang.com/">Chenyu Wang<sup>1</sup></a>,
+            <a href="https://vaibhavchoudhary.com/">Vaibhav Choudhary<sup>1</sup></a>,
+            <a href="https://www.linkedin.com/in/binxu-li-595b64245/">Binxu Li<sup>2</sup></a>,
+            <a href="https://www.bumc.bu.edu/camed/profile/clare-poynton/">Clare B. Poynton<sup>3</sup></a>,
+            <a href="https://www.thevislab.com/lab/doku.php">Shyam Visweswaran<sup>4</sup></a>,
+            <a href="https://www.batman-lab.com/">Kayhan Batmanghelich<sup>1</sup></a><br/>
+            <span style="font-size: 1.0em;"><sup>1</sup>Boston University, <sup>2</sup>Stanford University, <sup>3</sup>BUMC, <sup>4</sup>Pitt</span><br/>
+            <i><strong>Accepted at ACL 2025 Findings</strong></i>
+        </p>
+    </div>
+</div>
+<div class="publication-links" style="text-align: center; margin-top: -15px;">
+    <span class="link-block">
+        <a href="https://arxiv.org/abs/2408.07832"
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon">
+              <i class="ai ai-arxiv"></i>
+          </span>
+          <span>arXiv</span>
+        </a>
+    </span>
+    <span class="link-block">
+        <a href="https://github.com/batmanlab/Ladder"
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon">
+              <i class="fab fa-github"></i>
+          </span>
+          <span>Code</span>
+        </a>
+    </span>
+    <span class="link-block">
+        <a href="https://huggingface.co/shawn24/Ladder/tree/main"
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon">
+              <i class="fas fa-link"></i>
+          </span>
+          <span>Hugging Face</span>
+        </a>
+    </span>
+    <span class="link-block">
+        <a href="https://github.com/batmanlab/Ladder/tree/main?tab=readme-ov-file#-dataset-zoo"
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon">
+              <i class="fas fa-database"></i>
+          </span>
+          <span>Dataset</span>
+        </a>
+    </span>
+    <span class="link-block">
+        <a href=""
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon"> <i class="far fa-images"></i></span>
+          <span>Poster</span>
+        </a>
+    </span>
 </div>
 
 <div class="container center">
-  <img class="hero-img" src="assets/images/ladder_pipeline.png" alt="LADDER Pipeline Illustration">
+    <img class="hero-img" src="projects/ACL-2025-Ladder/static/images/ladder-schematic.png" alt="LADDER Pipeline Illustration">
 </div>
 
 <div class="container" id="abstract">
-  <h3>Abstract</h3>
-  <hr>
-  <p>
-    LADDER is a modular framework that uses large language models (LLMs) to discover, explain, and mitigate hidden biases in vision classifiers—without requiring prior knowledge of the biases or attribute labels.
-  </p>
+    <h3>Abstract</h3>
+    <hr>
+    <p>
+        LADDER is a modular framework that uses large language models (LLMs) to discover, explain, and mitigate hidden
+        biases in vision classifiers—without requiring prior knowledge of the biases or attribute labels.
+    </p>
 </div>
 
 <div class="container" id="paper">
-  <h3>Paper</h3>
-  <hr>
-  <p>
-    <strong>LADDER: Language-Driven Slice Discovery and Error Rectification</strong><br>
-    Presented at ACL 2025<br>
-    <a href="https://arxiv.org/abs/2408.07832" target="_blank">[Paper]</a>
-    <a href="https://huggingface.co/shawn24/Ladder" target="_blank">[Checkpoints]</a>
-    <a href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/" target="_blank">[Project Page]</a>
-  </p>
+    <h3>Paper</h3>
+    <hr>
+    <p>
+        <strong>LADDER: Language-Driven Slice Discovery and Error Rectification</strong><br>
+        Presented at ACL 2025<br>
+        <a href="https://arxiv.org/abs/2408.07832" target="_blank">[Paper]</a>
+        <a href="https://huggingface.co/shawn24/Ladder" target="_blank">[Checkpoints]</a>
+        <a href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/" target="_blank">[Project Page]</a>
+    </p>
 </div>
 
 <div class="container" id="code">
-  <h3>Code</h3>
-  <hr>
-  <a href="https://github.com/batmanlab/Ladder" target="_blank">
-    <img src="assets/images/code.png" style="width: 30%; border:1px solid">
-    <p>GitHub Repository</p>
-  </a>
+    <h3>Code</h3>
+    <hr>
+    <a href="https://github.com/batmanlab/Ladder" target="_blank">
+        <img src="assets/images/code.png" style="width: 30%; border:1px solid">
+        <p>GitHub Repository</p>
+    </a>
 </div>
 
 <div class="container" id="talk">
-  <h3>Talk</h3>
-  <hr>
-  <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YOUR_TALK_VIDEO_ID" allowfullscreen></iframe>
-  </div>
+    <h3>Talk</h3>
+    <hr>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YOUR_TALK_VIDEO_ID"
+                allowfullscreen></iframe>
+    </div>
 </div>
 
 <div class="container" id="bibtex">
-  <h3>Citation</h3>
-  <hr>
-  <pre>
+    <h3>Citation</h3>
+    <hr>
+    <pre>
 @article{ghosh2024ladder,
   title={LADDER: Language Driven Slice Discovery and Error Rectification},
   author={Ghosh, Shantanu and Syed, Rayan and Wang, Chenyu and Poynton, Clare B and Visweswaran, Shyam and Batmanghelich, Kayhan},
@@ -98,8 +164,8 @@
 </div>
 
 <footer class="center mt-5 mb-4">
-  <hr>
-  <p>&copy; 2025 Batman Lab | Designed for ACL 2025</p>
+    <hr>
+    <p>&copy; 2025 Batman Lab | Designed for ACL 2025</p>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
