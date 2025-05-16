@@ -107,48 +107,64 @@
     </span>
 </div>
 
-<div class="container center">
-    <img class="hero-img" src="projects/ACL-2025-Ladder/static/images/ladder-schematic.png" alt="LADDER Pipeline Illustration">
+<div class="container center" style="margin-top: 40px;">
+    <img class="hero-img" src="./static/images/ladder-schematic.png"
+         alt="LADDER Pipeline Illustration"
+         style="max-width: 100%; transform: scale(1.15); transform-origin: top center;">
 </div>
 
-<div class="container" id="abstract">
-    <h3>Abstract</h3>
-    <hr>
-    <p>
-        LADDER is a modular framework that uses large language models (LLMs) to discover, explain, and mitigate hidden
-        biases in vision classifiers—without requiring prior knowledge of the biases or attribute labels.
+<div class="container" style="margin-top: 35px; text-align: center; font-size: 1.1em;">
+    <p><strong>TL;DR:</strong> LADDER is a modular framework that uses large language models (LLMs) to discover,
+        explain, and mitigate hidden biases in vision classifiers—without requiring prior knowledge of bias attributes.
     </p>
 </div>
 
 <div class="container" id="paper">
-    <h3>Paper</h3>
+    <h3>Abstract</h3>
     <hr>
     <p>
-        <strong>LADDER: Language-Driven Slice Discovery and Error Rectification</strong><br>
-        Presented at ACL 2025<br>
-        <a href="https://arxiv.org/abs/2408.07832" target="_blank">[Paper]</a>
-        <a href="https://huggingface.co/shawn24/Ladder" target="_blank">[Checkpoints]</a>
-        <a href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/" target="_blank">[Project Page]</a>
+        Slice discovery refers to identifying systematic biases in the mistakes of pre-trained vision models. Current
+        slice discovery methods in computer vision rely on converting input images into sets of attributes and then
+        testing hypotheses about configurations of these pre-computed attributes associated with elevated error
+        patterns. However, such methods face several limitations: 1) they are restricted by the predefined attribute
+        bank; 2) they lack the <strong>common sense reasoning</strong> and <strong>domain-specific knowledge</strong>
+        often required for
+        specialized fields e.g, radiology; 3) at best, they can only identify biases in image attributes while
+        overlooking those introduced during preprocessing or data preparation. We hypothesize that bias-inducing
+        variables leave traces in the form of language (e.g, logs), which can be captured as unstructured text. Thus, we
+        introduce LADDER, which leverages the reasoning capabilities and latent domain knowledge of Large Language
+        Models (LLMs) to generate hypotheses about these mistakes. Specifically, we project the internal activations of
+        a pre-trained model into text using a retrieval approach and prompt the LLM to propose potential bias
+        hypotheses. To detect biases from preprocessing pipelines, we convert the preprocessing data into text and
+        prompt the LLM. Finally, LADDER generates pseudo-labels for each identified bias, thereby mitigating all biases
+        without requiring expensive attribute annotations.
+        Rigorous evaluations on 3 natural and 3 medical imaging datasets, 200+ classifiers, and 4 LLMs with varied
+        architectures and pretraining strategies -- demonstrate that LADDER consistently outperforms current methods.
     </p>
 </div>
 
-<div class="container" id="code">
-    <h3>Code</h3>
-    <hr>
+<div class="container" id="paper">
+  <h3>Code, Data, and Models</h3>
+  <hr>
+  <div style="display: inline-block; border: 1px solid #ccc; padding: 20px;">
     <a href="https://github.com/batmanlab/Ladder" target="_blank">
-        <img src="assets/images/code.png" style="width: 30%; border:1px solid">
-        <p>GitHub Repository</p>
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+           alt="GitHub"
+           style="height: 80px; margin-bottom: 10px;">
     </a>
+    <br>
+    <a href="https://github.com/batmanlab/Ladder" target="_blank">Code, Data, and Models</a>
+  </div>
 </div>
 
-<div class="container" id="talk">
-    <h3>Talk</h3>
-    <hr>
-    <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YOUR_TALK_VIDEO_ID"
-                allowfullscreen></iframe>
-    </div>
-</div>
+<!--<div class="container" id="talk">-->
+<!--    <h3>Talk</h3>-->
+<!--    <hr>-->
+<!--    <div class="embed-responsive embed-responsive-16by9">-->
+<!--        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YOUR_TALK_VIDEO_ID"-->
+<!--                allowfullscreen></iframe>-->
+<!--    </div>-->
+<!--</div>-->
 
 <div class="container" id="bibtex">
     <h3>Citation</h3>
@@ -165,7 +181,7 @@
 
 <footer class="center mt-5 mb-4">
     <hr>
-    <p>&copy; 2025 Batman Lab | Designed for ACL 2025</p>
+    <p>&copy; 2025 Batman Lab</p>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
