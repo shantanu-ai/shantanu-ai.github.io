@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>LADDER: Language-Driven Slice Discovery</title>
+    <title>LADDER: Language-Driven Slice Discovery and Error Rectification in Vision Classifiers</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="icon" href="./static/images/bu-logo.png">
     <style>
         body {
             padding-top: 80px;
@@ -25,6 +26,28 @@
             background: #f4f4f4;
             padding: 1em;
         }
+
+        .model-tag {
+            background-color: #f5f5f5;
+            color: #c7254e;
+            font-family: monospace;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .plot-placeholder img {
+            max-width: 80%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .plot-placeholder p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -36,9 +59,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a class="nav-link" href="#abstract">Abstract</a></li>
-            <li class="nav-item"><a class="nav-link" href="#paper">Paper</a></li>
             <li class="nav-item"><a class="nav-link" href="#code">Code</a></li>
-            <li class="nav-item"><a class="nav-link" href="#talk">Talk</a></li>
+            <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
+            <li class="nav-item"><a class="nav-link" href="#ablations">Ablations</a></li>
             <li class="nav-item"><a class="nav-link" href="#bibtex">BibTeX</a></li>
         </ul>
     </div>
@@ -119,8 +142,8 @@
     </p>
 </div>
 
-<div class="container" id="paper">
-    <h3>Abstract</h3>
+<div class="container" id="abstract">
+    <h3 style="text-align: center;">Abstract</h3>
     <hr>
     <p>
         Slice discovery refers to identifying systematic biases in the mistakes of pre-trained vision models. Current
@@ -143,19 +166,290 @@
     </p>
 </div>
 
-<div class="container" id="paper">
-  <h3>Code, Data, and Models</h3>
-  <hr>
-  <div style="display: inline-block; border: 1px solid #ccc; padding: 20px;">
-    <a href="https://github.com/batmanlab/Ladder" target="_blank">
-      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-           alt="GitHub"
-           style="height: 80px; margin-bottom: 10px;">
-    </a>
-    <br>
-    <a href="https://github.com/batmanlab/Ladder" target="_blank">Code, Data, and Models</a>
-  </div>
+<div class="container" id="code" style="text-align: center;">
+    <h3>Code, Data, and Models</h3>
+    <hr>
+    <div style="display: inline-block; border: 1px solid #ccc; padding: 20px;">
+        <a href="https://github.com/batmanlab/Ladder" target="_blank">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                 alt="GitHub"
+                 style="height: 80px; margin-bottom: 10px;">
+        </a>
+        <br>
+        <a href="https://github.com/batmanlab/Ladder" target="_blank">Code, Data, and Models</a>
+    </div>
 </div>
+
+<div class="container" id="research-questions" style="margin-top: 40px;">
+    <h3 style="text-align: center;">Research questions addressed by LADDER</h3>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <div style="margin-bottom: 1rem;">
+                <strong>RQ1.</strong> How does <strong>LADDER</strong> perform in
+                discovering error slices compared to baselines?
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <strong>RQ2.</strong> How does <strong>LADDER</strong> leverage reasoning and latent domain
+                knowledge of
+                LLMs for slice discovery?
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <strong>RQ3.</strong> How does <strong>LADDER</strong> discover biased attributes with different
+                architectures and pre-training methods?
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <strong>RQ4.</strong> How does <strong>LADDER</strong> mitigate biases using the discovered
+                attributes?
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <strong>RQ5.</strong> Can <strong>LADDER</strong> operate without captions?
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <strong>RQ6.</strong> Can <strong>LADDER</strong> detect biases beyond captions/reports?
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="experimental-setup">
+    <h3 style="text-align: center; margin-top: 40px;">Experimental setup</h3>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Model Architectures & Pretraining Methods</h5>
+            <ul>
+                <li>ResNet-50 on ImageNet-1K using supervised pretraining (<span
+                        class="model-tag">resnet_sup_in1k</span>)
+                </li>
+                <li>ResNet-50 on ImageNet-21K using supervised pretraining (<span
+                        class="model-tag">resnet_sup_in21k</span>)
+                </li>
+                <li>ResNet-50 on ImageNet-1K using SimCLR (<span class="model-tag">resnet_simclr_in1k</span>)</li>
+                <li>ResNet-50 on ImageNet-1K using Barlow Twins (<span class="model-tag">resnet_barlow_in1k</span>)</li>
+                <li>ResNet-50 on ImageNet-1K using DINO (<span class="model-tag">resnet_dino_in1k</span>)</li>
+                <li>Efficient-B5 on ImageNet-1K using supervised pretraining (<span
+                        class="model-tag">EF-B5</span>) - For 2D mammograms
+                </li>
+                <li>ViT-B on ImageNet-1K using supervised pretraining (<span class="model-tag">vit_sup_in1k</span>)</li>
+                <li>ViT-B on ImageNet-21K using supervised pretraining (<span class="model-tag">vit_sup_in21k</span>)
+                </li>
+                <li>ViT-B from OpenAI CLIP (<span class="model-tag">vit_clip_oai</span>)</li>
+                <li>ViT-B pretrained using CLIP on LAION-2B (<span class="model-tag">vit_clip_laion</span>)</li>
+                <li>ViT-B on SWAG using weakly supervised pretraining (<span class="model-tag">vit_sup_swag</span>)</li>
+                <li>ViT-B on ImageNet-1K using DINO (<span class="model-tag">vit_dino_in1k</span>)</li>
+            </ul>
+
+            <h5>Slice discovery Baselines</h5>
+            <ul>
+                <li>DOMINO (<a href="https://arxiv.org/abs/2203.14960">Eyuboglu et al. 2022</a>)</li>
+                <li>FACTS (<a
+                        href="https://openaccess.thecvf.com/content/ICCV2023/papers/Yenamandra_FACTS_First_Amplify_Correlations_and_Then_Slice_to_Discover_Bias_ICCV_2023_paper.pdf">Yenamandra
+                    et al. 2023</a>)
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <h5>Mitigation Baselines & Datasets</h5>
+            <h6>Available Algorithms (~20)</h6>
+            <ul>
+                <li>Empirical Risk Minimization <a href="https://en.wikipedia.org/wiki/Empirical_risk_minimization"
+                                                   target="_blank">(ERM)</a></li>
+                <li>Invariant Risk Minimization <a href="https://arxiv.org/abs/1907.02893" target="_blank">(IRM)</a>
+                </li>
+                <li>Group Distributionally Robust Optimization <a href="https://arxiv.org/abs/1911.08731"
+                                                                  target="_blank">(GroupDRO)</a></li>
+                <li>Conditional Value-at-Risk DRO <a
+                        href="https://projecteuclid.org/journals/annals-of-statistics/volume-49/issue-3/Learning-models-with-uniform-performance-via-distributionally-robust-optimization/10.1214/20-AOS2004.full"
+                        target="_blank">(CVaRDRO)</a></li>
+                <li>Mixup <a href="https://openreview.net/forum?id=r1Ddp1-Rb" target="_blank">(Mixup)</a></li>
+                <li>Just Train Twice <a href="https://arxiv.org/abs/2107.09044" target="_blank">(JTT)</a></li>
+                <li>Learning from Failure <a href="https://arxiv.org/abs/2007.02561" target="_blank">(LfF)</a></li>
+                <li>Learning Invariant Predictors with Selective Augmentation <a href="https://arxiv.org/abs/2201.00299"
+                                                                                 target="_blank">(LISA)</a></li>
+                <li>Deep Feature Reweighting <a href="https://openreview.net/forum?id=Zb6c8A-Fghk"
+                                                target="_blank">(DFR)</a></li>
+                <li>Maximum Mean Discrepancy <a href="https://jmlr.csail.mit.edu/papers/v13/gretton12a.html"
+                                                target="_blank">(MMD)</a></li>
+                <li>Class-Balanced Loss <a
+                        href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Cui_Class-Balanced_Loss_Based_on_Effective_Number_of_Samples_CVPR_2019_paper.pdf"
+                        target="_blank">(CBLoss)</a></li>
+                <li>Label-Distribution-Aware Margin Loss <a href="https://arxiv.org/pdf/1906.07413" target="_blank">(LDAM)</a>
+                </li>
+                <li>Classifier Re-Training <a href="https://arxiv.org/html/2403.00250v1" target="_blank">(CRT)</a></li>
+                <li>Reweight-Classifier Re-Training <a href="https://arxiv.org/html/2403.00250v1" target="_blank">(ReWeightCRT)</a>
+                </li>
+            </ul>
+
+            <h6>Available Datasets (13)</h6>
+            <ul>
+                <li>Waterbirds (<a href="https://github.com/kohpangwei/group_DRO">Wah et al., 2011</a>)</li>
+                <li>CelebA (<a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html">Liu et al., 2015</a>)</li>
+                <li>MetaShift (<a href="https://arxiv.org/abs/2202.06523">Liang and Zou, 2022</a>)</li>
+                <li>NIH-CXR (<a href="https://www.kaggle.com/datasets/nih-chest-xrays/data">Wang et al., 2017</a>)</li>
+                <li>RSNA-Mammograms (<a href="https://www.kaggle.com/competitions/rsna-breast-cancer-detection">Kaggle
+                    competition</a>)
+                </li>
+                <li>VinDr-Mammograms (<a href="https://vindr.ai/datasets/mammo">Nguyen et al., 2023</a>)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="vision-langauge-space" style="margin-top: 40px;">
+    <h3 style="text-align: center; margin-top: 40px;">Vision-Language Representation space & LLMs</h3>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Vision-Language Models</h5>
+            <ul>
+                <li>Natural Images: <a href="https://github.com/openai/CLIP" target="_blank">CLIP</a></li>
+                <li>Mammograms: <a href="https://github.com/batmanlab/Mammo-CLIP" target="_blank">Mammo-CLIP</a></li>
+                <li>Chest X-Rays: <a href="https://github.com/Soombit-ai/cxr-clip" target="_blank">CXR-CLIP</a></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h5>Captioning & Hypothesis LLMs</h5>
+            <ul>
+                <li>Captions: BLIP and GPT-4o</li>
+                <li>LLMs for Hypothesis Generation: GPT-4o, Claude, Gemini, LLaMA</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" id="results" style="margin-top: 40px;">
+    <h3 style="text-align: center;">Results</h3>
+    <hr>
+    <div class="row mt-4">
+        <div class="col">
+            <h5 style="text-align: center"><strong>RQ1: Performance of LADDER compared with other slice discovery
+                algorithms</strong></h5>
+            <div class="plot-placeholder">
+                <img src="./static/images/quant-slice.png" alt="RQ1 Plot">
+            </div>
+
+            <h5 style="text-align: center; margin-top: 25px;"><strong>RQ2. Leveraging LLM’s reasoning and domain
+                knowledge for bias discovery</strong></h5>
+            <div class="plot-placeholder">
+                <img src="./static/images/bias-detection.png" alt="RQ2 Plot">
+            </div>
+
+            <h5 style="text-align: center; margin-top: 25px;"><strong>RQ3: Biased attributes discovery across
+                architectures/pre-training methods</strong>
+            </h5>
+            <div class="plot-placeholder">
+                <img src="./static/images/bias-architectures.png" alt="RQ3 Plot">
+                <img src="./static/images/bias-architectures1.png" alt="RQ3 Plot">
+            </div>
+
+            <h5 style="text-align: center; margin-top: 25px;"><strong>RQ4: Mitigating biases using LADDER</strong></h5>
+            <div class="plot-placeholder">
+                <img src="./static/images/mitigation.png" alt="RQ4 Plot">
+            </div>
+
+            <h5 style="text-align: center; margin-top: 25px;">
+                <strong>RQ5: Relaxing the dependency on captions</strong>
+            </h5>
+
+            <div class="plot-placeholder"
+                 style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+                <figure style="text-align: center;">
+                    <img src="./static/images/ladder_bias_ins_tuning.png" alt="RQ5 Plot 1"
+                         style="max-width: 70%; height: auto;">
+                    <figcaption>Fig. Biased attributes detected by LADDER w/
+                        captions and w/ instruction-tuned models (w/o captions).
+                        Bright/light colors show presence/absence of attributes.
+                    </figcaption>
+                </figure>
+
+                <figure style="text-align: center;">
+                    <img src="./static/images/ladder_mit_ins_tuning.png" alt="RQ5 Plot 2"
+                         style="max-width: 70%; height: auto;">
+                    <figcaption>Fig. (a) Precision@10 for slice discovery and (b)
+                        WGA for bias mitigation using LADDER w/ captions vs.
+                        instruction-tuned models.
+                    </figcaption>
+                </figure>
+            </div>
+
+
+            <h5 style="text-align: center; margin-top: 25px;"><strong>RQ6: Detecting biases beyond
+                captions/reports</strong></h5>
+            <div class="plot-placeholder">
+                <figure style="text-align: center;">
+                    <img src="./static/images/rq6.png" alt="RQ5 Plot 2"
+                         style="max-width: 75%; height: auto;">
+                    <figcaption>Fig. LADDER detects biases beyond reports, identifying biases from metadata (age, view
+                        and implant)
+                        and DICOM headers (Photometric interpretation).
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="ablations" style="margin-top: 40px;">
+    <h3 style="text-align: center;">Ablations</h3>
+    <hr>
+    <div class="row mt-4">
+        <div class="col">
+            <h5 style="text-align: center;"><strong>Ablation1: Impact of captioners on LADDER</strong>
+            </h5>
+            <div class="plot-placeholder">
+                <figure style="text-align: center;">
+                    <img src="./static/images/captioners.png" alt="RQ5 Plot 2"
+                         style="max-width: 45%; height: auto;">
+                </figure>
+            </div>
+
+            <h5 style="text-align: center; margin-top: 25px;"><strong>Ablation2: Impact of the choice of LLM on
+                detecting biases
+                using LADDER</strong>
+            </h5>
+            <div class="plot-placeholder">
+                <figure style="text-align: center;">
+                    <img src="./static/images/LLM-detect.png" alt="RQ5 Plot 2"
+                         style="max-width: 70%; height: auto;">
+                </figure>
+            </div>
+
+            <h5 style="text-align: center; margin-top: 25px;"><strong>Ablation3: Impact of the choice of LLM on the
+                mitigation
+                strategy of LADDER</strong>
+            </h5>
+            <div class="plot-placeholder">
+                <figure style="text-align: center;">
+                    <img src="./static/images/LLM-mit.png" alt="RQ5 Plot 2"
+                         style="max-width: 70%; height: auto;">
+                </figure>
+            </div>
+
+            <h5 style="text-align: center; margin-top: 25px;"><strong>Ablation4: Impact of the choice of vision language
+                models on the LADDER for CXR domain</strong>
+            </h5>
+            <div class="plot-placeholder">
+                <figure style="text-align: center;">
+                    <img src="./static/images/vlr.png" alt="RQ5 Plot 2"
+                         style="max-width: 55%; height: auto;">
+                </figure>
+            </div>
+
+            <h5 style="text-align: center; margin-top: 25px;"><strong>Ablation5: Cost of using various LLMs</strong>
+            </h5>
+            <div class="plot-placeholder">
+                <figure style="text-align: center;">
+                    <img src="./static/images/computational-cost.png" alt="RQ5 Plot 2"
+                         style="max-width: 55%; height: auto;">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!--<div class="container" id="talk">-->
 <!--    <h3>Talk</h3>-->
@@ -166,7 +460,7 @@
 <!--    </div>-->
 <!--</div>-->
 
-<div class="container" id="bibtex">
+<div class="container" id="bibtex" style="margin-top: 40px;">
     <h3>Citation</h3>
     <hr>
     <pre>
@@ -181,7 +475,11 @@
 
 <footer class="center mt-5 mb-4">
     <hr>
-    <p>&copy; 2025 Batman Lab</p>
+    <p>&copy; 2025 Batman Lab. Feel free to use this <a
+            href="https://github.com/shantanu-ai/shantanu-ai.github.io/tree/main/projects/ACL-2025-Ladder">website's
+        template</a>, adapted from <a
+            href="https://subpopbench.csail.mit.edu/">SubPopBench
+        project</a>.</p>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
