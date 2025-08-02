@@ -1,165 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="description" content="Mammo-CLIP: Enhancing Mammography with Vision Language Models">
-    <meta name="keywords" content="Mammography, Breast Cancer, AI, Vision Language Models, CLIP">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mammo-CLIP</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-
-    <link rel="stylesheet" href="./static/css/bulma.min.css">
-    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-    <link rel="stylesheet" href="./static/css/index.css">
-    <link rel="icon" href="./static/figures/bu-logo.png">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="./static/js/fontawesome.all.min.js"></script>
-    <script src="./static/js/bulma-carousel.min.js"></script>
-    <script src="./static/js/bulma-slider.min.js"></script>
-    <script src="./static/js/index.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mammo-CLIP: A Vision Language Foundation Model to Enhance Data Efficiency and Robustness in
+        Mammography</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="icon" href="./static/images/bu-logo.png">
     <style>
-        .contributor-img {
-            width: 128px;
-            height: 128px;
-            object-fit: cover; /* Ensures the image covers the container and remains circular */
+        body {
+            padding-top: 80px;
+            font-size: 18px;
         }
 
-        .title-text {
-            display: inline-block;
-            word-break: break-word;
-            hyphens: auto;
+        .center {
+            text-align: center;
         }
 
-        @media screen and (max-width: 768px) {
-            .image-text-container {
-                flex-direction: column;
-                align-items: center;
-            }
+        .hero-img {
+            width: 70%;
+            height: auto;
+        }
 
-            .image-text-container img {
-                margin-left: 0;
-                margin-right: 0;
-                margin-bottom: 20px;
-                max-width: 100%;
-                height: auto;
-            }
+        pre {
+            background: #f4f4f4;
+            padding: 1em;
+        }
 
-            .title-text {
-                font-size: 2rem;
-            }
+        .model-tag {
+            background-color: #f5f5f5;
+            color: #c7254e;
+            font-family: monospace;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
 
+        .plot-placeholder img {
+            max-width: 80%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .plot-placeholder p {
+            font-weight: bold;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Mammo-CLIP</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#code">Code</a></li>
+            <li class="nav-item"><a class="nav-link" href="#bibtex">BibTeX</a></li>
+        </ul>
+    </div>
+</nav>
 
-<section class="hero">
-    <div class="hero-body">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered">
-                <div class="column has-text-centered">
-                    <h1 class="title is-1 publication-title">
-                        <div class="title-text">Mammo-CLIP: A Vision Language Foundation
-                            Model to Enhance Data Efficiency and Robustness in Mammography
-                        </div>
-                    </h1>
-                    <div class="is-size-5 publication-authors">
-                        <span class="author-block">
-                          <a href="https://shantanu-ai.github.io/">Shantanu Ghosh</a><sup>1</sup>,</span>
-                        <span class="author-block">
-                          <a href="https://www.bumc.bu.edu/camed/profile/clare-poynton/">Clare B. Poynton</a><sup>2</sup>,</span>
-                        <br>
-                        <span class="author-block">
-                          <a href="https://www.thevislab.com/lab/doku.php">Shyam Visweswaran</a><sup>3</sup>,</span>
-                        <span class="author-block">
-                          <a href="https://www.batman-lab.com/">Kayhan Batmanghelich</a><sup>1</sup>
-                        </span>
-                    </div>
+<div class="container">
+    <div class="center">
+        <h2>Mammo-CLIP: A Vision Language Foundation Model to Enhance Data Efficiency and Robustness in Mammography</h2>
+        <p>
+            <a href="https://shantanu-ai.github.io/">Shantanu Ghosh<sup>1</sup></a>,
+            <a href="https://www.bumc.bu.edu/camed/profile/clare-poynton/">Clare B. Poynton<sup>2</sup></a>,
+            <a href="https://www.thevislab.com/lab/doku.php">Shyam Visweswaran<sup>3</sup></a>,
+            <a href="https://www.batman-lab.com/">Kayhan Batmanghelich<sup>1</sup></a><br/>
+            <span style="font-size: 1.0em;"><sup>1</sup>Boston University, <sup>2</sup>BUMC, <sup>3</sup>Pitt DBMI</span><br/>
+            <i><b>27th INTERNATIONAL CONFERENCE ON MEDICAL IMAGE COMPUTING
+                AND COMPUTER ASSISTED INTERVENTION (MICCAI) 2024 </b><br/>
+                (Early Accept top 11%)</i>
+        </p>
+    </div>
+</div>
+<div class="publication-links" style="text-align: center; margin-top: -15px;">
+    <span class="link-block">
+        <a href="https://arxiv.org/abs/2405.12255"
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon">
+              <i class="ai ai-arxiv"></i>
+          </span>
+          <span>arXiv</span>
+        </a>
+    </span>
 
-                    <div class="is-size-5 publication-authors">
-                        <span class="author-block"><sup>1</sup><span
-                                style="color: #0A3D62;">ECE, Boston University,</span></span>
-                        <span class="author-block"><sup>2</sup><span
-                                style="color: #0A3D62;"> Boston University Chobanian & Avedisian School of Medicine,
-                        </span></span>
-                        <span class="author-block"><sup>3</sup><span
-                                style="color: #0A3D62;"> ISP, University of Pittsburgh</span></span>
-                    </div>
+    <span class="link-block">
+        <a href="https://link.springer.com/chapter/10.1007/978-3-031-72390-2_59"
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon">
+              <i class="fas fa-file-alt"></i>
+          </span>
+          <span>Paper</span>
+        </a>
+    </span>
 
 
-                    <div class="is-size-4 publication-authors">
-                        <span class="author-block"><b>27th INTERNATIONAL CONFERENCE ON MEDICAL IMAGE COMPUTING
-                            AND COMPUTER ASSISTED INTERVENTION (MICCAI) 2024 </b><br/>
-                            (Early Accept top 11%)
-                        </span>
-                    </div>
-
-                    <div class="column has-text-centered">
-                        <div class="publication-links">
-                            <!-- PDF Link. -->
-                            <span class="link-block">
-                                <a href="https://link.springer.com/chapter/10.1007/978-3-031-72390-2_59"
-                                   class="external-link button is-normal is-rounded is-dark">
-                                  <span class="icon">
-                                      <i class="fas fa-file-pdf"></i>
-                                  </span>
-                                  <span>Paper</span>
-                                </a>
-                            </span>
-                            <span class="link-block">
-                                <a href="https://arxiv.org/abs/2405.12255"
-                                   class="external-link button is-normal is-rounded is-dark">
-                                          <span class="icon">
-                                              <i class="ai ai-arxiv"></i>
-                                          </span>
-                                          <span>arXiv</span>
-                                </a>
-                            </span>
-                            <!-- Code Link. -->
-                            <span class="link-block">
-                                <a href="https://github.com/batmanlab/Mammo-CLIP"
-                                   class="external-link button is-normal is-rounded is-dark">
-                                  <span class="icon">
-                                      <i class="fab fa-github"></i>
-                                  </span>
-                                  <span>Code</span>
-                                </a>
-                            </span>
-
-                            <span class="link-block">
-                                <a href="https://huggingface.co/shawn24/Mammo-CLIP/tree/main/Pre-trained-checkpoints"
-                                   class="external-link button is-normal is-rounded is-dark">
-                                  <span class="icon">
-                                      <i class="fas fa-database"></i>
-                                  </span>
-                                  <span>Model Checkpoints
-                                  </span>
-                                </a>
-                            </span>
-                            <span class="link-block">
-                                <a href="https://github.com/batmanlab/Mammo-CLIP?tab=readme-ov-file#data-download"
-                                   class="external-link button is-normal is-rounded is-dark">
-                                  <span class="icon">
-                                      <i class="fas fa-server"></i>
-                                  </span>
-                                  <span>Dataset</span>
-                                </a>
-                            </span>
-                            <span class="link-block">
-                                <a href="https://github.com/shantanu-ai/shantanu-ai.github.io/tree/main/projects/MICCAI-2024-Mammo-CLIP/static/data/Mammo-CLIP-MICCAI-24-poster-v1.pdf"
-                                   class="external-link button is-normal is-rounded is-dark">
-                                  <span class="icon"> <i class="far fa-images"></i></span>
-                                  <span>Poster</span>
-                                </a>
-                            </span>
-                            <span class="link-block">
+    <span class="link-block">
+        <a href="https://github.com/batmanlab/Mammo-CLIP"
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon">
+              <i class="fab fa-github"></i>
+          </span>
+          <span>Code</span>
+        </a>
+    </span>
+    <span class="link-block">
+        <a href="https://huggingface.co/shawn24/Mammo-CLIP/tree/main/Pre-trained-checkpoints"
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon">
+              <i class="fas fa-link"></i>
+          </span>
+          <span>Hugging Face</span>
+        </a>
+    </span>
+    <span class="link-block">
+        <a href="https://github.com/batmanlab/Mammo-CLIP?tab=readme-ov-file#data-download"
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon">
+              <i class="fas fa-database"></i>
+          </span>
+          <span>Dataset</span>
+        </a>
+    </span>
+    <span class="link-block">
+        <a href="https://github.com/shantanu-ai/shantanu-ai.github.io/tree/main/projects/MICCAI-2024-Mammo-CLIP/static/data/Mammo-CLIP-MICCAI-24-poster-v1.pdf"
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon"> <i class="far fa-images"></i></span>
+          <span>Poster</span>
+        </a>
+    </span>
+    <span class="link-block">
                                 <a href="https://papers.miccai.org/miccai-2024/488-Paper0926.html"
                                    class="external-link button is-normal is-rounded is-dark">
                                   <span class="icon">
@@ -168,502 +145,340 @@
                                   <span>Reviews</span>
                                 </a>
                             </span>
-                        </div>
-                    </div>
-                </div>
+</div>
+
+<div class="container center" style="margin-top: 40px;">
+    <img class="hero-img" src="./static/figures/Mammo-CLIP-schematic.png" alt="Mammo-CLIP Schematic"
+         alt="Pipeline Illustration"
+         style="max-width: 100%; transform: scale(1.10); transform-origin: top center;">
+    <br/><br/><br/>
+    <figcaption style="text-align: center; font-size: 14px; color: #555;">
+        Fig. 1. Schematic view of our method. (a) Image-text augmentation for Multi-View Supervision (MVS).
+        (b) Dataset augmentation by synthesizing reports using image-label datasets.
+        (c) Mammo-CLIP pretraining strategy.
+        (d) Feature attribution using Mammo-FActOR.
+    </figcaption>
+</div>
+
+<div class="container" style="margin-top: 35px; text-align: center; font-size: 1.1em;">
+    <p><strong>TL;DR:</strong> Mammo‑CLIP is the first vision‑language model trained on screening mammogram-report
+        pairs,
+        combining multi‑view supervision and report‑synthesized augmentation to achieve robust, data‑efficient
+        classification and localization of key breast imaging features.
+    </p>
+</div>
+
+<div class="container" id="ladder-update" style="margin-top: 60px;">
+    <div style="border: 2px solid #e83e8c; border-radius: 10px; padding: 30px; box-shadow: 0 4px 15px rgba(232, 62, 140, 0.2); background-color: #fff9fc;">
+        <h3 style="text-align: center; color: #e83e8c;">🔥🔥🔥 [ACL2025] New Update: Bias Discovery with LADDER + Mammo-CLIP</h3>
+        <hr>
+        <div class="content" style="text-align: justify; font-size: 1.05em;">
+            <p><strong>LADDER</strong> (<em>Language-Driven Slice Discovery and Error Rectification</em>) is a new
+                framework from our lab that uses <strong>Mammo-CLIP</strong> to detect and correct biases in vision
+                classifiers, including those trained on mammograms.</p>
+
+            <p>Instead of relying on manually defined subgroups or attributes, <strong>LADDER</strong> discovers
+                failure modes and bias slices using natural language and interpretable reasoning from Large Language
+                Models (LLMs).</p>
+
+            <ul style="margin-top: 15px;">
+                <li>🧠 Automatically identify <strong>performance disparities</strong> across latent subgroups</li>
+                <li>🩻 Evaluate <strong>alignment of radiology reports</strong> with model predictions</li>
+                <li>⚙️ Use <strong>pseudo-labels and debiasing</strong> to correct classifier errors — no extra
+                    annotation needed
+                </li>
+            </ul>
+
+            <div class="text-center mt-4">
+                <a class="btn btn-dark btn-lg m-2" href="https://aclanthology.org/2025.findings-acl.1177/"
+                   target="_blank">
+                    <i class="fas fa-file-alt"></i> Read LADDER Paper
+                </a>
+                <a class="btn btn-primary btn-lg m-2"
+                   href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/index.html" target="_blank">
+                    <i class="fas fa-globe"></i> Project Page
+                </a>
+                <a class="btn btn-success btn-lg m-2" href="https://github.com/batmanlab/Ladder" target="_blank">
+                    <i class="fab fa-github"></i> LADDER Code
+                </a>
+                <a class="btn btn-warning btn-lg m-2" href="https://huggingface.co/shawn24/Ladder/tree/main" target="_blank" style="color: #212529;">
+                    <i class="fas fa-robot"></i> Models/Data/Resources
+                </a>
             </div>
+
+            <p class="mt-4"><strong>Example:</strong> If your model underperforms on younger patients or dense breast
+                cases, LADDER
+                helps surface those slices using textual probes (e.g., "dense breast with asymmetry") and suggests
+                retraining paths to
+                reduce bias — all without needing protected attribute labels.</p>
+
+            <p class="mt-4">This work was presented at <strong>ACL 2025</strong>.</p>
         </div>
     </div>
-</section>
+</div>
+<br/>
 
-<section class="section" style="margin-top: -55px; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <div style="text-align: justify;">
-                <h2 class="title is-3">Revolutionizing Breast Cancer Detection with AI</h2>
-                <p>Breast cancer is a leading cause of death among women worldwide, with early detection being crucial
-                    for
-                    effective treatment. However, the development of robust computer-aided diagnosis (CAD) systems is
-                    often
-                    limited by the availability of large, diverse annotated datasets. Mammo-CLIP addresses these
-                    challenges
-                    by introducing a Vision Language Model specifically trained on paired mammogram images and reports,
-                    significantly enhancing the robustness and data efficiency of CAD systems.</p><br>
-                <p>Mammo-CLIP employs multi-view supervision, data augmentation, and a novel feature attribution method
-                    called Mammo-FActOR, to provide interpretable and highly accurate results. By leveraging
-                    high-resolution
-                    images and diverse training data, Mammo-CLIP excels in detecting and localizing critical
-                    mammographic
-                    attributes such as masses and calcifications.</p><br>
-                <p>Explore our results and see how Mammo-CLIP sets a new standard in mammography AI.</p><br>
+<div class="container" id="abstract">
+    <h3 style="text-align: center;">Revolutionizing Breast Cancer Detection with AI</h3>
+    <hr>
+    <p>
+        Breast cancer is a leading cause of death among women worldwide, with early detection being crucial for
+        effective treatment. However, the development of robust computer-aided diagnosis (CAD) systems is often limited
+        by the availability of large, diverse annotated datasets. Mammo-CLIP addresses these challenges by introducing a
+        Vision Language Model specifically trained on paired mammogram images and reports, significantly enhancing the
+        robustness and data efficiency of CAD systems.
 
-                <h3 class="title is-4">Features</h3>
-                <div style="margin-left: 20px;">
-                    <ul style="list-style-type: disc;">
-                        <li>Mammo-CLIP is designed for downstream tasks including zero-shot classification of breast
-                            findings and disease, ensuring versatility across diverse datasets.
-                        </li>
-                        <li>The model supports linear probe classification and localization, allowing for efficient use
-                            of varying amounts of labeled data to achieve accurate results.
-                        </li>
-                        <li>Mammo-CLIP can be fine-tuned on specific datasets to further enhance classification and
-                            localization performance, particularly in identifying breast cancer and other related
-                            findings.
-                        </li>
-                        <li>With Mammo-FActOR, Mammo-CLIP vision encoder excels in localization tasks, accurately
-                            identifying findings like masses and
-                            calcifications using descriptive sentences, without relying on ground truth bounding boxes.
-                        </li>
-                        <li>Although Mammo-CLIP is primarily aligned with screening mammograms, it demonstrates
-                            exceptional performance in cancer classification, showcasing its ability to generalize
-                            effectively to unseen domains.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        Mammo-CLIP employs multi-view supervision, data augmentation, and a novel feature attribution method called
+        Mammo-FActOR, to provide interpretable and highly accurate results. By leveraging high-resolution images and
+        diverse training data, Mammo-CLIP excels in detecting and localizing critical mammographic attributes such as
+        masses and calcifications.
+
+        Explore our results and see how Mammo-CLIP sets a new standard in mammography AI.
+    </p>
+    <h3 class="title is-4">Features</h3>
+    <div style="margin-left: 20px;">
+        <ul style="list-style-type: disc;">
+            <li>Mammo-CLIP is designed for downstream tasks including zero-shot classification of breast
+                findings and disease, ensuring versatility across diverse datasets.
+            </li>
+            <li>The model supports linear probe classification and localization, allowing for efficient use
+                of varying amounts of labeled data to achieve accurate results.
+            </li>
+            <li>Mammo-CLIP can be fine-tuned on specific datasets to further enhance classification and
+                localization performance, particularly in identifying breast cancer and other related
+                findings.
+            </li>
+            <li>With Mammo-FActOR, Mammo-CLIP vision encoder excels in localization tasks, accurately
+                identifying findings like masses and
+                calcifications using descriptive sentences, without relying on ground truth bounding boxes.
+            </li>
+            <li>Although Mammo-CLIP is primarily aligned with screening mammograms, it demonstrates
+                exceptional performance in cancer classification, showcasing its ability to generalize
+                effectively to unseen domains.
+            </li>
+        </ul>
     </div>
-</section>
+</div>
 
-
-<section class="section" style="margin-top: -10%; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <h2 class="title is-3">Mammo-CLIP Schematic Overview</h2>
-            <div style="text-align: justify;">
-                <p>The schematic below illustrates the core components of Mammo-CLIP, including image-text
-                    augmentation, dataset augmentation, pretraining strategy, and feature attribution using
-                    Mammo-FActOR. These components are crucial for enhancing the model's ability to classify and
-                    localize mammographic features with high accuracy.</p><br/>
-            </div>
-            <figure style="width: 95%; margin: 0 auto;">
-                <img src="./static/figures/Mammo-CLIP-schematic.png" alt="Mammo-CLIP Schematic"
-                     style="width: 100%; height: auto;"/>
-                <figcaption style="text-align: center; font-size: 14px; color: #555;">
-                    Fig. 1. Schematic view of our method. (a) Image-text augmentation for Multi-View Supervision (MVS).
-                    (b) Dataset augmentation by synthesizing reports using image-label datasets.
-                    (c) Mammo-CLIP pretraining strategy.
-                    (d) Feature attribution using Mammo-FActOR.
-                </figcaption>
-            </figure>
-        </div>
+<div class="container" id="code" style="text-align: center;">
+    <h3>Code, Data, and Models</h3>
+    <hr>
+    <div style="display: inline-block; border: 1px solid #ccc; padding: 20px;">
+        <a href="https://github.com/batmanlab/Mammo-CLIP" target="_blank">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                 alt="GitHub"
+                 style="height: 80px; margin-bottom: 10px;">
+        </a>
+        <br>
+        <a href="https://github.com/batmanlab/Mammo-CLIP" target="_blank">Code, Data, and Models</a>
     </div>
-</section>
+</div>
 
 
-<!--<section class="hero teaser" style="margin-top: -5px;">-->
-<!--    <div class="container is-max-desktop">-->
-<!--        <div class="hero-body">-->
-<!--            <video autoplay muted controls loop style="width: 100%;">-->
-<!--                <source src="static/figures/mammo_clip_analysis.mp4" type="video/mp4">-->
-<!--                Your browser does not support the video tag.-->
-<!--            </video>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-
-<section class="section" style="margin-top: -7%; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <div class="columns is-centered">
-                <div class="content">
-                    <h2 class="title is-3">Mammo-CLIP Optimization</h2>
-                    <div class="content" style="text-align: justify;">
-                        <p>Mammo-CLIP is a Vision Language Model specifically tailored for mammography. Its primary goal
-                            is to align visual features from mammogram images with the corresponding textual
-                            descriptions found in radiology reports. This alignment is accomplished by using separate
-                            encoders for images and text, ensuring that similar images and texts are closely aligned
-                            within a shared feature space. This method enhances the model's capability to accurately
-                            interpret and classify mammographic findings, resulting in more reliable and interpretable
-                            outcomes. Additionally, Mammo-CLIP leverages both image+text datasets and image+label
-                            datasets to learn superior representations through a multiview supervision (MVS) loss. In
-                            practice, we utilize an in-house image+report dataset from UPMC, alongside the publicly
-                            available VinDr dataset as our image+label dataset. </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container" id="research-questions" style="margin-top: 40px;">
+    <h3 style="text-align: center;">Mammo-CLIP Optimization</h3>
+    <hr>
+    <div class="content" style="text-align: justify;">
+        <p>Mammo-CLIP is a Vision Language Model specifically tailored for mammography. Its primary goal
+            is to align visual features from mammogram images with the corresponding textual
+            descriptions found in radiology reports. This alignment is accomplished by using separate
+            encoders for images and text, ensuring that similar images and texts are closely aligned
+            within a shared feature space. This method enhances the model's capability to accurately
+            interpret and classify mammographic findings, resulting in more reliable and interpretable
+            outcomes. Additionally, Mammo-CLIP leverages both image+text datasets and image+label
+            datasets to learn superior representations through a multiview supervision (MVS) loss. In
+            practice, we utilize an in-house image+report dataset from UPMC, alongside the publicly
+            available VinDr dataset as our image+label dataset. </p>
     </div>
-</section>
+</div>
 
-<section class="section" style="margin-top: -7%; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <div class="columns is-centered">
-                <div class="content">
-                    <h2 class="title is-3">Instance and Dataset Augmentation</h2>
-                    <div class="content" style="text-align: justify;">
-                        <p>To enhance the robustness and generalizability of Mammo-CLIP, both instance-level and
-                            dataset-level augmentation techniques are utilized. Instance augmentation involves creating
-                            multiple modified versions of each mammogram image and its corresponding report. These
-                            modifications include changes such as flipping, rotation, and cropping of images, as well as
-                            slight rephrasing of the text. Dataset augmentation, on the other hand, synthesizes entirely
-                            new
-                            data pairs by combining images and text from different sources within the dataset. These
-                            strategies help the model learn more diverse patterns, making it better suited to handle
-                            variations in real-world data.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container" id="augmentation" style="margin-top: 40px;">
+    <h3 style="text-align: center;">Instance and Dataset Augmentation</h3>
+    <hr>
+    <div class="content" style="text-align: justify;">
+        <p>To enhance the robustness and generalizability of Mammo-CLIP, both instance-level and
+            dataset-level augmentation techniques are utilized. Instance augmentation involves creating
+            multiple modified versions of each mammogram image and its corresponding report. These
+            modifications include changes such as flipping, rotation, and cropping of images, as well as
+            slight rephrasing of the text. Dataset augmentation, on the other hand, synthesizes entirely
+            new
+            data pairs by combining images and text from different sources within the dataset. These
+            strategies help the model learn more diverse patterns, making it better suited to handle
+            variations in real-world data.</p>
     </div>
-</section>
+</div>
 
-<section class="section" style="margin-top: -7%; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <div class="columns is-centered">
-                <div class="content">
-                    <h2 class="title is-3">Mammo-FActOR: Interpretable AI for Mammography</h2>
-                    <div class="content" style="text-align: justify;">
-                        <p>Mammo-FActOR is an interpretability module integrated within Mammo-CLIP. This module
-                            maps the
-                            visual features extracted from mammograms to specific textual attributes found in
-                            radiology
-                            reports. By doing so, Mammo-FActOR provides a clearer understanding of how the model
-                            interprets
-                            different regions of the image in relation to the findings described in the text.
-                            This
-                            enhanced
-                            interpretability allows radiologists to better understand the model’s
-                            decision-making
-                            process,
-                            increasing the trustworthiness and transparency of the system.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<div class="container" id="mammo-factor" style="margin-top: 40px;">
+    <h3 style="text-align: center;">Mammo-FActOR: Interpretable AI for Mammography</h3>
+    <hr>
+    <div class="content" style="text-align: justify;">
+        <p>Mammo-FActOR is an interpretability module integrated within Mammo-CLIP. This module
+            maps the
+            visual features extracted from mammograms to specific textual attributes found in
+            radiology
+            reports. By doing so, Mammo-FActOR provides a clearer understanding of how the model
+            interprets
+            different regions of the image in relation to the findings described in the text.
+            This
+            enhanced
+            interpretability allows radiologists to better understand the model’s
+            decision-making
+            process,
+            increasing the trustworthiness and transparency of the system.</p>
     </div>
-</section>
+</div>
 
-
-<section class="section" style="margin-top: -7%; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <div class="columns is-centered">
-                <div class="content">
-                    <h2 class="title is-3">Results and Impact</h2>
-                    <div class="content" style="text-align: justify">
-                        <p>Mammo-CLIP demonstrates strong performance across 2 public datasets:
-                            <a href="https://www.kaggle.com/competitions/rsna-breast-cancer-detection">RSNA</a> and
-                            <a href="https://vindr.ai/datasets/mammo">VinDr</a>, significantly
-                            outperforming the baselines in both classification and localization tasks. The model's
-                            robustness
-                            and data efficiency make it a valuable asset in the early detection of breast cancer,
-                            potentially
-                            saving lives by enabling faster and more accurate diagnoses.</p>
-                    </div>
-
-                    <h3 class="title is-4">Detailed Task Descriptions</h3>
-                    <ul>
-                        <li>Zero-shot classification of cancer on the RSNA dataset, and classification of mass,
-                            calcification, and density on the VinDr dataset without any fine-tuning.
-                        </li>
-                        <li>Classification of mass, calcification, and density on the VinDr dataset using the Mammo-CLIP
-                            vision encoder, trained with linear probes on 10%, 50%, and 100% of the training data.
-                        </li>
-                        <li>Classification of mass, calcification, and density on the VinDr dataset by fine-tuning the
-                            Mammo-CLIP vision encoder with 100% of the training data.
-                        </li>
-                        <li>Classification of cancer on the RSNA dataset by fine-tuning the Mammo-CLIP vision encoder
-                            with 10%, 50%, and 100% of the training data.
-                        </li>
-                        <li>Classification of cancer on the RSNA dataset using the Mammo-CLIP vision encoder, trained
-                            with linear probes on 100% of the training data.
-                        </li>
-                        <li>Localization of mass and calcification on the VinDr dataset by fine-tuning the Mammo-CLIP
-                            vision encoder with 10%, 50%, and 100% of the training data.
-                        </li>
-                        <li>Localization of mass and calcification on the VinDr dataset using the Mammo-CLIP vision
-                            encoder with a frozen encoder, trained on 100% of the training data.
-                        </li>
-                    </ul>
-
-                    <!--                    <video autoplay muted controls loop style="width: 100%;">-->
-                    <!--                        <source src="static/figures/mammo_clip_results.mp4" type="video/mp4">-->
-                    <!--                        Your browser does not support the video tag.-->
-                    <!--                    </video>-->
-                </div>
-            </div>
-        </div>
+<div class="container" id="results-section" style="margin-top: 40px;">
+    <h3 style="text-align: center;">Results and Impact</h3>
+    <hr>
+    <div class="content" style="text-align: justify;">
+        <p>Mammo-CLIP demonstrates strong performance across 2 public datasets:
+            <a href="https://www.kaggle.com/competitions/rsna-breast-cancer-detection">RSNA</a> and
+            <a href="https://vindr.ai/datasets/mammo">VinDr</a>, significantly
+            outperforming the baselines in both classification and localization tasks. The model's
+            robustness
+            and data efficiency make it a valuable asset in the early detection of breast cancer,
+            potentially
+            saving lives by enabling faster and more accurate diagnoses.</p>
     </div>
-</section>
+    <h4 class="title is-4">Detailed Task Descriptions</h4>
+    <ul>
+        <li>Zero-shot classification of cancer on the RSNA dataset, and classification of mass,
+            calcification, and density on the VinDr dataset without any fine-tuning.
+        </li>
+        <li>Classification of mass, calcification, and density on the VinDr dataset using the Mammo-CLIP
+            vision encoder, trained with linear probes on 10%, 50%, and 100% of the training data.
+        </li>
+        <li>Classification of mass, calcification, and density on the VinDr dataset by fine-tuning the
+            Mammo-CLIP vision encoder with 100% of the training data.
+        </li>
+        <li>Classification of cancer on the RSNA dataset by fine-tuning the Mammo-CLIP vision encoder
+            with 10%, 50%, and 100% of the training data.
+        </li>
+        <li>Classification of cancer on the RSNA dataset using the Mammo-CLIP vision encoder, trained
+            with linear probes on 100% of the training data.
+        </li>
+        <li>Localization of mass and calcification on the VinDr dataset by fine-tuning the Mammo-CLIP
+            vision encoder with 10%, 50%, and 100% of the training data.
+        </li>
+        <li>Localization of mass and calcification on the VinDr dataset using the Mammo-CLIP vision
+            encoder with a frozen encoder, trained on 100% of the training data.
+        </li>
+    </ul>
+</div>
 
 
-<section class="section" style="margin-top: -7%; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <div class="columns is-centered">
-                <div class="content">
-                    <h2 class="title is-3">Baselines</h2>
-                    <div class="content" style="text-align: justify">
-                        <p>Using UPMC (image+text) dataset and CLIP objective, we construct
-                            two baselines: 1) an image encoder w/ ResNet (RN)-50 initialized with CLIP
-                            weights and fine-tuned with 224×224 images, 2) EfficientNet (EN)-B5 fine-tuned
-                            using the same pre-processed images as Mammo-CLIP. Both the baselines are
-                            pre-trained using the UPMC dataset, as CLIP only uses an image-text dataset,
-                            not an image-label dataset.</p>
-                    </div>
-                    <!--                    <video autoplay muted controls loop style="width: 100%;">-->
-                    <!--                        <source src="static/figures/mammo_clip_results.mp4" type="video/mp4">-->
-                    <!--                        Your browser does not support the video tag.-->
-                    <!--                    </video>-->
-                </div>
-            </div>
-        </div>
+<div class="container" id="baselines" style="margin-top: 40px;">
+    <h3 style="text-align: center;">Baselines</h3>
+    <hr>
+    <div class="content" style="text-align: justify;">
+        <p>Using UPMC (image+text) dataset and CLIP objective, we construct
+            two baselines: 1) an image encoder w/ ResNet (RN)-50 initialized with CLIP
+            weights and fine-tuned with 224×224 images, 2) EfficientNet (EN)-B5 fine-tuned
+            using the same pre-processed images as Mammo-CLIP. Both the baselines are
+            pre-trained using the UPMC dataset, as CLIP only uses an image-text dataset,
+            not an image-label dataset.</p>
     </div>
-</section>
+</div>
 
-<section class="section" style="margin-top: -7%; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <div class="columns is-centered">
-                <div class="content">
-                    <h2 class="title is-3">Classification Performance on RSNA Dataset</h2>
-                    <div style="text-align: justify;">
-                        <p>The plot below shows the classification performance of various models on the RSNA dataset to
-                            classify
-                            malignancy. The models were evaluated using AUC scores across different training settings
-                            including
-                            zero-shot, fine-tuning with 10%, 50%, and 100% of the data, and linear probe with 100% of
-                            the data.</p>
-                        <br/>
-                    </div>
-                    <figure style="width: 95%; margin: 0 auto;">
-                        <img src="./static/figures/cancer-auc.png" alt="Classification Performance on RSNA Dataset"
-                             style="width: 100%; height: auto;"/>
-                        <!--                        <figcaption style="text-align: center; font-size: 14px; color: #555;">-->
-                        <!--                            Fig. 2. Classification performance comparison on RSNA dataset using AUC scores.-->
-                        <!--                        </figcaption>-->
-                    </figure>
-                </div>
-            </div>
-        </div>
+
+<div class="container" id="cls-performance-rsna" style="margin-top: 40px;">
+    <h3 style="text-align: center;">Classification Performance on RSNA Dataset</h3>
+    <hr>
+    <div class="content" style="text-align: justify;">
+        <p>The plot below shows the classification performance of various models on the RSNA dataset to
+            classify
+            malignancy. The models were evaluated using AUC scores across different training settings
+            including
+            zero-shot, fine-tuning with 10%, 50%, and 100% of the data, and linear probe with 100% of
+            the data.</p>
     </div>
-</section>
+    <figure style="width: 95%; margin: 0 auto;">
+        <img src="./static/figures/cancer-auc.png" alt="Classification Performance on RSNA Dataset"
+             style="width: 100%; height: auto;"/>
+    </figure>
+</div>
 
-<section class="section" style="margin-top: -7%; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <div class="columns is-centered">
-                <div class="content">
-                    <h2 class="title is-3">Classification Performance for Calcification, Mass, and Density on VinDr
-                        dataset</h2>
-                    <div style="text-align: justify;">
-                        <p>This plot compares the AUC performance of various models on calcification, mass, and density
-                            classification tasks. The performance is reported across zero-shot, linear probe (10%, 50%,
-                            100%
-                            data), and fine-tune (100% data) settings, providing insights into the model's robustness
-                            across
-                            different conditions.</p>
-                        <br/>
-                    </div>
-                    <figure style="width: 95%; margin: 0 auto;">
-                        <img src="./static/figures/concept-auc.png"
-                             alt="AUC Performance for Calcification, Mass, and Density"
-                             style="width: 100%; height: auto;"/>
-                        <!--                        <figcaption style="text-align: center; font-size: 14px; color: #555;">-->
-                        <!--                            Fig. 3. AUC performance comparison for calcification, mass, and density classification-->
-                        <!--                            tasks.-->
-                        <!--                        </figcaption>-->
-                    </figure>
-                </div>
-            </div>
-        </div>
+
+<div class="container" id="cls-performance-vindr" style="margin-top: 40px;">
+    <h3 style="text-align: center;">Classification Performance for Calcification, Mass, and Density on VinDr
+        dataset</h3>
+    <hr>
+    <div class="content" style="text-align: justify;">
+        <p>This plot compares the AUC performance of various models on calcification, mass, and density
+            classification tasks. The performance is reported across zero-shot, linear probe (10%, 50%,
+            100%
+            data), and fine-tune (100% data) settings, providing insights into the model's robustness
+            across
+            different conditions.</p>
     </div>
-</section>
+    <figure style="width: 95%; margin: 0 auto;">
+        <img src="./static/figures/concept-auc.png"
+             alt="AUC Performance for Calcification, Mass, and Density"
+             style="width: 100%; height: auto;"/>
+    </figure>
+</div>
 
-<section class="section" style="margin-top: -7%; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <div class="columns is-centered">
-                <div class="content">
-                    <h2 class="title is-3">Supervised Localization Performance on VinDr Dataset</h2>
-                    <div style="text-align: justify;">
-                        <p>The following plot presents the localization performance (mAP) on the VinDr dataset. The
-                            evaluation
-                            compares different models under various training conditions including freeze encoder,
-                            fine-tuning
-                            with 10%, 50%, and 100% of the data.</p>
-                        <br/>
-                    </div>
-                    <figure style="width: 95%; margin: 0 auto;">
-                        <img src="./static/figures/detection-map.png" alt="Localization Performance on VinDr Dataset"
-                             style="width: 100%; height: auto;"/>
-                        <!--                        <figcaption style="text-align: center; font-size: 14px; color: #555;">-->
-                        <!--                            Fig. 4. Localization performance comparison (mAP) on VinDr dataset.-->
-                        <!--                        </figcaption>-->
-                    </figure>
-                </div>
-            </div>
-        </div>
+<div class="container" id="det-performance-vindr" style="margin-top: 40px;">
+    <h3 style="text-align: center;">Supervised Localization Performance on VinDr Dataset</h3>
+    <hr>
+    <div class="content" style="text-align: justify;">
+        <p>The following plot presents the localization performance (mAP) on the VinDr dataset. The
+            evaluation
+            compares different models under various training conditions including freeze encoder,
+            fine-tuning
+            with 10%, 50%, and 100% of the data.</p>
     </div>
-</section>
+    <figure style="width: 95%; margin: 0 auto;">
+        <img src="./static/figures/detection-map.png" alt="Localization Performance on VinDr Dataset"
+             style="width: 100%; height: auto;"/>
+    </figure>
+</div>
 
-<section class="section" style="margin-top: -7%; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <div class="columns is-centered">
-                <div class="content">
-                    <h2 class="title is-3">Mammo-FActOR Interpretability</h2>
-                    <div style="text-align: justify;">
-                        <p>This figure showcases the interpretability of Mammo-FActOR. The ground-truth regions for mass
-                            and
-                            calcification are compared against the model’s predictions, visualized through heatmaps that
-                            highlight
-                            the model’s focus areas.</p>
-                        <br/>
-                    </div>
-                    <figure style="width: 95%; margin: 0 auto;">
-                        <img src="./static/figures/Mammo-Factor.png" alt="Mammo-FACtoR Interpretability"
-                             style="width: 100%; height: auto;"/>
-                        <figcaption style="text-align: center; font-size: 14px; color: #555;">
-                            Ground-truth and Mammo-FActOR prediction visualizations for mass and calcification.
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-        </div>
+<div class="container" id="mammo-Factor-results" style="margin-top: 40px;">
+    <h3 style="text-align: center;">Mammo-FActOR Interpretability</h3>
+    <hr>
+    <div class="content" style="text-align: justify;">
+        <p>This figure showcases the interpretability of Mammo-FActOR. The ground-truth regions for mass
+            and
+            calcification are compared against the model’s predictions, visualized through heatmaps that
+            highlight
+            the model’s focus areas.</p>
     </div>
-</section>
+    <figure style="width: 95%; margin: 0 auto;">
+        <img src="./static/figures/Mammo-Factor.png" alt="Mammo-FACtoR Interpretability"
+             style="width: 100%; height: auto;"/>
+        <figcaption style="text-align: center; font-size: 14px; color: #555;">
+            Ground-truth and Mammo-FActOR prediction visualizations for mass and calcification.
+        </figcaption>
+    </figure>
+</div>
 
-<section class="section" style="margin-top: -7%; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <div class="columns is-centered">
-                <div class="content">
-                    <h2 class="title is-3">Weakly-Supervised Localization Results</h2>
-                    <div style="text-align: justify;">
-                        <p>The bar plot below compares the Intersection over Union (IoU) performance of two Mammo-CLIP
-                            variants
-                            for mass and calcification detection on the VinDr dataset. The IoU is reported at thresholds
-                            of 0.25
-                            and 0.50, showcasing the models' effectiveness in weakly-supervised localization tasks using
-                            Mammo-FActOR.</p>
-                        <br/>
-                    </div>
-                    <figure style="width: 95%; margin: 0 auto;">
-                        <img src="./static/figures/weak-supervised.png" alt="Weakly-Supervised Localization Results"
-                             style="width: 100%; height: auto;"/>
-                        <figcaption style="text-align: center; font-size: 14px; color: #555;">
-                            IoU comparison for weakly-supervised localization of mass and calcification.
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-        </div>
+<div class="container" id="weakly-sup-results" style="margin-top: 40px;">
+    <h3 style="text-align: center;">Weakly-Supervised Localization Results</h3>
+    <hr>
+    <div class="content" style="text-align: justify;">
+        <p>The bar plot below compares the Intersection over Union (IoU) performance of two Mammo-CLIP
+            variants
+            for mass and calcification detection on the VinDr dataset. The IoU is reported at thresholds
+            of 0.25
+            and 0.50, showcasing the models' effectiveness in weakly-supervised localization tasks using
+            Mammo-FActOR.</p>
     </div>
-</section>
+    <figure style="width: 95%; margin: 0 auto;">
+        <img src="./static/figures/weak-supervised.png" alt="Weakly-Supervised Localization Results"
+             style="width: 100%; height: auto;"/>
+        <figcaption style="text-align: center; font-size: 14px; color: #555;">
+            IoU comparison for weakly-supervised localization of mass and calcification.
+        </figcaption>
+    </figure>
+</div>
 
-
-<section class="section" style="margin-top: -7%; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <div class="columns is-centered">
-                <div class="content">
-                    <h2 class="title is-3">Future Directions</h2>
-                    <div class="content" style="text-align: justify;">
-                        <p>We are excited to continue developing Mammo-CLIP by exploring the integration of vision
-                            transformers
-                            and cross-attention mechanisms, which have the potential to further enhance the model's
-                            performance.
-                            We also aim to expand the dataset to include more diverse mammogram images and reports,
-                            ensuring
-                            that Mammo-CLIP remains at the forefront of AI in healthcare.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section" style="margin-top: -7%; margin-bottom:-10px">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <div class="columns is-centered">
-                <div class="content">
-                    <h2 class="title is-3">Acknowledgments</h2>
-                    <div class="content" style="text-align: justify;">
-                        <p>
-                            This work was partially supported by the Pennsylvania Department of Health, NIH Award Number
-                            1R01HL141813-01, and funding from the Hariri
-                            Institute for Computing, Boston University. We are grateful for the computational
-                            resources from Pittsburgh Super Computing grant number TG-ASC170024.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!--<section class="section" style="margin-top: -7%; margin-bottom:-10px">-->
-<!--    <div class="container is-max-desktop">-->
-<!--        <div class="hero-body">-->
-<!--            <div class="columns">-->
-<!--                <div class="content">-->
-<!--                    <h2 class="title is-3">Contributors</h2>-->
-<!--                    <div class="columns is-multiline is-centered">-->
-<!--                        <div class="column is-one-quarter has-text-centered">-->
-<!--                            <figure class="image is-128x128" style="margin: 0 auto;">-->
-<!--                                <img class="is-rounded contributor-img" src="./static/figures/shantanu_nyc.jpg" alt="Shantanu Ghosh">-->
-<!--                            </figure>-->
-<!--                            <p><strong>Shantanu Ghosh</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="column is-one-quarter has-text-centered">-->
-<!--                            <figure class="image is-128x128" style="margin: 0 auto;">-->
-<!--                                <img class="is-rounded contributor-img" src="./static/figures/Poynton-Clare-454x636-1.jpg"-->
-<!--                                     alt="Clare B. Poynton">-->
-<!--                            </figure>-->
-<!--                            <p><strong>Clare B. Poynton</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="column is-one-quarter has-text-centered">-->
-<!--                            <figure class="image is-128x128" style="margin: 0 auto;">-->
-<!--                                <img class="is-rounded contributor-img" src="./static/figures/photo-of-shyam-visweswaran_smallhero.avif"-->
-<!--                                     alt="Shyam Visweswaran">-->
-<!--                            </figure>-->
-<!--                            <p><strong>Shyam Visweswaran</strong></p>-->
-<!--                        </div>-->
-<!--                        <div class="column is-one-quarter has-text-centered">-->
-<!--                            <figure class="image is-128x128" style="margin: 0 auto;">-->
-<!--                                <img class="is-rounded contributor-img" src="./static/figures/kayhan-web-600x727.jpg"-->
-<!--                                     alt="Kayhan Batmanghelich">-->
-<!--                            </figure>-->
-<!--                            <p><strong>Kayhan Batmanghelich</strong></p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-
-
-<!--<section class="section" style="margin-top: -7%; margin-bottom:-10px">-->
-<!--    <div class="container is-max-desktop content">-->
-<!--        <div class="hero-body">-->
-<!--            <div class="columns is-centered">-->
-<!--                <div class="content">-->
-<!--                    <h2 class="title-is-3">BibTeX</h2>-->
-<!--                    <pre><code>@article{ghosh2024mammo,-->
-<!--        title={Mammo-CLIP: A Vision Language Foundation Model to Enhance Data Efficiency and Robustness in Mammography},-->
-<!--        author={Ghosh, Shantanu and Poynton, Clare B and Visweswaran, Shyam and Batmanghelich, Kayhan},-->
-<!--        journal={arXiv preprint arXiv:2405.12255},-->
-<!--        year={2024}-->
-<!--}-->
-<!--                    </code></pre>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-<section class="section" style="margin-top: -7%; margin-bottom:-10px">
-    <div class="container is-max-desktop content">
-        <div class="hero-body">
-            <div class="columns is-centered">
-                <div class="content">
-                    <h2 class="title-is-3">BibTeX</h2>
-                    <pre><code>
+<div class="container" id="bibtex" style="margin-top: 40px;">
+    <h3>Citation</h3>
+    <hr>
+    <pre><code>
                             @InProceedings{10.1007/978-3-031-72390-2_59,
                             author="Ghosh, Shantanu
                             and Poynton, Clare B.
@@ -685,38 +500,18 @@
                             isbn="978-3-031-72390-2"
                             }
                     </code></pre>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+</div>
 
-<footer class="footer">
-    <div class="container">
-        <div class="content has-text-centered">
-            <a class="icon-link"
-               href="https://papers.miccai.org/miccai-2024/paper/0926_paper.pdf">
-                <i class="fas fa-file-pdf"></i>
-            </a>
-            <a class="icon-link" href="https://github.com/batmanlab/Mammo-CLIP/tree/main"
-               class="external-link" disabled>
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-        <div class="columns is-centered">
-            <div class="column is-8">
-                <div class="content">
-                    <p style="text-align: center;">
-                        Copyright © Batman Lab, 2024. Feel free to use this <a
-                            href="https://github.com/shantanu-ai/shantanu-ai.github.io/tree/main/projects/MICCAI-2024-Mammo-CLIP">website's
-                        template</a>, adapted from
-                        <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+<footer class="center mt-5 mb-4">
+    <hr>
+    <p>&copy; 2025 Batman Lab. Feel free to use this <a
+            href="https://github.com/shantanu-ai/shantanu-ai.github.io/tree/main/projects/MICCAI-2024-Mammo-CLIP">website's
+        template</a>, adapted from <a
+            href="https://github.com/shantanu-ai/shantanu-ai.github.io/tree/main/projects/ACL-2025-Ladder/">Ladder
+        project</a>.</p>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
