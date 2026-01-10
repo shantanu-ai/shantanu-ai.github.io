@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Academic website of Shantanu Ghosh, PhD Candidate at Boston University">
+    <title>Shantanu Ghosh | PhD Candidate</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #2b3969; /* BU Blue */
+            --accent-color: #C82506; /* Highlight/Alert color */
+            --bg-light: #f8f9fa;
+            --text-main: #212529;
+            --text-muted: #6c757d;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: 80px; /* Space for fixed header */
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: rgba(43, 57, 105, 0.95) !important;
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .nav-link {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.85) !important;
+            transition: color 0.2s;
+        }
+        .nav-link:hover {
+            color: #fff !important;
+        }
+
+        /* Headings */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Bio Section */
+        .headshot {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        .bio-text a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted var(--primary-color);
+        }
+        .bio-text a:hover {
+            background-color: rgba(43, 57, 105, 0.05);
+        }
+
+        /* Social Icons */
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            transition: color 0.2s;
+        }
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Universities Grid (Replaces Table) */
+        .uni-card {
+            padding: 15px;
+            text-align: center;
+            height: 100%;
+            transition: transform 0.2s;
+        }
+        .uni-card:hover {
+            transform: translateY(-2px);
+        }
+        .uni-logo {
+            max-height: 60px;
+            max-width: 100%;
+            margin-bottom: 10px;
+            object-fit: contain;
+        }
+        .uni-degree {
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: block;
+        }
+        .uni-year {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* News Section */
+        .news-box {
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .news-item {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 12px;
+        }
+        .news-date {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* Publications */
+        .pub-item {
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        @media (min-width: 768px) {
+            .pub-item {
+                flex-direction: row;
+            }
+        }
+        .pub-img {
+            width: 100%;
+            max-width: 180px;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            align-self: flex-start;
+        }
+        .pub-content {
+            flex: 1;
+        }
+        .pub-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #000;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .pub-authors {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+        .pub-authors b {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+        .pub-venue {
+            font-style: italic;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        .highlight-badge {
+            background-color: #ffe8e6;
+            color: var(--accent-color);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+        .tldr-box {
+            background-color: #f8f9fa;
+            border-left: 3px solid #dee2e6;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            border-radius: 0 4px 4px 0;
+        }
+        .pub-links a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-right: 8px;
+            text-decoration: none;
+            padding: 3px 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+        .pub-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Academic Service Lists */
+        .service-list {
+            padding-left: 20px;
+        }
+        .service-list li {
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 60px;
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Video Container */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar-main" data-bs-offset="100">
+
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark" id="navbar-main">
+            <div class="container">
+                <a class="navbar-brand" href="#">Shantanu Ghosh</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#bio">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#publication">Publications</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#teaching">Teaching</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item ms-lg-2"><a class="btn btn-sm btn-outline-light mt-2 mt-lg-0" href="files/Shantanu_CV_PhD.pdf">CV</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section id="bio" class="py-5">
+            <div class="row align-items-start">
+                <div class="col-md-4 text-center text-md-start">
+                    <img class="headshot" src="images/Shantanu_Death_Valley.png" alt="Shantanu Ghosh">
+                    <div class="mt-3 text-start px-2">
+                        <p class="mb-1"><i class="fa-solid fa-graduation-cap me-2 text-primary"></i>PhD Candidate, Electrical Engineering</p>
+                        <p class="mb-1"><i class="fa-solid fa-building-columns me-2 text-primary"></i>Boston University</p>
+                        <p class="mb-1"><i class="fa-solid fa-location-dot me-2 text-primary"></i>Photonics Center, 407-07</p>
+                        <p class="mb-3"><i class="fa-solid fa-envelope me-2 text-primary"></i>shawn24 [at] bu [dot] edu</p>
+
+                        <div class="social-links mt-3">
+                            <a href="https://scholar.google.com/citations?user=U_s5k_oAAAAJ&hl=en" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+                            <a href="https://github.com/shantanu-ai" title="Github"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/shantanuai/" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://twitter.com/shantanuai" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 bio-text mt-4 mt-md-0">
+                    <h2 class="mt-0">About Me</h2>
+                    <p class="lead" style="font-size: 1.1rem; font-weight: 400;">
+                        I investigate the intelligence encoded inside a deep neural network.
+                    </p>
+                    <p>
+                        I am a lifelong proud <a href="https://en.wikipedia.org/wiki/Albert_and_Alberta_Gator">gator</a> and a Ph.D. candidate in Electrical Engineering at <a href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">Boston University</a>, advised by Prof. <a href="https://www.batman-lab.com/kayhan-batmanghelich-biography/">Kayhan Batmanghelich</a> at <a href="https://www.batman-lab.com/">Batman Lab</a> and <a href="https://www.bumc.bu.edu/camed/profile/clare-poynton/">Dr. Clare B. Poynton</a> from Boston University Medical Campus.
+                    </p>
+                    <p>
+                        My research focuses on <strong>robustness and generalization in deep learning</strong>, with a particular emphasis on leveraging vision-language representations to understand, explain, and audit pre-trained neural networks. My work has been published at top peer-reviewed venues including ACL, NAACL, ICML, MICCAI, AMIA, JAMIA, and RAD:AI. I believe that understanding a model’s behavior is essential to mitigating bias and building trust in AI systems.
+                    </p>
+                    <p>
+                        In the summers of 2024 and 2025, I interned as an Applied Scientist at <strong>Amazon</strong> (AWS SAAR and AWS Optimus) in New York City and Pasadena. Before moving to Boston, I was a Ph.D. student at the University of Pittsburgh and cross-registered at CMU. Prior to my PhD journey, I obtained my Master's in CS from the University of Florida.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="universities" class="mb-5">
+            <div class="bg-light rounded-3 p-4">
+                <div class="row g-4 justify-content-center align-items-center">
+                    <div class="col-6 col-md">
+                        <div class="uni-card">
+                            <a href="https://www.amazon.science/"><img src="images/amazon_science.png" class="uni-logo" alt="Amazon"></a>
+                            <span class="uni-degree">Applied Scientist Intern</span>
+                            <span class="uni-year">Summer 2024, 2025</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md">
+                        <div class="uni-card">
+                            <a href="https://www.bu.edu/eng/"><img src="images/Boston_University_Terriers_logo.svg.png" class="uni-logo" alt="BU"></a>
+                            <span class="uni-degree">Ph.D. Candidate</span>
+                            <span class="uni-year">2023 - Present</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md">
+                        <div class="uni-card">
+                            <a href="https://www.isp.pitt.edu/"><img src="images/Pittsvg.png" class="uni-logo" alt="Pitt"></a>
+                            <span class="uni-degree">Ph.D. Student</span>
+                            <span class="uni-year">2021 - 2023</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md">
+                        <div class="uni-card">
+                            <a href="https://www.cmu.edu/"><img src="images/cmu_logo.png" class="uni-logo" alt="CMU"></a>
+                            <span class="uni-degree">Cross-Registered</span>
+                            <span class="uni-year">2021 - 2023</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md">
+                        <div class="uni-card">
+                            <a href="https://www.ufl.edu/"><img src="images/UF_logo.png" class="uni-logo" alt="UF"></a>
+                            <span class="uni-degree">M.S. Comp Sci</span>
+                            <span class="uni-year">2019 - 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="mb-5">
+            <h3>News</h3>
+            <div class="news-box">
+                <div class="news-item">
+                    <span class="news-date">May 2025</span>
+                    <a href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/index.html"><strong>Ladder</strong></a> is accepted at <a href="https://2025.aclweb.org/"><strong>ACL 2025, Findings</strong></a>. Using LLM, Ladder detects blind spots of deep learning classifiers.
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Jan 2025</span>
+                    Collaborative work on hallucination reduction for CXR report generation accepted at <a href="https://2025.naacl.org/"><strong>NAACL 2025 Findings</strong></a>.
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Oct 2024</span>
+                    Internship work at Amazon accepted at <strong>3rd TRL Workshop @ NeurIPS 2024</strong>. Recognized as top reviewer at NeurIPS 2024.
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Aug 2024</span>
+                    Paper "Anatomy-specific Progression Classification..." accepted at <strong>Radiology: Artificial Intelligence</strong>.
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Jun 2024</span>
+                    Joined Amazon AWS SAAR Team as Applied Scientist Intern in NYC.
+                </div>
+                <div class="news-item">
+                    <span class="news-date">May 2024</span>
+                    <strong>Mammo-CLIP</strong> accepted at <strong>MICCAI 2024</strong> (Early accept, top 11%).
+                </div>
+                <div class="news-item">
+                    <span class="news-date">May 2023</span>
+                    Work on Efficient Transfer Learning accepted at <strong>MICCAI 2023</strong> (Early accept, top 14%).
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Apr 2023</span>
+                    Paper "Dividing and Conquering a BlackBox..." accepted at <strong>ICML 2023</strong>.
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="mb-5">
+            <h3>Research Focus</h3>
+            <p>
+                My core research interest lies in representation learning across computer vision and medical imaging, with a particular focus on interpretability and explainable AI. I aim to answer questions such as:
+            </p>
+            <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item bg-transparent"><i class="fa-solid fa-check text-success me-2"></i>Can we decipher failure modes of deep models using vision-language representations? (LADDER, ACL 2025)</li>
+                <li class="list-group-item bg-transparent"><i class="fa-solid fa-check text-success me-2"></i>Can we learn robust representations in presence of multiple biases? (NeurIPS TRL 2024)</li>
+                <li class="list-group-item bg-transparent"><i class="fa-solid fa-check text-success me-2"></i>Can we learn robust VL representations with limited data efficiently? (Mammo-CLIP, MICCAI 2024)</li>
+                <li class="list-group-item bg-transparent"><i class="fa-solid fa-check text-success me-2"></i>Can we extract interpretable models from blackbox representations? (MoIE, ICML 2023)</li>
+            </ul>
+        </section>
+
+        <section id="publication" class="mb-5">
+            <h3>Publications</h3>
+
+            <div class="pub-item">
+                <img src="images/ladder-acl2025.png" alt="LADDER" class="pub-img">
+                <div class="pub-content">
+                    <span class="pub-title">LADDER: Language-Driven Slice Discovery and Error Rectification in Vision Classifiers</span>
+                    <div class="pub-authors">
+                        <b>Shantanu Ghosh</b>, Rayan Syed, Chenyu Wang, Vaibhav Choudhary, Binxu Li, Clare B. Poynton, Shyam Visweswaran, Kayhan Batmanghelich
+                    </div>
+                    <div class="pub-venue">
+                        Findings of ACL 2025
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/index.html"><i class="fa-solid fa-globe"></i> Project</a>
+                        <a href="https://aclanthology.org/2025.findings-acl.1177/"><i class="fa-regular fa-file-pdf"></i> Paper</a>
+                        <a href="https://arxiv.org/pdf/2408.07832"><i class="fa-solid fa-scroll"></i> arXiv</a>
+                        <a href="https://github.com/batmanlab/Ladder"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                    <div class="tldr-box">
+                        <strong>TL;DR:</strong> LADDER uses LLMs to discover and fix biases in vision classifiers without requiring labels or prior bias knowledge.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <img src="images/naacl_2025.png" alt="NAACL" class="pub-img">
+                <div class="pub-content">
+                    <span class="pub-title">Semantic Consistency-Based Uncertainty Quantification for Factuality in Radiology Report Generation</span>
+                    <div class="pub-authors">
+                        Chenyu Wang, Weichao Zhou, <b>Shantanu Ghosh</b>, Kayhan Batmanghelich, Wenchao Li
+                    </div>
+                    <div class="pub-venue">
+                        NAACL 2025 Findings
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2412.04606"><i class="fa-regular fa-file-pdf"></i> Paper</a>
+                        <a href="https://github.com/BU-DEPEND-Lab/SCUQ-RRG"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                    <div class="tldr-box">
+                        <strong>TL;DR:</strong> A model-agnostic uncertainty framework that enhances radiology report factuality by 10% without model modifications.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <img src="images/TRL.png" alt="NeurIPS TRL" class="pub-img">
+                <div class="pub-content">
+                    <span class="pub-title">Distributionally robust self-supervised learning for tabular data</span>
+                    <div class="pub-authors">
+                        <b>Shantanu Ghosh</b>, Tiankang Xie, Mikhail Kuznetsov
+                    </div>
+                    <div class="pub-venue">
+                        NeurIPS 2024 (TRL Workshop)
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://openreview.net/pdf?id=71u8OvjYbZ"><i class="fa-regular fa-file-pdf"></i> Paper</a>
+                        <a href="https://www.amazon.science/publications/distributionally-robust-self-supervised-learning-for-tabular-data"><i class="fa-brands fa-amazon"></i> Blog</a>
+                    </div>
+                    <div class="tldr-box">
+                        <strong>TL;DR:</strong> Framework for robust representation learning in tabular data using self-supervised pre-training to address systematic errors.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <img src="images/AGX-Siamese-net.png" alt="RadAI" class="pub-img">
+                <div class="pub-content">
+                    <span class="pub-title">Anatomy-specific Progression Classification in Chest Radiographs via Weakly Supervised Learning</span>
+                    <div class="pub-authors">
+                        Ke Yu, <b>Shantanu Ghosh</b>, Zhexiong Li, Christopher Deible, Clare B. Poynton, Shyam Visweswaran, Kayhan Batmanghelich
+                    </div>
+                    <div class="pub-venue">
+                        Radiology: Artificial Intelligence (2024) <span class="highlight-badge">Impact Factor: 8.1</span>
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://pubs.rsna.org/doi/10.1148/ryai.230277"><i class="fa-regular fa-file-pdf"></i> Paper</a>
+                        <a href="https://github.com/batmanlab/SiameseAGXNet"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <img src="images/Mammo-CLIP_large.png" alt="Mammo-CLIP" class="pub-img">
+                <div class="pub-content">
+                    <span class="pub-title">Mammo-CLIP: A Vision Language Foundation Model to Enhance Data Efficiency in Mammography</span>
+                    <div class="pub-authors">
+                        <b>Shantanu Ghosh</b>, Clare B. Poynton, Shyam Visweswaran, Kayhan Batmanghelich
+                    </div>
+                    <div class="pub-venue">
+                        MICCAI 2024 <span class="highlight-badge">Early Accept (Top 11%)</span>
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://shantanu-ai.github.io/projects/MICCAI-2024-Mammo-CLIP"><i class="fa-solid fa-globe"></i> Project</a>
+                        <a href="https://arxiv.org/pdf/2405.12255"><i class="fa-solid fa-scroll"></i> arXiv</a>
+                        <a href="https://github.com/batmanlab/Mammo-CLIP"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <img src="images/miccai-2023.png" alt="MICCAI 2023" class="pub-img">
+                <div class="pub-content">
+                    <span class="pub-title">Distilling BlackBox to Interpretable models for Efficient Transfer Learning</span>
+                    <div class="pub-authors">
+                        <b>Shantanu Ghosh</b>, Ke Yu, Kayhan Batmanghelich
+                    </div>
+                    <div class="pub-venue">
+                        MICCAI 2023 <span class="highlight-badge">Early Accept (Top 14%)</span>
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://shantanu-ai.github.io/projects/MICCAI-2023-MoIE-CXR/"><i class="fa-solid fa-globe"></i> Project</a>
+                        <a href="https://arxiv.org/pdf/2305.17303.pdf"><i class="fa-solid fa-scroll"></i> arXiv</a>
+                        <a href="https://github.com/batmanlab/MICCAI-2023-Route-interpret-repeat-CXRs"><i class="fa-brands fa-github"></i> Code</a>
+                        <a href="https://www.youtube.com/watch?v=tG_Zr_8ton0"><i class="fa-brands fa-youtube"></i> Video</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <img src="images/icml-2023.png" alt="ICML 2023" class="pub-img">
+                <div class="pub-content">
+                    <span class="pub-title">Dividing and Conquering a BlackBox to a Mixture of Interpretable Models: Route, Interpret, Repeat</span>
+                    <div class="pub-authors">
+                        <b>Shantanu Ghosh</b>, Ke Yu, Forough Arabshahi, Kayhan Batmanghelich
+                    </div>
+                    <div class="pub-venue">
+                        ICML 2023
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://shantanu-ai.github.io/projects/ICML-2023-MoIE/"><i class="fa-solid fa-globe"></i> Project</a>
+                        <a href="https://proceedings.mlr.press/v202/ghosh23c.html"><i class="fa-regular fa-file-pdf"></i> Paper</a>
+                        <a href="https://github.com/batmanlab/ICML-2023-Route-interpret-repeat"><i class="fa-brands fa-github"></i> Code</a>
+                        <a href="https://www.youtube.com/watch?v=252zEPba8pQ&t=6s"><i class="fa-brands fa-youtube"></i> Video</a>
+                    </div>
+                    <div class="tldr-box">
+                        <strong>TL;DR:</strong> Iteratively carving interpretable models from a Blackbox using First Order Logic while a residual network handles harder cases.
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="https://scholar.google.com/citations?user=U_s5k_oAAAAJ&hl=en" class="btn btn-outline-primary">View All Publications on Google Scholar</a>
+            </div>
+        </section>
+
+        <section id="projects" class="mb-5">
+            <h3>Academic Projects</h3>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Explaining why Lottery Ticket Hypothesis Works</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">CMU 16-824: Visual Learning</h6>
+                            <p class="card-text small">Studied the relationship between pruning and explainability. Validated if explanations generated from pruned networks (LTH) are consistent.</p>
+                            <a href="https://arxiv.org/pdf/2307.13698" class="card-link">arXiv</a>
+                            <a href="https://github.com/shantanu-ai/Explainability-with-LTH" class="card-link">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Deep Colorization</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Deep Learning for Computer Graphics</h6>
+                            <p class="card-text small">Created a CNN model to color grayscale face images from scratch.</p>
+                            <a href="https://github.com/shantanu-ai/Deep_Colorization" class="card-link">Code</a>
+                            <a href="https://github.com/shantanu-ai/Deep_Colorization/blob/master/Report.pdf" class="card-link">Report</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <section id="teaching" class="mb-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Teaching</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <b>Medical Imaging With AI (EC 500)</b>
+                                <span class="text-muted">Fall 2025</span>
+                            </div>
+                            <small>Guest Lecturer @ Boston University</small>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <b>Deep Learning (EC 523)</b>
+                                <span class="text-muted">Fall 2024</span>
+                            </div>
+                            <small>Teaching Assistant @ Boston University</small>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <b>Intro to Software Engineering (EC 327)</b>
+                                <span class="text-muted">Fall 2023</span>
+                            </div>
+                            <small>Teaching Assistant @ Boston University</small>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3>Service</h3>
+                    <p class="mb-2"><b>Reviewer:</b> CVPR, ICCV, ECCV, ICML, ICLR, NeurIPS, MICCAI, AAAI, IEEE-TMI, MedIA.</p>
+                    <p><b>Community:</b> Active member of Cognizant Kolkata Outreach council (NGO engagement).</p>
+                    <p><b>Deep Learning Resources:</b> Co-developed a <a href="https://github.com/shantanu-ai/deep-learning-resources">curated repository</a> of academic lecture videos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="talks">
+            <h3>Talks & Tutorials</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/WvodsOL6NFU?si=Mx0_G682dxBu99mZ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-muted small text-center">Invited Talk @ MedAI, Stanford University</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/0lDNgFPyS_c?si=Ud9T_j2n5sC_xH2P" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-muted small text-center">Tutorial on Variational Autoencoder (VAE)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="photography" class="mt-5">
+            <h4>Photography</h4>
+            <p>
+                Beyond research, I have a deep passion for landscape photography. From sunrise in Yosemite to the quiet ridgelines of Kings Canyon.
+                You can view my landscape photos on my <a href="https://500px.com/p/shantanu-ai?view=photos" target="_blank"><strong>500px</strong></a> profile.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5 class="text-white">Contact</h5>
+                    <p class="mb-0">shawn24 [at] bu [dot] edu</p>
+                    <p>407-07 Photonics Building, Boston</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5 class="text-white">Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.batman-lab.com/">Batman Lab</a></li>
+                        <li><a href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">BU ECE</a></li>
+                        <li><a href="https://epidemiology.phhp.ufl.edu/disl/">DISL Lab @ UF</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <p class="small mt-4">© Shantanu Ghosh 2025.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,1551 +1,1600 @@
-<!DOCTYPE html>
-<html lang="en" class="h-100">
+<!doctype html>
+<html lang="en" data-bs-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="images/bu-logo.png"
-          type="image/x-icon">
-    <title>shantanu-ai</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description"
+          content="Shantanu Ghosh — PhD candidate in Electrical Engineering at Boston University. Research in robustness, generalization, interpretability, and vision-language models."/>
+    <link rel="icon" href="images/bu-logo.png" type="image/x-icon"/>
+    <title>Shantanu Ghosh | Academic Website</title>
 
+    <!-- Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-        body, h1, h2, h3, h4, h5, h6, p, ul, li, nav, div, a, button, input, textarea {
-            font-family: 'Lato', sans-serif !important;
+        :root {
+            --bg-soft: rgba(13, 27, 56, 0.06);
+            --card-border: rgba(0, 0, 0, 0.08);
+            --shadow: 0 10px 30px rgba(0, 0, 0, .08);
+            --shadow-soft: 0 6px 18px rgba(0, 0, 0, .06);
+            --accent: #2b3969; /* your original blue */
+            --accent-2: #0b5ed7; /* link-ish */
         }
 
-        /* Ensure all elements have the font-weight you prefer */
-        /* For example, to make the text normal weight: */
-        body, p, ul, li, nav, div, a, button, input, textarea {
-            font-weight: 400 !important;
-            font-size: 15px !important;
+        [data-bs-theme="dark"] {
+            --bg-soft: rgba(255, 255, 255, 0.06);
+            --card-border: rgba(255, 255, 255, 0.12);
+            --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+            --shadow-soft: 0 6px 18px rgba(0, 0, 0, .25);
+            --accent: #7aa2ff;
+            --accent-2: #9ec5fe;
         }
 
-        /* For headings to have bold weight: */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700 !important;
-        }
-
-        .degree {
-            font-weight: 600;
-            font-size: 16px;
-            color: #333;
-            margin-top: 10px;
-        }
-
-        .year {
-            font-weight: 400;
-            font-size: 14px;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        /* Ensure the table takes full width and images are centered properly */
-        table {
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        td {
-            padding: 20px 10px;
-            text-align: center;
-        }
-
-        img {
-            margin-bottom: 15px;
-        }
-
-        /* Add some padding and margins for better layout and readability */
-        .degree, .year {
-            display: block;
-            text-align: center;
-            padding: 5px 0;
-        }
-
-        /* Responsive adjustments for mobile view */
-        @media (max-width: 768px) {
-            td {
-                padding: 15px 5px;
-            }
-
-            img {
-                max-width: 70%;
-                height: auto;
-            }
-
-            .degree {
-                font-size: 14px;
-            }
-
-            .year {
-                font-size: 12px;
-            }
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* Aspect ratio of 16:9 */
-            height: 0;
-            overflow: hidden;
-            margin-bottom: 20px; /* Spacing between tiles */
-        }
-
-        .video-title {
-            text-align: center; /* Center the title if desired */
-            /* Any additional styling you want for the title */
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
+        html, body {
             height: 100%;
         }
 
-        #navbarNav a {
-            color: rgba(255, 255, 255, .7);
+        body {
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            letter-spacing: -0.01em;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .nav-glass {
+            background: rgba(43, 57, 105, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .nav-glass .nav-link {
+            color: rgba(255, 255, 255, 0.82) !important;
             font-weight: 600;
+        }
+
+        .nav-glass .nav-link:hover {
+            color: #fff !important;
+        }
+
+        .nav-glass .navbar-brand {
+            color: #fff !important;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-pill {
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            padding: .25rem .5rem;
+        }
+
+        /* Page spacing */
+        main {
+            padding-top: 84px;
+        }
+
+        section {
+            scroll-margin-top: 92px;
+        }
+
+        /* Hero */
+        .hero {
+            border-radius: 18px;
+            padding: 28px;
+            background: radial-gradient(1200px 600px at 10% 0%, rgba(43, 57, 105, 0.15), transparent 60%),
+            radial-gradient(1000px 600px at 90% 20%, rgba(13, 110, 253, 0.12), transparent 55%),
+            var(--bg-soft);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-soft);
         }
 
         .headshot {
-            max-width: 300px;
-            border: 2px solid gray;
-            border-radius: 0;
-            background: none;
+            width: 280px;
+            max-width: 100%;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-soft);
+            background: transparent;
+            object-fit: cover;
         }
 
-        #date {
-            color: #888888;
+        .muted {
+            color: rgba(0, 0, 0, 0.6);
         }
 
-        p, div {
-            text-align: justify;
+        [data-bs-theme="dark"] .muted {
+            color: rgba(255, 255, 255, 0.65);
         }
 
-        html,
-        * {
-            font-family: 'Inter', sans-serif !important;
-
-            letter-spacing: -0.011em;
-            /*font-family: 'Jost', sans-serif !important;*/
-            /*font-size: 18px;*/
-        }
-
-
-        .news-list {
-            list-style-type: none;
-            padding-left: 0;
-            margin-bottom: 0;
-        }
-
-        .news-list li {
-            margin-bottom: 5px; /* Minimal space between items */
-            line-height: 1.4; /* Adjust line height for tighter text */
-        }
-
-        .news-date {
-            font-weight: bold;
-            color: #666;
-            margin-right: 0px;
-            display: inline-block;
-            width: 90px; /* Ensures the date is aligned left, adjust if needed */
-        }
-
-        .news-list a {
-            color: #0056b3; /* Ensure links are clearly visible */
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .35rem .6rem;
+            border-radius: 999px;
+            border: 1px solid var(--card-border);
+            background: rgba(255, 255, 255, 0.5);
+            font-weight: 600;
+            font-size: .9rem;
             text-decoration: none;
         }
 
-        .news-list a:hover {
+        [data-bs-theme="dark"] .chip {
+            background: rgba(0, 0, 0, 0.18);
+        }
+
+        a {
+            color: var(--accent-2);
+            text-decoration: none;
+        }
+
+        a:hover {
             text-decoration: underline;
         }
 
-
-        @supports (font-variation-settings: normal) {
-
-            html,
-            * {
-                font-family: 'Inter var', sans-serif !important;
-            }
-        }
-
-        h4 {
-            font-weight: bold;
-            letter-spacing: -0.019em;
-        }
-
-        p, ul, header {
-            /*font-size: 1.2rem !important;*/
-            /*letter-spacing: 0.01em;*/
-        }
-
-        nav *, h4 {
-            /*letter-spacing: 0.05em;*/
-        }
-
-        .placeholder {
-            margin-right: 1rem !important;
-            width: 111px;
-            height: 111px;
-            border-radius: 0.25rem;
-            border: none;
-        }
-
-        nav.navbar {
-            margin: 0 auto;
-            /* center */
-        }
-
-        .class-listing {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .class-listing span {
-            margin: 5px 0;
-        }
-
-        a.disabledlink {
-            /* Make the disabled links grayish*/
-            color: gray;
-            /* And disable the pointer events */
-            pointer-events: none;
-        }
-
-        .paperitem {
+        /* Section headings */
+        .section-title {
             display: flex;
             align-items: center;
-            margin-top: 1rem !important;
-            margin-bottom: 1rem !important;
+            gap: .6rem;
+            margin: 0 0 14px 0;
+            font-weight: 800;
+            letter-spacing: -0.02em;
         }
 
-        .paperitem video, .paperitem img {
-            margin-right: 1rem !important;
-            width: 205px;
-            /*border-radius: 0.25rem;*/
-            border: 1px solid #6c757d !important;
+        .section-title i {
+            color: var(--accent);
         }
 
-        .paperitem span.new {
-            margin-left: 7px;
-            padding: 3px 5px;
-            color: white;
-            /* font-weight: 700; */
-            /* font-weight: 900; */
-            text-transform: uppercase;
-            /* letter-spacing: -0.05em; */
-            border-radius: 3px;
-            background-color: #F44336;
-            align-self: center;
-            font-size: 80%;
+        /* Cards */
+        .cardx {
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            background: var(--bs-body-bg);
         }
 
-        .paperitem > div {
-            color: #6c757d !important;
-            /*font-size: 1.25em;*/
+        .cardx-body {
+            padding: 18px;
         }
 
-        .paperitem > div > b:first-child {
-            color: #212529;
-            display: flex;
+        /* Publications / Projects list */
+        .item-row {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 16px;
+            align-items: start;
+            padding: 16px;
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            background: var(--bs-body-bg);
+            box-shadow: var(--shadow-soft);
         }
 
-        .bg-secondary {
-            background-color: #2b3969 !important;
+        .item-row img, .item-row video {
+            width: 220px;
+            max-width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
         }
 
-        #navbarNav a {
+        @media (max-width: 992px) {
+            .item-row {
+                grid-template-columns: 1fr;
+            }
+
+            .item-row img, .item-row video {
+                width: 100%;
+            }
+        }
+
+        .meta-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: .35rem;
+            margin-right: .8rem;
             font-weight: 600;
+            white-space: nowrap;
         }
 
-        @media (max-width: 1000px) {
-            /*p, ul, header {
-                font-size: 1.1rem !important;
-            }*/
-            .class-listing {
-                flex-direction: column;
-                margin-bottom: 10px;
+        .badge-new {
+            display: inline-block;
+            margin-left: .5rem;
+            padding: .2rem .45rem;
+            border-radius: 6px;
+            font-size: .75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #fff;
+            background: #dc3545;
+        }
+
+        /* News list */
+        .news-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .news-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--card-border);
+        }
+
+        .news-date {
+            display: inline-block;
+            width: 96px;
+            font-weight: 800;
+            color: rgba(0, 0, 0, 0.55);
+        }
+
+        [data-bs-theme="dark"] .news-date {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Affiliations grid */
+        .aff-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(120px, 1fr));
+            gap: 14px;
+        }
+
+        @media (max-width: 1200px) {
+            .aff-grid {
+                grid-template-columns: repeat(3, minmax(120px, 1fr));
             }
+        }
 
-            .class-listing span {
-                margin: 0;
+        @media (max-width: 576px) {
+            .aff-grid {
+                grid-template-columns: repeat(2, minmax(120px, 1fr));
             }
         }
 
-        .child {
-            position: relative;
-            display: block;
-            width: 100%;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        @media (min-width: 1000px)
-
-        .col-md-4 {
-            -webkit-box-flex: 0;
-            -ms-flex: 0 0 49%;
-            flex: 0 0 49%;
-            max-width: 49%;
-        }
-
-        div .text {
+        .aff-card {
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 14px;
+            background: var(--bs-body-bg);
+            box-shadow: var(--shadow-soft);
             text-align: center;
-            display: block; /* Optional: Ensure the span takes the full width */
+            height: 100%;
         }
 
-        .paperitem:nth-child(odd) {
-            background-color: #f9f9f9; /* Light gray background for odd items */
+        .aff-card img {
+            max-width: 100%;
+            height: 54px;
+            object-fit: contain;
+            margin-bottom: 8px;
         }
 
-        .paperitem:nth-child(even) {
-            background-color: #ffffff; /* White background for even items */
+        .aff-degree {
+            font-weight: 700;
+            font-size: .95rem;
+            margin-top: 4px;
         }
 
-        /* Optional: Add some padding for better readability */
-        .paperitem {
-            padding: 15px;
-            border-radius: 5px; /* Rounded corners */
-            margin-bottom: 10px; /* Space between items */
+        .aff-year {
+            font-size: .85rem;
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        [data-bs-theme="dark"] .aff-year {
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        /* Video embeds */
+        .ratio {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 48px;
+            background: rgba(43, 57, 105, 0.95);
+            color: #fff;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Back to top */
+        .to-top {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 1030;
+            display: none;
+        }
+
+        /* Small helpers */
+        .tight p {
+            margin-bottom: .6rem;
+        }
+
+        .leadish {
+            font-size: 1.02rem;
         }
     </style>
 </head>
-<body class="h-100 d-flex flex-column">
-<header class="bg-light fixed-top" style="background-color: #2b3969!important;">
-    <nav class="navbar container navbar-expand-sm navbar-light">
-        <span style="font-weight: 500; letter-spacing: -0.017em;">
-            <a class="navbar-brand" href="#"
-               style="color: #fff;font-size: 19px !important;font-weight: 550 !important;">Shantanu Ghosh (he/him)</a>
-        </span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav" style="margin-left: auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#bio">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#research">Research</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#publication">Publications</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#teaching">Teaching</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="files/Simple_Cover_Shantanu.pdf" class="text-light">Cover Letter</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="files/Shantanu_CV_PhD.pdf" class="text-light">CV</a>
-                </li>
-            </ul>
+
+<body data-bs-spy="scroll" data-bs-target="#topnav" data-bs-offset="110" tabindex="0">
+
+<header class="fixed-top nav-glass">
+    <nav id="topnav" class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#bio">Shantanu Ghosh <span class="fw-semibold opacity-75">(he/him)</span></a>
+
+            <div class="d-flex align-items-center gap-2 order-lg-2">
+                <button id="themeToggle" class="btn btn-sm btn-outline-light nav-pill" type="button"
+                        aria-label="Toggle theme">
+                    <i class="bi bi-moon-stars"></i>
+                </button>
+                <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navlinks"
+                        aria-controls="navlinks" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list" style="font-size:1.6rem;"></i>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse order-lg-1" id="navlinks">
+                <ul class="navbar-nav ms-lg-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="#bio">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#publication">Publications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#teaching">Teaching</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="files/Simple_Cover_Shantanu.pdf">Cover Letter</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="files/Shantanu_CV_PhD.pdf">CV</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 </header>
-<main class="container flex-grow-1" style="padding-top:60px">
-    <div class="row my-4" id="bio" style="margin-top: 1.0% !important;">
-        <div class="col-md-auto">
-            <img class="headshot" src="images/Shantanu_Death_Valley.png"/>
-            <div style="max-width: 300px; text-align: left">
-                <div style="text-align: left">
-                    <i>I investigate the intelligence encoded inside a deep neural network. </i>
-                    <br/>
-                    <a href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">Department
-                        of Electrical and Computer Engineering</a>, Boston University
-                    <br/> 407-07, Photonics Center, 8 St Mary's St, Boston, MA 02215
-                    <br/> shawn24 [at] bu [dot] edu
-                    <br/> Pic courtesy: My wife, <a href="https://www.linkedin.com/in/this-is-payel-basak/">Payel
-                    Basak</a>
+
+<main class="container">
+
+    <!-- ABOUT / HERO -->
+    <section id="bio" class="my-4">
+        <div class="hero">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-auto">
+                    <img class="headshot" src="images/Shantanu_Death_Valley.png" alt="Shantanu Ghosh headshot"/>
+                    <div class="mt-3 tight" style="max-width: 320px;">
+                        <p class="mb-1"><em>I investigate the intelligence encoded inside a deep neural network.</em>
+                        </p>
+                        <p class="mb-1">
+                            <a href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">
+                                Department of Electrical and Computer Engineering</a>, Boston University
+                        </p>
+                        <p class="mb-1">407-07, Photonics Center, 8 St Mary's St, Boston, MA 02215</p>
+                        <p class="mb-2">shawn24 [at] bu [dot] edu</p>
+                        <p class="mb-0 muted">Pic courtesy: My wife, <a
+                                href="https://www.linkedin.com/in/this-is-payel-basak/">Payel Basak</a></p>
+                    </div>
                 </div>
-                <!--                <div>Boston University</div>-->
-                <!--                <div style="padding-top: 5%"></div>-->
-                <!--                <div style="padding-top: 5%">shawn24 [at] bu [dot] edu</div>-->
+
+                <div class="col-lg">
+                    <p class="leadish">
+                        I am a lifelong proud <a href="https://en.wikipedia.org/wiki/Albert_and_Alberta_Gator">gator</a>
+                        and a
+                        Ph.D. candidate in Electrical Engineering at
+                        <a href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">Boston
+                            University</a>,
+                        advised by Prof.
+                        <a href="https://www.batman-lab.com/kayhan-batmanghelich-biography/">Kayhan Batmanghelich</a> at
+                        <a href="https://www.batman-lab.com/">Batman Lab</a> and
+                        <a href="https://www.bumc.bu.edu/camed/profile/clare-poynton/">Dr. Clare B. Poynton</a> from
+                        Boston University Medical Campus.
+                        My research focuses on robustness and generalization in deep learning, with a particular
+                        emphasis on leveraging
+                        vision-language representations to understand, explain, and audit pre-trained neural networks.
+                        My work has been published
+                        at top peer-reviewed venues including ACL, NAACL, ICML, MICCAI, AMIA, JAMIA, and RAD:AI. I
+                        believe that understanding a
+                        model’s behavior is essential to mitigating bias and building trust in AI systems.
+                        Before our lab moved to Boston, I was a Ph.D. student in the Intelligent Systems Program (ISP)
+                        at the
+                        <a href="https://www.isp.pitt.edu/">University of Pittsburgh</a>. While at Pitt, I used to
+                        collaborate closely with
+                        <a href="https://forougha.github.io/">Dr. Forough Arabshahi</a> from Meta, Inc. At Pitt, I was
+                        also a cross-registered
+                        student at <a href="https://www.cmu.edu/">Carnegie Mellon University</a>, where I registered for
+                        the courses Foundations of
+                        Causation and Machine Learning (PHI 80625) and
+                        <a href="https://visual-learning.cs.cmu.edu/">Visual Learning and Recognition (RI 16-824)</a>.
+                        In the summers of 2024 and 2025,
+                        I interned as an Applied Scientist at Amazon (AWS SAAR and AWS Optimus) in New York City and
+                        Pasadena, where I developed methods
+                        for learning robust representations in self-supervised models and auditing biases in AI coding
+                        agents.
+                    </p>
+
+                    <p class="leadish">
+                        Prior to that, I graduated with a Master's degree in
+                        <a href="https://www.cise.ufl.edu/">Computer Science</a> from the <a
+                            href="https://www.ufl.edu/">University of Florida</a>.
+                        I was fortunate to work as a graduate assistant in
+                        <a href="https://epidemiology.phhp.ufl.edu/research/disl/">Data Intelligence Systems Lab
+                            (DISL)</a> lab under the
+                        supervision of Prof. <a href="https://epidemiology.phhp.ufl.edu/profile/prosperi-mattia/">Mattia
+                        Prosperi</a> and
+                        <a href="http://jiangbian.me/">Prof. Jiang Bian</a>, where I conducted research on the
+                        intersection of deep learning and causal inference.
+                        I also worked closely with <a href="https://www.cise.ufl.edu/~butler/">Prof. Kevin Butler</a> as
+                        a Graduate Research Assistant at the
+                        <a href="https://fics.institute.ufl.edu/">Florida Institute of Cybersecurity (FICS)</a>
+                        Research.
+                    </p>
+
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <a class="chip" href="https://scholar.google.com/citations?user=U_s5k_oAAAAJ&hl=en"><i
+                                class="bi bi-mortarboard"></i> Google Scholar</a>
+                        <a class="chip" href="https://www.semanticscholar.org/author/Shantanu-Ghosh/152709682"><i
+                                class="bi bi-search"></i> Semantic Scholar</a>
+                        <a class="chip" href="https://openreview.net/profile?id=~Shantanu_Ghosh2"><i
+                                class="bi bi-journal-text"></i> OpenReview</a>
+                        <a class="chip" href="https://github.com/shantanu-ai"><i class="bi bi-github"></i> GitHub</a>
+                        <a class="chip" href="https://www.linkedin.com/in/shantanuai/"><i class="bi bi-linkedin"></i>
+                            LinkedIn</a>
+                        <a class="chip" href="https://twitter.com/shantanuai"><i class="bi bi-twitter-x"></i>
+                            Twitter</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md mt-4 mt-md-0" style="align-self:center; margin-top: 0% !important">
-            <p>
-                I am a lifelong proud <a href="https://en.wikipedia.org/wiki/Albert_and_Alberta_Gator">gator</a> and a
-                Ph.D. candidate in Electrical Engineering at <a
-                    href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">
-                Boston University</a>, advised by Prof. <a
-                    href="https://www.batman-lab.com/kayhan-batmanghelich-biography/">Kayhan Batmanghelich</a> at <a
-                    href="https://www.batman-lab.com/">Batman Lab</a> and <a
-                    href="https://www.bumc.bu.edu/camed/profile/clare-poynton/"> Dr. Clare B. Poynton</a> from Boston
-                University Medical Campus. My research focuses on robustness and generalization in deep learning, with a
-                particular emphasis on leveraging vision-language representations to understand, explain, and audit
-                pre-trained neural networks. My work has been published at top peer-reviewed venues including ACL,
-                NAACL, ICML, MICCAI, AMIA, JAMIA, and RAD:AI. I believe that understanding a model’s behavior is
-                essential to mitigating bias and building trust in AI systems.
-                Before our lab moved to
-                Boston, I was a Ph.D. student in the Intelligent Systems Program (ISP) at the <a
-                    href="https://www.isp.pitt.edu/">University of Pittsburgh</a>. While at Pitt, I used to collaborate
-                closely with <a
-                    href="https://forougha.github.io/">Dr. Forough Arabshahi</a> from Meta, Inc. At Pitt, I was also a
-                cross-registered student at <a href="https://www.cmu.edu/">Carnegie Mellon University</a>,
-                where I registered for the courses Foundations of Causation and Machine Learning (PHI 80625)
-                and <a href="https://visual-learning.cs.cmu.edu/">Visual Learning and Recognition (RI
-                16-824)</a>. In the summers of 2024 and 2025, I interned as an Applied Scientist at Amazon (AWS SAAR and
-                AWS Optimus) in New York City and Pasadena, where I developed methods for learning robust
-                representations in self-supervised models and auditing biases in AI coding agents.
-            </p>
-            <p>
-                Prior to that, I graduated with a Master's degree in <a href="https://www.cise.ufl.edu/">Computer
-                Science</a> from the <a href="https://www.ufl.edu/">University of Florida</a>. I was fortunate to work
-                as a graduate assistant in <a
-                    href="https://epidemiology.phhp.ufl.edu/research/disl/">Data Intelligence Systems Lab (DISL)</a> lab
-                under the
-                supervision of Prof. <a href="https://epidemiology.phhp.ufl.edu/profile/prosperi-mattia/">
-                Mattia Prosperi</a> and <a href="http://jiangbian.me/"> Prof. Jiang Bian</a>, where I conducted
-                research on the intersection of deep learning and causal inference. I also worked closely
-                with <a href="https://www.cise.ufl.edu/~butler/">Prof. Kevin Butler</a> as a Graduate
-                Research Assistant at the <a href="https://fics.institute.ufl.edu/">Florida Institute of
-                Cybersecurity (FICS)</a> Research.
-            </p>
+    </section>
 
-            <p style="text-align:left">
-                [
-                <a href="https://scholar.google.com/citations?user=U_s5k_oAAAAJ&hl=en">Google Scholar</a>
-                &nbsp|&nbsp
-                <a href="https://www.semanticscholar.org/author/Shantanu-Ghosh/152709682">Semantic Scholar</a>
-                &nbsp|&nbsp
-                <a href="https://openreview.net/profile?id=~Shantanu_Ghosh2">OpenReview</a>
-                &nbsp|&nbsp
-                <a href="https://github.com/shantanu-ai">Github</a> &nbsp|&nbsp
-                <a href="https://www.linkedin.com/in/shantanuai/">LinkedIn</a> &nbsp|&nbsp
-                <a href="https://twitter.com/shantanuai">Twitter</a>
-                ]
-            </p>
+    <!-- AFFILIATIONS -->
+    <section id="universities" class="my-4">
+        <!--        <h2 class="section-title"><i class="bi bi-buildings"></i> Affiliations</h2>-->
+        <div class="aff-grid">
+            <div class="aff-card">
+                <a href="https://www.amazon.science/"><img src="images/amazon_science.png" alt="Amazon Science"></a>
+                <div class="aff-degree">Applied Scientist Intern, AWS</div>
+                <div class="aff-year">(Summer 2024, 2025)</div>
+            </div>
 
+            <div class="aff-card">
+                <a href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">
+                    <img src="images/Boston_University_Terriers_logo.svg.png" alt="Boston University">
+                </a>
+                <div class="aff-degree">Ph.D. Electrical Engineering</div>
+                <div class="aff-year">(2023 – Present)</div>
+            </div>
+
+            <div class="aff-card">
+                <a href="https://www.isp.pitt.edu/"><img src="images/Pittsvg.png" alt="University of Pittsburgh"></a>
+                <div class="aff-degree">Ph.D. Intelligent Systems</div>
+                <div class="aff-year">(2021 – 2023) transferred to BU</div>
+            </div>
+
+            <div class="aff-card">
+                <a href="https://www.cmu.edu/"><img src="images/cmu_logo.png" alt="Carnegie Mellon University"></a>
+                <div class="aff-degree">Cross-Registered Student</div>
+                <div class="aff-year">(2021 – 2023)</div>
+            </div>
+
+            <div class="aff-card">
+                <a href="https://www.ufl.edu/"><img src="images/UF_logo.png" alt="University of Florida"></a>
+                <div class="aff-degree">MS in Computer Science <img src="images/Florida_Gators_gator_logo.svg.png"
+                                                                    alt="Gators"
+                                                                    style="height:18px; width:auto; vertical-align: -3px;">
+                </div>
+                <div class="aff-year">(2019 – 2021)</div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="row my-4" id="universities" style="background-color: #f0f8ff; padding: 20px; border-radius: 8px;">
-        <div class="col-md-auto">
-            <table width="100%" align="center" border="0" cellpadding="10">
-                <tbody>
-                <tr>
-                    <!--                    <td align="center" width="20%" style="vertical-align: middle; padding: 10px;">-->
-                    <!--                        <a href="https://www.amazon.science/">-->
-                    <!--                            <img src="images/amazon_science.png" style="max-width: 100%; height: auto;">-->
-                    <!--                        </a>-->
-                    <!--                        <span class="degree"-->
-                    <!--                              style="font-weight: 600; font-size: 15px; color: #333; display: block; margin-top: -6px;">Applied Scientist Intern, AWS Optimus</span>-->
-                    <!--                        <span class="year"-->
-                    <!--                              style="font-weight: 400; font-size: 13px; color: #666; display: block; margin-top: -6px;">(Summer 2025)</span>-->
-                    <!--                    </td>-->
-                    <td align="center" width="20%" style="vertical-align: middle; padding: 10px;">
-                        <a href="https://www.amazon.science/">
-                            <img src="images/amazon_science.png" style="max-width: 100%; height: auto;">
-                        </a>
-                        <span class="degree"
-                              style="font-weight: 600; font-size: 15px; color: #333; display: block; margin-top: -6px;">Applied Scientist Intern, AWS</span>
-                        <span class="year"
-                              style="font-weight: 400; font-size: 13px; color: #666; display: block; margin-top: -6px;">(Summer 2024, 2025)</span>
-                    </td>
-                    <td align="center" width="20%" style="vertical-align: middle; padding: 10px;">
-                        <a href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">
-                            <img src="images/Boston_University_Terriers_logo.svg.png"
-                                 style="width: 45%; margin-bottom: 5px;"></a>
-                        <br/>
-                        <span class="degree"
-                              style="font-weight: 600; font-size: 15px; color: #333; display: block; margin-top: 0px;">Ph.D. Electrical Engineering</span>
-                        <span class="year"
-                              style="font-weight: 400; font-size: 13px; color: #666; display: block; margin-top: -6px;">(2023 - Present)</span>
-                    </td>
-                    <td align="center" width="20%" style="vertical-align: middle; padding: 10px;">
-                        <a href="https://www.isp.pitt.edu/"><img src="images/Pittsvg.png"
-                                                                 style="width: 45%; margin-bottom: 5px;"></a>
-                        <br/>
-                        <span class="degree"
-                              style="font-weight: 600; font-size: 15px; color: #333; display: block; margin-top: 0px;">Ph.D. Intelligent Systems</span>
-                        <span class="year"
-                              style="font-weight: 400; font-size: 13px; color: #666; display: block; margin-top: -6px;">(2021 - 2023)</span>
-                        <span class="year"
-                              style="font-weight: 400; font-size: 13px; color: #666; display: block; margin-top: -6px;">transferred to BU</span>
-                    </td>
-                    <td align="center" width="20%" style="vertical-align: middle; padding: 10px;">
-                        <a href="https://www.cmu.edu/"><img src="images/cmu_logo.png"
-                                                            style="width: 45%; margin-bottom: 5px;"></a>
-                        <br/>
-                        <span class="degree"
-                              style="font-weight: 600; font-size: 15px; color: #333; display: block; margin-top: 0px;">Cross-Registered Student</span>
-                        <span class="year"
-                              style="font-weight: 400; font-size: 13px; color: #666; display: block; margin-top: -6px;">(2021-2023)</span>
-                    </td>
-                    <td align="center" width="20%" style="vertical-align: middle; padding: 10px;">
-                        <a href="https://www.ufl.edu/"><img src="images/UF_logo.png"
-                                                            style="width: 55%; margin-bottom: 5px;"></a>
-                        <br/>
-                        <span class="degree"
-                              style="font-weight: 600; font-size: 15px; color: #333; display: block; margin-top: 0px;">MS in Computer Science <img
-                                src="images/Florida_Gators_gator_logo.svg.png" style="height: 15%;width: 15%;"></span>
-                        <span class="year"
-                              style="font-weight: 400; font-size: 13px; color: #666; display: block; margin-top: -10px;">(2019 - 2021)</span>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+    <!-- RESEARCH -->
+    <section id="research" class="my-4">
+        <h2 class="section-title"><i class="bi bi-lightbulb"></i> Research</h2>
+        <div class="cardx">
+            <div class="cardx-body">
+                <p class="mb-2">
+                    My research lies at the intersection of medical imaging and machine learning, with the goal of
+                    making
+                    deep models clinically trustworthy and reliable. High-performing models can exhibit systematic
+                    errors
+                    due to spurious correlations. My work develops principled approaches for model
+                    auditing, interpretability, and bias detection, and evaluates them in high-impact clinical settings.
+                    I organize my research along two pillars:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Algorithms:</strong>
+                        interpretable and trustworthy ML via vision–language alignment and causal reasoning,
+                        enabling failure mode
+                        discovery of pre-trained blackboxes using free-form clinical language.
+                    </li>
+                    <li>
+                        <strong>Applications:</strong>
+                        breast imaging foundation models, where I study the benefits of domain-specific vision–language
+                        over
+                        generalist models for cancer detection, prognosis, and radiology report generation.
+                    </li>
+                </ul>
+                Throughout my Ph.D., I am to answer the following high-impact questions:
+                <ol class="mb-3">
+                    <li>
+                        Can we decipher the failure modes of a deep model through multimodal vision-language
+                        representations and large language models (LLMs) for improved reliability and debugging?
+                        ([<b>LADDER</b> (<a href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/index.html">ACL
+                        2025</a>)])
+                    </li>
+                    <li>
+                        Can we learn robust representations in presence of multiple biases for tabular data?
+                        [<b>Amazon internship work</b> (<a href="https://openreview.net/pdf?id=71u8OvjYbZ">TRL
+                        workshop@NeurIPS 2024</a>)]
+                    </li>
+                    <li>
+                        Can we build robust foundation models for breast cancer detection and radiology report
+                        generation?
+                        [<b>Mammo-CLIP</b> (<a href="https://shantanu-ai.github.io/projects/MICCAI-2024-Mammo-CLIP/">MICCAI
+                        2024, top 11%</a>) + <b>Mammo-FM</b> (<a href="https://www.arxiv.org/pdf/2512.00198/">ArXiv,
+                        2025</a>)]
+                    </li>
+                    <li>
+                        Can we extract symbolic rules from the representation of a blackbox model
+                        using human interpretable concepts?
+                        [<b>MoIE</b> (<a href="https://shantanu-ai.github.io/projects/ICML-2023-MoIE/">ICML 2023</a> +
+                        <a href="https://openreview.net/pdf?id=m5vnLHfNy7">SCIS@ICML 2023</a>)]
+                    </li>
+                    <li>
+                        Can we use robust mixture of interpretable models for data and computationally efficient
+                        transfer learning?
+                        [<b>MoIE-CXR</b> (<a href="https://shantanu-ai.github.io/projects/MICCAI-2023-MoIE-CXR/">MICCAI
+                        2023, top 14%</a> + <a href="https://openreview.net/pdf?id=sbOVNiSNY8">IMLH@ICML 2023</a>)]
+                    </li>
+                    <li>
+                        Can we leverage radiology reports localizing a disease and its progression without ground-truth
+                        bounding box annotation?
+                        [<b>AGXNet</b> (<a href="https://link.springer.com/chapter/10.1007/978-3-031-16443-9_63">MICCAI
+                        2022</a> + <a href="https://pubs.rsna.org/doi/10.1148/ryai.230277">RAD: AI</a>)]
+                    </li>
+                </ol>
+
+                <p class="mb-0">
+                    At UF, I was interested broadly in biomedical informatics with a focus on causal inference. I
+                    developed deep learning models, namely
+                    <a href="https://academic.oup.com/jamia/article-abstract/28/6/1197/6139936?redirectedFrom=fulltext">DPN-SA
+                        (JAMIA 2021)</a>,
+                    <a href="https://www.sciencedirect.com/science/article/pii/S2666990021000197?via%3Dihub">PSSAM-GAN
+                        (CMPB-U 2021)</a>
+                    and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10148269/">DR-VIDAL (AMIA 2022, oral)</a>,
+                    to compute propensity scores
+                    for the efficient estimation of individual treatment effects (ITE). For a detailed overview of my
+                    Master's research, refer to the slides available at this
+                    <a href="https://docs.google.com/presentation/d/1J5rPYsREoZhIQmybDxGy0Q-JVmDu76Kssfi08sMekiY/edit#slide=id.gfa4b813cc6_0_436">link</a>.
+                </p>
+            </div>
         </div>
-    </div>
+    </section>
 
-
-    <div class="row my-4" id="research">
-        <div class="col-md-auto">
-            <h4>Research</h4>
-            <p>
-                My core research interest lies in representation learning across computer vision and medical imaging,
-                with a particular focus on interpretability and
-                explainable AI. I investigate the representations learned across different modalities, architectures,
-                and training strategies to enhance their generalizability, robustness, and trustworthiness.
-                Specifically, I aim to answer the following research questions:
-                <br/>
-                1. Can we decipher the failure modes of a deep model through multimodal vision-language
-                representations and large language models (LLMs) for improved reliability and debugging?
-                ([<b>LADDER</b> (<a
-                    href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/index.html">ACL 2025</a>)] <br/>
-                2. Can we learn robust representations in presence of multiple biases for tabular data?
-                [<b>Amazon internship work</b> (<a
-                    href="https://openreview.net/pdf?id=71u8OvjYbZ">TRL workshop@NeurIPS 2024</a>)] <br/>
-                3. Can we lean robust vision-language representations with limited data efficiently and
-                localize disease with sentences? [<b>Mammo-CLIP</b> (<a
-                    href="https://shantanu-ai.github.io/projects/MICCAI-2024-Mammo-CLIP/">MICCAI 2024, top 11%</a>)]
-                <br/>
-                4. Can we extract a mixture of interpretable models from the representation of a blackbox
-                model using human
-                interpretable concepts? [<b>MoIE</b> (<a
-                    href="https://shantanu-ai.github.io/projects/ICML-2023-MoIE/">ICML 2023</a> + <a
-                    href="https://openreview.net/pdf?id=m5vnLHfNy7">SCIS@ICML 2023</a>)]<br/>
-                5. Can we use robust mixture of interpretable models for data and computationally
-                efficient transfer learning? [<b>MoIE-CXR</b>
-                (<a href="https://shantanu-ai.github.io/projects/MICCAI-2023-MoIE-CXR/">MICCAI 2023, top 14%</a> + <a
-                    href="https://openreview.net/pdf?id=sbOVNiSNY8">IMLH@ICML 2023</a>)]<br/>
-                6. Can we leverage radiology reports localizing a disease and its progression
-                without ground-truth bounding box annotation? [<b>AGXNet</b> (<a
-                    href="https://link.springer.com/chapter/10.1007/978-3-031-16443-9_63">MICCAI 2022</a> + <a
-                    href="https://pubs.rsna.org/doi/10.1148/ryai.230277">RAD: AI</a>)]<br/>
-                <!-- My current research is summarised by my advisor Dr. Kayhan Batmanghelich, in his recent talk at the prestigious <a href="http://computationalgenomics.bioinformatics.ucla.edu/">Computational Genomics Summer Institute CGSI, 2023</a> at the University of California, Los Angeles (UCLA).<br/>
-                <div class="video-container" style="margin-bottom: -5%;">
-                    <iframe align="center" width="550" height="350" src="https://www.youtube.com/embed/zfE6zMowBnY?si=sZrAPhBGz8atNnWf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div> -->
-                <!-- <div class="video-container">
-                    <iframe align="center" width="550" height="350" src="https://www.youtube.com/embed/zfE6zMowBnY?si=sZrAPhBGz8atNnWf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div> -->
-            </p>
-            <p> At UF, I was interested broadly in biomedical informatics with a focus on causal
-                inference. I developed
-                deep learning models, namely <a
-                        href="https://academic.oup.com/jamia/article-abstract/28/6/1197/6139936?redirectedFrom=fulltext">DPN-SA
-                    (JAMIA 2021)</a>, <a
-                        href="https://www.sciencedirect.com/science/article/pii/S2666990021000197?via%3Dihub">PSSAM-GAN
-                    (CMPB-U 2021) </a>and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10148269/">DR-VIDAL
-                    (AMIA 2022, oral)</a>, to compute propensity
-                scores for the efficient estimation of individual treatment effects (ITE). For a detailed
-                overview of my Master's research, refer to the slides available at this <a
-                        href="https://docs.google.com/presentation/d/1J5rPYsREoZhIQmybDxGy0Q-JVmDu76Kssfi08sMekiY/edit#slide=id.gfa4b813cc6_0_436">link</a>.
-            </p>
+    <!-- DEEP LEARNING RESOURCES -->
+    <section id="deeplearning" class="my-4">
+        <h2 class="section-title"><i class="bi bi-collection-play"></i> Deep Learning Resources</h2>
+        <div class="cardx">
+            <div class="cardx-body">
+                <p class="mb-0">
+                    My friend Kalpak Seal and I have developed a comprehensive
+                    <a href="https://github.com/shantanu-ai/deep-learning-resources">repository</a>
+                    where you can access a curated collection of academic lecture videos focused on machine learning,
+                    deep learning, computer vision, and natural language processing (NLP).
+                    If you're interested in contributing to this resource, feel free to collaborate with us by
+                    submitting a pull request.
+                    Whether it's adding new lecture videos or improving the existing structure, we welcome all
+                    contributions!
+                </p>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="row my-4" id="deeplearning">
-        <div class="col-md-auto">
-            <h4>Deep Learning Resources</h4>
-            <p>
-                My friend Kalpak Seal and I have developed a comprehensive <a
-                    href="https://github.com/shantanu-ai/deep-learning-resources">repository</a>
-                where you can access a curated collection of academic lecture videos focused on machine learning, deep
-                learning, computer vision,
-                and natural language processing (NLP). If you're interested in contributing to this resource, feel free
-                to collaborate with
-                us by submitting a pull request. Whether it's adding new lecture videos or improving the existing
-                structure, we welcome all contributions!
-            </p>
-        </div>
-    </div>
-
-    <div class="row my-4" id="news">
-        <div class="col-md-auto">
-            <h4>News</h4>
-            <ul class="news-list">
-                <li><span class="news-date">[May 2025]</span> <a
-                        href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/index.html"><strong>Ladder
-                </strong></a>
-                    is accepted at <a href="https://2025.aclweb.org/"><strong>ACL 2025, Findings</strong></a>. Using
-                    LLM,
-                    Ladder detects the blind spots of deep learning classifiers where it makes systematic mistakes. Code
-                    is available
-                    <a href="https://github.com/batmanlab/Ladder/tree/main">here</a>. I'm also joining as an
-                    Applied Scientist Intern at Amazon AWS Optimus
-                    Team in Pasadena, CA under the supervision of <a href="https://ankanbansal.com/">
-                        Dr. Ankan Bansal</a>.
-                </li>
-                <li><span class="news-date">[Jan 2025]</span> Our collaborative <a
-                        href="https://arxiv.org/abs/2412.04606">work</a> to reduce hallucination for CXR
-                    report generation is accepted at <a href="https://2025.naacl.org/"><strong>NAACL 2025
-                        Findings</strong></a>.
-                </li>
-                <li><span class="news-date">[Oct 2024]</span> My internship <a
-                        href="https://openreview.net/pdf?id=71u8OvjYbZ">work</a> at Amazon on representation learning on
-                    tabular
-                    data is accepted at <a href="https://table-representation-learning.github.io/"><strong>3rd Table
-                        Representation Learning Workshop @ NeurIPS 2024</strong></a>. I am also recognized as a top
-                    reviewer at <a
+    <!-- NEWS -->
+    <section id="news" class="my-4">
+        <h2 class="section-title"><i class="bi bi-megaphone"></i> News</h2>
+        <div class="cardx">
+            <div class="cardx-body">
+                <ul class="news-list">
+                    <li>
+                        <span class="news-date">[May 2025]</span>
+                        <a href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/index.html"><strong>Ladder</strong></a>
+                        is accepted at <a href="https://2025.aclweb.org/"><strong>ACL 2025</strong></a>. Using
+                        LLM, Ladder detects the blind spots of deep learning classifiers where it makes systematic
+                        mistakes.
+                        Code is available <a href="https://github.com/batmanlab/Ladder/tree/main">here</a>. I'm also
+                        joining as an Applied Scientist Intern at Amazon AWS Optimus Team in Pasadena, CA under the
+                        supervision of
+                        <a href="https://ankanbansal.com/">Dr. Ankan Bansal</a>.
+                    </li>
+                    <li>
+                        <span class="news-date">[Jan 2025]</span>
+                        Our collaborative <a href="https://arxiv.org/abs/2412.04606">work</a> to reduce hallucination
+                        for CXR report generation is accepted at
+                        <a href="https://2025.naacl.org/"><strong>NAACL 2025 Findings</strong></a>.
+                    </li>
+                    <li>
+                        <span class="news-date">[Oct 2024]</span>
+                        My internship <a href="https://openreview.net/pdf?id=71u8OvjYbZ">work</a> at Amazon on
+                        representation learning on tabular data is accepted at
+                        <a href="https://table-representation-learning.github.io/"><strong>3rd Table Representation
+                            Learning Workshop @ NeurIPS 2024</strong></a>.
+                        I am also recognized as a top reviewer at <a
                             href="https://neurips.cc/Conferences/2024/ProgramCommittee">NeurIPS 2024</a>.
-                </li>
-                <li><span class="news-date">[Aug 2024]</span> Our collaborative work <a
-                        href="https://pubs.rsna.org/doi/10.1148/ryai.230277"><strong>Anatomy-specific Progression
-                    Classification in Chest Radiographs via Weakly Supervised Learning</strong></a> is accepted at <a
-                        href="https://pubs.rsna.org/journal/ai"><strong>Radiology: Artificial Intelligence</strong></a>.
-                    Code and checkpoints are available <a href="https://github.com/batmanlab/SiameseAGXNet">here</a>.
-                </li>
-
-                <li><span class="news-date">[Jun 2024]</span> I'm joining as an Applied Scientist Intern at Amazon
-                    Web Services (AWS) Security Analytics and AI Research (SAAR) Team in New York City under the
-                    supervision of <a href="https://scholar.google.com/citations?user=fsrkabwAAAAJ&hl=en">Dr. Mikhail
-                        Kuznetsov</a>. My project aims at learning robust representations to mitigate systematic errors
-                    in self-supervised models.
-                </li>
-
-                <li><span class="news-date">[May 2024]</span> <a
-                        href="https://shantanu-ai.github.io/projects/MICCAI-2024-Mammo-CLIP"><strong>Mammo-CLIP</strong></a>
-                    is accepted (<span
+                    </li>
+                    <li>
+                        <span class="news-date">[Aug 2024]</span>
+                        Our collaborative work <a href="https://pubs.rsna.org/doi/10.1148/ryai.230277"><strong>Anatomy-specific
+                        Progression Classification in Chest Radiographs via Weakly Supervised Learning</strong></a>
+                        is accepted at <a href="https://pubs.rsna.org/journal/ai"><strong>Radiology: Artificial
+                        Intelligence</strong></a>.
+                        Code and checkpoints are available <a href="https://github.com/batmanlab/SiameseAGXNet">here</a>.
+                    </li>
+                    <li>
+                        <span class="news-date">[Jun 2024]</span>
+                        I'm joining as an Applied Scientist Intern at Amazon Web Services (AWS) Security Analytics and
+                        AI Research (SAAR) Team in New York City under the supervision of
+                        <a href="https://scholar.google.com/citations?user=fsrkabwAAAAJ&hl=en">Dr. Mikhail Kuznetsov</a>.
+                        My project aims at learning robust representations to mitigate systematic errors in
+                        self-supervised models.
+                    </li>
+                    <li>
+                        <span class="news-date">[May 2024]</span>
+                        <a href="https://shantanu-ai.github.io/projects/MICCAI-2024-Mammo-CLIP"><strong>Mammo-CLIP</strong></a>
+                        is accepted (<span
                             style="color:#C82506;"><strong>Early accept, top 11% out of 2,869 submissions</strong></span>)
-                    at <a
-                            href="https://conferences.miccai.org/2023/en/"><strong>MICCAI 2024</strong></a>. It is the
-                    first vision language model trained with mammogram+report pairs of real patients. Code and
-                    checkpoints are available <a href="https://github.com/batmanlab/Mammo-CLIP">here</a>.
-                </li>
-
-<!--                <li><span class="news-date">[Oct 2023]</span> I'm serving as a reviewer for ICLR 2024, Medical Image-->
-<!--                    Analysis (MedIA) and CVPR 2024.-->
-<!--                </li>-->
-
-<!--                <li><span class="news-date">[Aug 2023]</span> I'm invited to serve as a Program Committee (PC) member-->
-<!--                    for AAAI 2024.-->
-<!--                </li>-->
-
-<!--                <li><span class="news-date">[Jul 2023]</span> I'm serving as a reviewer for NeurIPS 2023 and the journal-->
-<!--                    Computer Methods and Programs in Biomedicine.-->
-<!--                </li>-->
-
-                <li><span class="news-date">[Jun 2023]</span> I'm now a Ph.D. candidate. Also, two papers are accepted
-                    at
-                    <strong><a href="https://sites.google.com/view/scis-workshop-23">SCIS</a></strong> and <strong><a
-                            href="https://sites.google.com/view/imlh2023/home?authuser=1">IMLH</a></strong> workshops at
-                    <a href="https://icml.cc/Conferences/2023"><strong>ICML 2023</strong></a>.
-                </li>
-
-                <li><span class="news-date">[May 2023]</span> Our work <a
-                        href="https://shantanu-ai.github.io/projects/MICCAI-2023-MoIE-CXR/"><strong>Distilling BlackBox
-                    to Interpretable models for Efficient Transfer Learning</strong></a> is accepted (<span
-                        style="color:#C82506;"><strong>Early accept, top 14% out of 2,250 submissions</strong></span>)
-                    at <a
-                            href="https://conferences.miccai.org/2023/en/"><strong>MICCAI 2023</strong></a>.
-                </li>
-
-                <li><span class="news-date">[Apr 2023]</span> Our work <a
-                        href="https://shantanu-ai.github.io/projects/ICML-2023-MoIE/"><strong>Dividing and Conquering a
-                    BlackBox to a Mixture of Interpretable Models: Route, Interpret, Repeat</strong></a> is accepted at
-                    <a href="https://icml.cc/Conferences/2023"><strong>ICML 2023</strong></a>.
-                </li>
-
-                <li><span class="news-date">[Dec 2022]</span> I'm joining <a
-                        href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">Boston
-                    University</a> in Spring 2023 in the Department of Electrical and Computer Engineering following my
-                    advisor's move. My research will be supported by Doctoral Research Fellowship.
-                </li>
-
-                <li><span class="news-date">[Jun 2022]</span> Our work on doubly robust estimation of ITE is accepted as
-                    an <strong><span style="color:#C82506;">oral presentation</span></strong> at the <a
-                            href="https://amia.org/education-events/amia-2022-annual-symposium/calls-participation/">AMIA
-                        2022 Annual Symposium</a>.
-                </li>
-
-                <li><span class="news-date">[Jun 2022]</span> Our work on weakly supervised disease localization is
-                    accepted at <a href="http://www.miccai.org/">MICCAI 2022</a>.
-                </li>
-
-                <li><span class="news-date">[Aug 2021]</span> I'm joining the <a href="https://www.isp.pitt.edu/">University
-                    of Pittsburgh</a> in the Intelligent Systems Program under the supervision of Dr. <a
-                        href="https://www.batman-lab.com/">Kayhan Batmanghelich</a> in Fall 2021.
-                </li>
-
-                <li><span class="news-date">[May 2021]</span> I graduated with a Master's degree in <a
-                        href="https://www.cise.ufl.edu/">Computer Science</a> from the <a href="https://www.ufl.edu/">University
-                    of Florida</a>. <em><span style="color:#C82506;"><strong>Go Gators!!</strong></span></em></li>
-
-                <li><span class="news-date">[Apr 2021]</span> Our work to balance the unmatched controlled samples by
-                    simulating treated samples using GAN, is accepted in the <a
-                            href="https://www.sciencedirect.com/science/article/pii/S2666990021000197/">Journal of
-                        Computer Methods and Programs in Biomedicine Update</a>.
-                </li>
-
-                <li><span class="news-date">[Dec 2020]</span> Our work to estimate the Propensity score by
-                    dimensionality reduction using an autoencoder, is accepted in the <a
-                            href="https://pubmed.ncbi.nlm.nih.gov/33594415/">Journal of the American Medical Informatics
-                        Association</a>.
-                </li>
-
-                <li><span class="news-date">[Apr 2020]</span> I'm joining <a
-                        href="https://epidemiology.phhp.ufl.edu/research/disl/">DISL</a> lab as a graduate assistant
-                    under the supervision of Prof. <a href="https://epidemiology.phhp.ufl.edu/profile/prosperi-mattia/">Mattia
-                        Prosperi</a> and <a href="http://jiangbian.me/">Prof. Jiang Bian</a>.
-                </li>
-
-                <li><span class="news-date">[Aug 2019]</span> I'm moving to the US to join the Master's program in the
-                    department of <a href="https://www.cise.ufl.edu/">Computer Science</a> at the <a
-                            href="https://www.ufl.edu/">University of Florida</a> in Fall 2019.
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="row my-4" id="publication">
-        <div class="col">
-            <h4>Publications</h4>
-            <div>
-                <ul style='list-style-type:none;margin-bottom: 0!important;padding-left: 0!important'>
-                    <li class="paperitem">
-                        <img alt="" src="images/ladder-acl2025.png" class="publogo float-left" width="200">
-                        <div>
-                            <b>LADDER: Language-Driven Slice Discovery and Error Rectification in Vision Classifiers</b>
-                            <b>Shantanu Ghosh</b>,
-                            <a href="https://www.linkedin.com/in/rayan-syed-507379296/"
-                               style="color: rgb(136, 136, 136);">Rayan Syed</a>,
-                            <a href="https://chyuwang.com/"
-                               style="color: rgb(136, 136, 136);">Chenyu Wang</a>,
-                            <a href="https://vaibhavchoudhary.com/"
-                               style="color: rgb(136, 136, 136);">Vaibhav Choudhary</a>,
-                            <a href="https://www.linkedin.com/in/binxu-li-595b64245/"
-                               style="color: rgb(136, 136, 136);">Binxu Li</a>,
-                            <a href="https://www.bumc.bu.edu/camed/profile/clare-poynton/"
-                               style="color: rgb(136, 136, 136);">Clare B. Poynton</a>,
-                            <a href="https://www.thevislab.com/lab/doku.php" style="color: rgb(136, 136, 136);"> Shyam
-                                Visweswaran</a>,
-                            <a href="https://www.batman-lab.com/" style="color: rgb(136, 136, 136);">
-                                Kayhan Batmanghelich
-                            </a>
-                            <br/>
-                            <a href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/index.html" class="mr-3">
-                                Project Page
-                            </a>
-                            <a href="https://aclanthology.org/2025.findings-acl.1177/" class="mr-3">Paper</a>
-                            <a href="https://arxiv.org/pdf/2408.07832" class="mr-3">
-                                arXiv
-                            </a>
-                            <a href="https://github.com/batmanlab/Ladder" class="mr-3">
-                                Code
-                            </a>
-                            <a href="https://github.com/batmanlab/Ladder/blob/main/doc/Ladder-ACL-25-poster-v2.pdf"
-                               class="mr-3">
-                                Poster
-                            </a>
-                            <br/>
-                            <span style="color:black;">Findings of 2025 Conference on Association for Computational
-                                Linguistics (<strong>ACL 2025</strong>) </span>
-                            <br/>
-                            <span style="font-weight:bold; font-size: 0.85em;">TL;DR:</span>
-                            <span style="font-size: 0.85em;">LADDER uses LLMs to discover and fix biases in vision classifiers without requiring labels or prior bias knowledge.</span>
-                        </div>
+                        at
+                        <a href="https://conferences.miccai.org/2023/en/"><strong>MICCAI 2024</strong></a>.
+                        It is the first vision language model trained with mammogram+report pairs of real patients.
+                        Code and checkpoints are available <a href="https://github.com/batmanlab/Mammo-CLIP">here</a>.
                     </li>
-                    <li class="paperitem">
-                        <img alt="" src="images/naacl_2025.png" class="publogo float-left" width="200">
-                        <div>
-                            <b>Semantic Consistency-Based Uncertainty Quantification for Factuality in Radiology Report
-                                Generation</b>
-                            <a href="https://chyuwang.com/"
-                               style="color: rgb(136, 136, 136);">Chenyu Wang</a>,
-                            <a href="https://sites.google.com/view/zwc662/"
-                               style="color: rgb(136, 136, 136);">Weichao Zhou</a>,
-                            <b>Shantanu Ghosh</b>,
-                            <a href="https://www.batman-lab.com/" style="color: rgb(136, 136, 136);">
-                                Kayhan Batmanghelich
-                            </a>,
-                            <a href="https://sites.bu.edu/depend/people/wenchao-li/" style="color: rgb(136, 136, 136);">
-                                Wenchao Li
-                            </a>
-                            <br/>
-                            <a href="https://arxiv.org/abs/2412.04606" class="mr-3">Paper</a>
-                            <a href="https://arxiv.org/abs/2412.04606" class="mr-3">
-                                arXiv
-                            </a>
-                            <a href="https://github.com/BU-DEPEND-Lab/SCUQ-RRG" class="mr-3">
-                                Code
-                            </a>
-                            <br/>
-                            <span style="color:black;">The Nations of the Americas Chapter of the Association for Computational Linguistics (<strong>NAACL 2025</strong>) </span>
-                            <br/>
-                            <span style="font-weight:bold; font-size: 0.85em;">TL;DR:</span>
-                            <span style="font-size: 0.85em;">A model-agnostic, plug-and-play uncertainty framework enhances radiology report factuality by 10% via semantic consistency-based hallucination detection—no model access or modifications required.</span>
-                        </div>
+                    <li><span class="news-date">[Jun 2023]</span> I'm now a Ph.D. candidate. Also, two papers are
+                        accepted at <strong><a href="https://sites.google.com/view/scis-workshop-23">SCIS</a></strong>
+                        and <strong><a href="https://sites.google.com/view/imlh2023/home?authuser=1">IMLH</a></strong>
+                        workshops at <a href="https://icml.cc/Conferences/2023"><strong>ICML 2023</strong></a>.
                     </li>
-
-                    <li class="paperitem">
-                        <img alt="" src="images/TRL.png" class="publogo float-left" width="200">
-                        <div>
-                            <b>Distributionally robust self-supervised learning for tabular data</b>
-                            <b>Shantanu Ghosh</b>,
-                            <a href="https://scholar.google.com/citations?user=X0rjIwUAAAAJ&hl=en"
-                               style="color: rgb(136, 136, 136);">Tiankang Xie</a>,
-                            <a href="https://scholar.google.com/citations?user=fsrkabwAAAAJ&hl=en"
-                               style="color: rgb(136, 136, 136);"> Mikhail Kuznetsov</a>
-                            <br/>
-                            <a href="https://openreview.net/pdf?id=71u8OvjYbZ" class="mr-3">Paper</a>
-                            <a href="https://arxiv.org/abs/2410.08511" class="mr-3">
-                                arXiv
-                            </a>
-                            <a href="https://github.com/amazon-science/distributionally-robust-self-supervised-learning-for-tabular-data"
-                               class="mr-3">
-                                Code
-                            </a>
-                            <a href="https://www.amazon.science/publications/distributionally-robust-self-supervised-learning-for-tabular-data"
-                               class="mr-3">
-                                Amazon blog
-                            </a>
-                            <br/>
-                            <span style="color:black;">Third Table Representation Learning (<strong>TRL</strong>)
-                                Workshop, <strong>NeurIPS 2024</strong> </span>
-                            <br/>
-                            <span style="font-weight:bold; font-size: 0.85em;">TL;DR:</span>
-                            <span style="font-size: 0.85em;">This paper presents a framework for robust representation learning in tabular data using self-supervised pre-training with Masked Language Modeling (MLM) loss and fine-tuning methods like JTT and DFR to address systematic errors and improve generalization across subpopulations.</span>
-                        </div>
+                    <li><span class="news-date">[May 2023]</span> Our work <a
+                            href="https://shantanu-ai.github.io/projects/MICCAI-2023-MoIE-CXR/"><strong>Distilling
+                        BlackBox to Interpretable models for Efficient Transfer Learning</strong></a> is accepted (<span
+                            style="color:#C82506;"><strong>Early accept, top 14% out of 2,250 submissions</strong></span>)
+                        at <a href="https://conferences.miccai.org/2023/en/"><strong>MICCAI 2023</strong></a>.
                     </li>
-
-                    <li class="paperitem">
-                        <img alt="" src="images/AGX-Siamese-net.png" class="publogo float-left" width="100">
-                        <div>
-                            <b>Anatomy-specific Progression Classification in Chest Radiographs via Weakly Supervised
-                                Learning</b>
-                            <a href="https://gatechke.github.io/" style="color: rgb(136, 136, 136);">Ke Yu</a>,
-                            <b>Shantanu Ghosh</b>,
-                            <a href="https://people.cs.pitt.edu/~zhexiong/" style="color: rgb(136, 136, 136);">Zhexiong
-                                Li</a>,
-                            <a href="http://www.rad.pitt.edu/profile-detail.html?profileID=25/"
-                               style="color: rgb(136, 136, 136);">Christopher Deible</a>,
-                            <a href="https://www.bumc.bu.edu/camed/profile/clare-poynton/"
-                               style="color: rgb(136, 136, 136);"> Clare B. Poynton</a>,
-                            <a href="https://www.thevislab.com/lab/doku.php" style="color: rgb(136, 136, 136);"> Shyam
-                                Visweswaran</a>,
-                            <a href="https://www.batman-lab.com/" style="color: rgb(136, 136, 136);">
-                                Kayhan Batmanghelich
-                            </a>
-                            <br/>
-                            <a href="https://pubs.rsna.org/doi/10.1148/ryai.230277"
-                               class="mr-3">Paper</a>
-                            <a href="https://github.com/batmanlab/SiameseAGXNet" class="mr-3">
-                                Code
-                            </a>
-                            <br/>
-                            <span style="color:black;">Radiology: Artificial Intelligence (<strong>Rad: AI</strong>), VOL. 6, NO. 5 (2024), <strong>Impact Factor: 8.1</strong></span>
-                            <br/>
-                            <span style="font-weight:bold; font-size: 0.85em;">TL;DR:</span>
-                            <span style="font-size: 0.85em;">This study developed a weakly supervised machine learning model to classify and localize disease progression in chest radiographs, showing strong performance across various pathologies.</span>
-                        </div>
+                    <li><span class="news-date">[Apr 2023]</span> Our work <a
+                            href="https://shantanu-ai.github.io/projects/ICML-2023-MoIE/"><strong>Dividing and
+                        Conquering a BlackBox to a Mixture of Interpretable Models: Route, Interpret,
+                        Repeat</strong></a> is accepted at <a href="https://icml.cc/Conferences/2023"><strong>ICML
+                        2023</strong></a>.
                     </li>
-
-                    <li class="paperitem">
-                        <img alt="" src="images/Mammo-CLIP_large.png" class="publogo float-left" width="100">
-                        <div>
-                            <b>Mammo-CLIP: A Vision Language Foundation Model to Enhance Data Efficiency and Robustness
-                                in Mammography</b>
-                            <b>Shantanu Ghosh</b>,
-                            <a href="https://www.bumc.bu.edu/camed/profile/clare-poynton/"
-                               style="color: rgb(136, 136, 136);"> Clare B. Poynton</a>,
-                            <a href="https://www.thevislab.com/lab/doku.php" style="color: rgb(136, 136, 136);"> Shyam
-                                Visweswaran</a>,
-                            <a href="https://www.batman-lab.com/" style="color: rgb(136, 136, 136);">
-                                Kayhan Batmanghelich
-                            </a>
-                            <br/>
-                            <a href="https://shantanu-ai.github.io/projects/MICCAI-2024-Mammo-CLIP" class="mr-3">
-                                Project Page
-                            </a>
-                            <a href="https://link.springer.com/chapter/10.1007/978-3-031-72390-2_59"
-                               class="mr-3">Paper</a>
-                            <a href="https://arxiv.org/pdf/2405.12255" class="mr-3">arXiv</a>
-                            <a href="https://github.com/batmanlab/Mammo-CLIP" class="mr-3">
-                                Code
-                            </a>
-                            <!--                            <a href=""-->
-                            <!--                               class="mr-3">Slides</a>-->
-                            <a href="https://github.com/shantanu-ai/shantanu-ai.github.io/tree/main/projects/MICCAI-2024-Mammo-CLIP/static/data/Mammo-CLIP-MICCAI-24-poster-v1.pdf"
-                               class="mr-3">Poster</a>
-                            <!--                            <a href="" class="mr-3">Video</a>-->
-                            <a href="https://papers.miccai.org/miccai-2024/488-Paper0926.html" class="mr-3">Reviews</a>
-                            <br/>
-                            <span style="color:black;">27<sup>th</sup> International Conference on Medical Image Computing and Computer Assisted
-                            Intervention</span> (<strong><span style="color:black;">MICCAI 2024</span></strong>)
-                            <br/>
-                            <span class="brsmall"></span>
-                            🏅
-                            <span style="color:#C82506;"><strong>Early accept, top 11% out of 2,869 submissions</strong></span>
-                            <br/>
-                            <span style="font-weight:bold; font-size: 0.85em;">TL;DR:</span>
-                            <span style="font-size: 0.85em;">This paper presents Mammo-CLIP, a Vision-Language model for breast cancer detection, and Mammo-FActOR for sentence-level feature attribution and spatial interpretation.</span>
-                        </div>
+                    <li><span class="news-date">[Dec 2022]</span> I'm joining <a
+                            href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">Boston
+                        University</a> in Spring 2023 in the Department of Electrical and Computer Engineering following
+                        my advisor's move. My research will be supported by Doctoral Research Fellowship.
                     </li>
-
-                    <li class="paperitem">
-                        <img alt="" src="images/miccai-2023.png" class="publogo float-left" width="100">
-                        <div>
-                            <b>Distilling BlackBox to Interpretable models for Efficient Transfer Learning</b>
-                            <b>Shantanu Ghosh</b>,
-                            <a href="https://gatechke.github.io/" style="color: rgb(136, 136, 136);">Ke Yu</a>,
-                            <a href="https://www.batman-lab.com/" style="color: rgb(136, 136, 136);">
-                                Kayhan Batmanghelich
-                            </a>
-                            <br/>
-                            <a href="https://shantanu-ai.github.io/projects/MICCAI-2023-MoIE-CXR/" class="mr-3">
-                                Project Page
-                            </a>
-                            <a href="https://link.springer.com/chapter/10.1007/978-3-031-43895-0_59"
-                               class="mr-3">Paper</a>
-                            <a href="https://arxiv.org/pdf/2305.17303.pdf" class="mr-3">arXiv</a>
-                            <a href="https://openreview.net/forum?id=sbOVNiSNY8"
-                               class="mr-3">
-                                Workshop Paper
-                            </a>
-                            <a href="https://github.com/batmanlab/MICCAI-2023-Route-interpret-repeat-CXRs" class="mr-3">
-                                Code
-                            </a>
-                            <a href="https://shantanu-ai.github.io/projects/MICCAI-2023-MoIE-CXR/static/data/Route-interpret-repeat-transfer-learning-miccai-23-v3-long.pdf"
-                               class="mr-3">Slides</a>
-                            <a href="https://shantanu-ai.github.io/projects/MICCAI-2023-MoIE-CXR/static/data/Route-Interpret-Repeat-transfer-learning-miccai-23-poster-v1.pdf"
-                               class="mr-3">Poster</a>
-                            <a href="https://www.youtube.com/watch?v=tG_Zr_8ton0" class="mr-3">Video</a>
-                            <a href="https://conferences.miccai.org/2023/papers/212-Paper2523.html"
-                               class="mr-3">Reviews</a>
-                            <br/>
-                            <span style="color:black;">26<sup>th</sup> International Conference on Medical Image Computing and Computer Assisted
-                            Intervention</span> (<strong><span style="color:black;">MICCAI 2023</span></strong>)
-                            <br/>
-                            <span class="brsmall"></span>
-                            🏅
-                            <span style="color:#C82506;"><strong>Early accept, top 14% out of 2,250 submissions</strong></span>
-                            <br/>
-                            <span style="color:black;">Also, in the 3<sup>rd</sup> Workshop on
-                            Interpretable Machine Learning in Healthcare</span> (<strong><span
-                                style="color:black;">IMLH</span></strong>), <span style="color:black;">ICML 2023</span>
-                            <br/>
-                            <span style="font-weight:bold; font-size: 0.85em;">TL;DR:</span>
-                            <span style="font-size: 0.85em;">This paper presents an interpretable model for chest-X-ray classification that can be efficiently fine-tuned for new domains using minimal labeled data, leveraging semi-supervised learning and distillation from blackbox models.</span>
-                        </div>
+                    <li><span class="news-date">[Jun 2022]</span> Our work on doubly robust estimation of ITE is
+                        accepted as an <strong><span style="color:#C82506;">oral presentation</span></strong> at the <a
+                                href="https://amia.org/education-events/amia-2022-annual-symposium/calls-participation/">AMIA
+                            2022 Annual Symposium</a>.
                     </li>
-
-                    <li class="paperitem">
-                        <img alt="" src="images/icml-2023.png" class="publogo float-left" width="100">
-                        <div>
-                            <b>Dividing and Conquering a BlackBox to a Mixture of Interpretable Models: Route,
-                                Interpret, Repeat</b>
-                            <b>Shantanu Ghosh</b>,
-                            <a href="https://gatechke.github.io/" style="color: rgb(136, 136, 136);">Ke Yu</a>,
-                            <a href="https://forougha.github.io/" style="color: rgb(136, 136, 136);">
-                                Forough Arabshahi</a>,
-                            <a href="https://www.batman-lab.com/" style="color: rgb(136, 136, 136);">
-                                Kayhan Batmanghelich
-                            </a>
-                            <br/>
-                            <a href="https://shantanu-ai.github.io/projects/ICML-2023-MoIE/" class="mr-3">
-                                Project Page
-                            </a>
-                            <a href="https://proceedings.mlr.press/v202/ghosh23c.html" class="mr-3">Paper</a>
-                            <a href="https://arxiv.org/pdf/2307.05350.pdf" class="mr-3">arXiv</a>
-                            <a href="https://openreview.net/pdf?id=m5vnLHfNy7"
-                               class="mr-3">
-                                Shortcut Paper
-                            </a>
-                            <a href="https://github.com/batmanlab/ICML-2023-Route-interpret-repeat" class="mr-3">
-                                Code
-                            </a>
-                            <a href="https://shantanu-ai.github.io/projects/ICML-2023-MoIE/static/data/Route-Interpret-Repeat-ICML-2023-slides_v4.pdf"
-                               class="mr-3">Slides</a>
-                            <a href="https://shantanu-ai.github.io/projects/ICML-2023-MoIE/static/data/Route-Interpret-Repeat-ICML-2023-poster_v5.pdf"
-                               class="mr-3">Poster</a>
-                            <a href="https://www.youtube.com/watch?v=252zEPba8pQ&t=6s" class="mr-3">Video</a>
-                            <br/>
-                            <span style="color:black;">40<sup>th</sup> International Conference on Machine Learning</span>
-                            (<strong><span
-                                style="color:black;">ICML 2023</span></strong>)
-                            <br/>
-                            <span style="color:black;">Also, in the 2<sup>nd</sup> Workshop on
-                            Spurious Correlations, Invariance and Stability (<strong><span
-                                        style="color:black;">SCIS</span></strong>), <span
-                                        style="color:black;">ICML 2023</span></span>
-                            <br/>
-                            <span style="font-weight:bold; font-size: 0.85em;">TL;DR:</span>
-                            <span style="font-size: 0.85em;">This paper introduces a method to iteratively carve interpretable models from a Blackbox, using First Order Logic for explanations, while a residual network handles harder cases, achieving high interpretability without sacrificing performance.</span>
-                        </div>
+                    <li><span class="news-date">[Jun 2022]</span> Our work on weakly supervised disease localization is
+                        accepted at <a href="http://www.miccai.org/">MICCAI 2022</a>.
                     </li>
-
-                    <li class="paperitem">
-                        <img alt="" src="images/MICCAI.png" class="publogo float-left" width="100">
-                        <div>
-                            <b>Anatomy-Guided Weakly-Supervised Abnormality Localization in Chest X-rays</b>
-                            <a href="https://gatechke.github.io/" style="color: rgb(136, 136, 136);">Ke Yu</a>,
-                            <b>Shantanu Ghosh</b>,
-                            <a href="https://people.cs.pitt.edu/~zhexiong/" style="color: rgb(136, 136, 136);">Zhexiong
-                                Li</a>,
-                            <a href="http://www.rad.pitt.edu/profile-detail.html?profileID=25/"
-                               style="color: rgb(136, 136, 136);">Christopher Deible</a>,
-                            <a href="https://www.batman-lab.com/" style="color: rgb(136, 136, 136);">
-                                Kayhan Batmanghelich
-                            </a>
-                            <br/>
-                            <a href="https://link.springer.com/chapter/10.1007/978-3-031-16443-9_63"
-                               class="mr-3">Paper</a>
-                            <a href="https://arxiv.org/pdf/2206.12704.pdf" class="mr-3">arXiv</a>
-                            <a href="https://conferences.miccai.org/2022/papers/045-Paper1726.html"
-                               class="mr-3">Reviews</a>
-                            <a href="https://github.com/batmanlab/AGXNet" class="mr-3">
-                                Code
-                            </a>
-                            <br/>
-                            <span style="color:black;">25<sup>th</sup> International Conference on Medical Image Computing and Computer Assisted
-                            Intervention</span> (<strong><span style="color:black;">MICCAI 2022</span></strong>)
-                            <br/>
-                            <span style="font-weight:bold; font-size: 0.85em;">TL;DR:</span>
-                            <span style="font-size: 0.85em;">This paper presents AGXNet, an anatomy-guided chest X-ray model that leverages weak supervision from radiology reports to improve abnormality detection, using anatomy-guided attention and Positive Unlabeled learning for better disease localization and classification.</span>
-                        </div>
+                    <li><span class="news-date">[Aug 2021]</span> I'm joining the <a href="https://www.isp.pitt.edu/">University
+                        of Pittsburgh</a> in the Intelligent Systems Program under the supervision of Dr. <a
+                            href="https://www.batman-lab.com/">Kayhan Batmanghelich</a> in Fall 2021.
                     </li>
-
-                    <li class="paperitem">
-                        <img alt="" src="images/dr-vidal.png" class="publogo float-left" width="100">
-                        <div>
-                            <b>DR-VIDAL-Doubly Robust Variational Information-theoretic Deep Adversarial
-                                Learning for Counterfactual Prediction and Treatment Effect Estimation</b>
-                            <b>Shantanu Ghosh</b>,
-                            <a href="https://scholar.google.com/citations?user=7lPO8goAAAAJ&hl=en"
-                               style="color: rgb(136, 136, 136);">Zheng
-                                Feng</a>,
-                            <a href="https://hobi.med.ufl.edu/profile/bian-jiang/" style="color: rgb(136, 136, 136);">Jiang
-                                Bian</a>,
-                            <a href="https://www.cise.ufl.edu/~butler/" style="color: rgb(136, 136, 136);">Kevin
-                                Butler</a>,
-                            <a href="https://epidemiology.phhp.ufl.edu/profile/prosperi-mattia/"
-                               style="color: rgb(136, 136, 136);">Mattia Prosperi</a>
-                            <br/>
-                            <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10148269/"
-                               class="mr-3">Paper</a>
-                            <a href="https://arxiv.org/pdf/2303.04201.pdf" class="mr-3">arXiv</a>
-                            <a href="https://github.com/shantanu-ai/DR-VIDAL-AMIA-22" class="mr-3">
-                                Code
-                            </a>
-                            <a href="https://github.com/shantanu-ai/DR-VIDAL-AMIA-22/blob/main/DR_VIDAL_AMIA-Supp.pdf"
-                               class="mr-3">
-                                Supplementary
-                            </a>
-                            <a href="https://docs.google.com/presentation/d/1oQA4m0oVeNmjBc6t7al1Is1evB-uVg7F/edit?usp=sharing&ouid=108402232378812733962&rtpof=true&sd=true"
-                               class="mr-3">
-                                Slides
-                            </a>
-                            <a href="https://www.youtube.com/watch?v=BB5fLYxBFV4&t=218s" class="mr-3">
-                                Video
-                            </a>
-                            <br/>
-                            <span style="color:black;">American Medical Informatics Association (<strong><span
-                                    style="color:black;">AMIA 2022</span></strong>) Annual Symposium</span>
-                            <!-- <strong><span style="color:black;">Oral</span></strong> -->
-                            <br/>
-                            <span class="brsmall"></span>
-                            🏅
-                            <span style="color:#C82506;"><strong>Long Oral Presentation</strong></span>
-                            <br/>
-                            <span style="font-weight:bold; font-size: 0.85em;">TL;DR:</span>
-                            <span style="font-size: 0.85em;">This paper introduces DR-VIDAL, a generative framework that combines VAEs, Info-GANs, and doubly robust techniques to improve unbiased individualized treatment effect estimation from observational data, outperforming existing methods on various datasets.</span>
-                        </div>
+                    <li><span class="news-date">[May 2021]</span> I graduated with a Master's degree in <a
+                            href="https://www.cise.ufl.edu/">Computer Science</a> from the <a
+                            href="https://www.ufl.edu/">University of Florida</a>. <em><span
+                            style="color:#C82506;"><strong>Go Gators!!</strong></span></em></li>
+                    <li><span class="news-date">[Apr 2021]</span> Our work to balance the unmatched controlled samples
+                        by simulating treated samples using GAN, is accepted in the <a
+                                href="https://www.sciencedirect.com/science/article/pii/S2666990021000197/">Journal of
+                            Computer Methods and Programs in Biomedicine Update</a>.
                     </li>
-
-                    <li class="paperitem">
-                        <img alt="" src="images/PSSAM-GAN.svg" class="publogo float-left" width="100">
-                        <div>
-                            <b>Propensity score synthetic augmentation matching using generative adversarial
-                                networks (PSSAM-GAN)</b>
-                            <b>Shantanu Ghosh</b>,
-                            <a href="https://www.christinaboucher.com/" style="color: rgb(136, 136, 136);">Christina
-                                Boucher</a>,
-                            <a href=" https://hobi.med.ufl.edu/profile/bian-jiang/" style="color: rgb(136, 136,
-                            136);">Jiang
-                                Bian</a>,
-                            <a href="https://epidemiology.phhp.ufl.edu/profile/prosperi-mattia/"
-                               style="color: rgb(136, 136, 136);">Mattia Prosperi</a>
-                            <br/>
-                            <a href="https://www.sciencedirect.com/science/article/pii/S2666990021000197?via%3Dihub"
-                               class="mr-3">Paper</a>
-                            <a href="https://github.com/shantanu-ai/PSSAM-GAN" class="mr-3">
-                                Code
-                            </a>
-                            <br/>
-                            <span style="color:black;">Journal of Computer methods and programs in biomedicine update Volume 1 (2021)</span>
-                            <br/>
-                            <span style="font-weight:bold; font-size: 0.85em;">TL;DR:</span>
-                            <span style="font-size: 0.85em;">This paper introduces PSSAM-GAN, a deep learning approach that generates synthetic matches to balance observational datasets for treatment effect estimation, avoiding sample size reduction and instability from traditional methods like PSM and IPW, and demonstrating competitive performance on various datasets.</span>
-                        </div>
+                    <li><span class="news-date">[Dec 2020]</span> Our work to estimate the Propensity score by
+                        dimensionality reduction using an autoencoder, is accepted in the <a
+                                href="https://pubmed.ncbi.nlm.nih.gov/33594415/">Journal of the American Medical
+                            Informatics Association</a>.
                     </li>
-
-                    <li class="paperitem">
-                        <img alt="" src="images/DPN-SA.svg" class="publogo float-left" width="100">
-                        <div>
-                            <b>Deep propensity network using a sparse autoencoder for estimation of treatment
-                                effects</b>
-                            <b>Shantanu Ghosh</b>,
-                            <a href="https://scholar.google.com/citations?user=7lPO8goAAAAJ&hl=en"
-                               style="color: rgb(136, 136, 136);">Zheng
-                                Feng</a>,
-                            <a href="https://hobi.med.ufl.edu/profile/guo-yi/" style="color: rgb(136, 136, 136);">Yi
-                                Guo</a>,
-                            <a href="https://hobi.med.ufl.edu/profile/bian-jiang/" style="color: rgb(136, 136, 136);">Jiang
-                                Bian</a>,
-                            <a href="https://epidemiology.phhp.ufl.edu/profile/prosperi-mattia/"
-                               style="color: rgb(136, 136, 136);">Mattia Prosperi</a>
-                            <br/>
-                            <a href="https://academic.oup.com/jamia/article-abstract/28/6/1197/6139936?redirectedFrom=fulltext"
-                               class="mr-3">Paper</a>
-                            <a href="https://github.com/shantanu-ai/DPN-SA" class="mr-3">
-                                Code
-                            </a>
-                            <br/>
-                            <span style="color:black;">Journal of the American Medical Informatics Association (<strong><span
-                                    style="color:black;">JAMIA</span></strong>) Volume 28 Issue 6 (2021), <strong>Impact Factor: 4.7</strong></span>
-                            <br/>
-                            <span style="font-weight:bold; font-size: 0.85em;">TL;DR:</span>
-                            <span style="font-size: 0.85em;">This paper introduces DPN-SA, a deep learning model using sparse autoencoders for propensity score matching and counterfactual prediction, outperforming traditional methods in treatment effect estimation across various datasets.</span>
-                        </div>
+                    <li><span class="news-date">[Apr 2020]</span> I'm joining <a
+                            href="https://epidemiology.phhp.ufl.edu/research/disl/">DISL</a> lab as a graduate assistant
+                        under the supervision of Prof. <a
+                                href="https://epidemiology.phhp.ufl.edu/profile/prosperi-mattia/">Mattia Prosperi</a>
+                        and <a href="http://jiangbian.me/">Prof. Jiang Bian</a>.
+                    </li>
+                    <li><span class="news-date">[Aug 2019]</span> I'm moving to the US to join the Master's program in
+                        the department of <a href="https://www.cise.ufl.edu/">Computer Science</a> at the <a
+                                href="https://www.ufl.edu/">University of Florida</a> in Fall 2019.
                     </li>
                 </ul>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="row my-4" id="projects">
-        <div class="col">
-            <h4>Academic Projects</h4>
-            <div>
-                <ul style='list-style-type:none;margin-bottom: 0!important;padding-left: 0!important'>
-                    <li class="paperitem">
-                        <img alt="" src="images/arch.png" class="publogo float-left" width="100">
-                        <div>
-                            <b>Explaining why Lottery Ticket Hypothesis Works or Fails</b>
-                            <a href="https://github.com/shantanu-ai/Explainability-with-LTH/blob/main/doc/Vlr_Proposal.pdf"
-                               class="mr-3">
-                                Proposal
-                            </a>
-                            <a href="https://github.com/shantanu-ai/Explainability-with-LTH/blob/main/doc/VLR.pdf"
-                               class="mr-3">Report</a>
-                            <a href="https://github.com/shantanu-ai/Explainability-with-LTH" class="mr-3">
-                                Code
-                            </a>
-                            <a href="https://arxiv.org/pdf/2307.13698">arXiv</a>
-                            <br/>
-                            <span style="color: rgb(33, 37, 41)">
-                                For the <a href="https://visual-learning.cs.cmu.edu/f22/index.html"><strong>CMU 16-824:
-                            Visual Learning and Recognition</strong></a> course at CMU, we studied the relationship between pruning
-                            and explainability. We validated if the explanations generated from the pruned network using
-                            Lottery ticket hypothesis (LTH) are consistent or not. Specifically we pruned a neural
-                            network using LTH. Next we generated and compared the local and global explanations using
-                            Grad-CAM and Concept activations respectively. I expanded the analysis to an <a
-                                    href="https://arxiv.org/pdf/2307.13698">arXiv</a> paper.
-                            </span>
+    <!-- PUBLICATIONS -->
+    <section id="publication" class="my-4">
+        <h2 class="section-title"><i class="bi bi-journal-richtext"></i> Publications</h2>
+
+        <div class="d-grid gap-3">
+
+            <!-- 1) LADDER -->
+            <article class="item-row">
+                <img src="images/ladder-acl2025.png" alt="LADDER ACL 2025 thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">LADDER: Language-Driven Slice Discovery and Error Rectification in Vision
+                        Classifiers</h5>
+                    <div class="muted mb-2">
+                        <b>Shantanu Ghosh</b>,
+                        <a href="https://www.linkedin.com/in/rayan-syed-507379296/">Rayan Syed</a>,
+                        <a href="https://chyuwang.com/">Chenyu Wang</a>,
+                        <a href="https://vaibhavchoudhary.com/">Vaibhav Choudhary</a>,
+                        <a href="https://www.linkedin.com/in/binxu-li-595b64245/">Binxu Li</a>,
+                        <a href="https://www.bumc.bu.edu/camed/profile/clare-poynton/">Clare B. Poynton</a>,
+                        <a href="https://www.thevislab.com/lab/doku.php">Shyam Visweswaran</a>,
+                        <a href="https://www.batman-lab.com/">Kayhan Batmanghelich</a>
+                    </div>
+
+                    <div class="meta-links mb-2">
+                        <a href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/index.html"><i
+                                class="bi bi-box-arrow-up-right"></i> Project Page</a>
+                        <a href="https://aclanthology.org/2025.findings-acl.1177/"><i
+                                class="bi bi-file-earmark-text"></i> Paper</a>
+                        <a href="https://arxiv.org/pdf/2408.07832"><i class="bi bi-cloud-download"></i> arXiv</a>
+                        <a href="https://github.com/batmanlab/Ladder"><i class="bi bi-github"></i> Code</a>
+                        <a href="https://github.com/batmanlab/Ladder/blob/main/doc/Ladder-ACL-25-poster-v2.pdf"><i
+                                class="bi bi-image"></i> Poster</a>
+                    </div>
+
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> Findings of ACL 2025</div>
+                    <div><span class="fw-semibold">TL;DR:</span> LADDER uses LLMs to discover and fix biases in vision
+                        classifiers without requiring labels or prior bias knowledge.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2) NAACL 2025 -->
+            <article class="item-row">
+                <img src="images/naacl_2025.png" alt="NAACL 2025 thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Semantic Consistency-Based Uncertainty Quantification for Factuality in
+                        Radiology Report Generation</h5>
+                    <div class="muted mb-2">
+                        <a href="https://chyuwang.com/">Chenyu Wang</a>,
+                        <a href="https://sites.google.com/view/zwc662/">Weichao Zhou</a>,
+                        <b>Shantanu Ghosh</b>,
+                        <a href="https://www.batman-lab.com/">Kayhan Batmanghelich</a>,
+                        <a href="https://sites.bu.edu/depend/people/wenchao-li/">Wenchao Li</a>
+                    </div>
+
+                    <div class="meta-links mb-2">
+                        <a href="https://arxiv.org/abs/2412.04606"><i class="bi bi-file-earmark-text"></i> Paper</a>
+                        <a href="https://arxiv.org/abs/2412.04606"><i class="bi bi-cloud-download"></i> arXiv</a>
+                        <a href="https://github.com/BU-DEPEND-Lab/SCUQ-RRG"><i class="bi bi-github"></i> Code</a>
+                    </div>
+
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> NAACL 2025 (Findings)</div>
+                    <div><span class="fw-semibold">TL;DR:</span> A model-agnostic, plug-and-play uncertainty framework
+                        enhances radiology report factuality by 10% via semantic consistency-based hallucination
+                        detection—no model access or modifications required.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3) TRL NeurIPS 2024 -->
+            <article class="item-row">
+                <img src="images/TRL.png" alt="TRL NeurIPS 2024 thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Distributionally robust self-supervised learning for tabular data</h5>
+                    <div class="muted mb-2">
+                        <b>Shantanu Ghosh</b>,
+                        <a href="https://scholar.google.com/citations?user=X0rjIwUAAAAJ&hl=en">Tiankang Xie</a>,
+                        <a href="https://scholar.google.com/citations?user=fsrkabwAAAAJ&hl=en">Mikhail Kuznetsov</a>
+                    </div>
+
+                    <div class="meta-links mb-2">
+                        <a href="https://openreview.net/pdf?id=71u8OvjYbZ"><i class="bi bi-file-earmark-text"></i> Paper</a>
+                        <a href="https://arxiv.org/abs/2410.08511"><i class="bi bi-cloud-download"></i> arXiv</a>
+                        <a href="https://github.com/amazon-science/distributionally-robust-self-supervised-learning-for-tabular-data"><i
+                                class="bi bi-github"></i> Code</a>
+                        <a href="https://www.amazon.science/publications/distributionally-robust-self-supervised-learning-for-tabular-data"><i
+                                class="bi bi-newspaper"></i> Amazon blog</a>
+                    </div>
+
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> TRL Workshop, NeurIPS 2024</div>
+                    <div><span class="fw-semibold">TL;DR:</span> This paper presents a framework for robust
+                        representation learning in tabular data using self-supervised pre-training (MLM) and bias-aware
+                        fine-tuning (e.g., JTT/DFR) to address systematic errors and improve generalization across
+                        subpopulations.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 4) Rad:AI 2024 -->
+            <article class="item-row">
+                <img src="images/AGX-Siamese-net.png" alt="Rad:AI 2024 thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Anatomy-specific Progression Classification in Chest Radiographs via Weakly
+                        Supervised Learning</h5>
+                    <div class="muted mb-2">
+                        <a href="https://gatechke.github.io/">Ke Yu</a>,
+                        <b>Shantanu Ghosh</b>,
+                        <a href="https://people.cs.pitt.edu/~zhexiong/">Zhexiong Li</a>,
+                        <a href="http://www.rad.pitt.edu/profile-detail.html?profileID=25/">Christopher Deible</a>,
+                        <a href="https://www.bumc.bu.edu/camed/profile/clare-poynton/">Clare B. Poynton</a>,
+                        <a href="https://www.thevislab.com/lab/doku.php">Shyam Visweswaran</a>,
+                        <a href="https://www.batman-lab.com/">Kayhan Batmanghelich</a>
+                    </div>
+
+                    <div class="meta-links mb-2">
+                        <a href="https://pubs.rsna.org/doi/10.1148/ryai.230277"><i class="bi bi-file-earmark-text"></i>
+                            Paper</a>
+                        <a href="https://github.com/batmanlab/SiameseAGXNet"><i class="bi bi-github"></i> Code</a>
+                    </div>
+
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> Radiology: Artificial Intelligence (Rad:
+                        AI), Vol. 6, No. 5 (2024)
+                    </div>
+                    <div><span class="fw-semibold">TL;DR:</span> This study developed a weakly supervised model to
+                        classify and localize disease progression in chest radiographs, showing strong performance
+                        across various pathologies.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 5) MICCAI 2024 Mammo-CLIP -->
+            <article class="item-row">
+                <img src="images/Mammo-CLIP_large.png" alt="MICCAI 2024 Mammo-CLIP thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Mammo-CLIP: A Vision Language Foundation Model to Enhance Data Efficiency
+                        and Robustness in Mammography</h5>
+                    <div class="muted mb-2">
+                        <b>Shantanu Ghosh</b>,
+                        <a href="https://www.bumc.bu.edu/camed/profile/clare-poynton/">Clare B. Poynton</a>,
+                        <a href="https://www.thevislab.com/lab/doku.php">Shyam Visweswaran</a>,
+                        <a href="https://www.batman-lab.com/">Kayhan Batmanghelich</a>
+                    </div>
+
+                    <div class="meta-links mb-2">
+                        <a href="https://shantanu-ai.github.io/projects/MICCAI-2024-Mammo-CLIP"><i
+                                class="bi bi-box-arrow-up-right"></i> Project Page</a>
+                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-72390-2_59"><i
+                                class="bi bi-file-earmark-text"></i> Paper</a>
+                        <a href="https://arxiv.org/pdf/2405.12255"><i class="bi bi-cloud-download"></i> arXiv</a>
+                        <a href="https://github.com/batmanlab/Mammo-CLIP"><i class="bi bi-github"></i> Code</a>
+                        <a href="https://github.com/shantanu-ai/shantanu-ai.github.io/tree/main/projects/MICCAI-2024-Mammo-CLIP/static/data/Mammo-CLIP-MICCAI-24-poster-v1.pdf"><i
+                                class="bi bi-image"></i> Poster</a>
+                        <a href="https://papers.miccai.org/miccai-2024/488-Paper0926.html"><i
+                                class="bi bi-card-checklist"></i> Reviews</a>
+                    </div>
+
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> MICCAI 2024 (Top 11%, Early Accept)</div>
+                    <div><span class="fw-semibold">TL;DR:</span> Mammo-CLIP is a vision–language model for mammography
+                        that supports breast cancer detection and sentence-level feature attribution via Mammo-FActOR.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 6) MICCAI 2023 MoIE-CXR -->
+            <article class="item-row">
+                <img src="images/miccai-2023.png" alt="MICCAI 2023 MoIE-CXR thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Distilling BlackBox to Interpretable models for Efficient Transfer
+                        Learning</h5>
+                    <div class="muted mb-2">
+                        <b>Shantanu Ghosh</b>,
+                        <a href="https://gatechke.github.io/">Ke Yu</a>,
+                        <a href="https://www.batman-lab.com/">Kayhan Batmanghelich</a>
+                    </div>
+
+                    <div class="meta-links mb-2">
+                        <a href="https://shantanu-ai.github.io/projects/MICCAI-2023-MoIE-CXR/"><i
+                                class="bi bi-box-arrow-up-right"></i> Project Page</a>
+                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-43895-0_59"><i
+                                class="bi bi-file-earmark-text"></i> Paper</a>
+                        <a href="https://arxiv.org/pdf/2305.17303.pdf"><i class="bi bi-cloud-download"></i> arXiv</a>
+                        <a href="https://openreview.net/forum?id=sbOVNiSNY8"><i class="bi bi-file-earmark-text"></i>
+                            Workshop Paper</a>
+                        <a href="https://github.com/batmanlab/MICCAI-2023-Route-interpret-repeat-CXRs"><i
+                                class="bi bi-github"></i> Code</a>
+                        <a href="https://shantanu-ai.github.io/projects/MICCAI-2023-MoIE-CXR/static/data/Route-interpret-repeat-transfer-learning-miccai-23-v3-long.pdf"><i
+                                class="bi bi-easel"></i> Slides</a>
+                        <a href="https://shantanu-ai.github.io/projects/MICCAI-2023-MoIE-CXR/static/data/Route-Interpret-Repeat-transfer-learning-miccai-23-poster-v1.pdf"><i
+                                class="bi bi-image"></i> Poster</a>
+                        <a href="https://www.youtube.com/watch?v=tG_Zr_8ton0"><i class="bi bi-play-circle"></i>
+                            Video</a>
+                        <a href="https://conferences.miccai.org/2023/papers/212-Paper2523.html"><i
+                                class="bi bi-card-checklist"></i> Reviews</a>
+                    </div>
+
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> MICCAI 2023 (Top 14%, Early Accept) + IMLH
+                        Workshop (ICML 2023)
+                    </div>
+                    <div><span class="fw-semibold">TL;DR:</span> An interpretable chest X-ray model that can be
+                        efficiently fine-tuned to new domains using minimal labeled data via semi-supervised learning
+                        and distillation from black-box models.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 7) ICML 2023 MoIE -->
+            <article class="item-row">
+                <img src="images/icml-2023.png" alt="ICML 2023 MoIE thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Dividing and Conquering a BlackBox to a Mixture of Interpretable Models:
+                        Route, Interpret, Repeat</h5>
+                    <div class="muted mb-2">
+                        <b>Shantanu Ghosh</b>,
+                        <a href="https://gatechke.github.io/">Ke Yu</a>,
+                        <a href="https://forougha.github.io/">Forough Arabshahi</a>,
+                        <a href="https://www.batman-lab.com/">Kayhan Batmanghelich</a>
+                    </div>
+
+                    <div class="meta-links mb-2">
+                        <a href="https://shantanu-ai.github.io/projects/ICML-2023-MoIE/"><i
+                                class="bi bi-box-arrow-up-right"></i> Project Page</a>
+                        <a href="https://proceedings.mlr.press/v202/ghosh23c.html"><i
+                                class="bi bi-file-earmark-text"></i> Paper</a>
+                        <a href="https://arxiv.org/pdf/2307.05350.pdf"><i class="bi bi-cloud-download"></i> arXiv</a>
+                        <a href="https://openreview.net/pdf?id=m5vnLHfNy7"><i class="bi bi-file-earmark-text"></i>
+                            Shortcut Paper</a>
+                        <a href="https://github.com/batmanlab/ICML-2023-Route-interpret-repeat"><i
+                                class="bi bi-github"></i> Code</a>
+                        <a href="https://shantanu-ai.github.io/projects/ICML-2023-MoIE/static/data/Route-Interpret-Repeat-ICML-2023-slides_v4.pdf"><i
+                                class="bi bi-easel"></i> Slides</a>
+                        <a href="https://shantanu-ai.github.io/projects/ICML-2023-MoIE/static/data/Route-Interpret-Repeat-ICML-2023-poster_v5.pdf"><i
+                                class="bi bi-image"></i> Poster</a>
+                        <a href="https://www.youtube.com/watch?v=252zEPba8pQ&t=6s"><i class="bi bi-play-circle"></i>
+                            Video</a>
+                    </div>
+
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> ICML 2023 + SCIS Workshop (ICML 2023)
+                    </div>
+                    <div><span class="fw-semibold">TL;DR:</span> Iteratively extracts a mixture of interpretable models
+                        from a black box using first-order logic explanations, while a residual model handles harder
+                        cases—improving interpretability without sacrificing performance.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 8) MICCAI 2022 AGXNet -->
+            <article class="item-row">
+                <img src="images/MICCAI.png" alt="MICCAI 2022 AGXNet thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Anatomy-Guided Weakly-Supervised Abnormality Localization in Chest
+                        X-rays</h5>
+                    <div class="muted mb-2">
+                        <a href="https://gatechke.github.io/">Ke Yu</a>,
+                        <b>Shantanu Ghosh</b>,
+                        <a href="https://people.cs.pitt.edu/~zhexiong/">Zhexiong Li</a>,
+                        <a href="http://www.rad.pitt.edu/profile-detail.html?profileID=25/">Christopher Deible</a>,
+                        <a href="https://www.batman-lab.com/">Kayhan Batmanghelich</a>
+                    </div>
+
+                    <div class="meta-links mb-2">
+                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-16443-9_63"><i
+                                class="bi bi-file-earmark-text"></i> Paper</a>
+                        <a href="https://arxiv.org/pdf/2206.12704.pdf"><i class="bi bi-cloud-download"></i> arXiv</a>
+                        <a href="https://conferences.miccai.org/2022/papers/045-Paper1726.html"><i
+                                class="bi bi-card-checklist"></i> Reviews</a>
+                        <a href="https://github.com/batmanlab/AGXNet"><i class="bi bi-github"></i> Code</a>
+                    </div>
+
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> MICCAI 2022</div>
+                    <div><span class="fw-semibold">TL;DR:</span> AGXNet is an anatomy-guided chest X-ray model that uses
+                        weak supervision from radiology reports to improve abnormality detection and localization via
+                        anatomy attention and Positive–Unlabeled learning.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 9) AMIA 2022 DR-VIDAL -->
+            <article class="item-row">
+                <img src="images/dr-vidal.png" alt="AMIA 2022 DR-VIDAL thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">DR-VIDAL: Doubly Robust Variational Information-theoretic Deep Adversarial
+                        Learning for Counterfactual Prediction and Treatment Effect Estimation</h5>
+                    <div class="muted mb-2">
+                        <b>Shantanu Ghosh</b>,
+                        <a href="https://scholar.google.com/citations?user=7lPO8goAAAAJ&hl=en">Zheng Feng</a>,
+                        <a href="https://hobi.med.ufl.edu/profile/bian-jiang/">Jiang Bian</a>,
+                        <a href="https://www.cise.ufl.edu/~butler/">Kevin Butler</a>,
+                        <a href="https://epidemiology.phhp.ufl.edu/profile/prosperi-mattia/">Mattia Prosperi</a>
+                    </div>
+
+                    <div class="meta-links mb-2">
+                        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10148269/"><i
+                                class="bi bi-file-earmark-text"></i> Paper</a>
+                        <a href="https://arxiv.org/pdf/2303.04201.pdf"><i class="bi bi-cloud-download"></i> arXiv</a>
+                        <a href="https://github.com/shantanu-ai/DR-VIDAL-AMIA-22"><i class="bi bi-github"></i> Code</a>
+                        <a href="https://github.com/shantanu-ai/DR-VIDAL-AMIA-22/blob/main/DR_VIDAL_AMIA-Supp.pdf"><i
+                                class="bi bi-file-earmark-text"></i> Supplementary</a>
+                        <a href="https://docs.google.com/presentation/d/1oQA4m0oVeNmjBc6t7al1Is1evB-uVg7F/edit?usp=sharing&ouid=108402232378812733962&rtpof=true&sd=true"><i
+                                class="bi bi-easel"></i> Slides</a>
+                        <a href="https://www.youtube.com/watch?v=BB5fLYxBFV4&t=218s"><i class="bi bi-play-circle"></i>
+                            Video</a>
+                    </div>
+
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> AMIA 2022 Annual Symposium (Long Oral
+                        Presentation)
+                    </div>
+                    <div><span class="fw-semibold">TL;DR:</span> A generative framework combining VAEs, InfoGANs, and
+                        doubly robust learning to improve unbiased treatment effect estimation from observational data.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 10) CMPB-U 2021 PSSAM-GAN -->
+            <article class="item-row">
+                <img src="images/PSSAM-GAN.svg" alt="CMPB-U 2021 PSSAM-GAN thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Propensity score synthetic augmentation matching using generative
+                        adversarial networks (PSSAM-GAN)</h5>
+                    <div class="muted mb-2">
+                        <b>Shantanu Ghosh</b>,
+                        <a href="https://www.christinaboucher.com/">Christina Boucher</a>,
+                        <a href="https://hobi.med.ufl.edu/profile/bian-jiang/">Jiang Bian</a>,
+                        <a href="https://epidemiology.phhp.ufl.edu/profile/prosperi-mattia/">Mattia Prosperi</a>
+                    </div>
+
+                    <div class="meta-links mb-2">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S2666990021000197?via%3Dihub"><i
+                                class="bi bi-file-earmark-text"></i> Paper</a>
+                        <a href="https://github.com/shantanu-ai/PSSAM-GAN"><i class="bi bi-github"></i> Code</a>
+                    </div>
+
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> Computer Methods and Programs in
+                        Biomedicine Update, Volume 1 (2021)
+                    </div>
+                    <div><span class="fw-semibold">TL;DR:</span> Generates synthetic matches to balance observational
+                        datasets for treatment effect estimation, avoiding instability and sample size reduction from
+                        traditional matching methods.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 11) JAMIA 2021 DPN-SA -->
+            <article class="item-row">
+                <img src="images/DPN-SA.svg" alt="JAMIA 2021 DPN-SA thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Deep propensity network using a sparse autoencoder for estimation of
+                        treatment effects</h5>
+                    <div class="muted mb-2">
+                        <b>Shantanu Ghosh</b>,
+                        <a href="https://scholar.google.com/citations?user=7lPO8goAAAAJ&hl=en">Zheng Feng</a>,
+                        <a href="https://hobi.med.ufl.edu/profile/guo-yi/">Yi Guo</a>,
+                        <a href="https://hobi.med.ufl.edu/profile/bian-jiang/">Jiang Bian</a>,
+                        <a href="https://epidemiology.phhp.ufl.edu/profile/prosperi-mattia/">Mattia Prosperi</a>
+                    </div>
+
+                    <div class="meta-links mb-2">
+                        <a href="https://academic.oup.com/jamia/article-abstract/28/6/1197/6139936?redirectedFrom=fulltext"><i
+                                class="bi bi-file-earmark-text"></i> Paper</a>
+                        <a href="https://github.com/shantanu-ai/DPN-SA"><i class="bi bi-github"></i> Code</a>
+                    </div>
+
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> Journal of the American Medical
+                        Informatics Association (JAMIA), Volume 28 Issue 6 (2021)
+                    </div>
+                    <div><span class="fw-semibold">TL;DR:</span> Uses sparse autoencoders to estimate propensity scores
+                        for counterfactual prediction and treatment effect estimation, improving over traditional
+                        approaches across datasets.
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- ACADEMIC PROJECTS (kept section, modern container; add items similarly) -->
+    <section id="projects" class="my-4">
+        <h2 class="section-title"><i class="bi bi-kanban"></i> Academic Projects</h2>
+
+        <div class="d-grid gap-3">
+
+            <!-- 1) LTH -->
+            <article class="item-row">
+                <img src="images/arch.png" alt="Lottery ticket project thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Explaining why Lottery Ticket Hypothesis Works or Fails</h5>
+                    <div class="meta-links mb-2">
+                        <a href="https://github.com/shantanu-ai/Explainability-with-LTH/blob/main/doc/Vlr_Proposal.pdf"><i
+                                class="bi bi-file-earmark-text"></i> Proposal</a>
+                        <a href="https://github.com/shantanu-ai/Explainability-with-LTH/blob/main/doc/VLR.pdf"><i
+                                class="bi bi-file-earmark-text"></i> Report</a>
+                        <a href="https://github.com/shantanu-ai/Explainability-with-LTH"><i class="bi bi-github"></i>
+                            Code</a>
+                        <a href="https://arxiv.org/pdf/2307.13698"><i class="bi bi-cloud-download"></i> arXiv</a>
+                    </div>
+                    <p class="mb-0">
+                        For the <a href="https://visual-learning.cs.cmu.edu/f22/index.html"><strong>CMU 16-824: Visual
+                        Learning and Recognition</strong></a> course at CMU,
+                        we studied the relationship between pruning and explainability. We validated if the explanations
+                        generated from the pruned network using
+                        Lottery ticket hypothesis (LTH) are consistent or not. Specifically we pruned a neural network
+                        using LTH. Next we generated and compared the local and global
+                        explanations using Grad-CAM and Concept activations respectively. I expanded the analysis to an
+                        <a href="https://arxiv.org/pdf/2307.13698">arXiv</a> paper.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 2) CGAN / InfoGAN -->
+            <article class="item-row">
+                <img src="images/DLCG.png" alt="CGAN and InfoGAN project thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Efficient classification by data augmentation using CGAN and InfoGAN</h5>
+                    <div class="meta-links mb-2">
+                        <a href="https://github.com/shantanu-ai/Data-Augmentation-using-CGAN-and-InfoGAN/blob/master/Report/DL_Proj_Proposal.pdf"><i
+                                class="bi bi-file-earmark-text"></i> Proposal</a>
+                        <a href="https://github.com/shantanu-ai/Data-Augmentation-using-CGAN-and-InfoGAN/blob/master/Report/DL_Final%20Report.pdf"><i
+                                class="bi bi-file-earmark-text"></i> Report</a>
+                        <a href="https://github.com/shantanu-ai/Data-Augmentation-using-CGAN-and-InfoGAN"><i
+                                class="bi bi-github"></i> Code</a>
+                    </div>
+                    <p class="mb-0">
+                        For the <strong><a
+                            href="https://coreytolerfranklin.com/course/cis6930-4930-deep-learning-for-computer-graphics-fall-2020/">CIS6930
+                        - Deep Learning for Computer Graphics</a></strong> course at UF,
+                        we used two variants of GAN—(1) Conditional GAN and (2) InfoGAN—to augment the dataset and
+                        compare a classifier’s performance using a novel dataset augmentation algorithm.
+                        Our experiments showed that with fewer training samples from the original dataset and
+                        augmentation via generative models, the classifier achieved similar accuracy when trained from
+                        scratch.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 3) Deep Colorization -->
+            <article class="item-row">
+                <img src="images/Sigmoid.jpeg" alt="Deep Colorization project thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Deep Colorization</h5>
+                    <div class="meta-links mb-2">
+                        <a href="https://github.com/shantanu-ai/Deep_Colorization/blob/master/PartII_DeepColorization.pdf"><i
+                                class="bi bi-file-earmark-text"></i> Problem Description</a>
+                        <a href="https://github.com/shantanu-ai/Deep_Colorization/blob/master/Report.pdf"><i
+                                class="bi bi-file-earmark-text"></i> Report</a>
+                        <a href="https://github.com/shantanu-ai/Deep_Colorization"><i class="bi bi-github"></i> Code</a>
+                    </div>
+                    <p class="mb-0">
+                        I created a CNN model to color grayscale face images for the
+                        <strong><a
+                                href="https://coreytolerfranklin.com/course/cis6930-4930-deep-learning-for-computer-graphics-fall-2020/">CIS6930
+                            - Deep Learning for Computer Graphics</a></strong> course
+                        while I was a Master's student at UF.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 4) MTL-TCNN -->
+            <article class="item-row">
+                <img src="images/texture.png" alt="MTL-TCNN project thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Deep Multitask Texture Classifier (MTL-TCNN)</h5>
+                    <div class="meta-links mb-2">
+                        <a href="https://github.com/shantanu-ai/MTL-TCNN3/blob/master/Report/Texture_Classification.pdf"><i
+                                class="bi bi-file-earmark-text"></i> Report</a>
+                        <a href="https://github.com/shantanu-ai/MTL-TCNN3"><i class="bi bi-github"></i> Code</a>
+                    </div>
+                    <p class="mb-0">
+                        As part of the independent research study in Spring 2020 (Feb–April), under
+                        <a href="http://www.wu.ece.ufl.edu/">Dr. Dapeng Wu</a>, I developed a <strong>Deep Convolutional
+                        Multitask Neural Network (MTL-TCNN)</strong> to classify textures.
+                        We used an auxiliary head to detect normal images (non-textures) to regularize the main texture
+                        detector head.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 5) TCNN3 implementation -->
+            <article class="item-row">
+                <img src="images/TCNN3.png" alt="TCNN3 implementation project thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Implementation of TCNN3 paper</h5>
+                    <div class="meta-links mb-2">
+                        <a href="https://github.com/shantanu-ai/TCNN3"><i class="bi bi-github"></i> Code</a>
+                        <a href="https://arxiv.org/pdf/1601.02919.pdf"><i class="bi bi-cloud-download"></i> Paper</a>
+                    </div>
+                    <p class="mb-0">
+                        As a research assistant under <a href="http://www.wu.ece.ufl.edu/">Dr. Dapeng Wu</a>, I
+                        implemented the TCNN3 architecture end-to-end (no pretraining) for the DTD dataset,
+                        following the paper <a href="https://arxiv.org/pdf/1601.02919.pdf">Using filter banks in
+                        Convolutional Neural Networks for texture classification</a>.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 6) Deep Counterfactual Networks with Propensity-Dropout -->
+            <article class="item-row">
+                <img src="images/dcn-pd.png" alt="Deep Counterfactual Networks project thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Implementation of Deep Counterfactual Networks with Propensity-Dropout</h5>
+                    <div class="meta-links mb-2">
+                        <a href="https://github.com/shantanu-ai/Deep-Counterfactual-Networks-with-Propensity-Dropout"><i
+                                class="bi bi-github"></i> Code</a>
+                        <a href="https://arxiv.org/pdf/1706.05966.pdf"><i class="bi bi-cloud-download"></i> Paper</a>
+                    </div>
+                    <p class="mb-0">
+                        As a research assistant at <a href="https://epidemiology.phhp.ufl.edu/research/disl/">DISL</a>,
+                        I implemented the paper
+                        <a href="https://arxiv.org/pdf/1706.05966.pdf">Deep Counterfactual Networks with
+                            Propensity-Dropout</a>, which was subsequently used in my other research.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 7) P2P Network -->
+            <article class="item-row">
+                <img src="images/p2p.png" alt="Peer-to-peer network project thumbnail">
+                <div>
+                    <h5 class="mb-1 fw-bold">Peer to peer (p2p) network</h5>
+                    <div class="meta-links mb-2">
+                        <a href="https://github.com/shantanu-ai/P2P-File-sharing/blob/master/Project2.pdf"><i
+                                class="bi bi-file-earmark-text"></i> Problem Description</a>
+                        <a href="https://github.com/shantanu-ai/P2P-File-sharing"><i class="bi bi-github"></i> Code</a>
+                        <a href="https://www.youtube.com/watch?v=yf0M3uXAPNc&t=16s"><i class="bi bi-play-circle"></i>
+                            Video</a>
+                    </div>
+                    <p class="mb-0">
+                        I created this p2p network for <strong>Computer Networks (CNT5106C)</strong> while I was a
+                        Master's student at the University of Florida.
+                        It is a simplified peer-to-peer network where any number of peers can share any type of file
+                        among themselves. Implemented in Java.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- SERVICE -->
+    <section id="service" class="my-4">
+        <h2 class="section-title"><i class="bi bi-heart"></i> Academic Service</h2>
+        <div class="row g-3">
+            <div class="col-lg-4">
+                <div class="cardx h-100">
+                    <div class="cardx-body">
+                        <h6 class="fw-bold mb-2">Conference reviewer</h6>
+                        <ul class="mb-0">
+                            <li>WACV 2025</li>
+                            <li>ICCV 2025</li>
+                            <li>ICML 2025</li>
+                            <li>ICLR 2024, 2025, 2026</li>
+                            <li>AAAI 2024, 2025, 2026</li>
+                            <li>NeurIPS 2023, 2024, 2025</li>
+                            <li>AISTATS 2025</li>
+                            <li>MICCAI 2024, 2025</li>
+                            <li>CVPR 2024, 2025, 2026</li>
+                            <li>CLeaR 2024, 2025</li>
+                            <li>ACM BCB 2022</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="cardx h-100">
+                    <div class="cardx-body">
+                        <h6 class="fw-bold mb-2">Journal reviewer</h6>
+                        <ul class="mb-0">
+                            <li>TMLR</li>
+                            <li>IEEE-TMI</li>
+                            <li>JBI</li>
+                            <li>MedIA</li>
+                            <li>JAMIA</li>
+                            <li>CMPB</li>
+                            <li>Biometrical Journal</li>
+                            <li>Information Fusion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="cardx h-100">
+                    <div class="cardx-body">
+                        <h6 class="fw-bold mb-2">Workshop reviewer</h6>
+                        <ul class="mb-0">
+                            <li>SCSL, ICLR 2025</li>
+                            <li>GenAI4Health, NeurIPS 2024, 2025, 2026</li>
+                            <li>CRL, NeurIPS 2023</li>
+                            <li>SCIS, ICML 2023</li>
+                            <li>IMLH, ICML 2023</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEACHING -->
+    <section id="teaching" class="my-4">
+        <h2 class="section-title"><i class="bi bi-easel"></i> Teaching</h2>
+        <div class="cardx">
+            <div class="cardx-body">
+                <div class="d-flex justify-content-between flex-wrap gap-2 py-2 border-bottom">
+                    <div><strong>Special Topics: Medical Imaging With AI (EC 500) - Fall 2025</strong><br><span
+                            class="muted">Guest Lecturer</span></div>
+                    <div class="muted">Boston University</div>
+                </div>
+                <div class="d-flex justify-content-between flex-wrap gap-2 py-2 border-bottom">
+                    <div><strong>Deep Learning (EC 523) - Fall 2024</strong><br><span
+                            class="muted">Teaching Assistant</span></div>
+                    <div class="muted">Boston University</div>
+                </div>
+                <div class="d-flex justify-content-between flex-wrap gap-2 py-2">
+                    <div><strong>Introduction to Software Engineering (EC 327) - Fall 2023</strong><br><span
+                            class="muted">Teaching Assistant</span></div>
+                    <div class="muted">Boston University</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TALKS -->
+    <section id="talks" class="my-4">
+        <h2 class="section-title"><i class="bi bi-mic"></i> Talks</h2>
+        <div class="row g-3">
+            <div class="col-lg-6">
+                <div class="cardx h-100">
+                    <div class="cardx-body">
+                        <p class="mb-2">Invited Talk @ <a href="https://stanford-medai.github.io/">MedAI, Stanford
+                            University</a></p>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/WvodsOL6NFU?si=Mx0_G682dxBu99mZ"
+                                    title="YouTube video player"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
-                    </li>
+                        <p class="mt-2 muted mb-0">Fall 2023, ISP AI Forum @ University of Pittsburgh [Slides]</p>
+                    </div>
+                </div>
+            </div>
 
-                    <li class="paperitem">
-                        <img alt="" src="images/DLCG.png" class="publogo float-left" width="100">
-                        <div>
-                            <b>Efficient classification by data augmentation using CGAN and InfoGAN</b>
-                            <a href="https://github.com/shantanu-ai/Data-Augmentation-using-CGAN-and-InfoGAN/blob/master/Report/DL_Proj_Proposal.pdf"
-                               class="mr-3">
-                                Proposal
-                            </a>
-                            <a href="https://github.com/shantanu-ai/Data-Augmentation-using-CGAN-and-InfoGAN/blob/master/Report/DL_Final%20Report.pdf"
-                               class="mr-3">Report</a>
-                            <a href="https://github.com/shantanu-ai/Data-Augmentation-using-CGAN-and-InfoGAN"
-                               class="mr-3">
-                                Code
-                            </a>
-                            <br/>
-                            <span style="color: rgb(33, 37, 41)">
-                                For the <strong><a
-                                    href="https://coreytolerfranklin.com/course/cis6930-4930-deep-learning-for-computer-graphics-fall-2020/">CIS6930 - Deep Learning for Computer Graphics</a></strong> course at UF, we used two
-                            novel variants of GAN: 1) Conditional GAN and 2) InfoGAN to augment the dataset and compare
-                            the classifier’s performance using a novel dataset augmentation algorithm. Our experiments
-                            showed that with less training samples from the original dataset and augmenting it using the
-                            generative models, the classifier achieved similar accuracy when trained from scratch.
-                            </span>
+            <div class="col-lg-6">
+                <div class="cardx h-100">
+                    <div class="cardx-body">
+                        <p class="mb-2">Invited Talk @ <a
+                                href="https://calendar.pitt.edu/event/isp_ai_forum_november_10th">ISP AI Forum,
+                            University of Pittsburgh</a></p>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/sXzh5cIeJD8?si=vUzLnCFfJcjJoepu"
+                                    title="YouTube video player"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
                         </div>
-                    </li>
+                        <p class="mt-2 muted mb-0">Fall 2023, ISP AI Forum @ University of Pittsburgh [Slides]</p>
+                    </div>
+                </div>
+            </div>
 
-                    <li class="paperitem">
-                        <img alt="" src="images/Sigmoid.jpeg" class="publogo float-left" width="100">
-                        <div>
-                            <b>Deep Colorization</b>
-                            <a href="https://github.com/shantanu-ai/Deep_Colorization/blob/master/PartII_DeepColorization.pdf"
-                               class="mr-3">
-                                Problem Description
-                            </a>
-                            <a href="https://github.com/shantanu-ai/Deep_Colorization/blob/master/Report.pdf"
-                               class="mr-3">Report</a>
-                            <a href="https://github.com/shantanu-ai/Deep_Colorization" class="mr-3">Code</a>
-                            <br/>
-                            <span style="color: rgb(33, 37, 41)">
-                                I created a CNN model to color grayscale face images for the <strong><a
-                                    href="https://coreytolerfranklin.com/course/cis6930-4930-deep-learning-for-computer-graphics-fall-2020/">CIS6930 - Deep Learning for Computer Graphics</a></strong> course
-                            while I was a Master's student at UF.
-                            </span>
+            <div class="col-lg-6">
+                <div class="cardx h-100">
+                    <div class="cardx-body">
+                        <p class="mb-2">Oral Talk @ <a
+                                href="https://amia.org/education-events/amia-2022-annual-symposium/working-group-meetings?gad_source=1&gclid=Cj0KCQjw3bm3BhDJARIsAKnHoVXkp3kOnh28sdUEgiGqkZN5valCC78rFABAc-wfJBC74B4mNbx6HR4aAl2GEALw_wcB">AMIA
+                            2022 Annual Symposium</a></p>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/cg6vFS8C0mI?si=jRO9vPgTz5iBjQbg"
+                                    title="YouTube video player"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
                         </div>
-                    </li>
+                        <p class="mt-2 muted mb-0">Oral Presentation @ AMIA 2022 Annual Symposium [Slides]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <li class="paperitem">
-                        <img alt="" src="images/texture.png" class="publogo float-left" width="100">
-                        <div>
-                            <b>Deep Multitask Texture Classifier(MTL-TCNN)</b>
-                            <a href="https://github.com/shantanu-ai/MTL-TCNN3/blob/master/Report/Texture_Classification.pdf"
-                               class="mr-3">Report</a>
-                            <a href="https://github.com/shantanu-ai/MTL-TCNN3" class="mr-3">Code</a>
-                            <br/>
-                            <span style="color: rgb(33, 37, 41)">
-                                As a part of the independent research study in Spring 2020 (Feb - April), under<a
-                                    href="http://www.wu.ece.ufl.edu/"> Dr. Dapeng Wu</a>, I developed a <strong>Deep
-                            Convolutional Multitask Neural Network (MTL-TCNN)</strong> to classify textures. We used
-                            an auxiliary head to detect normal images other than textures to regularize the main texture
-                            detector head
-                            of the network.
-                            </span>
+    <!-- TUTORIALS -->
+    <section id="tutorials" class="my-4">
+        <h2 class="section-title"><i class="bi bi-play-circle"></i> Tutorials</h2>
+        <div class="row g-3">
+            <div class="col-lg-6">
+                <div class="cardx h-100">
+                    <div class="cardx-body">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/0lDNgFPyS_c?si=Ud9T_j2n5sC_xH2P"
+                                    title="Tutorial on Variational Autoencoder (VAE)"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
                         </div>
-                    </li>
-
-                    <li class="paperitem">
-                        <img alt="" src="images/TCNN3.png" class="publogo float-left" width="100">
-                        <div>
-                            <b>Implementation of TCNN3 paper</b>
-                            <a href="https://github.com/shantanu-ai/TCNN3" class="mr-3">Code</a>
-                            <br/>
-                            <span style="color: rgb(33, 37, 41)">
-                                As a research assistant under <a
-                                    href="http://www.wu.ece.ufl.edu/">Dr. Dapeng Wu</a>, I implemented TCNN3 architecture in
-                            end to end manner from scratch (no pretraining) for DTD dataset, discussed in the paper
-                            <a href="https://arxiv.org/pdf/1601.02919.pdf">Using filter banks in Convolutional Neural Networks for texture
-                                classification</a>.
-                            </span>
+                        <p class="mt-2 mb-0 fw-semibold">Tutorial on Variational Autoencoder (VAE)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="cardx h-100">
+                    <div class="cardx-body">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/RCclqTLSsw0?si=AYS6nW9SxFeSvFyL"
+                                    title="Tutorial on Pearl's Do Calculus of causality"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
                         </div>
-                    </li>
-
-                    <li class="paperitem">
-                        <img alt="" src="images/dcn-pd.png" class="publogo float-left" width="100">
-                        <div>
-                            <b>Implementation of Deep Counterfactual Networks with Propensity-Dropout</b>
-                            <a href="https://github.com/shantanu-ai/Deep-Counterfactual-Networks-with-Propensity-Dropout"
-                               class="mr-3">Code</a>
-                            <br/>
-                            <span style="color: rgb(33, 37, 41)">
-                                As a research assistant of <a
-                                    href="https://epidemiology.phhp.ufl.edu/research/disl/">DISL</a>, I implemented the
-                            paper <a href="https://arxiv.org/pdf/1706.05966.pdf">Deep Counterfactual Networks with Propensity-Dropout</a>, which was
-                            subsequently used in my other research.
-                            </span>
-                        </div>
-                    </li>
-
-                    <li class="paperitem">
-                        <img alt="" src="images/p2p.png" class="publogo float-left" width="100">
-                        <div>
-                            <b>Peer to peer (p2p) network</b>
-                            <a href="https://github.com/shantanu-ai/P2P-File-sharing/blob/master/Project2.pdf"
-                               class="mr-3">Problem Description</a>
-                            <a href="https://github.com/shantanu-ai/P2P-File-sharing"
-                               class="mr-3">Code</a>
-                            <a href="https://www.youtube.com/watch?v=yf0M3uXAPNc&t=16s"
-                               class="mr-3">Video</a>
-                            <br/>
-                            <span style="color: rgb(33, 37, 41)">
-                                I created this p2p network for <strong>Computer Networks
-                            (CNT5106C)</strong> course while I was a Master's student at the University of Florida. A simplified peer to peer network where any number of peers can share any type of file among
-                            themselves. Implemented in Java.
-                            </span>
-                        </div>
-                    </li>
-
-                </ul>
+                        <p class="mt-2 mb-0 fw-semibold">Tutorial on Pearl's Do Calculus of causality</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="row my-4" id="service">
-        <div class="col">
-            <h4>Academic Service</h4>
-            <b class="mt-3">Conference reviewer</b>
-            <br/>
-            <ul>
-                <li> Winter Conference on Applications of Computer Vision (<strong>WACV</strong>) 2025</li>
-                <li>International Conference on Computer Vision (<strong>ICCV</strong>) 2025</li>
-                <li>International Conference on Machine Learning (<strong>ICML</strong>) 2025</li>
-                <li>International Conference on Learning Representations (<strong>ICLR</strong>) 2024, 2025, 2026</li>
-                <li>Association for the Advancement of Artificial Intelligence (<strong>AAAI</strong>) 2024, 2025, 2026
-                </li>
-                <li>Neural Information Processing Systems (<strong>NeurIPS</strong>) 2023, 2024, 2025
-                </li>
-                <li>Artificial Intelligence and Statistics (<strong>AISTATS</strong>) 2025</li>
-                <li>Medical Image Computing and Computer Assisted Intervention (<strong>MICCAI</strong>) 2024, 2025</li>
-                <li>IEEE/CVF Computer Vision and Pattern Recognition Conference (<strong>CVPR</strong>) 2024, 2025, 2026</li>
-                <li>Causal Learning and Reasoning (<strong>CLeaR</strong>) 2024, 2025</li>
-                <li>ACM Conference on Bioinformatics, Computational Biology, and Health Informatics
-                    (<strong>BCB</strong>) 2022
-                </li>
-            </ul>
-
-            <b class="mt-3">Journal reviewer</b>
-            <br/>
-            <ul>
-                <li>Transactions on Machine Learning Research (<strong>TMLR</strong>)</li>
-                <li>IEEE Transactions on Medical Imaging (<strong>IEEE-TMI</strong>)</li>
-                <li>Journal of Biomedical Informatics (<strong>JBI</strong>)</li>
-                <li>Medical Image Analysis (<strong>MedIA</strong>)</li>
-                <li>Journal of the American Medical Informatics Association (<strong>JAMIA</strong>)</li>
-                <li>Computer Methods and Programs in Biomedicine (<strong>CMPB</strong>)</li>
-                <li>Biometrical Journal</li>
-                <li>Information Fusion</li>
-            </ul>
-
-            <b class="mt-3">Workshop reviewer</b>
-            <br/>
-            <ul>
-                <li>Workshop on Spurious Correlation and Shortcut Learning: Foundations and Solutions
-                    (<strong>SCSL</strong>), ICLR 2025
-                </li>
-                <li>Workshop on GenAI for Health: Potential, Trust and Policy Compliance (<strong>GenAI4Health</strong>),
-                    NeurIPS 2024, 2025, 2026
-                </li>
-                <li>Causal Representation Learning workshop (<strong>CRL</strong>), NeurIPS 2023</li>
-                <li>Spurious Correlations, Invariance and Stability (<strong>SCIS</strong>), ICML 2023</li>
-                <li>Interpretable Machine Learning in Healthcare (<strong>IMLH</strong>), ICML 2023</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="row my-4" id="teaching">
-        <div class="col-xl-7">
-            <h4>Teaching</h4>
-            <h6 class="text-muted mt-3">Courses</h6>
-            <div class="class-listing">
-                <span><b>Special Topics: Medical Imaging With AI (EC 500) - Fall 2025</b><br>
-                Guest Lecturer</span><span class="text-muted">Boston University</span>
-            </div>
-            <div class="class-listing">
-                <span><b>Deep Learning (EC 523) - Fall 2024</b><br>
-                Teaching Assistant</span><span class="text-muted">Boston University</span>
-            </div>
-            <div class="class-listing">
-                <span><b>Introduction to Software Engineering (EC 327) - Fall 2023</b><br>
-                Teaching Assistant</span><span class="text-muted">Boston University</span>
+    <!-- PAST -->
+    <section id="past" class="my-4">
+        <h2 class="section-title"><i class="bi bi-code-slash"></i> As a software engineer</h2>
+        <div class="cardx">
+            <div class="cardx-body">
+                In my past life, I spent 6+ years in software service/product development as a full stack software
+                engineer across Lexmark International India Pvt Ltd and Cognizant Technology Solutions India Pvt Ltd,
+                using Angular/Angular.js, C#/.Net, WCF web services, Node.js, Oracle and MS SQL Server. For Cognizant, I
+                used to build WCF webservices using contract-first approach.
+                For Lexmark, I was a part of the development team which created
+                <a href="https://infoserve.lexmark.com/ids/idv/video.aspx?category=All&productCode=PUBLISHING_PLATFORM_FOR_RETAIL&topic=v54408848&vId=PPR%2fLexmark-PPR-ISP-Overview-video&ar=16%3a9&l1=1&l2=1&sh=764&sw=1440&loc=en_US">this</a>.
             </div>
         </div>
-    </div>
-    <h4>Talks</h4>
-    <div class="row my-4" id="talks">
-        <div class="col-lg-6 mb-4">
-            <p>Invited Talk @ <a href="https://stanford-medai.github.io/">MedAI, Stanford University</a></p>
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/WvodsOL6NFU?si=Mx0_G682dxBu99mZ"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p>Fall 2023, ISP AI Forum @ University of Pittsburgh [Slides]</p>
-            </div>
-        </div>
-        <div class="col-lg-6 mb-4">
-            <p>Invited Talk @ <a href="https://calendar.pitt.edu/event/isp_ai_forum_november_10th">ISP AI Forum,
-                University
-                of Pittsburgh</a></p>
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/sXzh5cIeJD8?si=vUzLnCFfJcjJoepu"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                <p>Fall 2023, ISP AI Forum @ University of Pittsburgh [Slides]</p>
-            </div>
-        </div>
-        <div class="col-lg-6 mb-4">
-            <p>Oral Talk @ <a
-                    href="https://amia.org/education-events/amia-2022-annual-symposium/working-group-meetings?gad_source=1&gclid=Cj0KCQjw3bm3BhDJARIsAKnHoVXkp3kOnh28sdUEgiGqkZN5valCC78rFABAc-wfJBC74B4mNbx6HR4aAl2GEALw_wcB">AMIA
-                2022 Annual Symposium</a></p>
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/cg6vFS8C0mI?si=jRO9vPgTz5iBjQbg"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                <p>Oral Presentation @ AMIA 2022 Annual Symposium [Slides]</p>
-            </div>
-        </div>
-    </div>
+    </section>
 
-
-    <h4>Tutorials</h4>
-    <div class="row my-4" id="tutorials">
-        <div class="col-lg-6 mb-4">
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/0lDNgFPyS_c?si=Ud9T_j2n5sC_xH2P"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                <p class="video-title">Tutorial on Variational Autoencoder (VAE)</p>
+    <!-- COMMUNITY -->
+    <section id="community" class="my-4">
+        <h2 class="section-title"><i class="bi bi-people"></i> Community service</h2>
+        <div class="cardx">
+            <div class="cardx-body">
+                I have been an active member of
+                <a href="https://www.cognizant.com/us/en/about-cognizant/esg/outreach-program">Cognizant Kolkata
+                    Outreach council</a>
+                (NGO related engagement for development of underprivileged children in Kolkata). Refer to the
+                <a href="https://drive.google.com/file/d/1xE-ihuTTDndMZKqnzNNkJ0UyCOBYac_3/view">link</a> for the
+                certificate of recognition.
+                Refer <a href="https://drive.google.com/drive/folders/1P_7Tr5l4cxGDv6b1qaEZq1lyYhPprj1D">here</a> for
+                pictures clicked by me in one of such events in 2014.
             </div>
         </div>
-        <div class="col-lg-6 mb-4">
-            <div class="video-container">
-                <p class="video-title">Tutorial on Pearl's Do Calculus of causality</p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/RCclqTLSsw0?si=AYS6nW9SxFeSvFyL"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
+    </section>
+
+    <!-- MISC -->
+    <section id="misc" class="my-4">
+        <h2 class="section-title"><i class="bi bi-compass"></i> Miscellaneous</h2>
+        <div class="cardx">
+            <div class="cardx-body">
+                I am originally from <a href="https://en.wikipedia.org/wiki/Kolkata">Kolkata</a>, once the capital of
+                India.
+                I have lived in Gainesville (FL), Pittsburgh (PA), Boston (MA), Jersy city (NJ) and New York city (NY).
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTOGRAPHY -->
+    <section id="photography" class="my-4">
+        <h2 class="section-title"><i class="bi bi-camera"></i> Photography</h2>
+        <div class="cardx">
+            <div class="cardx-body">
+                <p class="mb-0">
+                    Beyond research, I have a deep passion for landscape, travel, and nature photography.
+                    From sunrise in Yosemite to the quiet ridgelines of Kings Canyon, I find joy, solace and peace in
+                    capturing the light, scale, and drama of wild places.
+                    My photography reflects the same motivation that guide my research — searching for patterns in
+                    nature, structure in chaos, and beauty in complexity.
+                    You can view my landscape photos on my <a href="https://500px.com/p/shantanu-ai?view=photos"
+                                                              target="_blank"><strong>500px</strong></a> profile.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERVIEWS -->
+    <section id="interviews" class="my-4">
+        <h2 class="section-title"><i class="bi bi-broadcast"></i> Interviews</h2>
+
+        <div class="cardx">
+            <div class="cardx-body">
+                Podcast hosted by <a href="https://kdmsit.github.io/">Kishlay Das</a> for the admission and research in
+                the US for MS/Ph.D. aspirants
+
+                <!-- smaller + centered -->
+                <div class="mx-auto mt-3" style="max-width: 720px;">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/rl4HKbNmXTQ?si=yOBbYgLzS3M8zhJL"
+                                title="Podcast interview"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
 
             </div>
         </div>
-        <!-- Repeat the above pattern for more videos -->
-    </div>
+    </section>
 
 
-    <div class="row my-4" id="past">
-        <div class="col">
-            <h4>As a software engineer</h4>
-            In my past life, I spent 6+ years in software service/product development as
-            a full stack software engineer across Lexmark International India Pvt Ltd
-            and Cognizant Technology Solutions India Pvt Ltd,
-            using Angular/Angular.js, C#/.Net, WCF web services, Node.js, Oracle and MS SQL Server. For Cognizant, I
-            used to build WCF webservices using contract-first approach. For Lexmark, I was a part of the development
-            team which created <a
-                href="https://infoserve.lexmark.com/ids/idv/video.aspx?category=All&productCode=PUBLISHING_PLATFORM_FOR_RETAIL&topic=v54408848&vId=PPR%2fLexmark-PPR-ISP-Overview-video&ar=16%3a9&l1=1&l2=1&sh=764&sw=1440&loc=en_US">this</a>.
-        </div>
-    </div>
-
-    <div class="row my-4" id="community">
-        <div class="col">
-            <h4>Community service</h4>
-            I have been an active member of <a
-                href="https://www.cognizant.com/us/en/about-cognizant/esg/outreach-program">Cognizant Kolkata Outreach
-            council</a> (NGO related engagement for development of underprivileged children in Kolkata). Refer to the <a
-                href="https://drive.google.com/file/d/1xE-ihuTTDndMZKqnzNNkJ0UyCOBYac_3/view">link</a> for the
-            certificate of recognition. Refer <a
-                href="https://drive.google.com/drive/folders/1P_7Tr5l4cxGDv6b1qaEZq1lyYhPprj1D">here </a> for pictures
-            clicked by me in one of such events in 2014.
-        </div>
-    </div>
-    <div class="row my-4" id="misc">
-        <div class="col">
-            <h4>Miscellaneous</h4>
-            I am originally from <a href="https://en.wikipedia.org/wiki/Kolkata">Kolkata</a>, once the capital of India.
-            I have lived in Gainesville (FL), Pittsburgh (PA), Boston (MA), Jersy city (NJ) and New York city (NY).
-        </div>
-    </div>
-    <div class="row my-4" id="photography">
-        <div class="col">
-            <h4>Photography</h4>
-            <p>
-                Beyond research, I have a deep passion for landscape, travel, and nature photography.
-                From sunrise in Yosemite to the quiet ridgelines of Kings Canyon, I find joy, solace and peace in
-                capturing
-                the light, scale, and drama of wild places.
-                My photography reflects the same motivation that guide my research — searching for patterns in nature,
-                structure in chaos, and beauty in complexity.
-                You can view my landscape photos on my<a href="https://500px.com/p/shantanu-ai?view=photos"
-                                                         target="_blank"><strong> 500px</strong></a> profile.
-            </p>
-        </div>
-    </div>
-
-    <h4>Interviews</h4>
-    <div class="row my-4" id="interviews">
-        <div class="col-lg-8 mb-4">
-            Podcast hosted by <a href="https://kdmsit.github.io/">Kishlay Das</a> for the admission and research in the
-            US for MS/Ph.D. aspirants
-            <div class="video-container">
-                <iframe width="50" height="315" src="https://www.youtube.com/embed/rl4HKbNmXTQ?si=yOBbYgLzS3M8zhJL"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-            </div>
-        </div>
-        <!-- Repeat the above pattern for more videos -->
-    </div>
-
-    <!--    <div class="row my-4" id="influential-talks-1">-->
-    <!--        <div class="col">-->
-    <!--            <h4>Influential Talks</h4>-->
-    <!--            <p>These two talks have been a major source of motivation and inspiration in my personal and professional-->
-    <!--                journey.</p>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--    <div class="row my-4" id="influential-talks">-->
-    <!--        <div class="col-lg-6 mb-4">-->
-    <!--            <div class="video-container">-->
-    <!--                <iframe width="560" height="315" src="https://www.youtube.com/embed/UF8uR6Z6KLc"-->
-    <!--                        title="YouTube video player" frameborder="0"-->
-    <!--                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
-    <!--                        allowfullscreen></iframe>-->
-    <!--                <p class="video-title">Steve Jobs' Inspirational Speech at Stanford</p>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--        <div class="col-lg-6 mb-4">-->
-    <!--            <div class="video-container">-->
-    <!--                <iframe width="560" height="315" src="https://www.youtube.com/embed/733m6qBH-jI"-->
-    <!--                        title="YouTube video player" frameborder="0"-->
-    <!--                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
-    <!--                        allowfullscreen></iframe>-->
-    <!--                <p class="video-title">Steve Jobs' 2005 Stanford Commencement Address</p>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
 </main>
 
-<footer class=" bg-secondary text-white">
-    <div class=" container py-4" id="contact" style="margin: 0 auto">
-        <div class="row">
-            <div class="col">
-                <h4>CONTACT</h4>
-                <span class="text-white-50">Email: </span>shawn24 [at] bu [dot] edu<br>
-                <span class="text-white-50">Office: </span>
+<!-- Back to top -->
+<button id="toTop" class="btn btn-primary to-top" type="button" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+</button>
 
-                <span style="">407-07 Photonics Building</span> <br/>
-                <font size="-1">© Shantanu Ghosh 2024.
-                    <br/>Feel free to use <a
-                            href="https://github.com/shantanu-ai/shantanu-ai.github.io">my template</a> adapted
-                    from <a
-                            href="https://purvaten.github.io/"> Purva Tendulkar</a>.</font>
-
+<footer id="contact">
+    <div class="container py-4">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <h5 class="fw-bold">CONTACT</h5>
+                <div><span class="opacity-75">Email:</span> shawn24 [at] bu [dot] edu</div>
+                <div><span class="opacity-75">Office:</span> 407-07 Photonics Building</div>
+                <div class="mt-2" style="font-size:.92rem;">
+                    © Shantanu Ghosh 2024.
+                    <br/>Feel free to use <a href="https://github.com/shantanu-ai/shantanu-ai.github.io">my template</a>
+                    adapted from <a href="https://purvaten.github.io/">Purva Tendulkar</a>.
+                </div>
             </div>
-            <div class="col">
-                <h4>HELPFUL LINKS</h4>
-                <a href="https://www.batman-lab.com/" class="text-light">Batman Lab @ BU</a><br/>
-                <a href="https://epidemiology.phhp.ufl.edu/disl/" class="text-light">DISL Lab @ UF</a><br/>
-                <!-- <a href="files/Shantanu_Ghosh_Resume.pdf" class="text-light">CV</a> <br /> -->
-                <a href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/"
-                   class="text-light">ECE Department @ BU</a><br/>
-                <a href="https://www.isp.pitt.edu/" class="text-light">ISP @ Pitt</a><br/>
-                <a href="https://www.cise.ufl.edu/" class="text-light">CISE @ UF</a><br/>
+            <div class="col-md-6">
+                <h5 class="fw-bold">HELPFUL LINKS</h5>
+                <a href="https://www.batman-lab.com/">Batman Lab @ BU</a><br/>
+                <a href="https://epidemiology.phhp.ufl.edu/disl/">DISL Lab @ UF</a><br/>
+                <a href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">ECE
+                    Department @ BU</a><br/>
+                <a href="https://www.isp.pitt.edu/">ISP @ Pitt</a><br/>
+                <a href="https://www.cise.ufl.edu/">CISE @ UF</a><br/>
             </div>
         </div>
     </div>
 </footer>
+
+<!-- Bootstrap JS bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+<script>
+    // Theme toggle (remembers preference)
+    (function () {
+        const root = document.documentElement;
+        const btn = document.getElementById("themeToggle");
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        function setTheme(mode) {
+            root.setAttribute("data-bs-theme", mode);
+            localStorage.setItem("theme", mode);
+            btn.innerHTML = (mode === "dark")
+                ? '<i class="bi bi-sun"></i>'
+                : '<i class="bi bi-moon-stars"></i>';
+        }
+
+        setTheme(saved || (prefersDark ? "dark" : "light"));
+
+        btn.addEventListener("click", () => {
+            const current = root.getAttribute("data-bs-theme");
+            setTheme(current === "dark" ? "light" : "dark");
+        });
+    })();
+
+    // Back-to-top button
+    (function () {
+        const btn = document.getElementById("toTop");
+
+        function onScroll() {
+            btn.style.display = (window.scrollY > 600) ? "inline-flex" : "none";
+        }
+
+        window.addEventListener("scroll", onScroll, {passive: true});
+        onScroll();
+        btn.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+    })();
+</script>
 </body>
 </html>
-
-

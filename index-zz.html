@@ -367,7 +367,7 @@
 <main class="container flex-grow-1" style="padding-top:60px">
     <div class="row my-4" id="bio" style="margin-top: 1.0% !important;">
         <div class="col-md-auto">
-            <img class="headshot" src="images/shantanu_nyc.jpg"/>
+            <img class="headshot" src="images/Shantanu_Death_Valley.png"/>
             <div style="max-width: 300px; text-align: left">
                 <div style="text-align: left">
                     <i>I investigate the intelligence encoded inside a deep neural network. </i>
@@ -391,9 +391,14 @@
                     href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">
                 Boston University</a>, advised by Prof. <a
                     href="https://www.batman-lab.com/kayhan-batmanghelich-biography/">Kayhan Batmanghelich</a> at <a
-                    href="https://www.batman-lab.com/">Batman Lab</a>. I collaborate closely with<a
+                    href="https://www.batman-lab.com/">Batman Lab</a> and <a
                     href="https://www.bumc.bu.edu/camed/profile/clare-poynton/"> Dr. Clare B. Poynton</a> from Boston
-                University Medical Campus. Before our lab moved to
+                University Medical Campus. My research focuses on robustness and generalization in deep learning, with a
+                particular emphasis on leveraging vision-language representations to understand, explain, and audit
+                pre-trained neural networks. My work has been published at top peer-reviewed venues including ACL,
+                NAACL, ICML, MICCAI, AMIA, JAMIA, and RAD:AI. I believe that understanding a model’s behavior is
+                essential to mitigating bias and building trust in AI systems.
+                Before our lab moved to
                 Boston, I was a Ph.D. student in the Intelligent Systems Program (ISP) at the <a
                     href="https://www.isp.pitt.edu/">University of Pittsburgh</a>. While at Pitt, I used to collaborate
                 closely with <a
@@ -401,16 +406,9 @@
                 cross-registered student at <a href="https://www.cmu.edu/">Carnegie Mellon University</a>,
                 where I registered for the courses Foundations of Causation and Machine Learning (PHI 80625)
                 and <a href="https://visual-learning.cs.cmu.edu/">Visual Learning and Recognition (RI
-                16-824)</a>. My current research interest lies in robustness and generalization by leveraging vision
-                language
-                representations to understand, explain and audit any pre-trained deep neural network. I believe that
-                understanding a deep model's behavior is essential to mitigating bias and engendering trust in AI.
-                During the summer of 2024, I worked as an Applied Scientist Intern with the AWS SAAR team at Amazon in
-                New York City,
-                under the guidance of <a href="https://scholar.google.com/citations?user=fsrkabwAAAAJ&hl=en">
-                Dr. Mikhail Kuznetsov</a>. My project focused on learning robust representations to mitigate systematic
-                errors in
-                pre-trained self-supervised models applied to AWS logs.
+                16-824)</a>. In the summers of 2024 and 2025, I interned as an Applied Scientist at Amazon (AWS SAAR and
+                AWS Optimus) in New York City and Pasadena, where I developed methods for learning robust
+                representations in self-supervised models and auditing biases in AI coding agents.
             </p>
             <p>
                 Prior to that, I graduated with a Master's degree in <a href="https://www.cise.ufl.edu/">Computer
@@ -448,15 +446,15 @@
             <table width="100%" align="center" border="0" cellpadding="10">
                 <tbody>
                 <tr>
-<!--                    <td align="center" width="20%" style="vertical-align: middle; padding: 10px;">-->
-<!--                        <a href="https://www.amazon.science/">-->
-<!--                            <img src="images/amazon_science.png" style="max-width: 100%; height: auto;">-->
-<!--                        </a>-->
-<!--                        <span class="degree"-->
-<!--                              style="font-weight: 600; font-size: 15px; color: #333; display: block; margin-top: -6px;">Applied Scientist Intern, AWS Optimus</span>-->
-<!--                        <span class="year"-->
-<!--                              style="font-weight: 400; font-size: 13px; color: #666; display: block; margin-top: -6px;">(Summer 2025)</span>-->
-<!--                    </td>-->
+                    <!--                    <td align="center" width="20%" style="vertical-align: middle; padding: 10px;">-->
+                    <!--                        <a href="https://www.amazon.science/">-->
+                    <!--                            <img src="images/amazon_science.png" style="max-width: 100%; height: auto;">-->
+                    <!--                        </a>-->
+                    <!--                        <span class="degree"-->
+                    <!--                              style="font-weight: 600; font-size: 15px; color: #333; display: block; margin-top: -6px;">Applied Scientist Intern, AWS Optimus</span>-->
+                    <!--                        <span class="year"-->
+                    <!--                              style="font-weight: 400; font-size: 13px; color: #666; display: block; margin-top: -6px;">(Summer 2025)</span>-->
+                    <!--                    </td>-->
                     <td align="center" width="20%" style="vertical-align: middle; padding: 10px;">
                         <a href="https://www.amazon.science/">
                             <img src="images/amazon_science.png" style="max-width: 100%; height: auto;">
@@ -517,42 +515,54 @@
         <div class="col-md-auto">
             <h4>Research</h4>
             <p>
-                My core research interest lies in representation learning across computer vision and medical imaging,
-                with a particular focus on interpretability and
-                explainable AI. I investigate the representations learned across different modalities, architectures,
-                and training strategies to enhance their generalizability, robustness, and trustworthiness.
+                My research lies at the intersection of medical imaging and machine learning, with the goal of making
+                deep models clinically trustworthy and reliable. High-performing models can exhibit systematic errors
+                due to shortcut learning and spurious correlations. My work develops principled approaches for model
+                auditing, interpretability, and bias detection, and evaluates them in high-impact clinical settings.
+                I organize my research along two pillars:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Algorithms:</strong>
+                    interpretable and trustworthy learning via vision–language alignment and causal reasoning, enabling
+                    failure mode
+                    discovery and bias diagnosis from free-form clinical language.
+                </li>
+                <li>
+                    <strong>Applications:</strong>
+                    breast imaging foundation models, where I study the benefits of domain-specific vision–language
+                    pretraining over
+                    generalist models for detection, prognosis, and radiology report generation.
+                </li>
+            </ul>
+            <p>
                 Specifically, I aim to answer the following research questions:
                 <br/>
                 1. Can we decipher the failure modes of a deep model through multimodal vision-language
                 representations and large language models (LLMs) for improved reliability and debugging?
                 ([<b>LADDER</b> (<a
-                    href="https://arxiv.org/abs/2408.07832">ACL 2025, Findings</a>)] <br/>
+                    href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/index.html">ACL 2025</a>)] <br/>
                 2. Can we learn robust representations in presence of multiple biases for tabular data?
                 [<b>Amazon internship work</b> (<a
                     href="https://openreview.net/pdf?id=71u8OvjYbZ">TRL workshop@NeurIPS 2024</a>)] <br/>
                 3. Can we lean robust vision-language representations with limited data efficiently and
                 localize disease with sentences? [<b>Mammo-CLIP</b> (<a
-                    href="https://arxiv.org/pdf/2405.12255">MICCAI 2024, top 11%</a>)] <br/>
+                    href="https://shantanu-ai.github.io/projects/MICCAI-2024-Mammo-CLIP/">MICCAI 2024, top 11%</a>)]
+                <br/>
                 4. Can we extract a mixture of interpretable models from the representation of a blackbox
                 model using human
                 interpretable concepts? [<b>MoIE</b> (<a
-                    href="https://proceedings.mlr.press/v202/ghosh23c/ghosh23c.pdf">ICML 2023</a> + <a
+                    href="https://shantanu-ai.github.io/projects/ICML-2023-MoIE/">ICML 2023</a> + <a
                     href="https://openreview.net/pdf?id=m5vnLHfNy7">SCIS@ICML 2023</a>)]<br/>
                 5. Can we use robust mixture of interpretable models for data and computationally
                 efficient transfer learning? [<b>MoIE-CXR</b>
-                (<a href="https://link.springer.com/chapter/10.1007/978-3-031-43895-0_59">MICCAI 2023, top 14%</a> + <a
+                (<a href="https://shantanu-ai.github.io/projects/MICCAI-2023-MoIE-CXR/">MICCAI 2023, top 14%</a> + <a
                     href="https://openreview.net/pdf?id=sbOVNiSNY8">IMLH@ICML 2023</a>)]<br/>
                 6. Can we leverage radiology reports localizing a disease and its progression
                 without ground-truth bounding box annotation? [<b>AGXNet</b> (<a
                     href="https://link.springer.com/chapter/10.1007/978-3-031-16443-9_63">MICCAI 2022</a> + <a
                     href="https://pubs.rsna.org/doi/10.1148/ryai.230277">RAD: AI</a>)]<br/>
-                <!-- My current research is summarised by my advisor Dr. Kayhan Batmanghelich, in his recent talk at the prestigious <a href="http://computationalgenomics.bioinformatics.ucla.edu/">Computational Genomics Summer Institute CGSI, 2023</a> at the University of California, Los Angeles (UCLA).<br/>
-                <div class="video-container" style="margin-bottom: -5%;">
-                    <iframe align="center" width="550" height="350" src="https://www.youtube.com/embed/zfE6zMowBnY?si=sZrAPhBGz8atNnWf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div> -->
-                <!-- <div class="video-container">
-                    <iframe align="center" width="550" height="350" src="https://www.youtube.com/embed/zfE6zMowBnY?si=sZrAPhBGz8atNnWf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div> -->
             </p>
             <p> At UF, I was interested broadly in biomedical informatics with a focus on causal
                 inference. I developed
@@ -592,8 +602,10 @@
                 <li><span class="news-date">[May 2025]</span> <a
                         href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/index.html"><strong>Ladder
                 </strong></a>
-                    is accepted at <a href="https://2025.aclweb.org/"><strong>ACL 2025, Findings</strong></a>. Using LLM,
-                    Ladder detects the blind spots of deep learning classifiers where it makes systematic mistakes. Code is available
+                    is accepted at <a href="https://2025.aclweb.org/"><strong>ACL 2025, Findings</strong></a>. Using
+                    LLM,
+                    Ladder detects the blind spots of deep learning classifiers where it makes systematic mistakes. Code
+                    is available
                     <a href="https://github.com/batmanlab/Ladder/tree/main">here</a>. I'm also joining as an
                     Applied Scientist Intern at Amazon AWS Optimus
                     Team in Pasadena, CA under the supervision of <a href="https://ankanbansal.com/">
@@ -601,7 +613,8 @@
                 </li>
                 <li><span class="news-date">[Jan 2025]</span> Our collaborative <a
                         href="https://arxiv.org/abs/2412.04606">work</a> to reduce hallucination for CXR
-                    report generation is accepted at <a href="https://2025.naacl.org/"><strong>NAACL 2025 Findings</strong></a>.
+                    report generation is accepted at <a href="https://2025.naacl.org/"><strong>NAACL 2025
+                        Findings</strong></a>.
                 </li>
                 <li><span class="news-date">[Oct 2024]</span> My internship <a
                         href="https://openreview.net/pdf?id=71u8OvjYbZ">work</a> at Amazon on representation learning on
@@ -635,17 +648,17 @@
                     checkpoints are available <a href="https://github.com/batmanlab/Mammo-CLIP">here</a>.
                 </li>
 
-                <li><span class="news-date">[Oct 2023]</span> I'm serving as a reviewer for ICLR 2024, Medical Image
-                    Analysis (MedIA) and CVPR 2024.
-                </li>
+                <!--                <li><span class="news-date">[Oct 2023]</span> I'm serving as a reviewer for ICLR 2024, Medical Image-->
+                <!--                    Analysis (MedIA) and CVPR 2024.-->
+                <!--                </li>-->
 
-                <li><span class="news-date">[Aug 2023]</span> I'm invited to serve as a Program Committee (PC) member
-                    for AAAI 2024.
-                </li>
+                <!--                <li><span class="news-date">[Aug 2023]</span> I'm invited to serve as a Program Committee (PC) member-->
+                <!--                    for AAAI 2024.-->
+                <!--                </li>-->
 
-                <li><span class="news-date">[Jul 2023]</span> I'm serving as a reviewer for NeurIPS 2023 and the journal
-                    Computer Methods and Programs in Biomedicine.
-                </li>
+                <!--                <li><span class="news-date">[Jul 2023]</span> I'm serving as a reviewer for NeurIPS 2023 and the journal-->
+                <!--                    Computer Methods and Programs in Biomedicine.-->
+                <!--                </li>-->
 
                 <li><span class="news-date">[Jun 2023]</span> I'm now a Ph.D. candidate. Also, two papers are accepted
                     at
@@ -748,16 +761,20 @@
                             <a href="https://shantanu-ai.github.io/projects/ACL-2025-Ladder/index.html" class="mr-3">
                                 Project Page
                             </a>
-                            <a href="https://arxiv.org/pdf/2408.07832" class="mr-3">Paper</a>
+                            <a href="https://aclanthology.org/2025.findings-acl.1177/" class="mr-3">Paper</a>
                             <a href="https://arxiv.org/pdf/2408.07832" class="mr-3">
                                 arXiv
                             </a>
                             <a href="https://github.com/batmanlab/Ladder" class="mr-3">
                                 Code
                             </a>
+                            <a href="https://github.com/batmanlab/Ladder/blob/main/doc/Ladder-ACL-25-poster-v2.pdf"
+                               class="mr-3">
+                                Poster
+                            </a>
                             <br/>
                             <span style="color:black;">Findings of 2025 Conference on Association for Computational
-                                Linguistics (<strong>ACL 2025, Findings</strong>) </span>
+                                Linguistics (<strong>ACL 2025</strong>) </span>
                             <br/>
                             <span style="font-weight:bold; font-size: 0.85em;">TL;DR:</span>
                             <span style="font-size: 0.85em;">LADDER uses LLMs to discover and fix biases in vision classifiers without requiring labels or prior bias knowledge.</span>
@@ -788,7 +805,7 @@
                                 Code
                             </a>
                             <br/>
-                            <span style="color:black;">The Nations of the Americas Chapter of the Association for Computational Linguistics (<strong>NAACL 2025, Findings</strong>) </span>
+                            <span style="color:black;">The Nations of the Americas Chapter of the Association for Computational Linguistics (<strong>NAACL 2025</strong>) </span>
                             <br/>
                             <span style="font-weight:bold; font-size: 0.85em;">TL;DR:</span>
                             <span style="font-size: 0.85em;">A model-agnostic, plug-and-play uncertainty framework enhances radiology report factuality by 10% via semantic consistency-based hallucination detection—no model access or modifications required.</span>
@@ -1290,15 +1307,18 @@
             <b class="mt-3">Conference reviewer</b>
             <br/>
             <ul>
+                <li> Winter Conference on Applications of Computer Vision (<strong>WACV</strong>) 2025</li>
                 <li>International Conference on Computer Vision (<strong>ICCV</strong>) 2025</li>
                 <li>International Conference on Machine Learning (<strong>ICML</strong>) 2025</li>
-                <li>International Conference on Learning Representations (<strong>ICLR</strong>) 2024, 2025</li>
-                <li>Association for the Advancement of Artificial Intelligence (<strong>AAAI</strong>) 2024, 2025</li>
+                <li>International Conference on Learning Representations (<strong>ICLR</strong>) 2024, 2025, 2026</li>
+                <li>Association for the Advancement of Artificial Intelligence (<strong>AAAI</strong>) 2024, 2025, 2026
+                </li>
                 <li>Neural Information Processing Systems (<strong>NeurIPS</strong>) 2023, 2024, 2025
                 </li>
                 <li>Artificial Intelligence and Statistics (<strong>AISTATS</strong>) 2025</li>
                 <li>Medical Image Computing and Computer Assisted Intervention (<strong>MICCAI</strong>) 2024, 2025</li>
-                <li>IEEE/CVF Computer Vision and Pattern Recognition Conference (<strong>CVPR</strong>) 2024, 2025</li>
+                <li>IEEE/CVF Computer Vision and Pattern Recognition Conference (<strong>CVPR</strong>) 2024, 2025, 2026
+                </li>
                 <li>Causal Learning and Reasoning (<strong>CLeaR</strong>) 2024, 2025</li>
                 <li>ACM Conference on Bioinformatics, Computational Biology, and Health Informatics
                     (<strong>BCB</strong>) 2022
@@ -1325,7 +1345,7 @@
                     (<strong>SCSL</strong>), ICLR 2025
                 </li>
                 <li>Workshop on GenAI for Health: Potential, Trust and Policy Compliance (<strong>GenAI4Health</strong>),
-                    NeurIPS 2024
+                    NeurIPS 2024, 2025, 2026
                 </li>
                 <li>Causal Representation Learning workshop (<strong>CRL</strong>), NeurIPS 2023</li>
                 <li>Spurious Correlations, Invariance and Stability (<strong>SCIS</strong>), ICML 2023</li>
@@ -1339,11 +1359,15 @@
             <h4>Teaching</h4>
             <h6 class="text-muted mt-3">Courses</h6>
             <div class="class-listing">
-                <span><b>Introduction to Software Engineering (EC 327) - Fall 2023</b><br>
-                Teaching Assistant</span><span class="text-muted">Boston University</span>
+                <span><b>Special Topics: Medical Imaging With AI (EC 500) - Fall 2025</b><br>
+                Guest Lecturer</span><span class="text-muted">Boston University</span>
             </div>
             <div class="class-listing">
                 <span><b>Deep Learning (EC 523) - Fall 2024</b><br>
+                Teaching Assistant</span><span class="text-muted">Boston University</span>
+            </div>
+            <div class="class-listing">
+                <span><b>Introduction to Software Engineering (EC 327) - Fall 2023</b><br>
                 Teaching Assistant</span><span class="text-muted">Boston University</span>
             </div>
         </div>
@@ -1442,6 +1466,21 @@
             <h4>Miscellaneous</h4>
             I am originally from <a href="https://en.wikipedia.org/wiki/Kolkata">Kolkata</a>, once the capital of India.
             I have lived in Gainesville (FL), Pittsburgh (PA), Boston (MA), Jersy city (NJ) and New York city (NY).
+        </div>
+    </div>
+    <div class="row my-4" id="photography">
+        <div class="col">
+            <h4>Photography</h4>
+            <p>
+                Beyond research, I have a deep passion for landscape, travel, and nature photography.
+                From sunrise in Yosemite to the quiet ridgelines of Kings Canyon, I find joy, solace and peace in
+                capturing
+                the light, scale, and drama of wild places.
+                My photography reflects the same motivation that guide my research — searching for patterns in nature,
+                structure in chaos, and beauty in complexity.
+                You can view my landscape photos on my<a href="https://500px.com/p/shantanu-ai?view=photos"
+                                                         target="_blank"><strong> 500px</strong></a> profile.
+            </p>
         </div>
     </div>
 
