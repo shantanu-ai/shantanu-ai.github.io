@@ -167,10 +167,23 @@
         }
 
         .pub-year {
-            margin: 0.25rem 0 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            width: max-content;
+            margin: 0.45rem 0 0.1rem;
+            padding: .25rem 0;
+            border: 1px solid var(--card-border);
+            border-width: 0 0 1px;
+            background: transparent;
+            box-shadow: none;
             font-weight: 800;
             letter-spacing: -0.02em;
             color: var(--accent);
+        }
+
+        .pub-year::before {
+            content: none;
         }
 
         /* Cards */
@@ -198,6 +211,124 @@
             box-shadow: var(--shadow-soft);
         }
 
+        #publication .publication-intro {
+            max-width: 920px;
+            margin: -4px 0 18px;
+            color: rgba(0, 0, 0, 0.62);
+            font-size: 1.02rem;
+        }
+
+        [data-bs-theme="dark"] #publication .publication-intro {
+            color: rgba(255, 255, 255, 0.68);
+        }
+
+        #publication .publication-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        #publication .item-row {
+            position: relative;
+            grid-template-columns: 250px minmax(0, 1fr);
+            gap: 20px;
+            padding: 18px;
+            overflow: hidden;
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+        }
+
+        #publication .item-row:hover {
+            transform: translateY(-1px);
+            border-color: rgba(0, 0, 0, 0.14);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .07);
+        }
+
+        [data-bs-theme="dark"] #publication .item-row:hover {
+            border-color: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .28);
+        }
+
+        #publication .item-row img {
+            width: 250px;
+            aspect-ratio: 16 / 10;
+            height: auto;
+            object-fit: contain;
+            background: var(--bg-soft);
+            box-shadow: none;
+        }
+
+        #publication .item-row h5 {
+            margin-bottom: .45rem !important;
+            font-size: 1.12rem;
+            line-height: 1.32;
+            letter-spacing: -0.01em;
+        }
+
+        #publication .item-row .muted {
+            margin-bottom: .7rem !important;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            font-size: .93rem;
+            line-height: 1.45;
+        }
+
+        #publication .item-row .muted b {
+            color: var(--accent);
+        }
+
+        #publication .meta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .45rem;
+            margin: .2rem 0 .75rem;
+        }
+
+        #publication .meta-links a {
+            margin-right: 0;
+            padding: .35rem .62rem;
+            border: 1px solid var(--card-border);
+            border-radius: 999px;
+            background: transparent;
+            font-size: .88rem;
+        }
+
+        [data-bs-theme="dark"] #publication .meta-links a {
+            background: transparent;
+        }
+
+        #publication .meta-links a:hover {
+            background: var(--bg-soft);
+            text-decoration: none;
+        }
+
+        #publication .item-row > div > div.mb-1 {
+            display: inline-flex;
+            align-items: center;
+            gap: .35rem;
+            margin-bottom: .55rem !important;
+            padding: .25rem .55rem;
+            border-radius: 8px;
+            background: rgba(25, 135, 84, 0.10);
+            color: #146c43;
+            font-size: .9rem;
+        }
+
+        [data-bs-theme="dark"] #publication .item-row > div > div.mb-1 {
+            color: #8ed6ad;
+            background: rgba(25, 135, 84, 0.16);
+        }
+
+        #publication .item-row > div > div:last-child {
+            padding-top: .45rem;
+            color: rgba(0, 0, 0, 0.72);
+            line-height: 1.55;
+        }
+
+        [data-bs-theme="dark"] #publication .item-row > div > div:last-child {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
         .item-row img, .item-row video {
             width: 220px;
             max-width: 100%;
@@ -211,6 +342,14 @@
             }
 
             .item-row img, .item-row video {
+                width: 100%;
+            }
+
+            #publication .item-row {
+                grid-template-columns: 1fr;
+            }
+
+            #publication .item-row img {
                 width: 100%;
             }
         }
@@ -234,6 +373,25 @@
             text-transform: uppercase;
             color: #fff;
             background: #dc3545;
+        }
+
+        .highlight-note {
+            display: inline-flex;
+            align-items: center;
+            padding: .16rem .45rem;
+            border-radius: 999px;
+            border: 1px solid rgba(228, 161, 27, 0.35);
+            background: rgba(228, 161, 27, 0.13);
+            color: #8a5a00;
+            font-size: .86em;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        [data-bs-theme="dark"] .highlight-note {
+            border-color: rgba(255, 205, 86, 0.32);
+            background: rgba(255, 205, 86, 0.14);
+            color: #ffd66e;
         }
 
         /* News list */
@@ -295,6 +453,12 @@
             margin-bottom: 8px;
         }
 
+        @media (min-width: 1201px) {
+            .aff-grid .aff-card:last-child {
+                grid-column: 3;
+            }
+        }
+
         .aff-degree {
             font-weight: 700;
             font-size: .95rem;
@@ -345,6 +509,77 @@
 
         .leadish {
             font-size: 1.02rem;
+        }
+
+        .mentor-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .mentor-card {
+            height: 100%;
+            padding: 16px;
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            background: var(--bs-body-bg);
+            box-shadow: var(--shadow-soft);
+            display: grid;
+            grid-template-columns: 64px minmax(0, 1fr);
+            gap: 14px;
+            align-items: start;
+        }
+
+        .mentor-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 1px solid var(--card-border);
+            object-fit: cover;
+            background: var(--bg-soft);
+        }
+
+        .mentor-card h6 {
+            margin-bottom: .25rem;
+            font-weight: 800;
+        }
+
+        .mentor-role {
+            margin-bottom: .65rem;
+            color: rgba(0, 0, 0, 0.58);
+            font-size: .92rem;
+        }
+
+        [data-bs-theme="dark"] .mentor-role {
+            color: rgba(255, 255, 255, 0.62);
+        }
+
+        .mentor-card p {
+            margin-bottom: .45rem;
+        }
+
+        .mentor-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .mentor-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .mentor-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 992px) {
+            #talks .col-lg-6,
+            #tutorials .col-lg-6 {
+                flex: 0 0 auto;
+                width: 33.333333%;
+            }
         }
     </style>
 </head>
@@ -635,7 +870,7 @@
                     developed deep learning models, namely
                     <a href="https://academic.oup.com/jamia/article-abstract/28/6/1197/6139936?redirectedFrom=fulltext">DPN-SA
                         (JAMIA 2021)</a>,
-                    <a href="https://www.sciencedirect.com/science/article/pii/S2666990021000197?via%3Dihub">PSSAM-GAN
+                    <a href="https://www.sciencedirect.com/science/article/pii/S2666990021000197">PSSAM-GAN
                         (CMPB-U 2021)</a>
                     and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10148269/">DR-VIDAL (AMIA 2022, oral)</a>,
                     to compute propensity scores
@@ -673,6 +908,12 @@
             <div class="cardx-body">
                 <ul class="news-list">
                     <li>
+                        <span class="news-date">[Jun 2026]</span> <strong>PhyDict</strong> and
+                        <a href="https://arxiv.org/abs/2606.00967"><strong>MedSyn2</strong></a>
+                        are accepted at <strong>MICCAI 2026</strong> and <strong>ECCV 2026</strong>. Congratulations to
+                        <a href="https://weichengdai1.github.io/">Weicheng Dai</a> and team.
+                    </li>
+                    <li>
                         <span class="news-date">[Apr 2026]</span> I will join United
                         Imaging Intelligence (UII-America) as a research intern
                         during Summer 2026 under the supervision of <a
@@ -695,7 +936,8 @@
                         Mammography Risk Prediction via Vision-Language Alignment"</a> is accepted at <a
                             href="https://sail.health/event/sail-2026/program/">The Symposium on Artificial
                         Intelligence
-                        for Learning Health Systems (SAIL) 2026</a>. I also received the Full Travel Award to attend
+                        for Learning Health Systems (SAIL) 2026</a>. I also received the
+                        <span class="highlight-note">Full Travel Award</span> to attend
                         SAIL 2026.
                     </li>
                     <li>
@@ -747,8 +989,7 @@
                     <li>
                         <span class="news-date">[May 2024]</span>
                         <a href="https://shantanu-ai.github.io/projects/MICCAI-2024-Mammo-CLIP"><strong>Mammo-CLIP</strong></a>
-                        is accepted (<span
-                            style="color:#C82506;"><strong>Early accept, top 11% out of 2,869 submissions</strong></span>)
+                        is accepted <span class="highlight-note">Early accept, top 11% out of 2,869 submissions</span>
                         at
                         <a href="https://conferences.miccai.org/2023/en/"><strong>MICCAI 2024</strong></a>.
                         It is the first vision language model trained with mammogram+report pairs of real patients.
@@ -761,8 +1002,8 @@
                     </li>
                     <li><span class="news-date">[May 2023]</span> Our work <a
                             href="https://shantanu-ai.github.io/projects/MICCAI-2023-MoIE-CXR/"><strong>Distilling
-                        BlackBox to Interpretable models for Efficient Transfer Learning</strong></a> is accepted (<span
-                            style="color:#C82506;"><strong>Early accept, top 14% out of 2,250 submissions</strong></span>)
+                        BlackBox to Interpretable models for Efficient Transfer Learning</strong></a> is accepted
+                        <span class="highlight-note">Early accept, top 14% out of 2,250 submissions</span>
                         at <a href="https://conferences.miccai.org/2023/en/"><strong>MICCAI 2023</strong></a>.
                     </li>
                     <li><span class="news-date">[Apr 2023]</span> Our work <a
@@ -777,7 +1018,7 @@
                         my advisor's move. My research will be supported by Doctoral Research Fellowship.
                     </li>
                     <li><span class="news-date">[Jun 2022]</span> Our work on doubly robust estimation of ITE is
-                        accepted as an <strong><span style="color:#C82506;">oral presentation</span></strong> at the <a
+                        accepted as an <span class="highlight-note">oral presentation</span> at the <a
                                 href="https://amia.org/education-events/amia-2022-annual-symposium/calls-participation/">AMIA
                             2022 Annual Symposium</a>.
                     </li>
@@ -820,8 +1061,13 @@
     <!-- PUBLICATIONS -->
     <section id="publication" class="my-4">
         <h2 class="section-title"><i class="bi bi-journal-richtext"></i> Publications</h2>
+        <p class="publication-intro">
+            Selected research papers across robust learning, interpretable medical imaging, vision-language models, and
+            radiology report generation. Each entry keeps the visual thumbnail, authors, venue, and direct links together
+            for faster scanning.
+        </p>
 
-        <div class="d-grid gap-3">
+        <div class="publication-list">
             <h3 class="pub-year">2025</h3>
 
             <!-- 1) LADDER -->
@@ -977,7 +1223,8 @@
                                 class="bi bi-card-checklist"></i> Reviews</a>
                     </div>
 
-                    <div class="mb-1"><span class="fw-semibold">Venue:</span> MICCAI 2024 (Top 11%, Early Accept)</div>
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> MICCAI 2024
+                        <span class="highlight-note">Top 11%, Early Accept</span></div>
                     <div><span class="fw-semibold">TL;DR:</span> Mammo-CLIP is a vision–language model for mammography
                         that supports breast cancer detection and sentence-level feature attribution via Mammo-FActOR.
                     </div>
@@ -1018,7 +1265,8 @@
                                 class="bi bi-card-checklist"></i> Reviews</a>
                     </div>
 
-                    <div class="mb-1"><span class="fw-semibold">Venue:</span> MICCAI 2023 (Top 14%, Early Accept) + IMLH
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> MICCAI 2023
+                        <span class="highlight-note">Top 14%, Early Accept</span> + IMLH
                         Workshop (ICML 2023)
                     </div>
                     <div><span class="fw-semibold">TL;DR:</span> An interpretable chest X-ray model that can be
@@ -1128,8 +1376,8 @@
                             Video</a>
                     </div>
 
-                    <div class="mb-1"><span class="fw-semibold">Venue:</span> AMIA 2022 Annual Symposium (Long Oral
-                        Presentation)
+                    <div class="mb-1"><span class="fw-semibold">Venue:</span> AMIA 2022 Annual Symposium
+                        <span class="highlight-note">Long Oral Presentation</span>
                     </div>
                     <div><span class="fw-semibold">TL;DR:</span> A generative framework combining VAEs, InfoGANs, and
                         doubly robust learning to improve unbiased treatment effect estimation from observational data.
@@ -1153,7 +1401,7 @@
                     </div>
 
                     <div class="meta-links mb-2">
-                        <a href="https://www.sciencedirect.com/science/article/pii/S2666990021000197?via%3Dihub"><i
+                        <a href="https://www.sciencedirect.com/science/article/pii/S2666990021000197"><i
                                 class="bi bi-file-earmark-text"></i> Paper</a>
                         <a href="https://github.com/shantanu-ai/PSSAM-GAN"><i class="bi bi-github"></i> Code</a>
                     </div>
@@ -1380,7 +1628,7 @@
                             <li>ICCV 2025</li>
                             <li>ICML 2025</li>
                             <li>ICLR 2024-2026</li>
-                            <li>AAAI 2024-2026</li>
+                            <li>AAAI 2024-2027</li>
                             <li>NeurIPS 2023-2026</li>
                             <li>AISTATS 2025</li>
                             <li>MICCAI 2024-2026</li>
@@ -1452,37 +1700,60 @@
     <!-- STUDENT MENTORING -->
     <section id="mentoring" class="my-4">
         <h2 class="section-title"><i class="bi bi-people"></i> Student Mentoring</h2>
-        <div class="cardx">
-            <div class="cardx-body">
-                <ul class="mb-0">
-                    <li><a href="https://www.linkedin.com/in/abhishek-varshney-a75748159/">Abhishek Varshney</a>,
-                        Masters, Boston University. <strong>Contributing Project:</strong> <a
-                                href="https://arxiv.org/pdf/2512.00198">Mammo-FM</a>. <strong>Next stop:</strong>
-                        Machine Learning Engineer, Poshmark.
-                    </li>
-                    <li><a href="https://www.linkedin.com/in/akshatgurbuxani/">Akshat Gurbuxani</a>, Masters,
-                        Boston University. <strong>Contributing Project:</strong> <a
-                                href="https://arxiv.org/pdf/2512.00198">Mammo-FM</a>.
-                        <strong>Next stop:</strong> Software Engineer, Semiotic Labs.
-                    </li>
-                    <li><a href="https://www.linkedin.com/in/aiden-wong-68962a22a/">Ho Cheung Aiden Wong</a>,
-                        Undergraduate, Boston University. <strong>Contributing Project:</strong> <a
-                                href="https://arxiv.org/pdf/2512.00198">Mammo-FM</a>.
-                    </li>
-                    <li><a href="https://www.linkedin.com/in/rayan-syed-507379296/">Rayan Syed</a>, Undergraduate,
-                        Boston University (<i>BU outstanding undergraduate research award</i>). <strong>Contributing
-                            Project:</strong> <a href="https://arxiv.org/pdf/2512.00198">Mammo-FM</a>,
-                        <a href="https://arxiv.org/abs/2408.07832">Ladder</a>, Causal-Ladder (ongoing).
-                    </li>
-                    <li><a href="https://www.linkedin.com/in/alexztang/">Alex Tang</a>, Undergraduate, Dartmouth
-                        University. <strong>Contributing Project:</strong> <a href="https://arxiv.org/pdf/2512.00198">Mammo-FM</a>.
-                    </li>
-                    <li><a href="https://www.linkedin.com/in/ryan-gupta-a451b0262/">Ryan Gupta</a>, Undergraduate,
-                        Boston University. <strong>Contributing Project:</strong> Causal-Ladder (ongoing).
-                    </li>
-                    <!-- <li><a href="https://www.linkedin.com/in/akshat-sharma-599278236/">Akshant Sharma</a>, Undergraduate Student, Boston University</li> -->
-                </ul>
-            </div>
+        <div class="mentor-grid">
+            <article class="mentor-card">
+                <img class="mentor-avatar" src="images/mentor-abhishek-varshney.png" alt="Abhishek Varshney">
+                <div>
+                    <h6><a href="https://www.linkedin.com/in/abhishek-varshney-a75748159/">Abhishek Varshney</a></h6>
+                    <div class="mentor-role">Masters, Boston University</div>
+                    <p><strong>Project:</strong> <a href="https://arxiv.org/pdf/2512.00198">Mammo-FM</a></p>
+                    <p><strong>Next stop:</strong> Machine Learning Engineer, Poshmark.</p>
+                </div>
+            </article>
+            <article class="mentor-card">
+                <img class="mentor-avatar" src="images/mentor-akshat-gurbuxani.png" alt="Akshat Gurbuxani">
+                <div>
+                    <h6><a href="https://www.linkedin.com/in/akshatgurbuxani/">Akshat Gurbuxani</a></h6>
+                    <div class="mentor-role">Masters, Boston University</div>
+                    <p><strong>Project:</strong> <a href="https://arxiv.org/pdf/2512.00198">Mammo-FM</a></p>
+                    <p><strong>Next stop:</strong> Software Engineer, Semiotic Labs.</p>
+                </div>
+            </article>
+            <article class="mentor-card">
+                <img class="mentor-avatar" src="images/mentor-aiden-wong.jpeg" alt="Ho Cheung Aiden Wong">
+                <div>
+                    <h6><a href="https://www.linkedin.com/in/aiden-wong-68962a22a/">Ho Cheung Aiden Wong</a></h6>
+                    <div class="mentor-role">Undergraduate, Boston University</div>
+                    <p><strong>Project:</strong> <a href="https://arxiv.org/pdf/2512.00198">Mammo-FM</a></p>
+                    <p><strong>Next stop:</strong> M.S. Computer Science, Columbia University.</p>
+                </div>
+            </article>
+            <article class="mentor-card">
+                <img class="mentor-avatar" src="images/mentor-rayan-syed.jpg" alt="Rayan Syed">
+                <div>
+                    <h6><a href="https://www.linkedin.com/in/rayan-syed-507379296/">Rayan Syed</a></h6>
+                    <div class="mentor-role">Undergraduate, Boston University; BU outstanding undergraduate research award</div>
+                    <p><strong>Projects:</strong> <a href="https://arxiv.org/pdf/2512.00198">Mammo-FM</a>,
+                        <a href="https://arxiv.org/abs/2408.07832">Ladder</a>, Causal-Ladder (ongoing).</p>
+                </div>
+            </article>
+            <article class="mentor-card">
+                <img class="mentor-avatar" src="images/mentor-alex-tang.jpeg" alt="Alex Tang">
+                <div>
+                    <h6><a href="https://www.linkedin.com/in/alexztang/">Alex Tang</a></h6>
+                    <div class="mentor-role">Undergraduate, Dartmouth University</div>
+                    <p><strong>Project:</strong> <a href="https://arxiv.org/pdf/2512.00198">Mammo-FM</a></p>
+                </div>
+            </article>
+            <article class="mentor-card">
+                <img class="mentor-avatar" src="images/mentor-ryan-gupta.svg" alt="Ryan Gupta">
+                <div>
+                    <h6><a href="https://www.linkedin.com/in/ryan-gupta-a451b0262/">Ryan Gupta</a></h6>
+                    <div class="mentor-role">Undergraduate, Boston University</div>
+                    <p><strong>Project:</strong> Causal-Ladder (ongoing).</p>
+                </div>
+            </article>
+            <!-- <article class="mentor-card"><h6><a href="https://www.linkedin.com/in/akshat-sharma-599278236/">Akshant Sharma</a></h6><div class="mentor-role">Undergraduate Student, Boston University</div></article> -->
         </div>
     </section>
 

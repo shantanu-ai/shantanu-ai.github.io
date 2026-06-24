@@ -1,0 +1,90 @@
+% Formal academic CV style for Shantanu Ghosh.
+% Inspired by Pascal Michaillat's minimalist academic CV template
+% (MIT license; vendored under academic-template/).
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{academic_cv}[2026/06/24 Formal academic CV style]
+
+\usepackage[letterpaper,top=0.75in,bottom=0.85in,left=0.85in,right=0.85in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\definecolor{cvblack}{HTML}{111111}
+\definecolor{cvgray}{HTML}{555555}
+\definecolor{cvlightgray}{HTML}{DDDDDD}
+\definecolor{cvlink}{HTML}{0645AD}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=cvlink,
+  urlcolor=cvlink,
+  citecolor=cvlink,
+  pdfpagemode=UseNone
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize\color{cvgray}Shantanu Ghosh}
+\fancyfoot[C]{\footnotesize\color{cvgray}Curriculum Vitae}
+\fancyfoot[R]{\footnotesize\color{cvgray}Updated \today}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\headheight}{14pt}
+\raggedright
+\frenchspacing
+
+\newcommand{\cvname}[1]{%
+  {\fontsize{24}{28}\selectfont\scshape #1}\par
+  \vspace{0.45em}
+}
+
+\newcommand{\cvcontact}[1]{%
+  {\small\color{cvgray}#1}\par
+  \vspace{0.8em}
+  {\color{cvlightgray}\rule{\textwidth}{0.7pt}}\par
+  \vspace{0.7em}
+}
+
+\newcommand{\cvsection}[1]{%
+  \vspace{0.95em}
+  {\color{cvlightgray}\rule{\textwidth}{0.7pt}}\par
+  \vspace{0.35em}
+  {\large\scshape\color{cvgray}#1}\par
+  \vspace{0.35em}
+}
+
+\newcommand{\cvsubsection}[1]{%
+  \vspace{0.45em}
+  {\bfseries #1}\par
+  \vspace{0.15em}
+}
+
+\newcommand{\cvdated}[3]{%
+  \textbf{#1}\hfill{\color{cvgray}#2}\par
+  #3\par
+  \vspace{0.25em}
+}
+
+\newcommand{\cvpub}[5]{%
+  \item \textbf{#1}. #2. \textit{#3}. #4 #5
+}
+
+\newcommand{\cvlink}[2]{\href{#1}{\textbf{[#2]}}}
+\newcommand{\sep}{{\color{cvgray}\,\textbullet\,}}
+
+\newenvironment{cvitems}{%
+  \begin{itemize}
+  \setlength{\itemsep}{2pt}
+  \setlength{\parsep}{0pt}
+  \setlength{\topsep}{2pt}
+  \setlength{\leftmargin}{1.2em}
+}{%
+  \end{itemize}
+}
