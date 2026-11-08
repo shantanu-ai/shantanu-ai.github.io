@@ -3,12 +3,13 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="referrer" content="strict-origin-when-cross-origin"/>
     <meta name="description"
           content="Shantanu Ghosh — PhD candidate in Electrical Engineering at Boston University. Research in robustness, generalization, interpretability, and vision-language models."/>
     <link rel="icon" href="images/bu-logo.png" type="image/x-icon"/>
     <title>Shantanu Ghosh | Boston University (BU)</title>
 
-    <!-- Inter -->
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,634 +22,56 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <style>
-        :root {
-            --bg-soft: rgba(13, 27, 56, 0.06);
-            --card-border: rgba(0, 0, 0, 0.08);
-            --shadow: 0 10px 30px rgba(0, 0, 0, .08);
-            --shadow-soft: 0 6px 18px rgba(0, 0, 0, .06);
-            --accent: #2b3969; /* your original blue */
-            --accent-2: #0b5ed7; /* link-ish */
-        }
-
-        [data-bs-theme="dark"] {
-            --bg-soft: rgba(255, 255, 255, 0.06);
-            --card-border: rgba(255, 255, 255, 0.12);
-            --shadow: 0 10px 30px rgba(0, 0, 0, .35);
-            --shadow-soft: 0 6px 18px rgba(0, 0, 0, .25);
-            --accent: #7aa2ff;
-            --accent-2: #9ec5fe;
-        }
-
-        html, body {
-            height: 100%;
-        }
-
-        body {
-            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-            letter-spacing: -0.01em;
-            scroll-behavior: smooth;
-        }
-
-        /* Navbar */
-        .nav-glass {
-            background: #242629;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .nav-glass .nav-link {
-            color: rgba(255, 255, 255, 0.82) !important;
-            font-weight: 600;
-        }
-
-        .nav-glass .nav-link:hover {
-            color: #fff !important;
-        }
-
-        .nav-glass .navbar-brand {
-            color: #fff !important;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-logo {
-            height: 46px;
-            width: auto;
-            display: block;
-        }
-
-        .nav-pill {
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: 999px;
-            padding: .25rem .5rem;
-        }
-
-        /* Page spacing */
-        main {
-            padding-top: 84px;
-        }
-
-        section {
-            scroll-margin-top: 92px;
-        }
-
-        /* Hero */
-        .hero {
-            border-radius: 18px;
-            padding: 28px;
-            background: radial-gradient(1200px 600px at 10% 0%, rgba(43, 57, 105, 0.15), transparent 60%),
-            radial-gradient(1000px 600px at 90% 20%, rgba(13, 110, 253, 0.12), transparent 55%),
-            var(--bg-soft);
-            border: 1px solid var(--card-border);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .headshot {
-            width: 280px;
-            max-width: 100%;
-            border-radius: 16px;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.85), var(--shadow-soft);
-            background: transparent;
-            object-fit: cover;
-        }
-
-        .muted {
-            color: rgba(0, 0, 0, 0.6);
-        }
-
-        [data-bs-theme="dark"] .muted {
-            color: rgba(255, 255, 255, 0.65);
-        }
-
-        [data-bs-theme="dark"] .headshot {
-            box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.35), var(--shadow-soft);
-        }
-
-        .chip {
-            display: inline-flex;
-            align-items: center;
-            gap: .4rem;
-            padding: .35rem .6rem;
-            border-radius: 999px;
-            border: 1px solid var(--card-border);
-            background: rgba(255, 255, 255, 0.5);
-            font-weight: 600;
-            font-size: .9rem;
-            text-decoration: none;
-        }
-
-        [data-bs-theme="dark"] .chip {
-            background: rgba(0, 0, 0, 0.18);
-        }
-
-        a {
-            color: var(--accent-2);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Section headings */
-        .section-title {
-            display: flex;
-            align-items: center;
-            gap: .6rem;
-            margin: 0 0 14px 0;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-
-        .section-title i {
-            color: var(--accent);
-        }
-
-        .pub-year {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            width: max-content;
-            margin: 0.45rem 0 0.1rem;
-            padding: .25rem 0;
-            border: 1px solid var(--card-border);
-            border-width: 0 0 1px;
-            background: transparent;
-            box-shadow: none;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: var(--accent);
-        }
-
-        .pub-year::before {
-            content: none;
-        }
-
-        /* Cards */
-        .cardx {
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            box-shadow: var(--shadow-soft);
-            background: var(--bs-body-bg);
-        }
-
-        .cardx-body {
-            padding: 18px;
-        }
-
-        /* Publications / Projects list */
-        .item-row {
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 16px;
-            align-items: start;
-            padding: 16px;
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            background: var(--bs-body-bg);
-            box-shadow: var(--shadow-soft);
-        }
-
-        #publication .publication-intro {
-            max-width: 920px;
-            margin: -4px 0 18px;
-            color: rgba(0, 0, 0, 0.62);
-            font-size: 1.02rem;
-        }
-
-        [data-bs-theme="dark"] #publication .publication-intro {
-            color: rgba(255, 255, 255, 0.68);
-        }
-
-        #publication .publication-list {
-            display: grid;
-            gap: 18px;
-        }
-
-        #publication .item-row {
-            position: relative;
-            grid-template-columns: 250px minmax(0, 1fr);
-            gap: 20px;
-            padding: 18px;
-            overflow: hidden;
-            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-        }
-
-        #publication .item-row:hover {
-            transform: translateY(-1px);
-            border-color: rgba(0, 0, 0, 0.14);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, .07);
-        }
-
-        [data-bs-theme="dark"] #publication .item-row:hover {
-            border-color: rgba(255, 255, 255, 0.18);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, .28);
-        }
-
-        #publication .item-row img {
-            width: 250px;
-            aspect-ratio: 16 / 10;
-            height: auto;
-            object-fit: contain;
-            background: var(--bg-soft);
-            box-shadow: none;
-        }
-
-        #publication .item-row h5 {
-            margin-bottom: .45rem !important;
-            font-size: 1.12rem;
-            line-height: 1.32;
-            letter-spacing: -0.01em;
-        }
-
-        #publication .item-row .muted {
-            margin-bottom: .7rem !important;
-            padding: 0;
-            border: 0;
-            border-radius: 0;
-            background: transparent;
-            font-size: .93rem;
-            line-height: 1.45;
-        }
-
-        #publication .item-row .muted b {
-            color: var(--accent);
-        }
-
-        #publication .meta-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .45rem;
-            margin: .2rem 0 .75rem;
-        }
-
-        #publication .meta-links a {
-            margin-right: 0;
-            padding: .35rem .62rem;
-            border: 1px solid var(--card-border);
-            border-radius: 999px;
-            background: transparent;
-            font-size: .88rem;
-        }
-
-        [data-bs-theme="dark"] #publication .meta-links a {
-            background: transparent;
-        }
-
-        #publication .meta-links a:hover {
-            background: var(--bg-soft);
-            text-decoration: none;
-        }
-
-        #publication .item-row > div > div.mb-1 {
-            display: inline-flex;
-            align-items: center;
-            gap: .35rem;
-            margin-bottom: .55rem !important;
-            padding: .25rem .55rem;
-            border-radius: 8px;
-            background: rgba(25, 135, 84, 0.10);
-            color: #146c43;
-            font-size: .9rem;
-        }
-
-        [data-bs-theme="dark"] #publication .item-row > div > div.mb-1 {
-            color: #8ed6ad;
-            background: rgba(25, 135, 84, 0.16);
-        }
-
-        #publication .item-row > div > div:last-child {
-            padding-top: .45rem;
-            color: rgba(0, 0, 0, 0.72);
-            line-height: 1.55;
-        }
-
-        [data-bs-theme="dark"] #publication .item-row > div > div:last-child {
-            color: rgba(255, 255, 255, 0.72);
-        }
-
-        .item-row img, .item-row video {
-            width: 220px;
-            max-width: 100%;
-            border-radius: 12px;
-            border: 1px solid var(--card-border);
-        }
-
-        @media (max-width: 992px) {
-            .item-row {
-                grid-template-columns: 1fr;
-            }
-
-            .item-row img, .item-row video {
-                width: 100%;
-            }
-
-            #publication .item-row {
-                grid-template-columns: 1fr;
-            }
-
-            #publication .item-row img {
-                width: 100%;
-            }
-        }
-
-        .meta-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: .35rem;
-            margin-right: .8rem;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        .badge-new {
-            display: inline-block;
-            margin-left: .5rem;
-            padding: .2rem .45rem;
-            border-radius: 6px;
-            font-size: .75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: #fff;
-            background: #dc3545;
-        }
-
-        .highlight-note {
-            display: inline-flex;
-            align-items: center;
-            padding: .16rem .45rem;
-            border-radius: 999px;
-            border: 1px solid rgba(228, 161, 27, 0.35);
-            background: rgba(228, 161, 27, 0.13);
-            color: #8a5a00;
-            font-size: .86em;
-            font-weight: 800;
-            white-space: nowrap;
-        }
-
-        [data-bs-theme="dark"] .highlight-note {
-            border-color: rgba(255, 205, 86, 0.32);
-            background: rgba(255, 205, 86, 0.14);
-            color: #ffd66e;
-        }
-
-        /* News list */
-        .news-list {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-        }
-
-        .news-list li {
-            padding: 10px 0;
-            border-bottom: 1px dashed var(--card-border);
-        }
-
-        .news-date {
-            display: inline-block;
-            width: 96px;
-            font-weight: 800;
-            color: rgba(0, 0, 0, 0.55);
-        }
-
-        [data-bs-theme="dark"] .news-date {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Affiliations grid */
-        .aff-grid {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(120px, 1fr));
-            gap: 14px;
-        }
-
-        @media (max-width: 1200px) {
-            .aff-grid {
-                grid-template-columns: repeat(3, minmax(120px, 1fr));
-            }
-        }
-
-        @media (max-width: 576px) {
-            .aff-grid {
-                grid-template-columns: repeat(2, minmax(120px, 1fr));
-            }
-        }
-
-        .aff-card {
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 14px;
-            background: var(--bs-body-bg);
-            box-shadow: var(--shadow-soft);
-            text-align: center;
-            height: 100%;
-        }
-
-        .aff-card img {
-            max-width: 100%;
-            height: 54px;
-            object-fit: contain;
-            margin-bottom: 8px;
-        }
-
-        @media (min-width: 1201px) {
-            .aff-grid .aff-card:last-child {
-                grid-column: 3;
-            }
-        }
-
-        .aff-degree {
-            font-weight: 700;
-            font-size: .95rem;
-            margin-top: 4px;
-        }
-
-        .aff-year {
-            font-size: .85rem;
-            color: rgba(0, 0, 0, 0.6);
-        }
-
-        [data-bs-theme="dark"] .aff-year {
-            color: rgba(255, 255, 255, 0.65);
-        }
-
-        /* Video embeds */
-        .ratio {
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--card-border);
-            box-shadow: var(--shadow-soft);
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 48px;
-            background: #242629;
-            color: #fff;
-        }
-
-        footer a {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Back to top */
-        .to-top {
-            position: fixed;
-            right: 18px;
-            bottom: 18px;
-            z-index: 1030;
-            display: none;
-        }
-
-        /* Small helpers */
-        .tight p {
-            margin-bottom: .6rem;
-        }
-
-        .leadish {
-            font-size: 1.02rem;
-        }
-
-        .mentor-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-        }
-
-        .mentor-card {
-            height: 100%;
-            padding: 16px;
-            border: 1px solid var(--card-border);
-            border-radius: 14px;
-            background: var(--bs-body-bg);
-            box-shadow: var(--shadow-soft);
-            display: grid;
-            grid-template-columns: 64px minmax(0, 1fr);
-            gap: 14px;
-            align-items: start;
-        }
-
-        .mentor-avatar {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            border: 1px solid var(--card-border);
-            object-fit: cover;
-            background: var(--bg-soft);
-        }
-
-        .mentor-card h6 {
-            margin-bottom: .25rem;
-            font-weight: 800;
-        }
-
-        .mentor-role {
-            margin-bottom: .65rem;
-            color: rgba(0, 0, 0, 0.58);
-            font-size: .92rem;
-        }
-
-        [data-bs-theme="dark"] .mentor-role {
-            color: rgba(255, 255, 255, 0.62);
-        }
-
-        .mentor-card p {
-            margin-bottom: .45rem;
-        }
-
-        .mentor-card p:last-child {
-            margin-bottom: 0;
-        }
-
-        @media (max-width: 768px) {
-            .mentor-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 420px) {
-            .mentor-card {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (min-width: 992px) {
-            #talks .col-lg-6,
-            #tutorials .col-lg-6 {
-                flex: 0 0 auto;
-                width: 33.333333%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#topnav" data-bs-offset="110" tabindex="0">
 
-<header class="fixed-top nav-glass">
-    <nav id="topnav" class="navbar navbar-expand-lg">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+    <nav id="topnav" class="navbar navbar-expand-xl">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#bio">
-                <img src="images/BU-Batman-Lab-Logo.png" alt="Batman Lab Logo" class="nav-logo">
+                <span>Shantanu Ghosh</span>
             </a>
 
-            <div class="d-flex align-items-center gap-2 order-lg-2">
-                <button id="themeToggle" class="btn btn-sm btn-outline-light nav-pill" type="button"
+            <div class="d-flex align-items-center gap-2 order-xl-2">
+                <button id="themeToggle" class="theme-button" type="button"
                         aria-label="Toggle theme">
                     <i class="bi bi-moon-stars"></i>
                 </button>
-                <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navlinks"
                         aria-controls="navlinks" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="bi bi-list" style="font-size:1.6rem;"></i>
                 </button>
             </div>
 
-            <div class="collapse navbar-collapse order-lg-1" id="navlinks">
-                <ul class="navbar-nav ms-lg-auto align-items-lg-center gap-lg-1">
+            <div class="collapse navbar-collapse order-xl-1" id="navlinks">
+                <ul class="navbar-nav ms-xl-auto align-items-xl-center gap-xl-1">
                     <li class="nav-item"><a class="nav-link" href="#bio">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
                     <li class="nav-item"><a class="nav-link" href="#publication">Publications</a></li>
                     <li class="nav-item"><a class="nav-link" href="#teaching">Teaching</a></li>
                     <li class="nav-item"><a class="nav-link" href="#mentoring">Mentoring</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="files/Simple_Cover_Shantanu.pdf">Cover Letter</a>
+                    <li class="nav-item"><a class="nav-link nav-download" href="files/Simple_Cover_Shantanu.pdf">Cover Letter</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="files/Shantanu_CV_PhD.pdf">CV</a></li>
+                    <li class="nav-item"><a class="nav-link nav-download" href="files/Shantanu_CV_PhD.pdf">CV</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
 
-<main class="container">
+<main id="main" class="container">
 
-    <!-- ABOUT / HERO -->
-    <section id="bio" class="my-4">
-        <div class="hero">
-            <div class="row g-4 align-items-start mb-4">
-                <div class="col-lg-auto">
-                    <img class="headshot" src="images/Shantanu-Malibu.jpg" alt="Shantanu Ghosh headshot"/>
-                </div>
-
-                <div class="col-lg">
-                    <div class="mb-3 tight">
-                        <h2 class="mb-2">Shantanu Ghosh</h2>
-                        <p class="mb-1"><strong>Ph.D. Candidate</strong></p>
-                        <p class="mb-1">
-                            <a href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">
-                                Department of Electrical and Computer Engineering</a> <br/>Boston University
-                        </p>
-                        <p class="mb-1">407-07, Photonics Center <br/>8 St Mary's St, Boston, MA 02215</p>
-                        <p class="mb-2">shawn24@bu.edu</p>
-                        <p class="mb-2"><em>Interested in: robustness, interpretability, radiology report
-                            generation (RRG).</em>
-                        </p>
-                        <!-- <p class="mb-0 muted">Pic courtesy: My wife, <a
-                                href="https://www.linkedin.com/in/this-is-payel-basak/">Payel Basak</a></p> -->
-                    </div>
-                    <div class="d-flex flex-wrap gap-2 mt-3">
+    <!-- PERSONAL PROFILE -->
+    <section id="bio" class="my-4 profile-layout">
+        <aside class="profile-sidebar" aria-label="Photo and profile links">
+            <img class="headshot" src="images/Shantanu-Malibu.jpg" alt="Shantanu Ghosh" width="1939" height="2921" fetchpriority="high">
+            <div class="social-links" aria-label="Academic and social profiles">
                         <a class="chip" href="https://scholar.google.com/citations?user=U_s5k_oAAAAJ&hl=en"><i
                                 class="bi bi-mortarboard"></i> Google Scholar</a>
                         <a class="chip" href="https://www.semanticscholar.org/author/Shantanu-Ghosh/152709682"><i
@@ -660,14 +83,29 @@
                             LinkedIn</a>
                         <a class="chip" href="https://twitter.com/shantanuai"><i class="bi bi-twitter-x"></i>
                             Twitter</a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row g-4 mb-4">
-                <div class="col-md-6">
-                    <h3 class="mb-3">Bio</h3>
-                    <p class="leadish">
+
+            </div>
+            <div class="profile-documents">
+                <a href="files/Shantanu_CV_PhD.pdf"><i class="bi bi-file-earmark-person" aria-hidden="true"></i> Curriculum vitae</a>
+                <a href="files/Simple_Cover_Shantanu.pdf"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Cover letter</a>
+            </div>
+            <address class="profile-contact">
+                <a href="mailto:shawn24@bu.edu">shawn24@bu.edu</a><br>
+                407-07, Photonics Center<br>
+                8 St Mary's St, Boston, MA 02215
+            </address>
+        </aside>
+        <div class="profile-main">
+            <div class="profile-heading">
+                <h1>Shantanu Ghosh</h1>
+                <p class="profile-position">Ph.D. Candidate · Boston University</p>
+                <a class="profile-department" href="https://www.bu.edu/eng/academics/departments-and-divisions/electrical-and-computer-engineering/">Electrical and Computer Engineering</a>
+                <p class="research-interests">Robustness · Interpretability · Vision–language models<br>Medical AI &amp; radiology report generation (RRG)</p>
+            </div>
+            <div class="bio-details">
+                <h2>About me</h2>
+                <p class="leadish">
                         I am a lifelong proud <a href="https://en.wikipedia.org/wiki/Albert_and_Alberta_Gator">gator</a>
                         and a
                         Ph.D. candidate in Electrical Engineering at
@@ -697,10 +135,8 @@
                             href="https://www.ufl.edu/">University of Florida</a>. Beyond research, I enjoy hiking,
                         driving, photography and working out (strength training).
                     </p>
-                </div>
-                <div class="col-md-6">
-                    <h3 class="mb-3">Background</h3>
-                    <p class="leadish">
+                <h2>Research background</h2>
+                <p class="leadish">
                         My research focuses on robustness and generalization in deep learning, with a particular
                         emphasis on leveraging
                         vision-language representations to understand, explain, and audit pre-trained neural networks.
@@ -723,14 +159,13 @@
                         for learning robust representations in self-supervised models and auditing biases in AI coding
                         agents.
                     </p>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- AFFILIATIONS -->
     <section id="universities" class="my-4">
-        <!--        <h2 class="section-title"><i class="bi bi-buildings"></i> Affiliations</h2>-->
+        <h2 class="section-title">Research &amp; education</h2>
         <div class="aff-grid">
             <div class="aff-card">
                 <a href="https://www.uii-ai.com/"><img src="images/UII-1.png" alt="UII"></a>
@@ -777,7 +212,7 @@
 
     <!-- RESEARCH -->
     <section id="research" class="my-4">
-        <h2 class="section-title"><i class="bi bi-lightbulb"></i> Research</h2>
+        <h2 class="section-title">Research</h2>
         <div class="cardx">
             <div class="cardx-body">
                 <p class="mb-2">
@@ -868,7 +303,7 @@
 
     <!-- DEEP LEARNING RESOURCES -->
     <section id="deeplearning" class="my-4">
-        <h2 class="section-title"><i class="bi bi-collection-play"></i> Deep Learning Resources</h2>
+        <h2 class="section-title">Deep Learning Resources</h2>
         <div class="cardx">
             <div class="cardx-body">
                 <p class="mb-0">
@@ -887,7 +322,7 @@
 
     <!-- NEWS -->
     <section id="news" class="my-4">
-        <h2 class="section-title"><i class="bi bi-megaphone"></i> News</h2>
+        <h2 class="section-title">News</h2>
         <div class="cardx">
             <div class="cardx-body">
                 <ul class="news-list">
@@ -1044,7 +479,7 @@
 
     <!-- PUBLICATIONS -->
     <section id="publication" class="my-4">
-        <h2 class="section-title"><i class="bi bi-journal-richtext"></i> Publications</h2>
+        <h2 class="section-title">Publications</h2>
 <!--        <p class="publication-intro">-->
 <!--            Selected research papers across robust learning, interpretable medical imaging, vision-language models, and-->
 <!--            radiology report generation. Each entry keeps the visual thumbnail, authors, venue, and direct links together-->
@@ -1052,9 +487,10 @@
 <!--        </p>-->
 
         <div class="publication-list">
-            <h3 class="pub-year">2026</h3>
-
-            <!-- MedSynV2 (published version of MedSyn2); figure from https://weichengdai1.github.io/images/medsynv2_results_modifyingMask.png -->
+            <div class="publication-year-group">
+                <h3 class="pub-year">2026</h3>
+                <div class="publication-year-items">
+<!-- MedSynV2 (published version of MedSyn2); figure from https://weichengdai1.github.io/images/medsynv2_results_modifyingMask.png -->
             <article class="item-row">
                 <img src="images/medsynv2-eccv2026.jpg"
                      alt="MedSynV2 CT generation results showing control of pleural effusion and nodule location through segmentation prompts"
@@ -1112,10 +548,12 @@
                     </div>
                 </div>
             </article>
-
-            <h3 class="pub-year">2025</h3>
-
-            <!-- 1) LADDER -->
+                </div>
+            </div>
+            <div class="publication-year-group">
+                <h3 class="pub-year">2025</h3>
+                <div class="publication-year-items">
+<!-- 1) LADDER -->
             <article class="item-row">
                 <img src="images/ladder-acl2025.png" alt="LADDER ACL 2025 thumbnail">
                 <div>
@@ -1177,10 +615,12 @@
                     </div>
                 </div>
             </article>
-
-            <h3 class="pub-year">2024</h3>
-
-            <!-- 3) TRL NeurIPS 2024 -->
+                </div>
+            </div>
+            <div class="publication-year-group">
+                <h3 class="pub-year">2024</h3>
+                <div class="publication-year-items">
+<!-- 3) TRL NeurIPS 2024 -->
             <article class="item-row">
                 <img src="images/TRL.png" alt="TRL NeurIPS 2024 thumbnail">
                 <div>
@@ -1275,10 +715,12 @@
                     </div>
                 </div>
             </article>
-
-            <h3 class="pub-year">2023</h3>
-
-            <!-- 6) MICCAI 2023 MoIE-CXR -->
+                </div>
+            </div>
+            <div class="publication-year-group">
+                <h3 class="pub-year">2023</h3>
+                <div class="publication-year-items">
+<!-- 6) MICCAI 2023 MoIE-CXR -->
             <article class="item-row">
                 <img src="images/miccai-2023.png" alt="MICCAI 2023 MoIE-CXR thumbnail">
                 <div>
@@ -1360,10 +802,12 @@
                     </div>
                 </div>
             </article>
-
-            <h3 class="pub-year">2022</h3>
-
-            <!-- 8) MICCAI 2022 AGXNet -->
+                </div>
+            </div>
+            <div class="publication-year-group">
+                <h3 class="pub-year">2022</h3>
+                <div class="publication-year-items">
+<!-- 8) MICCAI 2022 AGXNet -->
             <article class="item-row">
                 <img src="images/MICCAI.png" alt="MICCAI 2022 AGXNet thumbnail">
                 <div>
@@ -1429,10 +873,12 @@
                     </div>
                 </div>
             </article>
-
-            <h3 class="pub-year">2021</h3>
-
-            <!-- 10) CMPB-U 2021 PSSAM-GAN -->
+                </div>
+            </div>
+            <div class="publication-year-group">
+                <h3 class="pub-year">2021</h3>
+                <div class="publication-year-items">
+<!-- 10) CMPB-U 2021 PSSAM-GAN -->
             <article class="item-row">
                 <img src="images/PSSAM-GAN.svg" alt="CMPB-U 2021 PSSAM-GAN thumbnail">
                 <div>
@@ -1490,14 +936,15 @@
                     </div>
                 </div>
             </article>
-
+                </div>
+            </div>
         </div>
     </section>
 
 
     <!-- ACADEMIC PROJECTS (kept section, modern container; add items similarly) -->
     <section id="projects" class="my-4">
-        <h2 class="section-title"><i class="bi bi-kanban"></i> Academic Projects</h2>
+        <h2 class="section-title">Academic Projects</h2>
 
         <div class="d-grid gap-3">
 
@@ -1660,7 +1107,7 @@
 
     <!-- SERVICE -->
     <section id="service" class="my-4">
-        <h2 class="section-title"><i class="bi bi-heart"></i> Academic Service</h2>
+        <h2 class="section-title">Academic Service</h2>
         <div class="row g-3">
             <div class="col-lg-4">
                 <div class="cardx h-100">
@@ -1722,7 +1169,7 @@
 
     <!-- TEACHING -->
     <section id="teaching" class="my-4">
-        <h2 class="section-title"><i class="bi bi-easel"></i> Teaching</h2>
+        <h2 class="section-title">Teaching</h2>
         <div class="cardx">
             <div class="cardx-body">
                 <div class="d-flex justify-content-between flex-wrap gap-2 py-2 border-bottom">
@@ -1746,7 +1193,7 @@
 
     <!-- STUDENT MENTORING -->
     <section id="mentoring" class="my-4">
-        <h2 class="section-title"><i class="bi bi-people"></i> Student Mentoring</h2>
+        <h2 class="section-title">Student Mentoring</h2>
         <div class="mentor-grid">
             <article class="mentor-card">
                 <img class="mentor-avatar" src="images/mentor-abhishek-varshney.png" alt="Abhishek Varshney">
@@ -1806,7 +1253,7 @@
 
     <!-- TALKS -->
     <section id="talks" class="my-4">
-        <h2 class="section-title"><i class="bi bi-mic"></i> Talks</h2>
+        <h2 class="section-title">Talks</h2>
         <div class="row g-3">
             <div class="col-lg-6">
                 <div class="cardx h-100">
@@ -1815,11 +1262,15 @@
                             University</a></p>
                         <div class="ratio ratio-16x9">
                             <iframe src="https://www.youtube.com/embed/WvodsOL6NFU?si=Mx0_G682dxBu99mZ"
-                                    title="YouTube video player"
+                                    title="Invited talk at Stanford MedAI"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
-                        <p class="mt-2 muted mb-0">Fall 2023, ISP AI Forum @ University of Pittsburgh [Slides]</p>
+                        <p class="mt-2 muted mb-0">Invited talk · Stanford MedAI</p>
+                        <div class="video-links">
+                            <a href="https://www.youtube.com/watch?v=WvodsOL6NFU" target="_blank" rel="noopener">Watch on YouTube <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+                            <a href="files/Shatanu-Stanford-MedAI-Talk-v2.pdf">Slides <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1832,11 +1283,15 @@
                             University of Pittsburgh</a></p>
                         <div class="ratio ratio-16x9">
                             <iframe src="https://www.youtube.com/embed/sXzh5cIeJD8?si=vUzLnCFfJcjJoepu"
-                                    title="YouTube video player"
+                                    title="Invited talk at the University of Pittsburgh ISP AI Forum"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
+                                    allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
                         </div>
-                        <p class="mt-2 muted mb-0">Fall 2023, ISP AI Forum @ University of Pittsburgh [Slides]</p>
+                        <p class="mt-2 muted mb-0">Fall 2023 · ISP AI Forum, University of Pittsburgh</p>
+                        <div class="video-links">
+                            <a href="https://www.youtube.com/watch?v=sXzh5cIeJD8" target="_blank" rel="noopener">Watch on YouTube <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+                            <a href="files/Shatanu-ISP-Pitt-Talk-v2.pdf">Slides <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1849,11 +1304,15 @@
                             2022 Annual Symposium</a></p>
                         <div class="ratio ratio-16x9">
                             <iframe src="https://www.youtube.com/embed/cg6vFS8C0mI?si=jRO9vPgTz5iBjQbg"
-                                    title="YouTube video player"
+                                    title="Oral presentation at the AMIA 2022 Annual Symposium"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
+                                    allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
                         </div>
-                        <p class="mt-2 muted mb-0">Oral Presentation @ AMIA 2022 Annual Symposium [Slides]</p>
+                        <p class="mt-2 muted mb-0">Oral presentation · AMIA 2022 Annual Symposium</p>
+                        <div class="video-links">
+                            <a href="https://www.youtube.com/watch?v=cg6vFS8C0mI" target="_blank" rel="noopener">Watch on YouTube <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+                            <a href="files/AMIA2022-powerpoint.pdf">Slides <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1862,7 +1321,7 @@
 
     <!-- TUTORIALS -->
     <section id="tutorials" class="my-4">
-        <h2 class="section-title"><i class="bi bi-play-circle"></i> Tutorials</h2>
+        <h2 class="section-title">Tutorials</h2>
         <div class="row g-3">
             <div class="col-lg-6">
                 <div class="cardx h-100">
@@ -1871,7 +1330,7 @@
                             <iframe src="https://www.youtube.com/embed/0lDNgFPyS_c?si=Ud9T_j2n5sC_xH2P"
                                     title="Tutorial on Variational Autoencoder (VAE)"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
+                                    allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
                         </div>
                         <p class="mt-2 mb-0 fw-semibold">Tutorial on Variational Autoencoder (VAE)</p>
                     </div>
@@ -1884,7 +1343,7 @@
                             <iframe src="https://www.youtube.com/embed/RCclqTLSsw0?si=AYS6nW9SxFeSvFyL"
                                     title="Tutorial on Pearl's Do Calculus of causality"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
+                                    allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
                         </div>
                         <p class="mt-2 mb-0 fw-semibold">Tutorial on Pearl's Do Calculus of causality</p>
                     </div>
@@ -1895,7 +1354,7 @@
 
     <!-- PAST -->
     <section id="past" class="my-4">
-        <h2 class="section-title"><i class="bi bi-code-slash"></i> As a software engineer</h2>
+        <h2 class="section-title">As a software engineer</h2>
         <div class="cardx">
             <div class="cardx-body">
                 In my past life, I spent 6+ years in software service/product development as a full stack software
@@ -1910,7 +1369,7 @@
 
     <!-- COMMUNITY -->
     <section id="community" class="my-4">
-        <h2 class="section-title"><i class="bi bi-people"></i> Community service</h2>
+        <h2 class="section-title">Community service</h2>
         <div class="cardx">
             <div class="cardx-body">
                 I have been an active member of
@@ -1927,7 +1386,7 @@
 
     <!-- MISC -->
     <section id="misc" class="my-4">
-        <h2 class="section-title"><i class="bi bi-compass"></i> Miscellaneous</h2>
+        <h2 class="section-title">Miscellaneous</h2>
         <div class="cardx">
             <div class="cardx-body">
                 I am originally from <a href="https://en.wikipedia.org/wiki/Kolkata">Kolkata</a>, once the capital of
@@ -1940,7 +1399,7 @@
 
     <!-- PHOTOGRAPHY -->
     <section id="photography" class="my-4">
-        <h2 class="section-title"><i class="bi bi-camera"></i> Photography</h2>
+        <h2 class="section-title">Photography</h2>
         <div class="cardx">
             <div class="cardx-body">
                 <p class="mb-0">
@@ -1958,7 +1417,7 @@
 
     <!-- INTERVIEWS -->
     <section id="interviews" class="my-4">
-        <h2 class="section-title"><i class="bi bi-broadcast"></i> Interviews</h2>
+        <h2 class="section-title">Interviews</h2>
 
         <div class="cardx">
             <div class="cardx-body">
@@ -1971,7 +1430,7 @@
                         <iframe src="https://www.youtube.com/embed/rl4HKbNmXTQ?si=yOBbYgLzS3M8zhJL"
                                 title="Podcast interview"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
+                                allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
                     </div>
                 </div>
 
@@ -1983,7 +1442,7 @@
 </main>
 
 <!-- Back to top -->
-<button id="toTop" class="btn btn-primary to-top" type="button" aria-label="Back to top">
+<button id="toTop" class="to-top" type="button" aria-label="Back to top">
     <i class="bi bi-arrow-up"></i>
 </button>
 
@@ -2029,6 +1488,7 @@
         function setTheme(mode) {
             root.setAttribute("data-bs-theme", mode);
             localStorage.setItem("theme", mode);
+            btn.setAttribute("aria-pressed", String(mode === "dark"));
             btn.innerHTML = (mode === "dark")
                 ? '<i class="bi bi-sun"></i>'
                 : '<i class="bi bi-moon-stars"></i>';
@@ -2039,6 +1499,18 @@
         btn.addEventListener("click", () => {
             const current = root.getAttribute("data-bs-theme");
             setTheme(current === "dark" ? "light" : "dark");
+        });
+    })();
+
+    // Close the small-screen menu after following a section link.
+    (function () {
+        const menu = document.getElementById("navlinks");
+        menu.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+            link.addEventListener("click", () => {
+                if (menu.classList.contains("show")) {
+                    bootstrap.Collapse.getOrCreateInstance(menu).hide();
+                }
+            });
         });
     })();
 
